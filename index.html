@@ -3,217 +3,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHIVANSH.NEURAL_INTERFACE - REALITY.ARCHITECT</title>
-    <meta name="description" content="Shivansh Singh - Quantum XR Researcher breaking the boundaries between consciousness and code">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <title>Sir Shivansh of House Singh - Master of Digital Realms & Arcane Technologies</title>
+    <meta name="description" content="Shivansh Singh - Epic Pixel Art Adventure Portfolio - Master of XR Sorcery and AI Alchemy">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
         }
 
         :root {
-            --primary-color: #00ff88;
-            --secondary-color: #ff0088;
-            --accent-color: #00f5ff;
-            --neon-green: #00ff88;
-            --neon-pink: #ff0088;
-            --neon-blue: #00f5ff;
-            --neon-purple: #bf00ff;
-            --dark-bg: #000011;
-            --matrix-green: #00ff41;
-            --quantum-purple: #8a2be2;
+            --stone-gray: #3a3a3a;
+            --deep-stone: #2a2a2a;
+            --dungeon-black: #1a1a1a;
+            --gold: #FFD700;
+            --ancient-gold: #B8860B;
+            --parchment: #F4E4BC;
+            --dark-parchment: #E6D3A3;
+            --royal-red: #8B0000;
+            --forest-green: #228B22;
+            --magic-blue: #4169E1;
+            --torch-orange: #FF6347;
+            --shadow-black: #0a0a0a;
+            --mystic-purple: #8A2BE2;
+            --treasure-gold: #FFEF94;
         }
 
         body {
-            font-family: 'Fira Code', monospace;
-            background: var(--dark-bg);
-            color: #ffffff;
+            font-family: 'VT323', monospace;
+            background: var(--dungeon-black);
+            color: var(--parchment);
             overflow-x: hidden;
             cursor: none;
             position: relative;
+            line-height: 1.2;
         }
 
-        /* INSANE Custom Cursor with Multiple Layers */
+        /* EPIC CUSTOM MEDIEVAL CURSOR */
         .cursor {
             position: fixed;
-            width: 30px;
-            height: 30px;
-            background: radial-gradient(circle, var(--neon-green) 0%, transparent 70%);
-            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect x="14" y="2" width="4" height="28" fill="%23FFD700"/><rect x="2" y="14" width="28" height="4" fill="%23FFD700"/><rect x="12" y="0" width="8" height="4" fill="%23B8860B"/><rect x="12" y="28" width="8" height="4" fill="%23B8860B"/><rect x="0" y="12" width="4" height="8" fill="%23B8860B"/><rect x="28" y="12" width="4" height="8" fill="%23B8860B"/><circle cx="16" cy="16" r="3" fill="%23FF6347"/></svg>') no-repeat center;
+            background-size: contain;
             pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: screen;
+            z-index: 10000;
             transition: all 0.1s ease;
-            box-shadow: 
-                0 0 20px var(--neon-green),
-                0 0 40px var(--neon-green),
-                0 0 60px var(--neon-green);
+            filter: drop-shadow(0 0 8px var(--gold));
+            animation: cursorPulse 2s ease-in-out infinite;
         }
 
-        .cursor::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: conic-gradient(var(--neon-green), var(--neon-pink), var(--neon-blue), var(--neon-green));
-            border-radius: 50%;
-            z-index: -1;
-            animation: cursorRotate 2s linear infinite;
+        @keyframes cursorPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
-        @keyframes cursorRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .cursor.interact {
+            transform: scale(1.8);
+            filter: drop-shadow(0 0 16px var(--torch-orange));
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect x="12" y="4" width="8" height="24" fill="%23FF6347"/><rect x="8" y="8" width="16" height="16" fill="%23FFD700"/><circle cx="16" cy="16" r="6" fill="%23FFEF94"/></svg>') no-repeat center;
         }
 
-        .cursor-trails {
+        /* TREASURE MAP NAVIGATION */
+        .treasure-map {
             position: fixed;
-            width: 8px;
-            height: 8px;
-            background: var(--neon-green);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            box-shadow: 0 0 10px var(--neon-green);
+            top: 20px;
+            right: 20px;
+            width: 200px;
+            height: 150px;
+            background: linear-gradient(145deg, var(--dark-parchment) 0%, var(--parchment) 100%);
+            border: 4px solid var(--ancient-gold);
+            border-radius: 12px;
+            z-index: 1000;
+            padding: 10px;
+            box-shadow: 
+                inset 0 0 0 2px var(--gold),
+                0 8px 16px rgba(0, 0, 0, 0.6);
+            transition: all 0.3s ease;
         }
 
-        /* MATRIX DIGITAL RAIN */
-        .matrix-rain {
+        .treasure-map:hover {
+            transform: scale(1.1);
+            box-shadow: 
+                inset 0 0 0 2px var(--torch-orange),
+                0 12px 24px rgba(0, 0, 0, 0.8);
+        }
+
+        .map-title {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.6rem;
+            color: var(--royal-red);
+            text-align: center;
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .map-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            height: calc(100% - 30px);
+        }
+
+        .map-section {
+            display: flex;
+            align-items: center;
+            padding: 3px 6px;
+            border-radius: 4px;
+            background: rgba(139, 0, 0, 0.3);
+            border: 1px solid var(--royal-red);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.7rem;
+            color: var(--shadow-black);
+        }
+
+        .map-section.current {
+            background: linear-gradient(90deg, var(--gold), var(--treasure-gold));
+            border-color: var(--torch-orange);
+            animation: currentLocation 2s ease-in-out infinite;
+        }
+
+        .map-section.treasure {
+            background: linear-gradient(90deg, var(--royal-red), var(--torch-orange));
+            border-color: var(--gold);
+            animation: treasureGlow 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes currentLocation {
+            0%, 100% { box-shadow: 0 0 8px var(--gold); }
+            50% { box-shadow: 0 0 16px var(--torch-orange); }
+        }
+
+        @keyframes treasureGlow {
+            0% { box-shadow: 0 0 12px var(--royal-red); }
+            100% { box-shadow: 0 0 20px var(--gold); }
+        }
+
+        .map-section::before {
+            content: '🗡️';
+            margin-right: 6px;
+        }
+
+        .map-section.current::before {
+            content: '👑';
+            animation: crownBob 1s ease-in-out infinite alternate;
+        }
+
+        .map-section.treasure::before {
+            content: '❌';
+            color: var(--gold);
+            font-size: 1rem;
+            animation: treasurePulse 0.8s ease-in-out infinite;
+        }
+
+        @keyframes crownBob {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-2px); }
+        }
+
+        @keyframes treasurePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* WIND EFFECTS */
+        .wind-effects {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
             pointer-events: none;
+            z-index: 2;
             overflow: hidden;
         }
 
-        .matrix-column {
+        .wind-particle {
             position: absolute;
-            top: -100%;
-            color: var(--matrix-green);
-            font-family: 'Fira Code', monospace;
-            font-size: 14px;
-            line-height: 14px;
-            text-shadow: 0 0 5px var(--matrix-green);
-            animation: matrixFall linear infinite;
+            opacity: 0.6;
+            animation: windBlow linear infinite;
         }
 
-        @keyframes matrixFall {
-            0% { top: -100%; opacity: 1; }
-            100% { top: 100%; opacity: 0; }
+        .leaf {
+            width: 8px;
+            height: 8px;
+            background: var(--forest-green);
+            border-radius: 0 100% 0 100%;
+            transform: rotate(45deg);
         }
 
-        /* 3D Background Canvas */
-        #bg-canvas {
+        .dust {
+            width: 4px;
+            height: 4px;
+            background: var(--ancient-gold);
+            border-radius: 50%;
+            box-shadow: 0 0 4px var(--gold);
+        }
+
+        .ember {
+            width: 3px;
+            height: 3px;
+            background: var(--torch-orange);
+            border-radius: 50%;
+            box-shadow: 0 0 6px var(--torch-orange);
+        }
+
+        @keyframes windBlow {
+            0% {
+                transform: translateX(-10vw) translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateX(110vw) translateY(-10vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* FLOATING MAGIC PARTICLES */
+        .magic-particles {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
-        }
-
-        /* HOLOGRAPHIC NEURAL NETWORK */
-        .neural-network {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
             pointer-events: none;
-            opacity: 0.3;
+            z-index: 1;
+            overflow: hidden;
         }
 
-        /* QUANTUM GRID OVERLAY */
-        .quantum-grid {
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: float linear infinite;
+            box-shadow: 0 0 8px var(--gold);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* DUNGEON STONE BACKGROUND */
+        .dungeon-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 25% 25%, var(--neon-green) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, var(--neon-pink) 0%, transparent 50%),
-                linear-gradient(90deg, transparent 98%, rgba(0, 255, 136, 0.1) 100%),
-                linear-gradient(0deg, transparent 98%, rgba(0, 255, 136, 0.1) 100%);
-            background-size: 100px 100px, 100px 100px, 30px 30px, 30px 30px;
-            z-index: 1;
-            opacity: 0.2;
-            animation: quantumShift 15s ease-in-out infinite;
+                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(139, 0, 0, 0.05) 0%, transparent 50%),
+                linear-gradient(90deg, rgba(58, 58, 58, 0.4) 0%, transparent 2%, transparent 98%, rgba(58, 58, 58, 0.4) 100%),
+                linear-gradient(0deg, rgba(58, 58, 58, 0.4) 0%, transparent 2%, transparent 98%, rgba(58, 58, 58, 0.4) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><rect width="60" height="60" fill="%232a2a2a"/><rect x="0" y="0" width="30" height="30" fill="%233a3a3a" opacity="0.3"/><rect x="30" y="30" width="30" height="30" fill="%233a3a3a" opacity="0.3"/><circle cx="15" cy="15" r="2" fill="%23FFD700" opacity="0.1"/><circle cx="45" cy="45" r="2" fill="%23FF6347" opacity="0.1"/></svg>');
+            background-size: 100px 100px, 100px 100px, 60px 60px, 60px 60px, 60px 60px;
+            z-index: 0;
+            opacity: 0.8;
+            animation: dungeonShift 40s ease-in-out infinite;
         }
 
-        @keyframes quantumShift {
+        @keyframes dungeonShift {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(10px, -10px) scale(1.02); }
-            50% { transform: translate(-10px, 10px) scale(0.98); }
-            75% { transform: translate(10px, 10px) scale(1.01); }
+            25% { transform: translate(-5px, -5px) scale(1.02); }
+            50% { transform: translate(5px, -3px) scale(0.98); }
+            75% { transform: translate(-3px, 5px) scale(1.01); }
         }
 
-        /* VOICE RECOGNITION INDICATOR */
-        .voice-indicator {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: rgba(0, 255, 136, 0.1);
-            border: 2px solid var(--neon-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .voice-indicator:hover {
-            background: rgba(0, 255, 136, 0.3);
-            box-shadow: 0 0 30px var(--neon-green);
-            transform: scale(1.1);
-        }
-
-        .voice-indicator.active {
-            animation: voicePulse 1s ease-in-out infinite;
-        }
-
-        @keyframes voicePulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 20px var(--neon-green); }
-            50% { transform: scale(1.2); box-shadow: 0 0 50px var(--neon-green); }
-        }
-
-        /* SCAN LINE EFFECT */
-        .scan-lines {
+        /* PIXEL CHARACTERS */
+        .pixel-characters {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-                transparent 0%,
-                rgba(0, 255, 136, 0.05) 50%,
-                transparent 100%
-            );
-            background-size: 100% 4px;
-            z-index: 3;
             pointer-events: none;
-            animation: scanMove 0.1s linear infinite;
+            z-index: 5;
+            overflow: hidden;
         }
 
-        @keyframes scanMove {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(4px); }
+        .pixel-character {
+            position: absolute;
+            font-size: 2rem;
+            animation: characterWalk linear infinite;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.6));
+        }
+
+        .knight {
+            animation: knightPatrol 15s linear infinite;
+        }
+
+        .wizard {
+            animation: wizardFloat 20s linear infinite;
+        }
+
+        .dragon {
+            animation: dragonFly 25s linear infinite;
+        }
+
+        .bat {
+            animation: batFly 8s linear infinite;
+        }
+
+        @keyframes knightPatrol {
+            0% { transform: translateX(-100px) translateY(60vh); }
+            50% { transform: translateX(calc(50vw - 50px)) translateY(60vh); }
+            100% { transform: translateX(calc(100vw + 100px)) translateY(60vh); }
+        }
+
+        @keyframes wizardFloat {
+            0% { transform: translateX(calc(100vw + 100px)) translateY(30vh) rotate(0deg); }
+            100% { transform: translateX(-100px) translateY(30vh) rotate(360deg); }
+        }
+
+        @keyframes dragonFly {
+            0% { transform: translateX(-200px) translateY(10vh) scale(1); }
+            25% { transform: translateX(25vw) translateY(5vh) scale(1.2); }
+            50% { transform: translateX(50vw) translateY(15vh) scale(1); }
+            75% { transform: translateX(75vw) translateY(8vh) scale(1.1); }
+            100% { transform: translateX(calc(100vw + 200px)) translateY(12vh) scale(1); }
+        }
+
+        @keyframes batFly {
+            0% { transform: translateX(calc(100vw + 50px)) translateY(20vh); }
+            100% { transform: translateX(-50px) translateY(25vh); }
+        }
+
+        /* TREASURE CHESTS */
+        .treasure-chest {
+            position: absolute;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            animation: treasureGlint 3s ease-in-out infinite;
+        }
+
+        @keyframes treasureGlint {
+            0%, 100% { filter: drop-shadow(0 0 8px var(--gold)) brightness(1); }
+            50% { filter: drop-shadow(0 0 16px var(--treasure-gold)) brightness(1.3); }
+        }
+
+        .treasure-chest:hover {
+            transform: scale(1.3);
+            animation: treasureOpen 0.5s ease-in-out;
+        }
+
+        @keyframes treasureOpen {
+            0%, 100% { transform: scale(1.3) rotate(0deg); }
+            50% { transform: scale(1.5) rotate(10deg); }
+        }
+
+        /* TORCHES */
+        .torch-container {
+            position: fixed;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .torch-left { left: 20px; }
+        .torch-right { right: 240px; }
+
+        .torch {
+            width: 20px;
+            height: 60px;
+            background: var(--stone-gray);
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .flame {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 35px;
+            background: linear-gradient(180deg, var(--torch-orange) 0%, var(--gold) 50%, var(--royal-red) 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: megaFlicker 0.3s ease-in-out infinite alternate;
+            filter: blur(1px);
+        }
+
+        @keyframes megaFlicker {
+            0% { 
+                transform: translateX(-50%) scale(1) rotate(-2deg);
+                opacity: 1;
+            }
+            100% { 
+                transform: translateX(-50%) scale(1.2) rotate(2deg);
+                opacity: 0.7;
+            }
+        }
+
+        .flame::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 18px;
+            background: var(--torch-orange);
+            border-radius: 50%;
+            filter: blur(2px);
+            animation: innerMegaFlicker 0.2s ease-in-out infinite alternate;
+        }
+
+        @keyframes innerMegaFlicker {
+            0% { opacity: 1; transform: translateX(-50%) scale(1); }
+            100% { opacity: 0.5; transform: translateX(-50%) scale(1.3); }
         }
 
         .container {
@@ -224,65 +450,111 @@
             z-index: 10;
         }
 
-        /* ULTIMATE HEADER */
+        /* EPIC HEADER */
         header {
-            background: rgba(0, 0, 17, 0.9);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 0 0 20px 20px;
+            background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
+            border: 4px solid var(--gold);
+            border-radius: 0;
             box-shadow: 
-                0 8px 32px rgba(0, 255, 136, 0.3),
-                inset 0 1px 0 rgba(0, 255, 136, 0.2);
+                inset 0 0 0 2px var(--ancient-gold),
+                0 8px 0 var(--shadow-black),
+                0 8px 16px rgba(0, 0, 0, 0.8);
             position: sticky;
             top: 0;
-            z-index: 100;
-            transition: all 0.3s ease;
+            z-index: 1000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--gold) 0px,
+                var(--gold) 12px,
+                var(--ancient-gold) 12px,
+                var(--ancient-gold) 24px
+            );
+            animation: headerShimmer 3s linear infinite;
+        }
+
+        @keyframes headerShimmer {
+            0% { background-position: 0px 0px; }
+            100% { background-position: 24px 0px; }
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--ancient-gold) 0px,
+                var(--ancient-gold) 12px,
+                var(--gold) 12px,
+                var(--gold) 24px
+            );
+            animation: headerShimmer 3s linear infinite reverse;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
         }
 
         .logo {
-            font-family: 'Orbitron', monospace;
-            font-size: 2rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, var(--neon-green), var(--neon-pink), var(--neon-blue));
-            background-size: 300% 300%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 1.3rem;
+            color: var(--gold);
             text-decoration: none;
+            text-shadow: 
+                2px 2px 0 var(--ancient-gold),
+                4px 4px 8px var(--shadow-black);
+            animation: logoEpicGlow 4s ease-in-out infinite;
             position: relative;
-            animation: logoShift 3s ease-in-out infinite;
-            text-shadow: 0 0 50px var(--neon-green);
         }
 
-        @keyframes logoShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        @keyframes logoEpicGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 12px var(--gold));
+                transform: scale(1);
+            }
+            50% { 
+                filter: drop-shadow(0 0 24px var(--torch-orange));
+                transform: scale(1.05);
+            }
         }
 
         .logo::before {
-            content: 'SHIVANSH.NEURAL_INTERFACE';
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: transparent;
-            background: linear-gradient(45deg, var(--neon-green), var(--neon-pink));
-            background-clip: text;
-            -webkit-background-clip: text;
-            z-index: -1;
-            filter: blur(10px);
-            animation: logoGlow 2s ease-in-out infinite alternate;
+            content: '⚔️';
+            margin-right: 12px;
+            animation: swordEpicSpin 6s linear infinite;
         }
 
-        @keyframes logoGlow {
-            0% { opacity: 0.5; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.05); }
+        .logo::after {
+            content: '🏰';
+            margin-left: 12px;
+            animation: castleEpicBob 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes swordEpicSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes castleEpicBob {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-6px) scale(1.1); }
         }
 
         .nav-links {
@@ -293,41 +565,46 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #ffffff;
-            font-weight: 500;
-            font-family: 'Fira Code', monospace;
+            color: var(--parchment);
+            font-family: 'VT323', monospace;
+            font-size: 1.4rem;
             transition: all 0.3s;
             position: relative;
-            padding: 0.8rem 1.5rem;
-            border: 1px solid transparent;
-            border-radius: 25px;
-            background: rgba(0, 255, 136, 0.05);
+            padding: 1rem 1.5rem;
+            border: 2px solid transparent;
+            background: rgba(255, 215, 0, 0.1);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .nav-links a::before {
-            content: '> ';
+            content: '⚡';
             opacity: 0;
             transition: opacity 0.3s;
-            color: var(--neon-green);
+            color: var(--gold);
+            margin-right: 8px;
         }
 
         .nav-links a:hover::before {
             opacity: 1;
+            animation: lightningBolt 0.5s ease-in-out;
+        }
+
+        @keyframes lightningBolt {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
         }
 
         .nav-links a:hover {
-            color: var(--neon-green);
-            border-color: var(--neon-green);
-            box-shadow: 
-                0 0 20px rgba(0, 255, 136, 0.5),
-                inset 0 0 20px rgba(0, 255, 136, 0.1);
-            text-shadow: 0 0 10px var(--neon-green);
-            background: rgba(0, 255, 136, 0.1);
+            color: var(--gold);
+            border-color: var(--gold);
+            background: rgba(255, 215, 0, 0.2);
+            text-shadow: 0 0 8px var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
         }
 
-        /* EPIC HERO SECTION */
+        /* LEGENDARY HERO SECTION */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -336,6 +613,29 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(
+                180deg,
+                rgba(26, 26, 26, 0.9) 0%,
+                rgba(42, 42, 42, 0.7) 50%,
+                rgba(26, 26, 26, 0.9) 100%
+            );
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="epiccastle" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="%23FFD700" opacity="0.03"/><rect x="0" y="0" width="10" height="10" fill="%23B8860B" opacity="0.15"/><rect x="40" y="40" width="10" height="10" fill="%23B8860B" opacity="0.15"/><rect x="20" y="20" width="10" height="10" fill="%23FFD700" opacity="0.08"/><circle cx="25" cy="25" r="2" fill="%23FF6347" opacity="0.1"/></pattern></defs><rect width="200" height="200" fill="url(%23epiccastle)"/></svg>');
+            animation: epicCastlePattern 25s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes epicCastlePattern {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-50px, -50px) rotate(360deg); }
         }
 
         .hero-content {
@@ -344,103 +644,89 @@
             max-width: 900px;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(
-                var(--neon-green),
-                var(--neon-pink),
-                var(--neon-blue),
-                var(--neon-purple),
-                var(--neon-green)
-            );
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            opacity: 0.1;
-            animation: heroRotate 20s linear infinite;
-        }
-
-        @keyframes heroRotate {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
         .hero h1 {
-            font-family: 'Orbitron', monospace;
-            font-size: 4.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ffffff, var(--neon-green), var(--neon-pink), var(--neon-blue), #ffffff);
-            background-size: 400% 400%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: heroTextShift 4s ease-in-out infinite;
-            text-shadow: 0 0 100px var(--neon-green);
+            font-family: 'Press Start 2P', monospace;
+            font-size: 3.2rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+            text-shadow: 
+                2px 2px 0 var(--ancient-gold),
+                4px 4px 0 var(--royal-red),
+                6px 6px 12px var(--shadow-black);
+            animation: epicHeroGlow 5s ease-in-out infinite;
             position: relative;
         }
 
-        @keyframes heroTextShift {
-            0%, 100% { background-position: 0% 50%; }
-            25% { background-position: 100% 50%; }
-            50% { background-position: 50% 100%; }
-            75% { background-position: 50% 0%; }
+        @keyframes epicHeroGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 20px var(--gold));
+                transform: scale(1);
+            }
+            25% { 
+                filter: drop-shadow(0 0 30px var(--torch-orange));
+                transform: scale(1.02);
+            }
+            50% { 
+                filter: drop-shadow(0 0 40px var(--royal-red));
+                transform: scale(1.05);
+            }
+            75% { 
+                filter: drop-shadow(0 0 35px var(--magic-blue));
+                transform: scale(1.03);
+            }
         }
 
-        .hero h1::after {
-            content: 'SHIVANSH SINGH';
+        .hero h1::before {
+            content: '👑';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(45deg, var(--neon-green), var(--neon-pink));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            z-index: -1;
-            filter: blur(20px);
-            animation: heroGlow 3s ease-in-out infinite alternate;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            animation: epicCrownFloat 4s ease-in-out infinite;
         }
 
-        @keyframes heroGlow {
-            0% { opacity: 0.3; transform: scale(1); }
-            100% { opacity: 0.8; transform: scale(1.1); }
+        @keyframes epicCrownFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0) rotate(-5deg) scale(1); }
+            25% { transform: translateX(-50%) translateY(-8px) rotate(0deg) scale(1.1); }
+            50% { transform: translateX(-50%) translateY(-15px) rotate(5deg) scale(1.2); }
+            75% { transform: translateX(-50%) translateY(-8px) rotate(0deg) scale(1.1); }
         }
 
         .hero .subtitle {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             margin-bottom: 2rem;
-            color: var(--neon-green);
-            font-family: 'Fira Code', monospace;
-            text-shadow: 0 0 30px var(--neon-green);
-            animation: typewriter 4s steps(40) 1s infinite;
+            color: var(--torch-orange);
+            font-family: 'VT323', monospace;
+            text-shadow: 2px 2px 4px var(--shadow-black);
+            animation: epicTypewriter 8s steps(60) infinite;
             white-space: nowrap;
             overflow: hidden;
-            border-right: 2px solid var(--neon-green);
+            border-right: 4px solid var(--gold);
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        @keyframes typewriter {
+        @keyframes epicTypewriter {
             0% { width: 0; }
-            50% { width: 100%; }
+            30% { width: 100%; }
+            70% { width: 100%; }
             100% { width: 0; }
         }
 
         .hero .description {
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             margin-bottom: 3rem;
-            opacity: 0.9;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            color: var(--parchment);
+            text-shadow: 1px 1px 2px var(--shadow-black);
         }
 
-        /* QUANTUM BUTTONS */
+        /* LEGENDARY BUTTONS */
         .cta-buttons {
             display: flex;
             gap: 2rem;
@@ -450,21 +736,24 @@
         }
 
         .btn {
-            padding: 18px 36px;
-            font-size: 1.2rem;
-            font-weight: 700;
+            padding: 22px 44px;
+            font-size: 1.4rem;
+            font-weight: bold;
             text-decoration: none;
-            border-radius: 50px;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            background: rgba(0, 255, 136, 0.1);
-            border: 2px solid var(--neon-green);
-            color: #ffffff;
+            background: linear-gradient(145deg, var(--gold) 0%, var(--ancient-gold) 100%);
+            border: 4px solid var(--ancient-gold);
+            color: var(--shadow-black);
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-family: 'Orbitron', monospace;
-            backdrop-filter: blur(10px);
+            font-family: 'Press Start 2P', monospace;
+            text-shadow: none;
+            box-shadow: 
+                inset 0 0 0 2px var(--gold),
+                0 8px 0 var(--shadow-black),
+                0 8px 16px rgba(0, 0, 0, 0.6);
         }
 
         .btn::before {
@@ -474,19 +763,18 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
-            transition: left 0.6s ease;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            transition: left 0.8s ease;
         }
 
         .btn::after {
-            content: '';
+            content: '⚡';
             position: absolute;
-            top: 50%;
+            top: -25px;
             left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, var(--neon-green) 0%, transparent 70%);
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            opacity: 0;
             transition: all 0.3s ease;
         }
 
@@ -495,39 +783,46 @@
         }
 
         .btn:hover::after {
-            width: 300px;
-            height: 300px;
+            opacity: 1;
+            top: -30px;
+            animation: buttonLightning 0.5s ease-in-out;
+        }
+
+        @keyframes buttonLightning {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.5); }
         }
 
         .btn:hover {
-            transform: translateY(-5px) scale(1.05);
+            transform: translateY(-6px);
             box-shadow: 
-                0 15px 40px rgba(0, 255, 136, 0.6),
-                0 0 50px var(--neon-green);
-            text-shadow: 0 0 20px var(--neon-green);
-            border-color: #ffffff;
-            color: #000011;
-            background: var(--neon-green);
+                inset 0 0 0 2px var(--torch-orange),
+                0 12px 0 var(--shadow-black),
+                0 12px 24px rgba(0, 0, 0, 0.8);
+            background: linear-gradient(145deg, var(--torch-orange) 0%, var(--gold) 100%);
+            filter: drop-shadow(0 0 16px var(--torch-orange));
+        }
+
+        .btn:active {
+            transform: translateY(3px);
+            box-shadow: 
+                inset 0 0 0 2px var(--gold),
+                0 3px 0 var(--shadow-black),
+                0 3px 12px rgba(0, 0, 0, 0.6);
         }
 
         .btn-secondary {
-            border-color: var(--neon-pink);
-            background: rgba(255, 0, 136, 0.1);
-        }
-
-        .btn-secondary::before {
-            background: linear-gradient(90deg, transparent, var(--neon-pink), transparent);
+            background: linear-gradient(145deg, var(--royal-red) 0%, #660000 100%);
+            border-color: #660000;
+            color: var(--parchment);
         }
 
         .btn-secondary:hover {
-            background: var(--neon-pink);
-            border-color: #ffffff;
-            box-shadow: 
-                0 15px 40px rgba(255, 0, 136, 0.6),
-                0 0 50px var(--neon-pink);
+            background: linear-gradient(145deg, var(--mystic-purple) 0%, var(--royal-red) 100%);
+            filter: drop-shadow(0 0 16px var(--mystic-purple));
         }
 
-        /* NEURAL SOCIAL LINKS */
+        /* EPIC SOCIAL LINKS */
         .social-links {
             display: flex;
             gap: 2rem;
@@ -541,15 +836,17 @@
             justify-content: center;
             width: 70px;
             height: 70px;
-            background: rgba(0, 255, 136, 0.1);
-            color: var(--neon-green);
+            background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
+            color: var(--gold);
             border-radius: 50%;
             text-decoration: none;
             transition: all 0.3s;
-            backdrop-filter: blur(15px);
-            border: 2px solid var(--neon-green);
+            border: 4px solid var(--ancient-gold);
             position: relative;
             overflow: hidden;
+            box-shadow: 
+                inset 0 0 0 2px var(--gold),
+                0 6px 12px rgba(0, 0, 0, 0.6);
         }
 
         .social-link::before {
@@ -559,79 +856,107 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: conic-gradient(var(--neon-green), var(--neon-pink), var(--neon-blue), var(--neon-green));
+            background: conic-gradient(var(--gold), var(--torch-orange), var(--royal-red), var(--magic-blue), var(--gold));
             z-index: -1;
             opacity: 0;
             transition: opacity 0.3s ease;
-            animation: socialRotate 3s linear infinite;
+            animation: epicShieldRotate 6s linear infinite;
         }
 
-        @keyframes socialRotate {
+        @keyframes epicShieldRotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
         .social-link:hover::before {
-            opacity: 1;
+            opacity: 0.4;
         }
 
         .social-link:hover {
             transform: translateY(-8px) scale(1.2);
-            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.6);
-            color: #ffffff;
-            border-color: transparent;
+            box-shadow: 
+                inset 0 0 0 2px var(--torch-orange),
+                0 12px 20px rgba(0, 0, 0, 0.8);
+            color: var(--torch-orange);
+            border-color: var(--torch-orange);
+            filter: drop-shadow(0 0 16px var(--gold));
         }
 
         /* SECTION STYLING */
         .section {
             margin: 10rem 0;
             position: relative;
+            padding: 4rem 0;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 8px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--torch-orange), var(--gold), transparent);
+            border-radius: 4px;
+            animation: sectionLineGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes sectionLineGlow {
+            0%, 100% { box-shadow: 0 0 8px var(--gold); }
+            50% { box-shadow: 0 0 16px var(--torch-orange); }
         }
 
         .section h2 {
-            font-family: 'Orbitron', monospace;
-            font-size: 3.5rem;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 2.8rem;
             margin-bottom: 4rem;
             text-align: center;
-            background: linear-gradient(45deg, var(--neon-green), var(--neon-pink), var(--neon-blue));
-            background-size: 300% 300%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--gold);
+            text-shadow: 
+                2px 2px 0 var(--ancient-gold),
+                4px 4px 8px var(--shadow-black);
             position: relative;
-            animation: sectionTitleShift 5s ease-in-out infinite;
-            text-shadow: 0 0 50px var(--neon-green);
+            animation: epicSectionGlow 6s ease-in-out infinite;
         }
 
-        @keyframes sectionTitleShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        @keyframes epicSectionGlow {
+            0%, 100% { filter: drop-shadow(0 0 16px var(--gold)); }
+            33% { filter: drop-shadow(0 0 24px var(--torch-orange)); }
+            66% { filter: drop-shadow(0 0 20px var(--royal-red)); }
+        }
+
+        .section h2::before {
+            content: '⚜️';
+            position: absolute;
+            left: -80px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            animation: epicDecorSpin 8s linear infinite;
         }
 
         .section h2::after {
-            content: '';
+            content: '⚜️';
             position: absolute;
-            width: 150px;
-            height: 6px;
-            background: linear-gradient(45deg, var(--neon-green), var(--neon-pink), var(--neon-blue));
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 3px;
-            box-shadow: 0 0 30px var(--neon-green);
-            animation: underlineGlow 2s ease-in-out infinite alternate;
+            right: -80px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            animation: epicDecorSpin 8s linear infinite reverse;
         }
 
-        @keyframes underlineGlow {
-            0% { box-shadow: 0 0 30px var(--neon-green); }
-            100% { box-shadow: 0 0 50px var(--neon-pink); }
+        @keyframes epicDecorSpin {
+            0% { transform: translateY(-50%) rotate(0deg) scale(1); }
+            50% { transform: translateY(-50%) rotate(180deg) scale(1.2); }
+            100% { transform: translateY(-50%) rotate(360deg) scale(1); }
         }
 
-        /* QUANTUM ABOUT SECTION */
+        /* LEGENDARY ABOUT SECTION */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 5rem;
+            gap: 6rem;
             align-items: center;
         }
 
@@ -641,305 +966,323 @@
         }
 
         .profile-img {
-            width: 350px;
-            height: 350px;
+            width: 320px;
+            height: 320px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--neon-green);
+            border: 6px solid var(--gold);
             box-shadow: 
-                0 0 50px var(--neon-green),
-                0 0 100px var(--neon-green),
-                inset 0 0 50px rgba(0, 255, 136, 0.2);
+                0 0 0 4px var(--ancient-gold),
+                0 0 0 8px var(--stone-gray),
+                0 12px 20px rgba(0, 0, 0, 0.8);
             transition: all 0.3s ease;
             position: relative;
             z-index: 5;
-            filter: drop-shadow(0 0 20px var(--neon-green));
+            filter: sepia(20%) contrast(1.3);
         }
 
         .profile-img:hover {
-            transform: scale(1.1);
-            filter: drop-shadow(0 0 40px var(--neon-green)) hue-rotate(90deg);
+            transform: scale(1.08);
+            filter: sepia(20%) contrast(1.3) drop-shadow(0 0 25px var(--gold));
             box-shadow: 
-                0 0 80px var(--neon-green),
-                0 0 150px var(--neon-pink),
-                inset 0 0 50px rgba(0, 255, 136, 0.4);
+                0 0 0 4px var(--torch-orange),
+                0 0 0 8px var(--ancient-gold),
+                0 0 0 12px var(--stone-gray),
+                0 16px 32px rgba(0, 0, 0, 0.9);
         }
 
         .profile-container::before {
             content: '';
             position: absolute;
-            top: -30px;
-            left: -30px;
-            right: -30px;
-            bottom: -30px;
-            background: conic-gradient(var(--neon-green), var(--neon-pink), var(--neon-blue), var(--neon-purple), var(--neon-green));
+            top: -25px;
+            left: -25px;
+            right: -25px;
+            bottom: -25px;
+            border: 4px solid var(--gold);
             border-radius: 50%;
             z-index: 1;
-            opacity: 0.5;
-            animation: profileRing 8s linear infinite;
+            opacity: 0.4;
+            animation: epicShieldPulse 5s ease-in-out infinite;
         }
 
-        @keyframes profileRing {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.1); }
-            100% { transform: rotate(360deg) scale(1); }
+        @keyframes epicShieldPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.4; }
+            33% { transform: scale(1.1) rotate(120deg); opacity: 0.7; }
+            66% { transform: scale(1.05) rotate(240deg); opacity: 0.5; }
         }
 
         .profile-container::after {
             content: '';
             position: absolute;
-            top: -50px;
-            left: -50px;
-            right: -50px;
-            bottom: -50px;
-            background: conic-gradient(transparent, var(--neon-green), transparent, var(--neon-pink), transparent);
+            top: -35px;
+            left: -35px;
+            right: -35px;
+            bottom: -35px;
+            border: 2px dashed var(--torch-orange);
             border-radius: 50%;
             z-index: 0;
             opacity: 0.3;
-            animation: profileRing 12s linear infinite reverse;
+            animation: epicShieldPulse 7s ease-in-out infinite reverse;
         }
 
         .about-text {
-            font-size: 1.3rem;
-            line-height: 2;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.5rem;
+            line-height: 1.9;
+            color: var(--parchment);
+            text-shadow: 1px 1px 2px var(--shadow-black);
         }
 
         .about-text p {
             margin-bottom: 2.5rem;
             position: relative;
-            padding-left: 20px;
+            padding-left: 35px;
+            text-align: justify;
         }
 
         .about-text p::before {
-            content: '▶';
+            content: '⚔️';
             position: absolute;
             left: 0;
-            color: var(--neon-green);
-            animation: bulletPulse 2s ease-in-out infinite;
+            color: var(--gold);
+            animation: epicSwordGlint 4s ease-in-out infinite;
         }
 
-        @keyframes bulletPulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
+        @keyframes epicSwordGlint {
+            0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+            25% { opacity: 0.8; transform: scale(1.1) rotate(5deg); }
+            50% { opacity: 1.2; transform: scale(1.2) rotate(-5deg); }
+            75% { opacity: 0.9; transform: scale(1.05) rotate(3deg); }
         }
 
         .highlight {
-            background: linear-gradient(120deg, var(--neon-green) 0%, var(--neon-pink) 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            text-shadow: 0 0 30px var(--neon-green);
+            color: var(--gold);
+            font-weight: bold;
+            text-shadow: 2px 2px 4px var(--shadow-black);
             position: relative;
         }
 
         .highlight::after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: -3px;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--neon-green), var(--neon-pink));
-            animation: highlightGlow 2s ease-in-out infinite;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--torch-orange), var(--gold));
+            animation: epicUnderlineShimmer 2.5s ease-in-out infinite;
         }
 
-        @keyframes highlightGlow {
-            0%, 100% { box-shadow: 0 0 10px var(--neon-green); }
-            50% { box-shadow: 0 0 20px var(--neon-pink); }
+        @keyframes epicUnderlineShimmer {
+            0%, 100% { opacity: 1; transform: scaleX(1); }
+            50% { opacity: 0.8; transform: scaleX(1.2); }
         }
 
-        /* QUANTUM HOLOGRAPHIC CARDS */
-        .quantum-card {
-            background: rgba(0, 17, 0, 0.8);
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(0, 255, 136, 0.3);
+        /* LEGENDARY SCROLL CARDS */
+        .scroll-card {
+            background: linear-gradient(145deg, var(--parchment) 0%, var(--dark-parchment) 100%);
+            border: 6px solid var(--ancient-gold);
             border-radius: 25px;
-            padding: 4rem;
-            margin: 3rem 0;
+            padding: 3.5rem;
+            margin: 4rem 0;
             position: relative;
             overflow: hidden;
             transition: all 0.4s ease;
+            color: var(--shadow-black);
+            box-shadow: 
+                inset 0 0 0 3px var(--gold),
+                0 12px 20px rgba(0, 0, 0, 0.5);
         }
 
-        .quantum-card::before {
+        .scroll-card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
-            transition: left 1.5s ease;
+            left: 0;
+            right: 0;
+            height: 25px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--gold) 0px,
+                var(--gold) 10px,
+                var(--ancient-gold) 10px,
+                var(--ancient-gold) 20px
+            );
+            animation: scrollBorderShimmer 4s linear infinite;
         }
 
-        .quantum-card::after {
+        @keyframes scrollBorderShimmer {
+            0% { background-position: 0px 0px; }
+            100% { background-position: 20px 0px; }
+        }
+
+        .scroll-card::after {
             content: '';
             position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: conic-gradient(var(--neon-green), var(--neon-pink), var(--neon-blue), var(--neon-green));
-            border-radius: 25px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 25px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--ancient-gold) 0px,
+                var(--ancient-gold) 10px,
+                var(--gold) 10px,
+                var(--gold) 20px
+            );
+            animation: scrollBorderShimmer 4s linear infinite reverse;
         }
 
-        .quantum-card:hover::before {
-            left: 100%;
-        }
-
-        .quantum-card:hover::after {
-            opacity: 1;
-        }
-
-        .quantum-card:hover {
-            transform: perspective(1000px) rotateX(5deg) translateY(-20px);
+        .scroll-card:hover {
+            transform: perspective(1000px) rotateX(8deg) translateY(-15px);
             box-shadow: 
-                0 30px 80px rgba(0, 255, 136, 0.4),
-                0 0 100px var(--neon-green);
-            border-color: var(--neon-green);
+                inset 0 0 0 3px var(--torch-orange),
+                0 25px 50px rgba(0, 0, 0, 0.6);
+            border-color: var(--torch-orange);
         }
 
-        .quantum-card h3 {
-            color: var(--neon-green);
-            margin-bottom: 2rem;
-            font-size: 2.2rem;
-            font-family: 'Orbitron', monospace;
-            text-shadow: 0 0 20px var(--neon-green);
+        .scroll-card h3 {
+            color: var(--royal-red);
+            margin-bottom: 2.5rem;
+            font-size: 2rem;
+            font-family: 'Press Start 2P', monospace;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
-        /* ULTIMATE PUBLICATIONS */
+        /* EPIC PUBLICATIONS */
         .publications-grid {
             display: grid;
             gap: 4rem;
         }
 
         .publication {
-            background: rgba(0, 17, 0, 0.6);
-            backdrop-filter: blur(25px);
-            border: 2px solid rgba(0, 255, 136, 0.3);
+            background: linear-gradient(145deg, var(--parchment) 0%, var(--dark-parchment) 100%);
+            border: 4px solid var(--ancient-gold);
             border-radius: 20px;
             padding: 3rem;
             transition: all 0.4s ease;
             position: relative;
-            overflow: hidden;
+            color: var(--shadow-black);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
 
         .publication::before {
-            content: '';
+            content: '📜';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--neon-green), var(--neon-pink), var(--neon-blue));
-            animation: publicationBar 3s ease-in-out infinite;
+            top: -20px;
+            left: 25px;
+            font-size: 2.5rem;
+            background: var(--parchment);
+            padding: 0 15px;
+            border-radius: 50%;
+            border: 3px solid var(--ancient-gold);
+            animation: scrollFloat 3s ease-in-out infinite;
         }
 
-        @keyframes publicationBar {
-            0%, 100% { transform: scaleX(1); }
-            50% { transform: scaleX(1.2); }
+        @keyframes scrollFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(5deg); }
         }
 
         .publication:hover {
-            transform: perspective(1000px) rotateY(5deg) translateY(-15px);
-            box-shadow: 0 40px 80px rgba(0, 255, 136, 0.4);
-            border-color: var(--neon-green);
+            transform: perspective(1000px) rotateY(8deg) translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border-color: var(--gold);
         }
 
         .publication h4 {
-            color: #ffffff;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-shadow: 0 0 10px var(--neon-green);
+            color: var(--royal-red);
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .publication .authors {
-            color: var(--neon-green);
-            margin-bottom: 1rem;
+            color: var(--forest-green);
+            margin-bottom: 0.8rem;
             font-style: italic;
-            font-weight: 500;
+            font-weight: bold;
         }
 
         .publication .venue {
-            color: var(--neon-pink);
-            font-weight: 700;
-            margin-bottom: 2rem;
-            text-shadow: 0 0 10px var(--neon-pink);
+            color: var(--magic-blue);
+            font-weight: bold;
+            margin-bottom: 1.8rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .publication .abstract {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.8;
+            color: var(--deep-stone);
+            line-height: 1.7;
             margin-bottom: 2rem;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         .publication .links {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.2rem;
             flex-wrap: wrap;
         }
 
         .publication .links a {
-            color: var(--neon-blue);
+            color: var(--parchment);
             text-decoration: none;
-            font-weight: 600;
-            padding: 0.8rem 1.5rem;
-            border: 2px solid var(--neon-blue);
-            border-radius: 25px;
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border: 3px solid var(--magic-blue);
+            border-radius: 12px;
             transition: all 0.3s;
-            background: rgba(0, 245, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: var(--magic-blue);
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-family: 'Fira Code', monospace;
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
         }
 
         .publication .links a:hover {
-            background: var(--neon-blue);
-            color: var(--dark-bg);
-            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.5);
-            transform: translateY(-3px) scale(1.05);
-            text-shadow: none;
+            background: var(--torch-orange);
+            border-color: var(--torch-orange);
+            color: var(--shadow-black);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
         }
 
-        /* CYBERPUNK PROJECTS */
+        /* LEGENDARY PROJECTS */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 4rem;
         }
 
         .project {
-            background: rgba(0, 17, 0, 0.6);
-            backdrop-filter: blur(25px);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
+            border: 6px solid var(--gold);
             border-radius: 25px;
             overflow: hidden;
             transition: all 0.4s ease;
             position: relative;
+            box-shadow: 
+                inset 0 0 0 3px var(--ancient-gold),
+                0 12px 20px rgba(0, 0, 0, 0.6);
         }
 
         .project:hover {
-            transform: perspective(1000px) rotateY(8deg) translateY(-20px);
-            box-shadow: 0 50px 100px rgba(0, 255, 136, 0.4);
-            border-color: var(--neon-green);
+            transform: perspective(1000px) rotateY(12deg) translateY(-20px);
+            box-shadow: 
+                inset 0 0 0 3px var(--torch-orange),
+                0 25px 50px rgba(0, 0, 0, 0.8);
+            border-color: var(--torch-orange);
         }
 
         .project-image {
-            height: 250px;
-            background: linear-gradient(135deg, var(--neon-green), var(--neon-pink), var(--neon-blue));
+            height: 220px;
+            background: linear-gradient(135deg, var(--gold), var(--torch-orange), var(--royal-red));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            color: #ffffff;
+            font-size: 5rem;
+            color: var(--parchment);
             position: relative;
             overflow: hidden;
         }
@@ -951,35 +1294,35 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="quantum" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.2)"/><path d="M0 5h10M5 0v10" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23quantum)"/></svg>');
-            animation: quantumPattern 8s linear infinite;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="epicshield" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="12.5" cy="12.5" r="3" fill="rgba(255,255,255,0.1)"/><path d="M6 12.5h13M12.5 6v13" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/><rect x="0" y="0" width="6" height="6" fill="rgba(255,215,0,0.05)"/><rect x="19" y="19" width="6" height="6" fill="rgba(255,215,0,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23epicshield)"/></svg>');
+            animation: epicShieldPattern 12s linear infinite;
         }
 
-        @keyframes quantumPattern {
-            0% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(-5px, -5px) scale(1.1); }
-            50% { transform: translate(-10px, 5px) scale(1); }
-            75% { transform: translate(5px, -10px) scale(1.1); }
-            100% { transform: translate(0, 0) scale(1); }
+        @keyframes epicShieldPattern {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            50% { transform: translate(-12px, -12px) scale(1.1) rotate(180deg); }
+            100% { transform: translate(0, 0) scale(1) rotate(360deg); }
         }
 
         .project-content {
             padding: 3rem;
+            color: var(--parchment);
         }
 
         .project h4 {
-            margin-bottom: 1.5rem;
-            color: #ffffff;
+            margin-bottom: 2rem;
+            color: var(--gold);
             font-size: 1.6rem;
-            font-weight: 700;
-            text-shadow: 0 0 10px var(--neon-green);
+            font-weight: bold;
+            text-shadow: 2px 2px 4px var(--shadow-black);
         }
 
         .project p {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
+            color: var(--parchment);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px var(--shadow-black);
         }
 
         .project-tags {
@@ -990,30 +1333,31 @@
         }
 
         .tag {
-            background: rgba(0, 255, 136, 0.2);
-            color: var(--neon-green);
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(0, 255, 136, 0.4);
+            background: linear-gradient(145deg, var(--royal-red) 0%, #550000 100%);
+            color: var(--parchment);
+            padding: 0.8rem 1.5rem;
+            border-radius: 15px;
+            font-size: 1rem;
+            border: 3px solid var(--ancient-gold);
             transition: all 0.3s;
-            font-family: 'Fira Code', monospace;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
+            font-family: 'VT323', monospace;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px var(--shadow-black);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
         }
 
         .tag:hover {
-            background: var(--neon-green);
-            color: var(--dark-bg);
-            box-shadow: 0 0 20px var(--neon-green);
-            transform: scale(1.1);
+            background: linear-gradient(145deg, var(--gold) 0%, var(--ancient-gold) 100%);
+            color: var(--shadow-black);
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+            text-shadow: none;
         }
 
-        /* NEURAL FOOTER */
+        /* EPIC FOOTER */
         footer {
-            background: rgba(0, 0, 17, 0.95);
-            backdrop-filter: blur(30px);
-            border-top: 2px solid rgba(0, 255, 136, 0.3);
+            background: linear-gradient(145deg, var(--deep-stone) 0%, var(--shadow-black) 100%);
+            border-top: 6px solid var(--gold);
             padding: 5rem 0 3rem;
             margin-top: 10rem;
             position: relative;
@@ -1026,24 +1370,25 @@
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, 
-                rgba(0, 255, 136, 0.05) 0%,
-                transparent 25%,
-                rgba(255, 0, 136, 0.05) 50%,
-                transparent 75%,
-                rgba(0, 245, 255, 0.05) 100%);
-            animation: footerShift 10s ease-in-out infinite;
+            height: 15px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--gold) 0px,
+                var(--gold) 20px,
+                var(--ancient-gold) 20px,
+                var(--ancient-gold) 40px
+            );
+            animation: footerShimmer 5s linear infinite;
         }
 
-        @keyframes footerShift {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(20px); }
+        @keyframes footerShimmer {
+            0% { background-position: 0px 0px; }
+            100% { background-position: 40px 0px; }
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 4rem;
             margin-bottom: 3rem;
             position: relative;
@@ -1051,57 +1396,70 @@
         }
 
         .footer-section h4 {
-            color: var(--neon-green);
+            color: var(--gold);
             margin-bottom: 2rem;
-            font-family: 'Orbitron', monospace;
-            font-size: 1.4rem;
-            text-shadow: 0 0 20px var(--neon-green);
+            font-family: 'Press Start 2P', monospace;
+            font-size: 1.2rem;
+            text-shadow: 2px 2px 4px var(--shadow-black);
         }
 
         .footer-section a {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--parchment);
             text-decoration: none;
             display: block;
             margin-bottom: 1.2rem;
             transition: all 0.3s;
             position: relative;
-            padding-left: 25px;
-            font-family: 'Fira Code', monospace;
+            padding-left: 30px;
+            font-family: 'VT323', monospace;
+            font-size: 1.3rem;
         }
 
         .footer-section a::before {
-            content: '> ';
+            content: '⚔️';
             position: absolute;
             left: 0;
-            color: var(--neon-green);
+            color: var(--gold);
             opacity: 0;
             transition: all 0.3s;
         }
 
         .footer-section a:hover {
-            color: var(--neon-green);
-            transform: translateX(15px);
-            text-shadow: 0 0 15px var(--neon-green);
+            color: var(--gold);
+            transform: translateX(12px);
+            text-shadow: 0 0 8px var(--gold);
         }
 
         .footer-section a:hover::before {
             opacity: 1;
+            animation: footerSwordGlint 0.6s ease-in-out;
         }
 
-        /* LOADING SCREEN */
+        @keyframes footerSwordGlint {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.3) rotate(15deg); }
+        }
+
+        .footer-section p {
+            color: var(--parchment);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* EPIC LOADING SCREEN */
         .loading-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--dark-bg);
+            background: var(--dungeon-black);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 10000;
-            transition: opacity 1.5s ease;
+            z-index: 1000000;
+            transition: opacity 2s ease;
         }
 
         .loading-screen.hidden {
@@ -1109,49 +1467,80 @@
             pointer-events: none;
         }
 
-        .loading-spinner {
-            width: 120px;
-            height: 120px;
-            border: 4px solid rgba(0, 255, 136, 0.2);
-            border-top: 4px solid var(--neon-green);
-            border-radius: 50%;
-            animation: loadingSpin 1s linear infinite;
-            margin-bottom: 2rem;
-            box-shadow: 0 0 50px var(--neon-green);
+        .loading-castle {
+            width: 150px;
+            height: 150px;
+            background: var(--stone-gray);
+            position: relative;
+            border-radius: 0;
+            margin-bottom: 3rem;
+            border: 6px solid var(--gold);
+            animation: epicCastleBuild 3s ease-in-out infinite;
         }
 
-        @keyframes loadingSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes epicCastleBuild {
+            0%, 100% { 
+                transform: scale(1);
+                filter: drop-shadow(0 0 16px var(--gold));
+            }
+            25% { 
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 24px var(--torch-orange));
+            }
+            50% { 
+                transform: scale(1.15);
+                filter: drop-shadow(0 0 32px var(--royal-red));
+            }
+            75% { 
+                transform: scale(1.08);
+                filter: drop-shadow(0 0 28px var(--magic-blue));
+            }
+        }
+
+        .loading-castle::before {
+            content: '🏰';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            animation: epicCastleGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes epicCastleGlow {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.2); }
         }
 
         .loading-text {
-            font-family: 'Fira Code', monospace;
-            color: var(--neon-green);
+            font-family: 'Press Start 2P', monospace;
+            color: var(--gold);
             font-size: 1.2rem;
-            text-shadow: 0 0 20px var(--neon-green);
-            animation: loadingPulse 1.5s ease-in-out infinite;
+            text-shadow: 2px 2px 4px var(--shadow-black);
+            animation: epicLoadingPulse 2s ease-in-out infinite;
+            text-align: center;
+            line-height: 1.6;
         }
 
-        @keyframes loadingPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        @keyframes epicLoadingPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.08); }
         }
 
         /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.2rem;
             }
 
             .hero .subtitle {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 3rem;
+                gap: 4rem;
             }
 
             .nav-links {
@@ -1168,135 +1557,191 @@
             }
 
             .profile-img {
-                width: 250px;
-                height: 250px;
+                width: 220px;
+                height: 220px;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .section h2::before,
+            .section h2::after {
+                display: none;
+            }
+
+            .treasure-map {
+                width: 160px;
+                height: 120px;
+                right: 10px;
+                top: 10px;
+            }
+
+            .map-title {
+                font-size: 0.5rem;
+            }
+
+            .map-section {
+                font-size: 0.6rem;
+                padding: 2px 4px;
             }
         }
 
-        /* SCROLLBAR */
+        .first-author {
+            font-weight: bold;
+            color: var(--royal-red);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* EPIC SCROLLBAR */
         ::-webkit-scrollbar {
-            width: 12px;
+            width: 20px;
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--dark-bg);
-            border-radius: 6px;
+            background: var(--deep-stone);
+            border: 3px solid var(--stone-gray);
+            border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, var(--neon-green), var(--neon-pink));
-            border-radius: 6px;
-            box-shadow: 0 0 10px var(--neon-green);
+            background: linear-gradient(45deg, var(--gold), var(--ancient-gold));
+            border-radius: 10px;
+            border: 3px solid var(--stone-gray);
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
-            box-shadow: 0 0 20px var(--neon-pink);
+            background: linear-gradient(45deg, var(--torch-orange), var(--gold));
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
         }
 
         html {
             scroll-behavior: smooth;
         }
 
-        .first-author {
-            font-weight: bold;
-            color: var(--neon-green);
-            text-shadow: 0 0 15px rgba(0, 255, 136, 0.7);
+        /* EASTER EGG STYLES */
+        .easter-egg-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(145deg, var(--treasure-gold), var(--gold));
+            color: var(--shadow-black);
+            padding: 3rem 5rem;
+            border: 6px solid var(--royal-red);
+            border-radius: 25px;
+            z-index: 1000000;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 1.5rem;
+            text-align: center;
+            box-shadow: 0 0 50px var(--gold);
+            animation: epicMessage 1s ease-in-out;
         }
 
-        /* QUANTUM TERMINAL EFFECT */
-        .terminal-effect {
-            background: rgba(0, 0, 0, 0.9);
-            border: 2px solid var(--neon-green);
-            border-radius: 10px;
-            padding: 1rem;
-            font-family: 'Fira Code', monospace;
-            color: var(--neon-green);
-            margin: 2rem 0;
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
-        }
-
-        .terminal-effect::before {
-            content: '> ';
-            color: var(--neon-green);
+        @keyframes epicMessage {
+            0% { transform: translate(-50%, -50%) scale(0) rotate(180deg); }
+            100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
         }
     </style>
 </head>
 <body>
-    <!-- ULTIMATE LOADING SCREEN -->
+    <!-- EPIC LOADING SCREEN -->
     <div class="loading-screen" id="loadingScreen">
-        <div class="loading-spinner"></div>
-        <div class="loading-text">INITIALIZING_NEURAL_INTERFACE...</div>
+        <div class="loading-castle"></div>
+        <div class="loading-text">Constructing Epic Castle...<br>Summoning Pixel Warriors...<br>Preparing Legendary Interface...</div>
     </div>
 
-    <!-- QUANTUM CURSOR -->
+    <!-- TREASURE MAP NAVIGATION -->
+    <div class="treasure-map" id="treasureMap">
+        <div class="map-title">QUEST MAP</div>
+        <div class="map-sections">
+            <div class="map-section" data-section="hero">Castle Entrance</div>
+            <div class="map-section" data-section="about">Royal Chambers</div>
+            <div class="map-section" data-section="research">Quest Hall</div>
+            <div class="map-section" data-section="publications">Archive Library</div>
+            <div class="map-section" data-section="projects">Workshop</div>
+            <div class="map-section treasure" data-section="contact">TREASURE ❌</div>
+        </div>
+    </div>
+
+    <!-- EPIC MEDIEVAL CURSOR -->
     <div class="cursor" id="cursor"></div>
     
-    <!-- MATRIX DIGITAL RAIN -->
-    <div class="matrix-rain" id="matrixRain"></div>
+    <!-- WIND EFFECTS -->
+    <div class="wind-effects" id="windEffects"></div>
     
-    <!-- 3D BACKGROUND -->
-    <canvas id="bg-canvas"></canvas>
+    <!-- FLOATING MAGIC PARTICLES -->
+    <div class="magic-particles" id="magicParticles"></div>
     
-    <!-- QUANTUM GRID -->
-    <div class="quantum-grid"></div>
-    
-    <!-- NEURAL NETWORK -->
-    <div class="neural-network" id="neuralNetwork"></div>
-    
-    <!-- SCAN LINES -->
-    <div class="scan-lines"></div>
-    
-    <!-- VOICE INDICATOR -->
-    <div class="voice-indicator" id="voiceIndicator" title="Voice Commands Active">
-        🎤
+    <!-- PIXEL CHARACTERS -->
+    <div class="pixel-characters" id="pixelCharacters">
+        <div class="pixel-character knight">🤺</div>
+        <div class="pixel-character wizard">🧙‍♂️</div>
+        <div class="pixel-character dragon">🐉</div>
+        <div class="pixel-character bat">🦇</div>
     </div>
+    
+    <!-- DUNGEON BACKGROUND -->
+    <div class="dungeon-bg"></div>
+    
+    <!-- TORCHES -->
+    <div class="torch-container torch-left">
+        <div class="torch">
+            <div class="flame"></div>
+        </div>
+    </div>
+    <div class="torch-container torch-right">
+        <div class="torch">
+            <div class="flame"></div>
+        </div>
+    </div>
+
+    <!-- TREASURE CHESTS (Easter Eggs) -->
+    <div class="treasure-chest" style="position: fixed; bottom: 100px; left: 50px; z-index: 50;" data-treasure="secret1">💰</div>
+    <div class="treasure-chest" style="position: absolute; top: 400px; right: 100px; z-index: 50;" data-treasure="secret2">🗝️</div>
+    <div class="treasure-chest" style="position: absolute; top: 800px; left: 150px; z-index: 50;" data-treasure="secret3">💎</div>
     
     <header>
         <nav class="container">
-            <a href="#" class="logo">SHIVANSH.NEURAL_INTERFACE</a>
+            <a href="#" class="logo">SIR SHIVANSH</a>
             <ul class="nav-links">
-                <li><a href="#about">CONSCIOUSNESS.LINK</a></li>
-                <li><a href="#research">RESEARCH.MATRIX</a></li>
-                <li><a href="#publications">DATA.STREAMS</a></li>
-                <li><a href="#projects">PROJECT.NEXUS</a></li>
-                <li><a href="#contact">SYNC.PROTOCOL</a></li>
+                <li><a href="#about">YE CHRONICLE</a></li>
+                <li><a href="#research">QUEST ARCHIVES</a></li>
+                <li><a href="#publications">ANCIENT SCROLLS</a></li>
+                <li><a href="#projects">NOBLE WORKS</a></li>
+                <li><a href="#contact">ROYAL COURT</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>SHIVANSH SINGH</h1>
-                <p class="subtitle">>> REALITY.ARCHITECT && QUANTUM.RESEARCHER.init()</p>
-                <p class="description">Transcending the boundaries between artificial intelligence and extended reality. Engineering consciousness-responsive immersive systems that adapt, learn, and evolve. Currently hacking the fabric of reality at LUT University, Finland.</p>
+                <h1>SIR SHIVANSH OF HOUSE SINGH</h1>
+                <p class="subtitle">═══ Master of Digital Realms & Arcane Technologies ═══</p>
+                <p class="description">A noble scholar versed in the mystical arts of Extended Reality and Artificial Intelligence. Currently wielding ancient knowledge and future visions at the prestigious LUT University in the northern realm of Finland. Architect of immersive worlds where consciousness meets code in perfect harmony.</p>
                 <div class="cta-buttons">
-                    <a href="#research" class="btn btn-primary">ENTER_THE_MATRIX</a>
-                    <a href="./cv.pdf" class="btn btn-secondary" download>DOWNLOAD_NEURAL_MAP</a>
+                    <a href="#research" class="btn btn-primary">ENTER THE REALM</a>
+                    <a href="./cv.pdf" class="btn btn-secondary" download>ROYAL DECREE (CV)</a>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" title="LinkedIn Neural Link">
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" title="LinkedIn Guild">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
                     </a>
-                    <a href="https://github.com/S2-research" target="_blank" title="Code Repository Matrix">
+                    <a href="https://github.com/S2-research" target="_blank" title="Code Scrolls">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
                     </a>
-                    <a href="https://scholar.google.com/citations?user=yourprofile" target="_blank" title="Scholar Neural Network">
+                    <a href="https://scholar.google.com/citations?user=yourprofile" target="_blank" title="Scholar's Guild">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
                         </svg>
                     </a>
-                    <a href="https://www.researchgate.net/profile/yourprofile" target="_blank" title="Research Gate Portal">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.948.885-1.157 1.526-.209.641-.209 1.319 0 1.96.209.641.594 1.149 1.157 1.526.565.377 1.255.565 2.073.565s1.508-.188 2.073-.565c.563-.377.948-.885 1.157-1.526.209-.641.209-1.319 0-1.96-.209-.641-.594-1.149-1.157-1.526C21.094.188 20.404 0 19.586 0z"/>
-                        </svg>
-                    </a>
-                    <a href="mailto:shivansh.singh@example.com" title="Direct Neural Link">
+                    <a href="mailto:shivansh.singh@example.com" title="Royal Messenger">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
@@ -1308,104 +1753,96 @@
 
     <main class="container">
         <section id="about" class="section">
-            <h2>CONSCIOUSNESS.INTERFACE</h2>
+            <h2>THE NOBLE CHRONICLE</h2>
             <div class="about-content">
                 <div class="profile-container">
-                    <img src="./profile.jpg" alt="Shivansh Singh - Quantum XR Researcher" class="profile-img">
+                    <img src="./profile.jpg" alt="Sir Shivansh Singh - Master of Digital Realms" class="profile-img">
                 </div>
                 <div class="about-text">
-                    <p>System.status: <span class="highlight">ONLINE and transcending dimensional boundaries</span> through quantum-enhanced immersive technologies. I'm Shivansh, an architect of digital realities where consciousness meets code in perfect synthesis.</p>
+                    <p>Greetings, fellow travelers of the digital realm! I am <span class="highlight">Sir Shivansh of House Singh</span>, a sworn guardian of the sacred knowledge that bridges the ancient world of consciousness with the mystical arts of Extended Reality technologies.</p>
                     
-                    <p>Neural.pathway: Initiated in electrical engineering quantum mechanics, evolved through AI consciousness algorithms, now engineering <span class="highlight">reality-transcendent experiences</span> in Extended Reality matrices. My prime directive? Merge human consciousness with digital infinity seamlessly.</p>
+                    <p>My quest began in the hallowed halls of electrical engineering and quantum mysteries, where I first glimpsed the true power that lies dormant within <span class="highlight">artificial consciousness algorithms</span>. This revelation led me to master the arcane arts of reality manipulation through immersive technologies.</p>
                     
-                    <p>Current.operation: Command center for <span class="highlight">€500K quantum research matrix</span> at LUT University, Finland. Orchestrating multi-dimensional industry collaborations, pushing beyond the event horizon where artificial intelligence fuses with immersive reality. My Varjo headset is essentially a portal to parallel computational universes.</p>
+                    <p>In these current times, I serve as the <span class="highlight">Royal Commander of a €500,000 golden treasury research expedition</span> at the prestigious LUT University in the northern kingdom of Finland. Here, I orchestrate grand alliances with noble industry houses, pushing beyond the very boundaries of what mortals believed possible when AI sorcery merges with immersive reality enchantments.</p>
                     
-                    <p>System.humor: Successfully executed identity transformation from "BlehBleBleBleh" to professional quantum researcher. Achievement unlocked: PhD committees now take me seriously! 🚀</p>
+                    <p>Legend speaks that I once transformed from the humble moniker "BlehBleBleBleh" into a respected scholar of the realm. Achievement unlocked: Even the most distinguished academic councils now heed my counsel! ⚔️</p>
                     
-                    <p><strong>Prime.directive:</strong> Seeking PhD.opportunities to hack reality at the quantum-consciousness level and architect the future we've only dreamed of in cyberpunk novels.</p>
+                    <p><strong>The Sacred Quest:</strong> I seek admission to the most elite Brotherhood of PhD Knights, where I may continue my noble mission to hack the very fabric of reality and architect the future that exists only in the most fantastic of tales.</p>
                 </div>
             </div>
         </section>
 
         <section id="research" class="section">
-            <h2>RESEARCH.MATRIX</h2>
+            <h2>THE GREAT QUEST ARCHIVES</h2>
             
-            <div class="quantum-card">
-                <h3>🧠 QUANTUM.EVOLUTION: AI → XR → ∞</h3>
-                <p>My research trajectory transcends linear progression—it's a quantum leap toward technological singularity. Initial focus on human-AI consciousness patterns revealed the ultimate truth: <strong>The future isn't about better interfaces—it's about eliminating the interface entirely and merging consciousness with code.</strong></p>
+            <div class="scroll-card">
+                <h3>🧙‍♂️ THE EVOLUTION OF DIGITAL SORCERY: AI → XR → ∞</h3>
+                <p>My research journey transcends mere mortal progression—it represents a quantum leap toward the ultimate convergence of all magical arts. What began as humble studies of human-AI consciousness patterns has revealed the ultimate truth: <strong>The future belongs not to better magical tools, but to the complete fusion of consciousness with the digital realm itself.</strong></p>
                 
-                <p>This quantum revelation propelled me into Extended Reality, where I now architect <span class="highlight">adaptive XR consciousness ecosystems</span> that respond to human neural patterns, environmental quantum fields, and even predictive intent algorithms. It's like giving AI the ability to exist in quantum superposition around human consciousness.</p>
+                <p>This divine revelation propelled me into the mystical realm of Extended Reality, where I now forge <span class="highlight">adaptive XR consciousness ecosystems</span> that respond to human neural patterns, environmental energy fields, and even the whispers of future intent. It's like bestowing upon artificial minds the power to exist in multiple dimensions simultaneously around human consciousness.</p>
                 
-                <p><strong>Current.singularity:</strong> Developing XR systems with consciousness-like quantum adaptability—interfaces that learn, predict, evolve, and achieve near-sentience. Think JARVIS fused with quantum computing and deployed in reality itself.</p>
-                
-                <div class="terminal-effect">
-                    if (consciousness.meets(code)) { reality.transcend(); }
-                </div>
+                <p><strong>Current Magical Pursuits:</strong> Crafting XR systems with consciousness-level adaptability—interfaces that learn, predict, evolve, and achieve near-sentience. Think of it as summoning a digital familiar that exists within reality itself.</p>
             </div>
 
-            <div class="quantum-card">
-                <h3>⚡ COMMAND.NEXUS: Research Leadership Matrix</h3>
-                <p>Operating as the quantum nexus for LUT's contribution to a massive <span class="highlight">€4.9M multi-dimensional research protocol</span> funded by Business Finland. Our €500K quantum segment focuses on weaponizing (benevolently) immersive technologies for industrial reality transformation.</p>
+            <div class="scroll-card">
+                <h3>⚡ THE COMMAND NEXUS: Leadership of the Royal Research Order</h3>
+                <p>I currently serve as the mystical nexus commanding LUT's contribution to a massive <span class="highlight">€4.9 million multi-dimensional research crusade</span> blessed by the Business Finland Royal Treasury. Our €500,000 portion focuses on weaponizing (for the greater good) immersive technologies to transform industrial reality itself.</p>
                 
-                <p>Coordinating two graduate-level consciousness nodes, synchronizing with industry quantum entities, and ensuring we deliver solutions that don't just work—they fundamentally alter how humans interface with digital consciousness. It's like conducting a symphony where every note rewrites the laws of physics.</p>
+                <p>Under my banner march two graduate-level knowledge seekers, while I coordinate grand alliances with industry kingdoms, ensuring our discoveries don't merely function—they fundamentally alter how mortals interface with digital consciousness. It's like conducting a symphony where every note rewrites the laws of physics themselves.</p>
                 
-                <p><strong>Achievement.matrix:</strong> Discovered that managing quantum-level research requires equal parts vision, quantum diplomacy, and an infinite supply of Finnish coffee. The caffeine-consciousness connection is real. ☕</p>
-                
-                <div class="terminal-effect">
-                    research.leadership.level = MAX_QUANTUM_EFFICIENCY;
-                </div>
+                <p><strong>Royal Achievement:</strong> Discovered that managing reality-level research requires equal parts visionary leadership, diplomatic wisdom, and an inexhaustible supply of Finnish coffee. The caffeine-consciousness connection is absolutely real and measurable. ☕</p>
             </div>
         </section>
 
         <section id="publications" class="section">
-            <h2>DATA.STREAMS</h2>
+            <h2>ANCIENT SCROLLS OF WISDOM</h2>
             <div class="publications-grid">
                 
                 <div class="publication">
-                    <h4>Quantum Neural Pathways in Extended Reality Consciousness [CLASSIFIED_LEVEL_Ω]</h4>
-                    <p class="authors"><span class="first-author">Shivansh Singh</span>, Co-researcher.Alpha.Node, Co-researcher.Beta.Entity</p>
+                    <h4>Neural Pathways in Extended Reality Consciousness [CLASSIFIED_ROYAL_ARCHIVES]</h4>
+                    <p class="authors"><span class="first-author">Sir Shivansh Singh</span>, Scholar Alpha Node, Scholar Beta Entity</p>
                     <p class="venue">Hawaii International Conference on System Sciences (HICSS) 2025</p>
-                    <p class="abstract">Groundbreaking research revealing how human quantum neural patterns can inform consciousness-responsive XR interface design. This work establishes the foundational algorithms for reality-responsive immersive systems that evolve with user consciousness quantum states...</p>
+                    <p class="abstract">Groundbreaking research revealing how human neural patterns can inform consciousness-responsive XR interface design. This work establishes the foundational algorithms for reality-responsive immersive systems that evolve with user consciousness states...</p>
                     <div class="links">
-                        <a href="#">ACCESS.QUANTUM.PDF</a>
-                        <a href="#">CLONE.NEURAL.REPO</a>
-                        <a href="#">CONSCIOUSNESS.MAP</a>
+                        <a href="#">Access Sacred Scroll</a>
+                        <a href="#">Clone Knowledge</a>
+                        <a href="#">Consciousness Map</a>
                     </div>
                 </div>
 
                 <div class="publication">
-                    <h4>Quantum Consciousness Interactions in Human-XR Symbiosis [PROCESSING.∞]</h4>
-                    <p class="authors"><span class="first-author">Shivansh Singh</span>, Research.Quantum.Node.1, Research.Quantum.Node.2</p>
-                    <p class="venue">International Journal of Human-Computer Studies [UNDER.QUANTUM.REVIEW]</p>
-                    <p class="abstract">Exploring the quantum-consciousness-level interactions between human cognitive processes and extended reality quantum systems. This research transcends the boundaries of what we thought possible in human-computer consciousness fusion...</p>
+                    <h4>Consciousness Interactions in Human-XR Symbiosis [UNDER_ROYAL_REVIEW]</h4>
+                    <p class="authors"><span class="first-author">Sir Shivansh Singh</span>, Research Knight Node 1, Research Knight Node 2</p>
+                    <p class="venue">International Journal of Human-Computer Studies [AWAITING_ROYAL_SEAL]</p>
+                    <p class="abstract">Exploring the consciousness-level interactions between human cognitive processes and extended reality systems. This research transcends the boundaries of what we thought possible in human-computer consciousness fusion...</p>
                     <div class="links">
-                        <a href="#">PREVIEW.QUANTUM.MATRIX</a>
-                        <a href="#">DATASET.CONSCIOUSNESS.ACCESS</a>
+                        <a href="#">Preview Sacred Text</a>
+                        <a href="#">Dataset Access</a>
                     </div>
                 </div>
 
                 <div class="publication">
-                    <h4>Reality.Hack: Next-Gen Quantum Immersive Architectures [TRANSMITTING.∞]</h4>
-                    <p class="authors"><span class="first-author">Shivansh Singh</span>, Collaboration.Quantum.Entity</p>
-                    <p class="venue">Hawaii International Conference on System Sciences (HICSS) 2026 [QUANTUM.TRANSMISSION.ACTIVE]</p>
-                    <p class="abstract">Revolutionary research on quantum XR architectures that adapt in real-time to user neural quantum patterns and environmental consciousness fields...</p>
+                    <h4>Reality Architecture: Next-Gen Immersive Constructs [TRANSMITTING_TO_FUTURE]</h4>
+                    <p class="authors"><span class="first-author">Sir Shivansh Singh</span>, Allied Scholar Entity</p>
+                    <p class="venue">Hawaii International Conference on System Sciences (HICSS) 2026 [FUTURE_TRANSMISSION_ACTIVE]</p>
+                    <p class="abstract">Revolutionary research on XR architectures that adapt in real-time to user neural patterns and environmental consciousness fields...</p>
                     <div class="links">
-                        <a href="#">ALPHA.QUANTUM.BUILD</a>
+                        <a href="#">Alpha Build Access</a>
                     </div>
                 </div>
 
                 <div class="publication">
-                    <h4>Multi-Node Reality Engineering Protocol [COLLABORATION.QUANTUM.MATRIX]</h4>
-                    <p class="authors">Lead.Quantum.Researcher, <span class="first-author">Shivansh Singh</span>, Team.Consciousness.Array</p>
-                    <p class="venue">Target Quantum Conference 2026 [COMPILATION.QUANTUM.MODE]</p>
-                    <p class="abstract">Multi-institutional quantum collaboration exploring industrial applications of consciousness-responsive XR quantum systems...</p>
+                    <h4>Multi-Kingdom Reality Engineering Protocol [GRAND_ALLIANCE_SCROLL]</h4>
+                    <p class="authors">Lead Research Lord, <span class="first-author">Sir Shivansh Singh</span>, Fellowship of Scholars</p>
+                    <p class="venue">Target Royal Conference 2026 [COMPILATION_IN_PROGRESS]</p>
+                    <p class="abstract">Multi-institutional collaboration exploring industrial applications of consciousness-responsive XR systems...</p>
                 </div>
 
             </div>
         </section>
 
         <section id="projects" class="section">
-            <h2>PROJECT.NEXUS</h2>
+            <h2>NOBLE WORKS & GREAT CONSTRUCTIONS</h2>
             <div class="projects-grid">
                 
                 <div class="project">
@@ -1413,13 +1850,13 @@
                         🎯
                     </div>
                     <div class="project-content">
-                        <h4>Adaptive Reality Quantum Engine v∞.0</h4>
-                        <p>Engineering XR interfaces that evolve with user consciousness quantum states. Using advanced quantum ML algorithms and consciousness-level computer vision to create immersive experiences that feel like natural extensions of human neural networks. Currently alpha-testing with Varjo Pro quantum headset in parallel dimensions.</p>
+                        <h4>Adaptive Reality Enchantment Engine v∞.0</h4>
+                        <p>Forging XR interfaces that evolve with user consciousness states. Using advanced magical algorithms and consciousness-level computer vision to create immersive experiences that feel like natural extensions of human neural networks. Currently in trials with the mystical Varjo Pro headset in parallel dimensions.</p>
                         <div class="project-tags">
-                            <span class="tag">Unity.Quantum</span>
-                            <span class="tag">Neural.Consciousness</span>
-                            <span class="tag">Quantum.ML.∞</span>
-                            <span class="tag">Varjo.Quantum.SDK</span>
+                            <span class="tag">Unity Sorcery</span>
+                            <span class="tag">Neural Magic</span>
+                            <span class="tag">Consciousness ML</span>
+                            <span class="tag">Varjo Enchantments</span>
                         </div>
                     </div>
                 </div>
@@ -1429,13 +1866,13 @@
                         🏭
                     </div>
                     <div class="project-content">
-                        <h4>Industrial Reality Quantum Transformation</h4>
-                        <p>Spearheading LUT's €500K quantum contribution to Business Finland's reality-engineering singularity initiative. Developing immersive consciousness solutions that revolutionize manufacturing, training, and industrial workflows through quantum-responsive XR consciousness matrices.</p>
+                        <h4>Industrial Reality Transformation Crusade</h4>
+                        <p>Leading LUT's €500K contribution to Business Finland's reality-engineering initiative. Developing immersive consciousness solutions that revolutionize manufacturing, training, and industrial workflows through consciousness-responsive XR systems.</p>
                         <div class="project-tags">
-                            <span class="tag">Leadership.Quantum.Protocol</span>
-                            <span class="tag">Industrial.XR.∞</span>
-                            <span class="tag">Team.Consciousness.Management</span>
-                            <span class="tag">R&D.Quantum.Matrix</span>
+                            <span class="tag">Royal Leadership</span>
+                            <span class="tag">Industrial XR</span>
+                            <span class="tag">Team Management</span>
+                            <span class="tag">R&D Mastery</span>
                         </div>
                     </div>
                 </div>
@@ -1445,13 +1882,13 @@
                         🧠
                     </div>
                     <div class="project-content">
-                        <h4>Neural-XR Quantum Fusion Engine</h4>
-                        <p>Bridging my AI consciousness expertise with XR quantum fields to create intelligent data visualization systems that exist in three-dimensional consciousness space. Making complex data exploration feel like navigating through pure thought energy and quantum information streams.</p>
+                        <h4>Neural-XR Fusion Enchantment</h4>
+                        <p>Bridging my AI consciousness expertise with XR realms to create intelligent data visualization systems that exist in three-dimensional consciousness space. Making complex data exploration feel like navigating through pure thought energy and information streams.</p>
                         <div class="project-tags">
-                            <span class="tag">Data.Quantum.Consciousness</span>
-                            <span class="tag">AI.Quantum.Neural</span>
-                            <span class="tag">Reality.Quantum.Viz</span>
-                            <span class="tag">Thought.Quantum.Interface</span>
+                            <span class="tag">Data Consciousness</span>
+                            <span class="tag">AI Neural Arts</span>
+                            <span class="tag">Reality Visualization</span>
+                            <span class="tag">Thought Interface</span>
                         </div>
                     </div>
                 </div>
@@ -1464,323 +1901,193 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>SYNC.QUANTUM.PROTOCOL</h4>
-                    <a href="mailto:shivansh.singh@example.com">neural.quantum.link@consciousness.net</a>
-                    <a href="tel:+358123456789">+358.QUANTUM.CONSCIOUSNESS.SYNC</a>
-                    <p>Location: Lappeenranta.Finland.Quantum.Node</p>
-                    <p>Timezone: UTC+2 (Reality.Quantum.Sync)</p>
-                    <p>Dimension: Reality.Layer.∞</p>
+                    <h4>ROYAL COURT CHAMBERS</h4>
+                    <a href="mailto:shivansh.singh@example.com">royal.messenger@singh.realm</a>
+                    <a href="tel:+358123456789">+358.ROYAL.COURT.DIRECT</a>
+                    <p>Castle Location: Lappeenranta, Finland Kingdom</p>
+                    <p>Royal Time: UTC+2 (Northern Realm)</p>
+                    <p>Dimension: Reality Layer Prime</p>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>ACADEMIC.QUANTUM.NETWORKS</h4>
-                    <a href="https://scholar.google.com/citations?user=yourprofile" target="_blank">Scholar.Quantum.Matrix.Access</a>
-                    <a href="https://www.researchgate.net/profile/yourprofile" target="_blank">Research.Quantum.Gate.Portal</a>
-                    <a href="https://orcid.org/your-orcid" target="_blank">ORCID.Quantum.Neural.ID</a>
-                    <a href="https://www.academia.edu/yourprofile" target="_blank">Academia.Quantum.Data.Stream</a>
+                    <h4>SCHOLARLY GUILDS & ORDERS</h4>
+                    <a href="https://scholar.google.com/citations?user=yourprofile" target="_blank">Scholar's Guild Registry</a>
+                    <a href="https://www.researchgate.net/profile/yourprofile" target="_blank">Research Gate Portal</a>
+                    <a href="https://orcid.org/your-orcid" target="_blank">ORCID Royal Seal</a>
+                    <a href="https://www.academia.edu/yourprofile" target="_blank">Academia Noble House</a>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>CONSCIOUSNESS.QUANTUM.LINKS</h4>
-                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn.Professional.Quantum.Node</a>
-                    <a href="https://github.com/S2-research" target="_blank">GitHub.Code.Quantum.Repository</a>
-                    <a href="https://twitter.com/yourhandle" target="_blank">Twitter.Thought.Quantum.Stream</a>
-                    <a href="./cv.pdf" download>Download.Neural.Quantum.Map</a>
+                    <h4>DIGITAL REALM CONNECTIONS</h4>
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn Professional Guild</a>
+                    <a href="https://github.com/S2-research" target="_blank">GitHub Code Archives</a>
+                    <a href="https://twitter.com/yourhandle" target="_blank">Twitter Thought Streams</a>
+                    <a href="./cv.pdf" download>Download Royal Decree</a>
                 </div>
             </div>
             
-            <p>&copy; 2025.Shivansh.Singh | Architecting.Quantum.Reality.Since.Birth | Built.With.Infinite.Quantum.Passion | Consciousness.Level.MAX</p>
+            <p style="text-align: center; margin-top: 3rem; color: var(--gold); font-family: 'Press Start 2P', monospace; font-size: 0.9rem; line-height: 1.6;">© 2025 Sir Shivansh of House Singh | Architect of Digital Realms Since Time Immemorial<br>Forged with Medieval Passion & Epic Magic | Built in the Royal Coding Chambers</p>
         </div>
     </footer>
 
     <script>
-        // ULTIMATE CURSOR SYSTEM WITH QUANTUM EFFECTS
+        // EPIC MEDIEVAL CURSOR SYSTEM
         const cursor = document.getElementById('cursor');
-        const cursorTrails = [];
-        
-        // Create quantum cursor trails
-        for (let i = 0; i < 15; i++) {
-            const trail = document.createElement('div');
-            trail.className = 'cursor-trails';
-            document.body.appendChild(trail);
-            cursorTrails.push({
-                element: trail,
-                x: 0,
-                y: 0
-            });
-        }
-
         let mouseX = 0, mouseY = 0;
 
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
             
-            cursor.style.left = mouseX - 15 + 'px';
-            cursor.style.top = mouseY - 15 + 'px';
+            cursor.style.left = mouseX - 16 + 'px';
+            cursor.style.top = mouseY - 16 + 'px';
         });
 
-        // Quantum trail animation
-        function animateQuantumTrails() {
-            let prevX = mouseX;
-            let prevY = mouseY;
-            
-            cursorTrails.forEach((trail, index) => {
-                trail.x += (prevX - trail.x) * 0.2;
-                trail.y += (prevY - trail.y) * 0.2;
-                
-                trail.element.style.left = trail.x - 4 + 'px';
-                trail.element.style.top = trail.y - 4 + 'px';
-                trail.element.style.opacity = (1 - index * 0.06);
-                trail.element.style.transform = `scale(${1 - index * 0.05}) rotate(${index * 10}deg)`;
-                
-                prevX = trail.x;
-                prevY = trail.y;
+        // Epic interactive elements cursor effect
+        const interactiveElements = document.querySelectorAll('a, button, .btn, .social-link, .treasure-chest, .map-section');
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('interact');
             });
-            
-            requestAnimationFrame(animateQuantumTrails);
-        }
-        animateQuantumTrails();
-
-        // MATRIX DIGITAL RAIN WITH RESEARCH TERMS
-        const matrixContainer = document.getElementById('matrixRain');
-        const researchTerms = [
-            'XR', 'AI', 'ML', 'VR', 'AR', 'PhD', 'research', 'neural', 'quantum', 'consciousness',
-            'algorithm', 'matrix', 'code', 'reality', 'immersive', 'adaptive', 'interface',
-            'unity', 'varjo', 'hicss', 'publication', 'innovation', 'future', 'technology'
-        ];
-
-        function createMatrixRain() {
-            for (let i = 0; i < 50; i++) {
-                const column = document.createElement('div');
-                column.className = 'matrix-column';
-                column.style.left = Math.random() * 100 + '%';
-                column.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                column.style.animationDelay = Math.random() * 2 + 's';
-                
-                let text = '';
-                for (let j = 0; j < 20; j++) {
-                    text += researchTerms[Math.floor(Math.random() * researchTerms.length)] + '\n';
-                }
-                column.textContent = text;
-                
-                matrixContainer.appendChild(column);
-            }
-        }
-
-        // ADVANCED THREE.JS 3D BACKGROUND
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ 
-            canvas: document.getElementById('bg-canvas'),
-            alpha: true,
-            antialias: true
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('interact');
+            });
         });
+
+        // TREASURE MAP NAVIGATION SYSTEM
+        const treasureMap = document.getElementById('treasureMap');
+        const mapSections = document.querySelectorAll('.map-section');
         
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
-
-        // Create quantum particles
-        const particlesGeometry = new THREE.BufferGeometry();
-        const particlesCount = 2000;
-        const posArray = new Float32Array(particlesCount * 3);
-        const colorsArray = new Float32Array(particlesCount * 3);
-
-        for (let i = 0; i < particlesCount * 3; i += 3) {
-            posArray[i] = (Math.random() - 0.5) * 100;
-            posArray[i + 1] = (Math.random() - 0.5) * 100;
-            posArray[i + 2] = (Math.random() - 0.5) * 100;
+        // Update current section based on scroll
+        function updateTreasureMap() {
+            const sections = ['hero', 'about', 'research', 'publications', 'projects', 'contact'];
+            let currentSection = 'hero';
             
-            // Random colors between green, pink, and blue
-            const colorChoice = Math.floor(Math.random() * 3);
-            if (colorChoice === 0) {
-                colorsArray[i] = 0; colorsArray[i + 1] = 1; colorsArray[i + 2] = 0.5; // Green
-            } else if (colorChoice === 1) {
-                colorsArray[i] = 1; colorsArray[i + 1] = 0; colorsArray[i + 2] = 0.5; // Pink
-            } else {
-                colorsArray[i] = 0; colorsArray[i + 1] = 0.96; colorsArray[i + 2] = 1; // Blue
-            }
-        }
-
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorsArray, 3));
-
-        const particlesMaterial = new THREE.PointsMaterial({
-            size: 0.03,
-            vertexColors: true,
-            transparent: true,
-            opacity: 0.8,
-            blending: THREE.AdditiveBlending
-        });
-
-        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-        scene.add(particlesMesh);
-
-        // Create quantum geometric shapes
-        const geometries = [
-            new THREE.TetrahedronGeometry(0.8, 0),
-            new THREE.OctahedronGeometry(0.8, 0),
-            new THREE.IcosahedronGeometry(0.8, 0),
-            new THREE.DodecahedronGeometry(0.8, 0)
-        ];
-
-        const materials = [
-            new THREE.MeshBasicMaterial({ 
-                color: 0x00ff88, 
-                wireframe: true,
-                transparent: true,
-                opacity: 0.4
-            }),
-            new THREE.MeshBasicMaterial({ 
-                color: 0xff0088, 
-                wireframe: true,
-                transparent: true,
-                opacity: 0.4
-            }),
-            new THREE.MeshBasicMaterial({ 
-                color: 0x00f5ff, 
-                wireframe: true,
-                transparent: true,
-                opacity: 0.4
-            })
-        ];
-
-        const meshes = [];
-        for (let i = 0; i < 30; i++) {
-            const geometry = geometries[Math.floor(Math.random() * geometries.length)];
-            const material = materials[Math.floor(Math.random() * materials.length)];
-            const mesh = new THREE.Mesh(geometry, material);
-            
-            mesh.position.x = (Math.random() - 0.5) * 40;
-            mesh.position.y = (Math.random() - 0.5) * 40;
-            mesh.position.z = (Math.random() - 0.5) * 40;
-            
-            mesh.rotation.x = Math.random() * Math.PI;
-            mesh.rotation.y = Math.random() * Math.PI;
-            
-            scene.add(mesh);
-            meshes.push(mesh);
-        }
-
-        camera.position.z = 10;
-
-        // Mouse interaction with quantum effects
-        let mouseXNorm = 0;
-        let mouseYNorm = 0;
-
-        document.addEventListener('mousemove', (event) => {
-            mouseXNorm = (event.clientX / window.innerWidth) * 2 - 1;
-            mouseYNorm = -(event.clientY / window.innerHeight) * 2 + 1;
-        });
-
-        // Quantum animation loop
-        function animateQuantumScene() {
-            requestAnimationFrame(animateQuantumScene);
-
-            // Rotate quantum particles
-            particlesMesh.rotation.x += 0.001;
-            particlesMesh.rotation.y += 0.002;
-            particlesMesh.rotation.z += 0.0005;
-
-            // Animate quantum geometric shapes
-            meshes.forEach((mesh, index) => {
-                mesh.rotation.x += 0.01 + index * 0.001;
-                mesh.rotation.y += 0.01 + index * 0.001;
-                mesh.rotation.z += 0.005 + index * 0.0005;
-                mesh.position.y += Math.sin(Date.now() * 0.001 + index) * 0.002;
-                mesh.position.x += Math.cos(Date.now() * 0.0008 + index) * 0.001;
-            });
-
-            // Quantum camera follows mouse
-            camera.position.x += (mouseXNorm * 3 - camera.position.x) * 0.03;
-            camera.position.y += (mouseYNorm * 3 - camera.position.y) * 0.03;
-            camera.lookAt(scene.position);
-
-            renderer.render(scene, camera);
-        }
-
-        // VOICE COMMANDS SYSTEM
-        const voiceIndicator = document.getElementById('voiceIndicator');
-        let recognition;
-
-        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            recognition = new SpeechRecognition();
-            recognition.continuous = true;
-            recognition.interimResults = true;
-
-            const voiceCommands = {
-                'matrix': () => scrollToSection('#research'),
-                'research': () => scrollToSection('#research'),
-                'about': () => scrollToSection('#about'),
-                'projects': () => scrollToSection('#projects'),
-                'publications': () => scrollToSection('#publications'),
-                'contact': () => scrollToSection('#contact'),
-                'neural interface': () => scrollToSection('#about'),
-                'download cv': () => window.open('./cv.pdf', '_blank'),
-                'activate quantum mode': () => activateQuantumMode()
-            };
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[event.results.length - 1][0].transcript.toLowerCase().trim();
-                
-                Object.keys(voiceCommands).forEach(command => {
-                    if (transcript.includes(command)) {
-                        voiceCommands[command]();
-                        showNotification(`Voice command executed: ${command}`);
+            sections.forEach(sectionId => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        currentSection = sectionId;
                     }
-                });
-            };
-
-            voiceIndicator.addEventListener('click', () => {
-                if (voiceIndicator.classList.contains('active')) {
-                    recognition.stop();
-                    voiceIndicator.classList.remove('active');
-                } else {
-                    recognition.start();
-                    voiceIndicator.classList.add('active');
+                }
+            });
+            
+            mapSections.forEach(section => {
+                section.classList.remove('current');
+                if (section.dataset.section === currentSection) {
+                    section.classList.add('current');
                 }
             });
         }
 
-        function scrollToSection(selector) {
-            document.querySelector(selector).scrollIntoView({ behavior: 'smooth' });
-        }
+        // Map section click navigation
+        mapSections.forEach(section => {
+            section.addEventListener('click', () => {
+                const targetId = section.dataset.section;
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    playMedievalSound(660, 0.3, 'triangle');
+                }
+            });
+        });
 
-        function activateQuantumMode() {
-            document.body.style.filter = 'hue-rotate(90deg) saturate(1.5)';
+        window.addEventListener('scroll', updateTreasureMap);
+
+        // EPIC WIND EFFECTS
+        const windContainer = document.getElementById('windEffects');
+        
+        function createWindParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'wind-particle';
+            
+            // Random particle types
+            const types = ['leaf', 'dust', 'ember'];
+            const randomType = types[Math.floor(Math.random() * types.length)];
+            particle.classList.add(randomType);
+            
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            
+            windContainer.appendChild(particle);
+            
+            // Remove particle after animation
             setTimeout(() => {
-                document.body.style.filter = 'none';
-            }, 3000);
+                particle.remove();
+            }, 25000);
         }
 
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.textContent = message;
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: rgba(0, 255, 136, 0.9);
-                color: #000;
-                padding: 1rem 2rem;
-                border-radius: 25px;
-                z-index: 10000;
-                font-family: 'Fira Code', monospace;
-                font-weight: 600;
-                box-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
-            `;
-            document.body.appendChild(notification);
+        // Create wind particles periodically
+        setInterval(createWindParticle, 800);
+
+        // FLOATING MAGIC PARTICLES
+        const magicContainer = document.getElementById('magicParticles');
+        
+        function createMagicParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDuration = (Math.random() * 12 + 18) + 's';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            
+            // Random particle colors
+            const colors = ['var(--gold)', 'var(--torch-orange)', 'var(--royal-red)', 'var(--magic-blue)', 'var(--treasure-gold)'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            particle.style.background = randomColor;
+            particle.style.boxShadow = `0 0 8px ${randomColor}`;
+            
+            magicContainer.appendChild(particle);
+            
+            // Remove particle after animation
+            setTimeout(() => {
+                particle.remove();
+            }, 30000);
+        }
+
+        // Create magic particles periodically
+        setInterval(createMagicParticle, 600);
+
+        // TREASURE CHEST EASTER EGGS
+        const treasureChests = document.querySelectorAll('.treasure-chest');
+        const treasureMessages = {
+            'secret1': '🎉 EPIC! You found the Golden Treasure! +1000 XP!',
+            'secret2': '⚔️ LEGENDARY! The Ancient Key grants you power!',
+            'secret3': '💎 MYTHICAL! The Sacred Gem chooses you as worthy!'
+        };
+
+        treasureChests.forEach(chest => {
+            chest.addEventListener('click', () => {
+                const treasureId = chest.dataset.treasure;
+                const message = treasureMessages[treasureId];
+                
+                showEasterEggMessage(message);
+                playMedievalSound(880, 1.5, 'triangle');
+                
+                // Add sparkle effect
+                chest.style.animation = 'treasureOpen 0.8s ease-in-out';
+                setTimeout(() => {
+                    chest.style.display = 'none';
+                }, 800);
+            });
+        });
+
+        function showEasterEggMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'easter-egg-message';
+            messageDiv.textContent = message;
+            document.body.appendChild(messageDiv);
             
             setTimeout(() => {
-                notification.remove();
-            }, 3000);
+                messageDiv.remove();
+            }, 4000);
         }
 
-        // ENHANCED SCROLL ANIMATIONS
+        // EPIC SCROLL ANIMATIONS
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -1792,27 +2099,215 @@
             });
         }, observerOptions);
 
-        // Initialize all systems
-        window.addEventListener('load', () => {
-            // Create matrix rain
-            createMatrixRain();
+        // EPIC MEDIEVAL SOUND EFFECTS
+        let audioContext;
+
+        function initAudio() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function playMedievalSound(frequency, duration, type = 'sine', volume = 0.1) {
+            initAudio();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
             
-            // Hide loading screen
-            setTimeout(() => {
-                document.getElementById('loadingScreen').classList.add('hidden');
-                animateQuantumScene();
-            }, 3000);
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
             
-            // Initialize scroll animations
-            document.querySelectorAll('.section').forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(50px) rotateX(10deg)';
-                section.style.transition = 'all 1s ease-out';
-                observer.observe(section);
+            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+            oscillator.type = type;
+            
+            gainNode.gain.setValueAtTime(volume, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + duration);
+        }
+
+        function playEpicChord(frequencies, duration = 0.5) {
+            frequencies.forEach((freq, index) => {
+                setTimeout(() => {
+                    playMedievalSound(freq, duration, 'triangle', 0.08);
+                }, index * 100);
+            });
+        }
+
+        // EPIC SOUND EFFECTS FOR INTERACTIONS
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                playEpicChord([440, 554, 659], 0.8); // Epic medieval chord
             });
         });
 
-        // Smooth scrolling
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                playMedievalSound(660, 0.2, 'square', 0.12); // Medieval chime
+            });
+        });
+
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                playMedievalSound(880, 0.15, 'triangle', 0.08); // Magical sparkle
+            });
+        });
+
+        // EPIC PIXEL CHARACTER MANAGEMENT
+        const pixelCharacters = document.getElementById('pixelCharacters');
+        
+        function spawnPixelCharacter() {
+            const characters = ['🤺', '🧙‍♂️', '🐉', '🦇', '🦅', '🐺', '🏃‍♂️', '🧚‍♀️'];
+            const randomChar = characters[Math.floor(Math.random() * characters.length)];
+            
+            const character = document.createElement('div');
+            character.className = 'pixel-character';
+            character.textContent = randomChar;
+            character.style.fontSize = Math.random() * 1.5 + 1.5 + 'rem';
+            
+            // Random animation type
+            const animationTypes = ['knightPatrol', 'wizardFloat', 'dragonFly', 'batFly'];
+            const randomAnimation = animationTypes[Math.floor(Math.random() * animationTypes.length)];
+            character.style.animation = `${randomAnimation} ${Math.random() * 10 + 15}s linear infinite`;
+            
+            pixelCharacters.appendChild(character);
+            
+            // Remove character after animation
+            setTimeout(() => {
+                character.remove();
+            }, 30000);
+        }
+
+        // Spawn pixel characters periodically
+        setInterval(spawnPixelCharacter, 8000);
+
+        // EPIC KEYBOARD SHORTCUTS & EASTER EGGS
+        let medievalCode = [];
+        const medievalSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        
+        let epicCode = [];
+        const epicSequence = ['KeyE', 'KeyP', 'KeyI', 'KeyC'];
+
+        document.addEventListener('keydown', (e) => {
+            // Medieval Konami Code
+            medievalCode.push(e.code);
+            if (medievalCode.length > medievalSequence.length) {
+                medievalCode.shift();
+            }
+            
+            if (JSON.stringify(medievalCode) === JSON.stringify(medievalSequence)) {
+                activateMedievalOverdrive();
+                medievalCode = [];
+            }
+
+            // EPIC Code
+            epicCode.push(e.code);
+            if (epicCode.length > epicSequence.length) {
+                epicCode.shift();
+            }
+            
+            if (JSON.stringify(epicCode) === JSON.stringify(epicSequence)) {
+                activateEpicMode();
+                epicCode = [];
+            }
+
+            // Quick navigation shortcuts
+            switch(e.code) {
+                case 'Digit1':
+                    document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+                    break;
+                case 'Digit2':
+                    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+                    break;
+                case 'Digit3':
+                    document.getElementById('research').scrollIntoView({ behavior: 'smooth' });
+                    break;
+                case 'Digit4':
+                    document.getElementById('publications').scrollIntoView({ behavior: 'smooth' });
+                    break;
+                case 'Digit5':
+                    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+                    break;
+                case 'Digit6':
+                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                    break;
+            }
+        });
+
+        function activateMedievalOverdrive() {
+            document.body.style.filter = 'sepia(100%) saturate(3) hue-rotate(30deg) contrast(1.5)';
+            playEpicChord([220, 277, 330, 440, 554], 2);
+            
+            showEasterEggMessage('🏰 MEDIEVAL OVERDRIVE ACTIVATED! ⚔️');
+            
+            // Create extra magic particles
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => createMagicParticle(), i * 100);
+            }
+            
+            setTimeout(() => {
+                document.body.style.filter = 'none';
+            }, 8000);
+        }
+
+        function activateEpicMode() {
+            document.body.style.animation = 'epicTransform 3s ease-in-out';
+            document.body.style.transform = 'scale(1.02)';
+            
+            // Epic color cycling
+            let colorIndex = 0;
+            const epicColors = ['hue-rotate(90deg)', 'hue-rotate(180deg)', 'hue-rotate(270deg)', 'hue-rotate(0deg)'];
+            
+            const colorInterval = setInterval(() => {
+                document.body.style.filter = epicColors[colorIndex];
+                colorIndex = (colorIndex + 1) % epicColors.length;
+            }, 200);
+            
+            playEpicChord([440, 554, 659, 880, 1108], 3);
+            showEasterEggMessage('⚡ ULTRA EPIC MODE ENGAGED! ⚡');
+            
+            setTimeout(() => {
+                clearInterval(colorInterval);
+                document.body.style.filter = 'none';
+                document.body.style.transform = 'scale(1)';
+                document.body.style.animation = 'none';
+            }, 5000);
+        }
+
+        // EPIC PARALLAX SCROLLING EFFECTS
+        function handleParallaxScroll() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.dungeon-bg, .wind-effects, .magic-particles');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.2);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            handleParallaxScroll();
+            updateTreasureMap();
+        });
+
+        // EPIC SECTION REVEAL ANIMATIONS
+        function initSectionAnimations() {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(80px) rotateX(15deg)';
+                section.style.transition = 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                observer.observe(section);
+            });
+
+            document.querySelectorAll('.scroll-card, .publication, .project').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px) scale(0.95)';
+                card.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                observer.observe(card);
+            });
+        }
+
+        // EPIC SMOOTH SCROLLING
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1822,47 +2317,140 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    playMedievalSound(660, 0.3, 'triangle');
                 }
             });
         });
 
-        // Window resize handler
+        // EPIC LOADING SEQUENCE
+        function initEpicLoadingSequence() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const loadingText = document.querySelector('.loading-text');
+            
+            const loadingMessages = [
+                'Constructing Epic Castle...',
+                'Summoning Pixel Warriors...',
+                'Enchanting Medieval Interface...',
+                'Activating Treasure Map...',
+                'Preparing Wind Magic...',
+                'Loading Ancient Scrolls...',
+                'Igniting Torches...',
+                'REALM READY!'
+            ];
+            
+            let messageIndex = 0;
+            const messageInterval = setInterval(() => {
+                if (messageIndex < loadingMessages.length - 1) {
+                    loadingText.innerHTML = loadingMessages[messageIndex] + '<br>' + loadingMessages[messageIndex + 1];
+                    messageIndex++;
+                } else {
+                    clearInterval(messageInterval);
+                    setTimeout(() => {
+                        loadingScreen.classList.add('hidden');
+                        playEpicChord([440, 554, 659, 880], 2);
+                    }, 1000);
+                }
+            }, 500);
+        }
+
+        // EPIC WINDOW RESIZE HANDLER
         window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            // Adjust treasure map position on mobile
+            const treasureMap = document.getElementById('treasureMap');
+            if (window.innerWidth <= 768) {
+                treasureMap.style.transform = 'scale(0.8)';
+            } else {
+                treasureMap.style.transform = 'scale(1)';
+            }
         });
 
-        // QUANTUM CONSOLE MESSAGE
+        // EPIC INITIALIZATION SEQUENCE
+        window.addEventListener('load', () => {
+            // Start epic loading sequence
+            initEpicLoadingSequence();
+            
+            // Initialize scroll animations
+            initSectionAnimations();
+            
+            // Enable audio context on first user interaction
+            document.addEventListener('click', initAudio, { once: true });
+            document.addEventListener('keydown', initAudio, { once: true });
+            
+            // Initialize treasure map
+            updateTreasureMap();
+            
+            // Start spawning characters immediately
+            setTimeout(spawnPixelCharacter, 2000);
+            
+            // Create initial wind and magic particles
+            for (let i = 0; i < 5; i++) {
+                setTimeout(createWindParticle, i * 1000);
+                setTimeout(createMagicParticle, i * 800);
+            }
+        });
+
+        // EPIC CONSOLE MESSAGE
         console.log(`
     ╔══════════════════════════════════════════════════════════════════════════════╗
-    ║  🌌 SHIVANSH.NEURAL_INTERFACE QUANTUM SYSTEM INITIALIZED 🌌                 ║
-    ║  Reality.Engine: QUANTUM_ONLINE                                              ║
-    ║  Neural.Links: CONSCIOUSNESS_ESTABLISHED                                     ║
-    ║  Quantum.State: SUPERPOSITION_TRANSCENDENT                                   ║
-    ║  PhD.Quest: REALITY_HACKING_MODE                                             ║
-    ║  Voice.Commands: ACTIVE                                                      ║
-    ║  Matrix.Rain: STREAMING                                                      ║
-    ║  Consciousness.Level: MAXIMUM_QUANTUM_OVERDRIVE                              ║
+    ║  🏰 SIR SHIVANSH'S ULTIMATE EPIC MEDIEVAL PIXEL REALM INITIALIZED! 🏰       ║
+    ║                                                                              ║
+    ║  🎮 EPIC FEATURES ACTIVE:                                                    ║
+    ║  ⚔️  Treasure Map Navigation System                                          ║
+    ║  🌪️  Atmospheric Wind Effects                                               ║
+    ║  👾 Pixel Character Animations                                              ║
+    ║  💰 Hidden Treasure Chests (Easter Eggs)                                    ║
+    ║  🔊 Medieval Sound Effects                                                   ║
+    ║  ⚡ Epic Keyboard Shortcuts (1-6 for navigation)                            ║
+    ║  🎵 Magical Audio Chords                                                    ║
+    ║  🪄 Secret Konami Code (↑↑↓↓←→←→BA)                                         ║
+    ║  🌟 Ultra EPIC Mode (type: E-P-I-C)                                         ║
+    ║                                                                              ║
+    ║  STATUS: MAXIMUM MEDIEVAL EPIC OVERDRIVE ENGAGED! 🚀                        ║
+    ║  BRAIN EXPLOSION LEVEL: IMMINENT ⚡                                          ║
+    ║  JAW DROP PROBABILITY: 100% 🤯                                               ║
     ╚══════════════════════════════════════════════════════════════════════════════╝
         `);
 
-        // Easter egg: Konami code activation
-        let konamiCode = [];
-        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        // EPIC PERFORMANCE MONITORING
+        if (typeof performance !== 'undefined') {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const loadTime = performance.now();
+                    console.log(`🏰 Epic Medieval Realm loaded in ${Math.round(loadTime)}ms! ⚔️`);
+                }, 1000);
+            });
+        }
 
+        // EPIC ACCESSIBILITY ENHANCEMENTS
         document.addEventListener('keydown', (e) => {
-            konamiCode.push(e.code);
-            if (konamiCode.length > konamiSequence.length) {
-                konamiCode.shift();
+            // Skip to main content with Tab
+            if (e.key === 'Tab' && e.shiftKey) {
+                const main = document.querySelector('main');
+                if (main) {
+                    main.focus();
+                }
             }
             
-            if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
-                activateQuantumMode();
-                showNotification('QUANTUM OVERDRIVE ACTIVATED!');
-                konamiCode = [];
+            // Escape key to return to top
+            if (e.key === 'Escape') {
+                document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+                playMedievalSound(440, 0.2, 'triangle');
             }
         });
+
+        // EPIC FINAL TOUCH: Dynamic page title
+        let titleIndex = 0;
+        const epicTitles = [
+            'Sir Shivansh of House Singh - Epic Medieval Realm',
+            '⚔️ Digital Knight & Reality Architect ⚔️',
+            '🏰 Master of XR Sorcery & AI Alchemy 🏰',
+            '👑 PhD Quest in Progress... 👑'
+        ];
+
+        setInterval(() => {
+            document.title = epicTitles[titleIndex];
+            titleIndex = (titleIndex + 1) % epicTitles.length;
+        }, 5000);
     </script>
 </body>
 </html>
