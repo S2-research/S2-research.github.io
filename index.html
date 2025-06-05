@@ -1,12 +1,10 @@
-#### Medieval style
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sir Shivansh of House Singh - Master of Digital Realms & Arcane Technologies</title>
-    <meta name="description" content="Shivansh Singh - Epic Pixel Art Adventure Portfolio - Master of XR Sorcery and AI Alchemy">
+    <meta name="description" content="Shivansh Singh - Epic Sprite Animation Adventure Portfolio - Master of XR Sorcery and AI Alchemy">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
@@ -299,7 +297,7 @@
             75% { transform: translate(-3px, 5px) scale(1.01); }
         }
 
-        /* PIXEL CHARACTERS */
+        /* EPIC SPRITE CHARACTERS */
         .pixel-characters {
             position: fixed;
             top: 0;
@@ -313,27 +311,110 @@
 
         .pixel-character {
             position: absolute;
-            font-size: 2rem;
-            animation: characterWalk linear infinite;
+            width: 64px;
+            height: 64px;
+            background-size: contain;
+            background-repeat: no-repeat;
             filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.6));
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
         }
 
-        .knight {
-            animation: knightPatrol 15s linear infinite;
+        /* CHARACTER SPRITE ANIMATIONS */
+        .sprite-walk {
+            background-image: url('https://s2-research.github.io/assets/sprites/characters/Walk.png');
+            animation: walkSprite 1.4s steps(7) infinite, knightPatrol 15s linear infinite;
         }
 
-        .wizard {
-            animation: wizardFloat 20s linear infinite;
+        .sprite-run {
+            background-image: url('https://s2-research.github.io/assets/sprites/characters/Run.png');
+            animation: runSprite 0.8s steps(9) infinite, wizardFloat 12s linear infinite;
         }
 
-        .dragon {
-            animation: dragonFly 25s linear infinite;
+        .sprite-attack1 {
+            background-image: url('https://s2-research.github.io/assets/sprites/characters/Attack_1.png');
+            animation: attack1Sprite 1s steps(4) infinite, dragonFly 20s linear infinite;
         }
 
-        .bat {
-            animation: batFly 8s linear infinite;
+        .sprite-attack2 {
+            background-image: url('https://s2-research.github.io/assets/sprites/characters/Attack_2.png');
+            animation: attack2Sprite 1.2s steps(4) infinite, batFly 10s linear infinite;
         }
 
+        /* MAGIC EFFECT SPRITES */
+        .magic-effect {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            filter: drop-shadow(0 0 8px var(--torch-orange));
+            image-rendering: pixelated;
+        }
+
+        .sprite-fireball {
+            background-image: url('https://s2-research.github.io/assets/sprites/characters/Fireball.png');
+            animation: fireballSprite 1s steps(12) infinite, magicFloat 15s linear infinite;
+        }
+
+        .sprite-flame-jet {
+            background-image: url('https://s2-research.github.io/assets/sprites/characters/Flame_jet.png');
+            animation: flameJetSprite 1.6s steps(16) infinite, flameStream 25s linear infinite;
+        }
+
+        .sprite-light-charge {
+            background-image: url('https://s2-research.github.io/assets/sprites/characters/Light_charge.png');
+            animation: lightChargeSprite 1.2s steps(8) infinite, magicFloat 18s linear infinite;
+        }
+
+        .sprite-magic-sphere {
+            background-image: url('https://s2-research.github.io/assets/sprites/characters/Magic_sphere.png');
+            animation: magicSphereSprite 1.4s steps(10) infinite, orbitalFloat 20s linear infinite;
+        }
+
+        /* SPRITE KEYFRAMES */
+        @keyframes walkSprite {
+            from { background-position-x: 0; }
+            to { background-position-x: -448px; } /* 7 frames × 64px */
+        }
+
+        @keyframes runSprite {
+            from { background-position-x: 0; }
+            to { background-position-x: -576px; } /* 9 frames × 64px */
+        }
+
+        @keyframes attack1Sprite {
+            from { background-position-x: 0; }
+            to { background-position-x: -256px; } /* 4 frames × 64px */
+        }
+
+        @keyframes attack2Sprite {
+            from { background-position-x: 0; }
+            to { background-position-x: -256px; } /* 4 frames × 64px */
+        }
+
+        @keyframes fireballSprite {
+            from { background-position-x: 0; }
+            to { background-position-x: -576px; } /* 12 frames × 48px */
+        }
+
+        @keyframes flameJetSprite {
+            from { background-position-x: 0; }
+            to { background-position-x: -768px; } /* 16 frames × 48px */
+        }
+
+        @keyframes lightChargeSprite {
+            from { background-position-x: 0; }
+            to { background-position-x: -384px; } /* 8 frames × 48px */
+        }
+
+        @keyframes magicSphereSprite {
+            from { background-position-x: 0; }
+            to { background-position-x: -480px; } /* 10 frames × 48px */
+        }
+
+        /* MOVEMENT ANIMATIONS */
         @keyframes knightPatrol {
             0% { transform: translateX(-100px) translateY(60vh); }
             50% { transform: translateX(calc(50vw - 50px)) translateY(60vh); }
@@ -358,29 +439,25 @@
             100% { transform: translateX(-50px) translateY(25vh); }
         }
 
-        /* TREASURE CHESTS */
-        .treasure-chest {
-            position: absolute;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-            animation: treasureGlint 3s ease-in-out infinite;
+        @keyframes magicFloat {
+            0% { transform: translateX(-100px) translateY(25vh) rotate(0deg) scale(1); }
+            25% { transform: translateX(30vw) translateY(15vh) rotate(90deg) scale(1.2); }
+            50% { transform: translateX(60vw) translateY(35vh) rotate(180deg) scale(1); }
+            75% { transform: translateX(85vw) translateY(20vh) rotate(270deg) scale(1.1); }
+            100% { transform: translateX(calc(100vw + 100px)) translateY(30vh) rotate(360deg) scale(1); }
         }
 
-        @keyframes treasureGlint {
-            0%, 100% { filter: drop-shadow(0 0 8px var(--gold)) brightness(1); }
-            50% { filter: drop-shadow(0 0 16px var(--treasure-gold)) brightness(1.3); }
+        @keyframes flameStream {
+            0% { transform: translateX(calc(100vw + 100px)) translateY(45vh) rotate(0deg); }
+            100% { transform: translateX(-100px) translateY(45vh) rotate(720deg); }
         }
 
-        .treasure-chest:hover {
-            transform: scale(1.3);
-            animation: treasureOpen 0.5s ease-in-out;
-        }
-
-        @keyframes treasureOpen {
-            0%, 100% { transform: scale(1.3) rotate(0deg); }
-            50% { transform: scale(1.5) rotate(10deg); }
+        @keyframes orbitalFloat {
+            0% { transform: translateX(-100px) translateY(35vh) rotate(0deg) scale(1); }
+            25% { transform: translateX(25vw) translateY(20vh) rotate(180deg) scale(1.3); }
+            50% { transform: translateX(50vw) translateY(50vh) rotate(360deg) scale(0.8); }
+            75% { transform: translateX(75vw) translateY(25vh) rotate(540deg) scale(1.2); }
+            100% { transform: translateX(calc(100vw + 100px)) translateY(40vh) rotate(720deg) scale(1); }
         }
 
         /* TORCHES */
@@ -1356,6 +1433,31 @@
             text-shadow: none;
         }
 
+        /* TREASURE CHESTS */
+        .treasure-chest {
+            position: absolute;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            animation: treasureGlint 3s ease-in-out infinite;
+        }
+
+        @keyframes treasureGlint {
+            0%, 100% { filter: drop-shadow(0 0 8px var(--gold)) brightness(1); }
+            50% { filter: drop-shadow(0 0 16px var(--treasure-gold)) brightness(1.3); }
+        }
+
+        .treasure-chest:hover {
+            transform: scale(1.3);
+            animation: treasureOpen 0.5s ease-in-out;
+        }
+
+        @keyframes treasureOpen {
+            0%, 100% { transform: scale(1.3) rotate(0deg); }
+            50% { transform: scale(1.5) rotate(10deg); }
+        }
+
         /* EPIC FOOTER */
         footer {
             background: linear-gradient(145deg, var(--deep-stone) 0%, var(--shadow-black) 100%);
@@ -1651,7 +1753,7 @@
     <!-- EPIC LOADING SCREEN -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-castle"></div>
-        <div class="loading-text">Constructing Epic Castle...<br>Summoning Pixel Warriors...<br>Preparing Legendary Interface...</div>
+        <div class="loading-text">Constructing Epic Castle...<br>Summoning Sprite Warriors...<br>Preparing Legendary Interface...</div>
     </div>
 
     <!-- TREASURE MAP NAVIGATION -->
@@ -1676,12 +1778,9 @@
     <!-- FLOATING MAGIC PARTICLES -->
     <div class="magic-particles" id="magicParticles"></div>
     
-    <!-- PIXEL CHARACTERS -->
+    <!-- EPIC SPRITE CHARACTERS -->
     <div class="pixel-characters" id="pixelCharacters">
-        <div class="pixel-character knight">🤺</div>
-        <div class="pixel-character wizard">🧙‍♂️</div>
-        <div class="pixel-character dragon">🐉</div>
-        <div class="pixel-character bat">🦇</div>
+        <!-- Sprites will be dynamically spawned here -->
     </div>
     
     <!-- DUNGEON BACKGROUND -->
@@ -1928,7 +2027,7 @@
                 </div>
             </div>
             
-            <p style="text-align: center; margin-top: 3rem; color: var(--gold); font-family: 'Press Start 2P', monospace; font-size: 0.9rem; line-height: 1.6;">© 2025 Sir Shivansh of House Singh | Architect of Digital Realms Since Time Immemorial<br>Forged with Medieval Passion & Epic Magic | Built in the Royal Coding Chambers</p>
+            <p style="text-align: center; margin-top: 3rem; color: var(--gold); font-family: 'Press Start 2P', monospace; font-size: 0.9rem; line-height: 1.6;">© 2025 Sir Shivansh of House Singh | Architect of Digital Realms Since Time Immemorial<br>Forged with Medieval Passion & Epic Sprite Magic | Built in the Royal Coding Chambers</p>
         </div>
     </footer>
 
@@ -2051,6 +2150,93 @@
         // Create magic particles periodically
         setInterval(createMagicParticle, 600);
 
+        // EPIC SPRITE CHARACTER MANAGEMENT
+        const pixelCharacters = document.getElementById('pixelCharacters');
+        
+        function spawnPixelCharacter() {
+            // Character sprite types with their CSS classes
+            const characterTypes = [
+                'sprite-walk',
+                'sprite-run', 
+                'sprite-attack1',
+                'sprite-attack2'
+            ];
+            
+            // Magic effect types
+            const magicTypes = [
+                'sprite-fireball',
+                'sprite-flame-jet',
+                'sprite-light-charge',
+                'sprite-magic-sphere'
+            ];
+            
+            // Combine character and magic types (favor characters)
+            const allTypes = [...characterTypes, ...characterTypes, ...magicTypes];
+            const randomType = allTypes[Math.floor(Math.random() * allTypes.length)];
+            
+            const character = document.createElement('div');
+            
+            // Check if it's a magic effect or character
+            if (magicTypes.includes(randomType)) {
+                character.className = 'magic-effect ' + randomType;
+            } else {
+                character.className = 'pixel-character ' + randomType;
+            }
+            
+            // Add random size variation
+            const scale = Math.random() * 0.4 + 0.8; // 0.8 to 1.2
+            character.style.transform = `scale(${scale})`;
+            
+            // Add random starting position
+            character.style.left = Math.random() * 100 + 'vw';
+            
+            pixelCharacters.appendChild(character);
+            
+            // Remove character after animation completes
+            const animationDuration = randomType.includes('run') ? 12000 : 
+                                    randomType.includes('flame-jet') ? 25000 :
+                                    randomType.includes('fireball') ? 15000 :
+                                    randomType.includes('light-charge') ? 18000 :
+                                    randomType.includes('magic-sphere') ? 20000 : 20000;
+            
+            setTimeout(() => {
+                if (character.parentNode) {
+                    character.remove();
+                }
+            }, animationDuration);
+        }
+
+        function spawnMagicEffect() {
+            const magicTypes = ['sprite-fireball', 'sprite-flame-jet', 'sprite-light-charge', 'sprite-magic-sphere'];
+            const randomType = magicTypes[Math.floor(Math.random() * magicTypes.length)];
+            
+            const effect = document.createElement('div');
+            effect.className = 'magic-effect ' + randomType;
+            
+            // Random positioning for magic effects
+            effect.style.left = Math.random() * 100 + 'vw';
+            
+            // Add glow effect
+            effect.style.filter = 'drop-shadow(0 0 12px var(--torch-orange)) brightness(1.2)';
+            
+            pixelCharacters.appendChild(effect);
+            
+            // Remove after animation
+            const duration = randomType.includes('flame-jet') ? 25000 : 
+                           randomType.includes('magic-sphere') ? 20000 :
+                           randomType.includes('light-charge') ? 18000 : 15000;
+            
+            setTimeout(() => {
+                if (effect.parentNode) {
+                    effect.remove();
+                }
+            }, duration);
+        }
+
+        // Spawn characters and effects periodically
+        setInterval(spawnPixelCharacter, 4000); // Every 4 seconds
+        setInterval(spawnMagicEffect, 8000);    // Magic effects every 8 seconds
+
         // TREASURE CHEST EASTER EGGS
         const treasureChests = document.querySelectorAll('.treasure-chest');
         const treasureMessages = {
@@ -2154,34 +2340,6 @@
                 playMedievalSound(880, 0.15, 'triangle', 0.08); // Magical sparkle
             });
         });
-
-        // EPIC PIXEL CHARACTER MANAGEMENT
-        const pixelCharacters = document.getElementById('pixelCharacters');
-        
-        function spawnPixelCharacter() {
-            const characters = ['🤺', '🧙‍♂️', '🐉', '🦇', '🦅', '🐺', '🏃‍♂️', '🧚‍♀️'];
-            const randomChar = characters[Math.floor(Math.random() * characters.length)];
-            
-            const character = document.createElement('div');
-            character.className = 'pixel-character';
-            character.textContent = randomChar;
-            character.style.fontSize = Math.random() * 1.5 + 1.5 + 'rem';
-            
-            // Random animation type
-            const animationTypes = ['knightPatrol', 'wizardFloat', 'dragonFly', 'batFly'];
-            const randomAnimation = animationTypes[Math.floor(Math.random() * animationTypes.length)];
-            character.style.animation = `${randomAnimation} ${Math.random() * 10 + 15}s linear infinite`;
-            
-            pixelCharacters.appendChild(character);
-            
-            // Remove character after animation
-            setTimeout(() => {
-                character.remove();
-            }, 30000);
-        }
-
-        // Spawn pixel characters periodically
-        setInterval(spawnPixelCharacter, 8000);
 
         // EPIC KEYBOARD SHORTCUTS & EASTER EGGS
         let medievalCode = [];
@@ -2331,7 +2489,7 @@
             
             const loadingMessages = [
                 'Constructing Epic Castle...',
-                'Summoning Pixel Warriors...',
+                'Summoning Sprite Warriors...',
                 'Enchanting Medieval Interface...',
                 'Activating Treasure Map...',
                 'Preparing Wind Magic...',
@@ -2383,6 +2541,15 @@
             
             // Start spawning characters immediately
             setTimeout(spawnPixelCharacter, 2000);
+            setTimeout(spawnMagicEffect, 4000);
+            
+            // Create initial characters
+            for (let i = 0; i < 3; i++) {
+                setTimeout(spawnPixelCharacter, i * 1500);
+            }
+            
+            // Create initial magic effects
+            setTimeout(spawnMagicEffect, 6000);
             
             // Create initial wind and magic particles
             for (let i = 0; i < 5; i++) {
@@ -2394,22 +2561,24 @@
         // EPIC CONSOLE MESSAGE
         console.log(`
     ╔══════════════════════════════════════════════════════════════════════════════╗
-    ║  🏰 SIR SHIVANSH'S ULTIMATE EPIC MEDIEVAL PIXEL REALM INITIALIZED! 🏰       ║
+    ║  🏰 SIR SHIVANSH'S ULTIMATE EPIC MEDIEVAL SPRITE REALM INITIALIZED! 🏰      ║
     ║                                                                              ║
     ║  🎮 EPIC FEATURES ACTIVE:                                                    ║
     ║  ⚔️  Treasure Map Navigation System                                          ║
     ║  🌪️  Atmospheric Wind Effects                                               ║
-    ║  👾 Pixel Character Animations                                              ║
+    ║  🧙‍♂️ ANIMATED SPRITE CHARACTERS (Walk, Run, Attack!)                       ║
+    ║  🔥 MAGICAL EFFECT SPRITES (Fireballs, Flame Jets, Light Charge!)           ║
     ║  💰 Hidden Treasure Chests (Easter Eggs)                                    ║
     ║  🔊 Medieval Sound Effects                                                   ║
     ║  ⚡ Epic Keyboard Shortcuts (1-6 for navigation)                            ║
     ║  🎵 Magical Audio Chords                                                    ║
     ║  🪄 Secret Konami Code (↑↑↓↓←→←→BA)                                         ║
     ║  🌟 Ultra EPIC Mode (type: E-P-I-C)                                         ║
+    ║  ✨ SPRITE SHEET ANIMATIONS (4 Character Types + 4 Magic Effects!)         ║
     ║                                                                              ║
-    ║  STATUS: MAXIMUM MEDIEVAL EPIC OVERDRIVE ENGAGED! 🚀                        ║
-    ║  BRAIN EXPLOSION LEVEL: IMMINENT ⚡                                          ║
-    ║  JAW DROP PROBABILITY: 100% 🤯                                               ║
+    ║  STATUS: MAXIMUM MEDIEVAL EPIC OVERDRIVE WITH SPRITES ENGAGED! 🚀           ║
+    ║  BRAIN EXPLOSION LEVEL: CRITICAL ⚡                                          ║
+    ║  JAW DROP PROBABILITY: 200% 🤯                                               ║
     ╚══════════════════════════════════════════════════════════════════════════════╝
         `);
 
@@ -2418,7 +2587,7 @@
             window.addEventListener('load', () => {
                 setTimeout(() => {
                     const loadTime = performance.now();
-                    console.log(`🏰 Epic Medieval Realm loaded in ${Math.round(loadTime)}ms! ⚔️`);
+                    console.log(`🏰 Epic Medieval Sprite Realm loaded in ${Math.round(loadTime)}ms! ⚔️`);
                 }, 1000);
             });
         }
@@ -2443,7 +2612,7 @@
         // EPIC FINAL TOUCH: Dynamic page title
         let titleIndex = 0;
         const epicTitles = [
-            'Sir Shivansh of House Singh - Epic Medieval Realm',
+            'Sir Shivansh of House Singh - Epic Sprite Realm',
             '⚔️ Digital Knight & Reality Architect ⚔️',
             '🏰 Master of XR Sorcery & AI Alchemy 🏰',
             '👑 PhD Quest in Progress... 👑'
