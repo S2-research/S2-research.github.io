@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sir Shivansh of House Singh - Master of Digital Realms & Arcane Technologies</title>
-    <meta name="description" content="Shivansh Singh - Epic Sprite Animation Adventure Portfolio - Master of XR Sorcery and AI Alchemy">
-    
+    <meta name="description" content="Shivansh Singh - Epic Pixel Art Adventure Portfolio - Master of XR Sorcery and AI Alchemy">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -35,6 +35,53 @@
             --treasure-gold: #FFEF94;
         }
 
+        /* Dynamic Theme Variables */
+        body.night-theme {
+            --stone-gray: #2a2a3a;
+            --deep-stone: #1a1a2a;
+            --dungeon-black: #0a0a1a;
+        }
+
+        body.dawn-theme {
+            --stone-gray: #4a3a3a;
+            --torch-orange: #FF7F50;
+        }
+
+        body.winter-theme {
+            --stone-gray: #4a4a5a;
+            --parchment: #E6F3FF;
+            --dark-parchment: #D0E8FF;
+        }
+
+        body.spring-theme {
+            --forest-green: #32CD32;
+            --parchment: #F0FFF0;
+        }
+
+        body.summer-theme {
+            --torch-orange: #FF8C00;
+            --gold: #FFE55C;
+        }
+
+        body.autumn-theme {
+            --torch-orange: #FF6B35;
+            --gold: #DAA520;
+            --forest-green: #8B4513;
+        }
+
+        body.scholar-mode {
+            --gold: #B8860B;
+            --torch-orange: #CD853F;
+        }
+
+        body.scholar-mode .hero h1 {
+            font-size: 2.8rem;
+        }
+
+        body.scholar-mode .hero .subtitle {
+            font-size: 1.6rem;
+        }
+
         body {
             font-family: 'VT323', monospace;
             background: var(--dungeon-black);
@@ -43,6 +90,7 @@
             cursor: none;
             position: relative;
             line-height: 1.2;
+            transition: all 0.5s ease;
         }
 
         /* EPIC CUSTOM MEDIEVAL CURSOR */
@@ -65,9 +113,8 @@
         }
 
         .cursor.interact {
-            transform: scale(1.8);
+            transform: scale(1.5);
             filter: drop-shadow(0 0 16px var(--torch-orange));
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect x="12" y="4" width="8" height="24" fill="%23FF6347"/><rect x="8" y="8" width="16" height="16" fill="%23FFD700"/><circle cx="16" cy="16" r="6" fill="%23FFEF94"/></svg>') no-repeat center;
         }
 
         /* TREASURE MAP NAVIGATION */
@@ -75,14 +122,14 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            width: 200px;
-            height: 150px;
+            width: 180px;
+            height: 140px;
             background: linear-gradient(145deg, var(--dark-parchment) 0%, var(--parchment) 100%);
             border: 4px solid var(--ancient-gold);
             border-radius: 12px;
-            z-index: 1000;
-            padding: 10px;
-            box-shadow: 
+            z-index: 1200;
+            padding: 8px;
+            box-shadow:
                 inset 0 0 0 2px var(--gold),
                 0 8px 16px rgba(0, 0, 0, 0.6);
             transition: all 0.3s ease;
@@ -90,7 +137,7 @@
 
         .treasure-map:hover {
             transform: scale(1.1);
-            box-shadow: 
+            box-shadow:
                 inset 0 0 0 2px var(--torch-orange),
                 0 12px 24px rgba(0, 0, 0, 0.8);
         }
@@ -173,7 +220,7 @@
             50% { transform: scale(1.3); }
         }
 
-        /* WIND EFFECTS */
+        /* REDUCED WIND EFFECTS */
         .wind-effects {
             position: fixed;
             top: 0;
@@ -183,36 +230,29 @@
             pointer-events: none;
             z-index: 2;
             overflow: hidden;
+            opacity: 0.7;
         }
 
         .wind-particle {
             position: absolute;
-            opacity: 0.6;
+            opacity: 0.4;
             animation: windBlow linear infinite;
         }
 
         .leaf {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: var(--forest-green);
             border-radius: 0 100% 0 100%;
             transform: rotate(45deg);
         }
 
         .dust {
-            width: 4px;
-            height: 4px;
-            background: var(--ancient-gold);
-            border-radius: 50%;
-            box-shadow: 0 0 4px var(--gold);
-        }
-
-        .ember {
             width: 3px;
             height: 3px;
-            background: var(--torch-orange);
+            background: var(--ancient-gold);
             border-radius: 50%;
-            box-shadow: 0 0 6px var(--torch-orange);
+            box-shadow: 0 0 3px var(--gold);
         }
 
         @keyframes windBlow {
@@ -221,10 +261,10 @@
                 opacity: 0;
             }
             10% {
-                opacity: 0.8;
+                opacity: 0.6;
             }
             90% {
-                opacity: 0.3;
+                opacity: 0.2;
             }
             100% {
                 transform: translateX(110vw) translateY(-10vh) rotate(720deg);
@@ -232,7 +272,7 @@
             }
         }
 
-        /* FLOATING MAGIC PARTICLES */
+        /* REDUCED MAGIC PARTICLES */
         .magic-particles {
             position: fixed;
             top: 0;
@@ -242,16 +282,17 @@
             pointer-events: none;
             z-index: 1;
             overflow: hidden;
+            opacity: 0.6;
         }
 
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
+            width: 3px;
+            height: 3px;
             background: var(--gold);
             border-radius: 50%;
             animation: float linear infinite;
-            box-shadow: 0 0 8px var(--gold);
+            box-shadow: 0 0 6px var(--gold);
         }
 
         @keyframes float {
@@ -260,15 +301,314 @@
                 opacity: 0;
             }
             10% {
-                opacity: 1;
+                opacity: 0.8;
             }
             90% {
-                opacity: 1;
+                opacity: 0.8;
             }
             100% {
                 transform: translateY(-10vh) rotate(360deg);
                 opacity: 0;
             }
+        }
+
+        /* DRAGON ORACLE SYSTEM */
+        .dragon-oracle {
+            position: fixed;
+            right: 20px;
+            bottom: 30px;
+            width: 70px;
+            height: 70px;
+            z-index: 1300;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+
+        .dragon-oracle.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .dragon-oracle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px var(--gold));
+            animation: dragonBreathe 3s ease-in-out infinite;
+        }
+
+        @keyframes dragonBreathe {
+            0%, 100% { 
+                transform: scale(1) translateY(0px);
+                filter: drop-shadow(0 0 15px var(--gold));
+            }
+            50% { 
+                transform: scale(1.05) translateY(-3px);
+                filter: drop-shadow(0 0 25px var(--torch-orange));
+            }
+        }
+
+        .dragon-oracle:hover img {
+            animation: dragonExcited 1s ease-in-out infinite;
+        }
+
+        @keyframes dragonExcited {
+            0%, 100% { 
+                transform: scale(1.1) translateY(-2px) rotate(-2deg);
+            }
+            50% { 
+                transform: scale(1.15) translateY(-8px) rotate(2deg);
+            }
+        }
+
+        /* ORACLE TOOLTIP */
+        .oracle-tooltip {
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            background: linear-gradient(145deg, var(--parchment), var(--dark-parchment));
+            color: var(--shadow-black);
+            padding: 15px 20px;
+            border-radius: 15px;
+            border: 3px solid var(--ancient-gold);
+            max-width: 300px;
+            margin-bottom: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transform: translateY(10px) scale(0.9);
+            transition: all 0.3s ease;
+            font-family: 'VT323', monospace;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            z-index: 2000;
+        }
+
+        .oracle-tooltip.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .oracle-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            right: 20px;
+            border: 10px solid transparent;
+            border-top-color: var(--ancient-gold);
+        }
+
+        /* RANDOM TREASURE */
+        .random-treasure {
+            position: absolute;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 50;
+            transition: all 0.3s ease;
+            animation: treasureGlint 3s ease-in-out infinite;
+        }
+
+        @keyframes treasureGlint {
+            0%, 100% { filter: drop-shadow(0 0 8px var(--gold)) brightness(1); }
+            50% { filter: drop-shadow(0 0 16px var(--treasure-gold)) brightness(1.3); }
+        }
+
+        .random-treasure:hover {
+            transform: scale(1.3);
+            animation: treasureOpen 0.5s ease-in-out;
+        }
+
+        @keyframes treasureOpen {
+            0%, 100% { transform: scale(1.3) rotate(0deg); }
+            50% { transform: scale(1.5) rotate(10deg); }
+        }
+
+        /* PROGRESS BARS */
+        .progress-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 220px;
+            z-index: 1100;
+            transition: all 0.3s ease;
+        }
+
+        .progress-bar {
+            background: linear-gradient(145deg, var(--stone-gray), var(--deep-stone));
+            border: 3px solid var(--ancient-gold);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .progress-label {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.6rem;
+            color: var(--gold);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .progress-fill-container {
+            background: var(--shadow-black);
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 2px solid var(--stone-gray);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), var(--torch-orange));
+            border-radius: 4px;
+            transition: width 1s ease;
+            position: relative;
+            animation: progressGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes progressGlow {
+            0%, 100% { box-shadow: 0 0 8px var(--gold); }
+            50% { box-shadow: 0 0 16px var(--torch-orange); }
+        }
+
+        /* RECRUITMENT CALL */
+        .recruitment-call {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(145deg, var(--royal-red), #660000);
+            color: var(--parchment);
+            padding: 15px 25px;
+            border: 4px solid var(--gold);
+            border-radius: 15px;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.8rem;
+            cursor: pointer;
+            z-index: 1250;
+            opacity: 0;
+            transform: translateY(100px) scale(0.8);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            max-width: 280px;
+        }
+
+        .recruitment-call.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .recruitment-call:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+            border-color: var(--torch-orange);
+        }
+
+        /* SKILL TREE */
+        .skill-tree {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-branch {
+            background: linear-gradient(145deg, var(--stone-gray), var(--deep-stone));
+            border: 4px solid var(--ancient-gold);
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .skill-branch:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .skill-branch h4 {
+            color: var(--gold);
+            font-family: 'Press Start 2P', monospace;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .skill-level {
+            background: var(--shadow-black);
+            height: 8px;
+            border-radius: 4px;
+            margin: 8px 0;
+            overflow: hidden;
+            border: 1px solid var(--stone-gray);
+        }
+
+        .skill-level-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--forest-green), var(--gold));
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+
+        /* CAREER PROGRESSION */
+        .career-timeline {
+            position: relative;
+            margin: 4rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 3rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(145deg, var(--gold), var(--ancient-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-right: 30px;
+            border: 4px solid var(--royal-red);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: linear-gradient(145deg, var(--parchment), var(--dark-parchment));
+            color: var(--shadow-black);
+            padding: 20px;
+            border-radius: 15px;
+            border: 3px solid var(--ancient-gold);
+            position: relative;
+        }
+
+        .timeline-backstory {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid var(--ancient-gold);
+            font-style: italic;
+            color: var(--royal-red);
+        }
+
+        .timeline-item:hover .timeline-backstory {
+            opacity: 1;
+            max-height: 200px;
         }
 
         /* DUNGEON STONE BACKGROUND */
@@ -278,15 +618,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(139, 0, 0, 0.05) 0%, transparent 50%),
-                linear-gradient(90deg, rgba(58, 58, 58, 0.4) 0%, transparent 2%, transparent 98%, rgba(58, 58, 58, 0.4) 100%),
-                linear-gradient(0deg, rgba(58, 58, 58, 0.4) 0%, transparent 2%, transparent 98%, rgba(58, 58, 58, 0.4) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><rect width="60" height="60" fill="%232a2a2a"/><rect x="0" y="0" width="30" height="30" fill="%233a3a3a" opacity="0.3"/><rect x="30" y="30" width="30" height="30" fill="%233a3a3a" opacity="0.3"/><circle cx="15" cy="15" r="2" fill="%23FFD700" opacity="0.1"/><circle cx="45" cy="45" r="2" fill="%23FF6347" opacity="0.1"/></svg>');
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(139, 0, 0, 0.03) 0%, transparent 50%),
+                linear-gradient(90deg, rgba(58, 58, 58, 0.3) 0%, transparent 2%, transparent 98%, rgba(58, 58, 58, 0.3) 100%),
+                linear-gradient(0deg, rgba(58, 58, 58, 0.3) 0%, transparent 2%, transparent 98%, rgba(58, 58, 58, 0.3) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><rect width="60" height="60" fill="%232a2a2a"/><rect x="0" y="0" width="30" height="30" fill="%233a3a3a" opacity="0.3"/><rect x="30" y="30" width="30" height="30" fill="%233a3a3a" opacity="0.3"/><circle cx="15" cy="15" r="2" fill="%23FFD700" opacity="0.08"/><circle cx="45" cy="45" r="2" fill="%23FF6347" opacity="0.08"/></svg>');
             background-size: 100px 100px, 100px 100px, 60px 60px, 60px 60px, 60px 60px;
             z-index: 0;
-            opacity: 0.8;
+            opacity: 0.6;
             animation: dungeonShift 40s ease-in-out infinite;
         }
 
@@ -297,178 +637,16 @@
             75% { transform: translate(-3px, 5px) scale(1.01); }
         }
 
-        /* EPIC SPRITE CHARACTERS */
-        .pixel-characters {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 5;
-            overflow: hidden;
-        }
-
-        .pixel-character {
-            position: absolute;
-            width: 64px;
-            height: 64px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.6));
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges;
-        }
-
-        /* CHARACTER SPRITE ANIMATIONS */
-        .sprite-walk {
-            background-image: url('https://s2-research.github.io/assets/sprites/characters/Walk.png');
-            animation: walkSprite 1.4s steps(7) infinite, knightPatrol 15s linear infinite;
-        }
-
-        .sprite-run {
-            background-image: url('https://s2-research.github.io/assets/sprites/characters/Run.png');
-            animation: runSprite 0.8s steps(9) infinite, wizardFloat 12s linear infinite;
-        }
-
-        .sprite-attack1 {
-            background-image: url('https://s2-research.github.io/assets/sprites/characters/Attack_1.png');
-            animation: attack1Sprite 1s steps(4) infinite, dragonFly 20s linear infinite;
-        }
-
-        .sprite-attack2 {
-            background-image: url('https://s2-research.github.io/assets/sprites/characters/Attack_2.png');
-            animation: attack2Sprite 1.2s steps(4) infinite, batFly 10s linear infinite;
-        }
-
-        /* MAGIC EFFECT SPRITES */
-        .magic-effect {
-            position: absolute;
-            width: 48px;
-            height: 48px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            filter: drop-shadow(0 0 8px var(--torch-orange));
-            image-rendering: pixelated;
-        }
-
-        .sprite-fireball {
-            background-image: url('https://s2-research.github.io/assets/sprites/characters/Fireball.png');
-            animation: fireballSprite 1s steps(12) infinite, magicFloat 15s linear infinite;
-        }
-
-        .sprite-flame-jet {
-            background-image: url('https://s2-research.github.io/assets/sprites/characters/Flame_jet.png');
-            animation: flameJetSprite 1.6s steps(16) infinite, flameStream 25s linear infinite;
-        }
-
-        .sprite-light-charge {
-            background-image: url('https://s2-research.github.io/assets/sprites/characters/Light_charge.png');
-            animation: lightChargeSprite 1.2s steps(8) infinite, magicFloat 18s linear infinite;
-        }
-
-        .sprite-magic-sphere {
-            background-image: url('https://s2-research.github.io/assets/sprites/characters/Magic_sphere.png');
-            animation: magicSphereSprite 1.4s steps(10) infinite, orbitalFloat 20s linear infinite;
-        }
-
-        /* SPRITE KEYFRAMES */
-        @keyframes walkSprite {
-            from { background-position-x: 0; }
-            to { background-position-x: -448px; } /* 7 frames × 64px */
-        }
-
-        @keyframes runSprite {
-            from { background-position-x: 0; }
-            to { background-position-x: -576px; } /* 9 frames × 64px */
-        }
-
-        @keyframes attack1Sprite {
-            from { background-position-x: 0; }
-            to { background-position-x: -256px; } /* 4 frames × 64px */
-        }
-
-        @keyframes attack2Sprite {
-            from { background-position-x: 0; }
-            to { background-position-x: -256px; } /* 4 frames × 64px */
-        }
-
-        @keyframes fireballSprite {
-            from { background-position-x: 0; }
-            to { background-position-x: -576px; } /* 12 frames × 48px */
-        }
-
-        @keyframes flameJetSprite {
-            from { background-position-x: 0; }
-            to { background-position-x: -768px; } /* 16 frames × 48px */
-        }
-
-        @keyframes lightChargeSprite {
-            from { background-position-x: 0; }
-            to { background-position-x: -384px; } /* 8 frames × 48px */
-        }
-
-        @keyframes magicSphereSprite {
-            from { background-position-x: 0; }
-            to { background-position-x: -480px; } /* 10 frames × 48px */
-        }
-
-        /* MOVEMENT ANIMATIONS */
-        @keyframes knightPatrol {
-            0% { transform: translateX(-100px) translateY(60vh); }
-            50% { transform: translateX(calc(50vw - 50px)) translateY(60vh); }
-            100% { transform: translateX(calc(100vw + 100px)) translateY(60vh); }
-        }
-
-        @keyframes wizardFloat {
-            0% { transform: translateX(calc(100vw + 100px)) translateY(30vh) rotate(0deg); }
-            100% { transform: translateX(-100px) translateY(30vh) rotate(360deg); }
-        }
-
-        @keyframes dragonFly {
-            0% { transform: translateX(-200px) translateY(10vh) scale(1); }
-            25% { transform: translateX(25vw) translateY(5vh) scale(1.2); }
-            50% { transform: translateX(50vw) translateY(15vh) scale(1); }
-            75% { transform: translateX(75vw) translateY(8vh) scale(1.1); }
-            100% { transform: translateX(calc(100vw + 200px)) translateY(12vh) scale(1); }
-        }
-
-        @keyframes batFly {
-            0% { transform: translateX(calc(100vw + 50px)) translateY(20vh); }
-            100% { transform: translateX(-50px) translateY(25vh); }
-        }
-
-        @keyframes magicFloat {
-            0% { transform: translateX(-100px) translateY(25vh) rotate(0deg) scale(1); }
-            25% { transform: translateX(30vw) translateY(15vh) rotate(90deg) scale(1.2); }
-            50% { transform: translateX(60vw) translateY(35vh) rotate(180deg) scale(1); }
-            75% { transform: translateX(85vw) translateY(20vh) rotate(270deg) scale(1.1); }
-            100% { transform: translateX(calc(100vw + 100px)) translateY(30vh) rotate(360deg) scale(1); }
-        }
-
-        @keyframes flameStream {
-            0% { transform: translateX(calc(100vw + 100px)) translateY(45vh) rotate(0deg); }
-            100% { transform: translateX(-100px) translateY(45vh) rotate(720deg); }
-        }
-
-        @keyframes orbitalFloat {
-            0% { transform: translateX(-100px) translateY(35vh) rotate(0deg) scale(1); }
-            25% { transform: translateX(25vw) translateY(20vh) rotate(180deg) scale(1.3); }
-            50% { transform: translateX(50vw) translateY(50vh) rotate(360deg) scale(0.8); }
-            75% { transform: translateX(75vw) translateY(25vh) rotate(540deg) scale(1.2); }
-            100% { transform: translateX(calc(100vw + 100px)) translateY(40vh) rotate(720deg) scale(1); }
-        }
-
         /* TORCHES */
         .torch-container {
             position: fixed;
-            top: 20px;
-            z-index: 100;
+            top: 50%;
+            z-index: 200;
+            transform: translateY(-50%);
         }
 
-        .torch-left { left: 20px; }
-        .torch-right { right: 240px; }
+        .torch-left { left: 5px; }
+        .torch-right { right: 5px; }
 
         .torch {
             width: 20px;
@@ -487,16 +665,16 @@
             height: 35px;
             background: linear-gradient(180deg, var(--torch-orange) 0%, var(--gold) 50%, var(--royal-red) 100%);
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            animation: megaFlicker 0.3s ease-in-out infinite alternate;
+            animation: flameFlicker 0.3s ease-in-out infinite alternate;
             filter: blur(1px);
         }
 
-        @keyframes megaFlicker {
-            0% { 
+        @keyframes flameFlicker {
+            0% {
                 transform: translateX(-50%) scale(1) rotate(-2deg);
                 opacity: 1;
             }
-            100% { 
+            100% {
                 transform: translateX(-50%) scale(1.2) rotate(2deg);
                 opacity: 0.7;
             }
@@ -513,10 +691,10 @@
             background: var(--torch-orange);
             border-radius: 50%;
             filter: blur(2px);
-            animation: innerMegaFlicker 0.2s ease-in-out infinite alternate;
+            animation: innerFlameFlicker 0.2s ease-in-out infinite alternate;
         }
 
-        @keyframes innerMegaFlicker {
+        @keyframes innerFlameFlicker {
             0% { opacity: 1; transform: translateX(-50%) scale(1); }
             100% { opacity: 0.5; transform: translateX(-50%) scale(1.3); }
         }
@@ -534,7 +712,7 @@
             background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
             border: 4px solid var(--gold);
             border-radius: 0;
-            box-shadow: 
+            box-shadow:
                 inset 0 0 0 2px var(--ancient-gold),
                 0 8px 0 var(--shadow-black),
                 0 8px 16px rgba(0, 0, 0, 0.8);
@@ -596,19 +774,19 @@
             font-size: 1.3rem;
             color: var(--gold);
             text-decoration: none;
-            text-shadow: 
+            text-shadow:
                 2px 2px 0 var(--ancient-gold),
                 4px 4px 8px var(--shadow-black);
-            animation: logoEpicGlow 4s ease-in-out infinite;
+            animation: logoGlow 4s ease-in-out infinite;
             position: relative;
         }
 
-        @keyframes logoEpicGlow {
-            0%, 100% { 
+        @keyframes logoGlow {
+            0%, 100% {
                 filter: drop-shadow(0 0 12px var(--gold));
                 transform: scale(1);
             }
-            50% { 
+            50% {
                 filter: drop-shadow(0 0 24px var(--torch-orange));
                 transform: scale(1.05);
             }
@@ -617,21 +795,21 @@
         .logo::before {
             content: '⚔️';
             margin-right: 12px;
-            animation: swordEpicSpin 6s linear infinite;
+            animation: swordSpin 6s linear infinite;
         }
 
         .logo::after {
             content: '🏰';
             margin-left: 12px;
-            animation: castleEpicBob 3s ease-in-out infinite alternate;
+            animation: castleBob 3s ease-in-out infinite alternate;
         }
 
-        @keyframes swordEpicSpin {
+        @keyframes swordSpin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        @keyframes castleEpicBob {
+        @keyframes castleBob {
             0% { transform: translateY(0) scale(1); }
             100% { transform: translateY(-6px) scale(1.1); }
         }
@@ -707,7 +885,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="epiccastle" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="%23FFD700" opacity="0.03"/><rect x="0" y="0" width="10" height="10" fill="%23B8860B" opacity="0.15"/><rect x="40" y="40" width="10" height="10" fill="%23B8860B" opacity="0.15"/><rect x="20" y="20" width="10" height="10" fill="%23FFD700" opacity="0.08"/><circle cx="25" cy="25" r="2" fill="%23FF6347" opacity="0.1"/></pattern></defs><rect width="200" height="200" fill="url(%23epiccastle)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="epiccastle" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="%23FFD700" opacity="0.02"/><rect x="0" y="0" width="10" height="10" fill="%23B8860B" opacity="0.1"/><rect x="40" y="40" width="10" height="10" fill="%23B8860B" opacity="0.1"/><rect x="20" y="20" width="10" height="10" fill="%23FFD700" opacity="0.05"/><circle cx="25" cy="25" r="2" fill="%23FF6347" opacity="0.08"/></pattern></defs><rect width="200" height="200" fill="url(%23epiccastle)"/></svg>');
             animation: epicCastlePattern 25s linear infinite;
             z-index: -1;
         }
@@ -728,28 +906,28 @@
             font-size: 3.2rem;
             margin-bottom: 2rem;
             color: var(--gold);
-            text-shadow: 
+            text-shadow:
                 2px 2px 0 var(--ancient-gold),
                 4px 4px 0 var(--royal-red),
                 6px 6px 12px var(--shadow-black);
-            animation: epicHeroGlow 5s ease-in-out infinite;
+            animation: heroGlow 5s ease-in-out infinite;
             position: relative;
         }
 
-        @keyframes epicHeroGlow {
-            0%, 100% { 
+        @keyframes heroGlow {
+            0%, 100% {
                 filter: drop-shadow(0 0 20px var(--gold));
                 transform: scale(1);
             }
-            25% { 
+            25% {
                 filter: drop-shadow(0 0 30px var(--torch-orange));
                 transform: scale(1.02);
             }
-            50% { 
+            50% {
                 filter: drop-shadow(0 0 40px var(--royal-red));
                 transform: scale(1.05);
             }
-            75% { 
+            75% {
                 filter: drop-shadow(0 0 35px var(--magic-blue));
                 transform: scale(1.03);
             }
@@ -762,10 +940,10 @@
             left: 50%;
             transform: translateX(-50%);
             font-size: 2.5rem;
-            animation: epicCrownFloat 4s ease-in-out infinite;
+            animation: crownFloat 4s ease-in-out infinite;
         }
 
-        @keyframes epicCrownFloat {
+        @keyframes crownFloat {
             0%, 100% { transform: translateX(-50%) translateY(0) rotate(-5deg) scale(1); }
             25% { transform: translateX(-50%) translateY(-8px) rotate(0deg) scale(1.1); }
             50% { transform: translateX(-50%) translateY(-15px) rotate(5deg) scale(1.2); }
@@ -778,7 +956,7 @@
             color: var(--torch-orange);
             font-family: 'VT323', monospace;
             text-shadow: 2px 2px 4px var(--shadow-black);
-            animation: epicTypewriter 8s steps(60) infinite;
+            animation: typewriter 8s steps(60) infinite;
             white-space: nowrap;
             overflow: hidden;
             border-right: 4px solid var(--gold);
@@ -787,7 +965,7 @@
             margin-right: auto;
         }
 
-        @keyframes epicTypewriter {
+        @keyframes typewriter {
             0% { width: 0; }
             30% { width: 100%; }
             70% { width: 100%; }
@@ -829,7 +1007,7 @@
             letter-spacing: 2px;
             font-family: 'Press Start 2P', monospace;
             text-shadow: none;
-            box-shadow: 
+            box-shadow:
                 inset 0 0 0 2px var(--gold),
                 0 8px 0 var(--shadow-black),
                 0 8px 16px rgba(0, 0, 0, 0.6);
@@ -874,7 +1052,7 @@
 
         .btn:hover {
             transform: translateY(-6px);
-            box-shadow: 
+            box-shadow:
                 inset 0 0 0 2px var(--torch-orange),
                 0 12px 0 var(--shadow-black),
                 0 12px 24px rgba(0, 0, 0, 0.8);
@@ -884,7 +1062,7 @@
 
         .btn:active {
             transform: translateY(3px);
-            box-shadow: 
+            box-shadow:
                 inset 0 0 0 2px var(--gold),
                 0 3px 0 var(--shadow-black),
                 0 3px 12px rgba(0, 0, 0, 0.6);
@@ -923,7 +1101,7 @@
             border: 4px solid var(--ancient-gold);
             position: relative;
             overflow: hidden;
-            box-shadow: 
+            box-shadow:
                 inset 0 0 0 2px var(--gold),
                 0 6px 12px rgba(0, 0, 0, 0.6);
         }
@@ -939,10 +1117,10 @@
             z-index: -1;
             opacity: 0;
             transition: opacity 0.3s ease;
-            animation: epicShieldRotate 6s linear infinite;
+            animation: shieldRotate 6s linear infinite;
         }
 
-        @keyframes epicShieldRotate {
+        @keyframes shieldRotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
@@ -953,7 +1131,7 @@
 
         .social-link:hover {
             transform: translateY(-8px) scale(1.2);
-            box-shadow: 
+            box-shadow:
                 inset 0 0 0 2px var(--torch-orange),
                 0 12px 20px rgba(0, 0, 0, 0.8);
             color: var(--torch-orange);
@@ -992,14 +1170,14 @@
             margin-bottom: 4rem;
             text-align: center;
             color: var(--gold);
-            text-shadow: 
+            text-shadow:
                 2px 2px 0 var(--ancient-gold),
                 4px 4px 8px var(--shadow-black);
             position: relative;
-            animation: epicSectionGlow 6s ease-in-out infinite;
+            animation: sectionGlow 6s ease-in-out infinite;
         }
 
-        @keyframes epicSectionGlow {
+        @keyframes sectionGlow {
             0%, 100% { filter: drop-shadow(0 0 16px var(--gold)); }
             33% { filter: drop-shadow(0 0 24px var(--torch-orange)); }
             66% { filter: drop-shadow(0 0 20px var(--royal-red)); }
@@ -1012,7 +1190,7 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 2rem;
-            animation: epicDecorSpin 8s linear infinite;
+            animation: decorSpin 8s linear infinite;
         }
 
         .section h2::after {
@@ -1022,10 +1200,10 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 2rem;
-            animation: epicDecorSpin 8s linear infinite reverse;
+            animation: decorSpin 8s linear infinite reverse;
         }
 
-        @keyframes epicDecorSpin {
+        @keyframes decorSpin {
             0% { transform: translateY(-50%) rotate(0deg) scale(1); }
             50% { transform: translateY(-50%) rotate(180deg) scale(1.2); }
             100% { transform: translateY(-50%) rotate(360deg) scale(1); }
@@ -1050,7 +1228,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 6px solid var(--gold);
-            box-shadow: 
+            box-shadow:
                 0 0 0 4px var(--ancient-gold),
                 0 0 0 8px var(--stone-gray),
                 0 12px 20px rgba(0, 0, 0, 0.8);
@@ -1063,7 +1241,7 @@
         .profile-img:hover {
             transform: scale(1.08);
             filter: sepia(20%) contrast(1.3) drop-shadow(0 0 25px var(--gold));
-            box-shadow: 
+            box-shadow:
                 0 0 0 4px var(--torch-orange),
                 0 0 0 8px var(--ancient-gold),
                 0 0 0 12px var(--stone-gray),
@@ -1081,10 +1259,10 @@
             border-radius: 50%;
             z-index: 1;
             opacity: 0.4;
-            animation: epicShieldPulse 5s ease-in-out infinite;
+            animation: shieldPulse 5s ease-in-out infinite;
         }
 
-        @keyframes epicShieldPulse {
+        @keyframes shieldPulse {
             0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.4; }
             33% { transform: scale(1.1) rotate(120deg); opacity: 0.7; }
             66% { transform: scale(1.05) rotate(240deg); opacity: 0.5; }
@@ -1101,7 +1279,7 @@
             border-radius: 50%;
             z-index: 0;
             opacity: 0.3;
-            animation: epicShieldPulse 7s ease-in-out infinite reverse;
+            animation: shieldPulse 7s ease-in-out infinite reverse;
         }
 
         .about-text {
@@ -1123,10 +1301,10 @@
             position: absolute;
             left: 0;
             color: var(--gold);
-            animation: epicSwordGlint 4s ease-in-out infinite;
+            animation: swordGlint 4s ease-in-out infinite;
         }
 
-        @keyframes epicSwordGlint {
+        @keyframes swordGlint {
             0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
             25% { opacity: 0.8; transform: scale(1.1) rotate(5deg); }
             50% { opacity: 1.2; transform: scale(1.2) rotate(-5deg); }
@@ -1148,10 +1326,10 @@
             right: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--gold), var(--torch-orange), var(--gold));
-            animation: epicUnderlineShimmer 2.5s ease-in-out infinite;
+            animation: underlineShimmer 2.5s ease-in-out infinite;
         }
 
-        @keyframes epicUnderlineShimmer {
+        @keyframes underlineShimmer {
             0%, 100% { opacity: 1; transform: scaleX(1); }
             50% { opacity: 0.8; transform: scaleX(1.2); }
         }
@@ -1167,7 +1345,7 @@
             overflow: hidden;
             transition: all 0.4s ease;
             color: var(--shadow-black);
-            box-shadow: 
+            box-shadow:
                 inset 0 0 0 3px var(--gold),
                 0 12px 20px rgba(0, 0, 0, 0.5);
         }
@@ -1213,7 +1391,7 @@
 
         .scroll-card:hover {
             transform: perspective(1000px) rotateX(8deg) translateY(-15px);
-            box-shadow: 
+            box-shadow:
                 inset 0 0 0 3px var(--torch-orange),
                 0 25px 50px rgba(0, 0, 0, 0.6);
             border-color: var(--torch-orange);
@@ -1341,14 +1519,14 @@
             overflow: hidden;
             transition: all 0.4s ease;
             position: relative;
-            box-shadow: 
+            box-shadow:
                 inset 0 0 0 3px var(--ancient-gold),
                 0 12px 20px rgba(0, 0, 0, 0.6);
         }
 
         .project:hover {
             transform: perspective(1000px) rotateY(12deg) translateY(-20px);
-            box-shadow: 
+            box-shadow:
                 inset 0 0 0 3px var(--torch-orange),
                 0 25px 50px rgba(0, 0, 0, 0.8);
             border-color: var(--torch-orange);
@@ -1374,10 +1552,10 @@
             right: 0;
             bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="epicshield" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="12.5" cy="12.5" r="3" fill="rgba(255,255,255,0.1)"/><path d="M6 12.5h13M12.5 6v13" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/><rect x="0" y="0" width="6" height="6" fill="rgba(255,215,0,0.05)"/><rect x="19" y="19" width="6" height="6" fill="rgba(255,215,0,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23epicshield)"/></svg>');
-            animation: epicShieldPattern 12s linear infinite;
+            animation: shieldPattern 12s linear infinite;
         }
 
-        @keyframes epicShieldPattern {
+        @keyframes shieldPattern {
             0% { transform: translate(0, 0) scale(1) rotate(0deg); }
             50% { transform: translate(-12px, -12px) scale(1.1) rotate(180deg); }
             100% { transform: translate(0, 0) scale(1) rotate(360deg); }
@@ -1431,31 +1609,6 @@
             transform: scale(1.08) translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
             text-shadow: none;
-        }
-
-        /* TREASURE CHESTS */
-        .treasure-chest {
-            position: absolute;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-            animation: treasureGlint 3s ease-in-out infinite;
-        }
-
-        @keyframes treasureGlint {
-            0%, 100% { filter: drop-shadow(0 0 8px var(--gold)) brightness(1); }
-            50% { filter: drop-shadow(0 0 16px var(--treasure-gold)) brightness(1.3); }
-        }
-
-        .treasure-chest:hover {
-            transform: scale(1.3);
-            animation: treasureOpen 0.5s ease-in-out;
-        }
-
-        @keyframes treasureOpen {
-            0%, 100% { transform: scale(1.3) rotate(0deg); }
-            50% { transform: scale(1.5) rotate(10deg); }
         }
 
         /* EPIC FOOTER */
@@ -1563,7 +1716,7 @@
             align-items: center;
             justify-content: center;
             z-index: 1000000;
-            transition: opacity 2s ease;
+            transition: opacity 1.5s ease;
         }
 
         .loading-screen.hidden {
@@ -1579,23 +1732,23 @@
             border-radius: 0;
             margin-bottom: 3rem;
             border: 6px solid var(--gold);
-            animation: epicCastleBuild 3s ease-in-out infinite;
+            animation: castleBuild 3s ease-in-out infinite;
         }
 
-        @keyframes epicCastleBuild {
-            0%, 100% { 
+        @keyframes castleBuild {
+            0%, 100% {
                 transform: scale(1);
                 filter: drop-shadow(0 0 16px var(--gold));
             }
-            25% { 
+            25% {
                 transform: scale(1.05);
                 filter: drop-shadow(0 0 24px var(--torch-orange));
             }
-            50% { 
+            50% {
                 transform: scale(1.15);
                 filter: drop-shadow(0 0 32px var(--royal-red));
             }
-            75% { 
+            75% {
                 transform: scale(1.08);
                 filter: drop-shadow(0 0 28px var(--magic-blue));
             }
@@ -1608,10 +1761,10 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 4rem;
-            animation: epicCastleGlow 1.5s ease-in-out infinite alternate;
+            animation: castleGlow 1.5s ease-in-out infinite alternate;
         }
 
-        @keyframes epicCastleGlow {
+        @keyframes castleGlow {
             0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
             100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.2); }
         }
@@ -1621,12 +1774,12 @@
             color: var(--gold);
             font-size: 1.2rem;
             text-shadow: 2px 2px 4px var(--shadow-black);
-            animation: epicLoadingPulse 2s ease-in-out infinite;
+            animation: loadingPulse 2s ease-in-out infinite;
             text-align: center;
             line-height: 1.6;
         }
 
-        @keyframes epicLoadingPulse {
+        @keyframes loadingPulse {
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.7; transform: scale(1.08); }
         }
@@ -1675,19 +1828,90 @@
             }
 
             .treasure-map {
-                width: 160px;
-                height: 120px;
+                width: 140px;
+                height: 110px;
                 right: 10px;
                 top: 10px;
+                z-index: 1300;
             }
 
             .map-title {
                 font-size: 0.5rem;
+                margin-bottom: 6px;
             }
 
             .map-section {
                 font-size: 0.6rem;
                 padding: 2px 4px;
+            }
+
+            .progress-container {
+                width: 180px;
+                left: 10px;
+                top: 10px;
+            }
+
+            .progress-bar {
+                padding: 8px;
+                margin-bottom: 8px;
+            }
+
+            .progress-label {
+                font-size: 0.5rem;
+                margin-bottom: 6px;
+            }
+
+            .progress-fill-container {
+                height: 8px;
+            }
+
+            .dragon-oracle {
+                width: 50px;
+                height: 50px;
+                right: 15px;
+                bottom: 20px;
+            }
+
+            .oracle-tooltip {
+                max-width: 200px;
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+
+            .recruitment-call {
+                padding: 10px 15px;
+                font-size: 0.7rem;
+                max-width: 200px;
+                left: 15px;
+                bottom: 20px;
+            }
+
+            .skill-tree {
+                grid-template-columns: 1fr;
+            }
+
+            .torch-container {
+                display: none;
+            }
+
+            .random-treasure {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* MEDIUM SCREENS */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .treasure-map {
+                width: 160px;
+                height: 125px;
+            }
+
+            .progress-container {
+                width: 200px;
+            }
+
+            .oracle-tooltip {
+                max-width: 250px;
             }
         }
 
@@ -1753,7 +1977,7 @@
     <!-- EPIC LOADING SCREEN -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-castle"></div>
-        <div class="loading-text">Constructing Epic Castle...<br>Summoning Sprite Warriors...<br>Preparing Legendary Interface...</div>
+        <div class="loading-text">Constructing Epic Castle...<br>Summoning Digital Dragons...<br>Preparing Legendary Interface...</div>
     </div>
 
     <!-- TREASURE MAP NAVIGATION -->
@@ -1771,21 +1995,55 @@
 
     <!-- EPIC MEDIEVAL CURSOR -->
     <div class="cursor" id="cursor"></div>
-    
+
+    <!-- PROGRESS BARS -->
+    <div class="progress-container" id="progressContainer">
+        <div class="progress-bar">
+            <div class="progress-label">PhD Quest Progress</div>
+            <div class="progress-fill-container">
+                <div class="progress-fill" style="width: 65%"></div>
+            </div>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-label">Industrial XR Crusade</div>
+            <div class="progress-fill-container">
+                <div class="progress-fill" style="width: 40%"></div>
+            </div>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-label">HICSS 2026 Deadline</div>
+            <div class="progress-fill-container">
+                <div class="progress-fill" style="width: 25%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DRAGON ORACLE -->
+    <div class="dragon-oracle" id="dragonOracle">
+        <img src="https://s2-research.github.io/dragon.png" alt="Oracle Dragon" id="dragonImg">
+        <div class="oracle-tooltip" id="oracleTooltip">
+            Welcome, traveler! I am the Oracle Dragon. Hover over different sections to receive ancient wisdom, or click me for mystical insights about Sir Shivansh's epic journey!
+        </div>
+    </div>
+
+    <!-- RECRUITMENT CALL -->
+    <div class="recruitment-call" id="recruitmentCall">
+        🏰 Seeking alliance with Sir Shivansh?<br>
+        Send raven message! 🦅
+    </div>
+
     <!-- WIND EFFECTS -->
     <div class="wind-effects" id="windEffects"></div>
-    
+
     <!-- FLOATING MAGIC PARTICLES -->
     <div class="magic-particles" id="magicParticles"></div>
-    
-    <!-- EPIC SPRITE CHARACTERS -->
-    <div class="pixel-characters" id="pixelCharacters">
-        <!-- Sprites will be dynamically spawned here -->
-    </div>
-    
+
+    <!-- RANDOM TREASURE -->
+    <div class="random-treasure" id="randomTreasure">💎</div>
+
     <!-- DUNGEON BACKGROUND -->
     <div class="dungeon-bg"></div>
-    
+
     <!-- TORCHES -->
     <div class="torch-container torch-left">
         <div class="torch">
@@ -1798,11 +2056,6 @@
         </div>
     </div>
 
-    <!-- TREASURE CHESTS (Easter Eggs) -->
-    <div class="treasure-chest" style="position: fixed; bottom: 100px; left: 50px; z-index: 50;" data-treasure="secret1">💰</div>
-    <div class="treasure-chest" style="position: absolute; top: 400px; right: 100px; z-index: 50;" data-treasure="secret2">🗝️</div>
-    <div class="treasure-chest" style="position: absolute; top: 800px; left: 150px; z-index: 50;" data-treasure="secret3">💎</div>
-    
     <header>
         <nav class="container">
             <a href="#" class="logo">SIR SHIVANSH</a>
@@ -1861,36 +2114,138 @@
                 </div>
                 <div class="about-text">
                     <p>Greetings, fellow travelers of the digital realm! I am <span class="highlight">Sir Shivansh of House Singh</span>, a sworn guardian of the sacred knowledge that bridges the ancient world of consciousness with the mystical arts of Extended Reality technologies.</p>
-                    
+
                     <p>My quest began in the hallowed halls of electrical engineering and quantum mysteries, where I first glimpsed the true power that lies dormant within <span class="highlight">artificial consciousness algorithms</span>. This revelation led me to master the arcane arts of reality manipulation through immersive technologies.</p>
-                    
+
                     <p>In these current times, I serve as the <span class="highlight">Royal Commander of a €500,000 golden treasury research expedition</span> at the prestigious LUT University in the northern kingdom of Finland. Here, I orchestrate grand alliances with noble industry houses, pushing beyond the very boundaries of what mortals believed possible when AI sorcery merges with immersive reality enchantments.</p>
-                    
+
                     <p>Legend speaks that I once transformed from the humble moniker "BlehBleBleBleh" into a respected scholar of the realm. Achievement unlocked: Even the most distinguished academic councils now heed my counsel! ⚔️</p>
-                    
+
                     <p><strong>The Sacred Quest:</strong> I seek admission to the most elite Brotherhood of PhD Knights, where I may continue my noble mission to hack the very fabric of reality and architect the future that exists only in the most fantastic of tales.</p>
+                </div>
+            </div>
+
+            <!-- CAREER PROGRESSION TIMELINE -->
+            <div class="career-timeline">
+                <h3 style="text-align: center; color: var(--gold); font-family: 'Press Start 2P', monospace; font-size: 1.8rem; margin-bottom: 3rem;">⚔️ THE EPIC JOURNEY ⚔️</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">🎓</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--royal-red); font-size: 1.4rem; margin-bottom: 1rem;">The Awakening: Engineering Foundations</h4>
+                        <p>Young Shivansh discovers the ancient texts of electrical engineering, beginning his journey into the mystical realm of technology.</p>
+                        <div class="timeline-backstory">
+                            Plot twist: Started as "BlehBleBleBleh" in online forums but gradually evolved into a respected voice in academic circles. The transformation was legendary!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">🧠</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--royal-red); font-size: 1.4rem; margin-bottom: 1rem;">The Enlightenment: AI Consciousness</h4>
+                        <p>Discovered the secret arts of artificial intelligence and consciousness algorithms, forever changing his destiny.</p>
+                        <div class="timeline-backstory">
+                            Epic achievement unlocked: First breakthrough came during a 17-hour debugging session fueled entirely by Finnish coffee and pure determination!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">👑</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--royal-red); font-size: 1.4rem; margin-bottom: 1rem;">The Ascension: Royal Research Commander</h4>
+                        <p>Appointed as leader of the €500,000 research expedition at LUT University, wielding immense power and responsibility.</p>
+                        <div class="timeline-backstory">
+                            Legend has it that during the interview, he impressed the council by explaining XR concepts using medieval metaphors. They were spellbound!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">🏰</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--royal-red); font-size: 1.4rem; margin-bottom: 1rem;">The Destiny: PhD Knight Quest</h4>
+                        <p>Currently on the sacred journey to join the elite Brotherhood of PhD Knights, seeking to unlock the ultimate mysteries of reality.</p>
+                        <div class="timeline-backstory">
+                            The prophecy foretells that upon completion of this quest, Sir Shivansh will possess the power to reshape entire digital realms!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SKILL TREE -->
+            <div class="skill-tree">
+                <h3 style="text-align: center; color: var(--gold); font-family: 'Press Start 2P', monospace; font-size: 1.8rem; margin-bottom: 3rem;">🌟 LEGENDARY SKILL TREE 🌟</h3>
+                
+                <div class="skill-branch">
+                    <h4>⚔️ XR Mastery</h4>
+                    <div class="skill-level">
+                        <div class="skill-level-fill" style="width: 90%"></div>
+                    </div>
+                    <p style="color: var(--parchment); margin-top: 10px; font-size: 1rem;">Unity • Varjo • Immersive Design</p>
+                </div>
+
+                <div class="skill-branch">
+                    <h4>🧠 AI Sorcery</h4>
+                    <div class="skill-level">
+                        <div class="skill-level-fill" style="width: 85%"></div>
+                    </div>
+                    <p style="color: var(--parchment); margin-top: 10px; font-size: 1rem;">Machine Learning • Neural Networks • Computer Vision</p>
+                </div>
+
+                <div class="skill-branch">
+                    <h4>👑 Leadership</h4>
+                    <div class="skill-level">
+                        <div class="skill-level-fill" style="width: 80%"></div>
+                    </div>
+                    <p style="color: var(--parchment); margin-top: 10px; font-size: 1rem;">Team Management • Research Direction • Strategic Planning</p>
+                </div>
+
+                <div class="skill-branch">
+                    <h4>📜 Research Craft</h4>
+                    <div class="skill-level">
+                        <div class="skill-level-fill" style="width: 75%"></div>
+                    </div>
+                    <p style="color: var(--parchment); margin-top: 10px; font-size: 1rem;">Academic Writing • Publication • Innovation</p>
+                </div>
+
+                <div class="skill-branch">
+                    <h4>⚡ Code Magic</h4>
+                    <div class="skill-level">
+                        <div class="skill-level-fill" style="width: 88%"></div>
+                    </div>
+                    <p style="color: var(--parchment); margin-top: 10px; font-size: 1rem;">Python • JavaScript • C# • Multiple Frameworks</p>
+                </div>
+
+                <div class="skill-branch">
+                    <h4>🌟 Epic Vision</h4>
+                    <div class="skill-level">
+                        <div class="skill-level-fill" style="width: 95%"></div>
+                    </div>
+                    <p style="color: var(--parchment); margin-top: 10px; font-size: 1rem;">Future Thinking • Innovation • Consciousness Fusion</p>
                 </div>
             </div>
         </section>
 
         <section id="research" class="section">
             <h2>THE GREAT QUEST ARCHIVES</h2>
-            
+
             <div class="scroll-card">
                 <h3>🧙‍♂️ THE EVOLUTION OF DIGITAL SORCERY: AI → XR → ∞</h3>
                 <p>My research journey transcends mere mortal progression—it represents a quantum leap toward the ultimate convergence of all magical arts. What began as humble studies of human-AI consciousness patterns has revealed the ultimate truth: <strong>The future belongs not to better magical tools, but to the complete fusion of consciousness with the digital realm itself.</strong></p>
-                
+
                 <p>This divine revelation propelled me into the mystical realm of Extended Reality, where I now forge <span class="highlight">adaptive XR consciousness ecosystems</span> that respond to human neural patterns, environmental energy fields, and even the whispers of future intent. It's like bestowing upon artificial minds the power to exist in multiple dimensions simultaneously around human consciousness.</p>
-                
+
                 <p><strong>Current Magical Pursuits:</strong> Crafting XR systems with consciousness-level adaptability—interfaces that learn, predict, evolve, and achieve near-sentience. Think of it as summoning a digital familiar that exists within reality itself.</p>
             </div>
 
             <div class="scroll-card">
                 <h3>⚡ THE COMMAND NEXUS: Leadership of the Royal Research Order</h3>
                 <p>I currently serve as the mystical nexus commanding LUT's contribution to a massive <span class="highlight">€4.9 million multi-dimensional research crusade</span> blessed by the Business Finland Royal Treasury. Our €500,000 portion focuses on weaponizing (for the greater good) immersive technologies to transform industrial reality itself.</p>
-                
+
                 <p>Under my banner march two graduate-level knowledge seekers, while I coordinate grand alliances with industry kingdoms, ensuring our discoveries don't merely function—they fundamentally alter how mortals interface with digital consciousness. It's like conducting a symphony where every note rewrites the laws of physics themselves.</p>
-                
+
                 <p><strong>Royal Achievement:</strong> Discovered that managing reality-level research requires equal parts visionary leadership, diplomatic wisdom, and an inexhaustible supply of Finnish coffee. The caffeine-consciousness connection is absolutely real and measurable. ☕</p>
             </div>
         </section>
@@ -1898,7 +2253,7 @@
         <section id="publications" class="section">
             <h2>ANCIENT SCROLLS OF WISDOM</h2>
             <div class="publications-grid">
-                
+
                 <div class="publication">
                     <h4>Neural Pathways in Extended Reality Consciousness [CLASSIFIED_ROYAL_ARCHIVES]</h4>
                     <p class="authors"><span class="first-author">Sir Shivansh Singh</span>, Scholar Alpha Node, Scholar Beta Entity</p>
@@ -1945,7 +2300,7 @@
         <section id="projects" class="section">
             <h2>NOBLE WORKS & GREAT CONSTRUCTIONS</h2>
             <div class="projects-grid">
-                
+
                 <div class="project">
                     <div class="project-image">
                         🎯
@@ -2009,7 +2364,7 @@
                     <p>Royal Time: UTC+2 (Northern Realm)</p>
                     <p>Dimension: Reality Layer Prime</p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>SCHOLARLY GUILDS & ORDERS</h4>
                     <a href="https://scholar.google.com/citations?user=yourprofile" target="_blank">Scholar's Guild Registry</a>
@@ -2017,7 +2372,7 @@
                     <a href="https://orcid.org/your-orcid" target="_blank">ORCID Royal Seal</a>
                     <a href="https://www.academia.edu/yourprofile" target="_blank">Academia Noble House</a>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>DIGITAL REALM CONNECTIONS</h4>
                     <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn Professional Guild</a>
@@ -2026,26 +2381,32 @@
                     <a href="./cv.pdf" download>Download Royal Decree</a>
                 </div>
             </div>
-            
-            <p style="text-align: center; margin-top: 3rem; color: var(--gold); font-family: 'Press Start 2P', monospace; font-size: 0.9rem; line-height: 1.6;">© 2025 Sir Shivansh of House Singh | Architect of Digital Realms Since Time Immemorial<br>Forged with Medieval Passion & Epic Sprite Magic | Built in the Royal Coding Chambers</p>
+
+            <p style="text-align: center; margin-top: 3rem; color: var(--gold); font-family: 'Press Start 2P', monospace; font-size: 0.9rem; line-height: 1.6;">© 2025 Sir Shivansh of House Singh | Architect of Digital Realms Since Time Immemorial<br>Forged with Medieval Passion & Epic Magic | Built in the Royal Coding Chambers</p>
         </div>
     </footer>
 
     <script>
+        // GLOBAL VARIABLES
+        let mouseX = 0, mouseY = 0;
+        let dragonActive = false;
+        let recruitmentShown = false;
+        let pageStartTime = Date.now();
+        let currentSection = 'hero';
+        let treasureSpawned = false;
+        
         // EPIC MEDIEVAL CURSOR SYSTEM
         const cursor = document.getElementById('cursor');
-        let mouseX = 0, mouseY = 0;
 
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            
             cursor.style.left = mouseX - 16 + 'px';
             cursor.style.top = mouseY - 16 + 'px';
         });
 
-        // Epic interactive elements cursor effect
-        const interactiveElements = document.querySelectorAll('a, button, .btn, .social-link, .treasure-chest, .map-section');
+        // Interactive elements cursor effect
+        const interactiveElements = document.querySelectorAll('a, button, .btn, .social-link, .random-treasure, .map-section, .dragon-oracle');
         interactiveElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
                 cursor.classList.add('interact');
@@ -2055,25 +2416,249 @@
             });
         });
 
+        // SCHOLAR MODE AUTO-DETECTION
+        function detectScholarMode() {
+            const referrer = document.referrer.toLowerCase();
+            const scholarSites = ['linkedin.com', 'scholar.google.com', 'researchgate.net', 'academia.edu', 'ieee.org', 'acm.org'];
+            
+            const isScholarVisitor = scholarSites.some(site => referrer.includes(site));
+            
+            if (isScholarVisitor) {
+                document.body.classList.add('scholar-mode');
+                console.log('🎓 Scholar mode activated - Welcome, fellow academic!');
+            }
+        }
+
+        // DAY/NIGHT CYCLE BASED ON TIME ZONE
+        function applyTimeBasedTheme() {
+            const now = new Date();
+            const hour = now.getHours();
+            
+            // Remove existing time themes
+            document.body.classList.remove('dawn-theme', 'night-theme');
+            
+            if (hour >= 6 && hour < 10) {
+                document.body.classList.add('dawn-theme');
+                console.log('🌅 Dawn theme activated');
+            } else if (hour >= 22 || hour < 6) {
+                document.body.classList.add('night-theme');
+                console.log('🌙 Night theme activated');
+            }
+        }
+
+        // SEASONAL THEMES
+        function applySeasonalTheme() {
+            const now = new Date();
+            const month = now.getMonth();
+            
+            // Remove existing seasonal themes
+            document.body.classList.remove('winter-theme', 'spring-theme', 'summer-theme', 'autumn-theme');
+            
+            if (month >= 11 || month <= 1) {
+                document.body.classList.add('winter-theme');
+                console.log('❄️ Winter theme activated');
+            } else if (month >= 2 && month <= 4) {
+                document.body.classList.add('spring-theme');
+                console.log('🌸 Spring theme activated');
+            } else if (month >= 5 && month <= 7) {
+                document.body.classList.add('summer-theme');
+                console.log('☀️ Summer theme activated');
+            } else if (month >= 8 && month <= 10) {
+                document.body.classList.add('autumn-theme');
+                console.log('🍂 Autumn theme activated');
+            }
+        }
+
+        // DRAGON ORACLE SYSTEM
+        const dragonOracle = document.getElementById('dragonOracle');
+        const oracleTooltip = document.getElementById('oracleTooltip');
+
+        const oracleMessages = {
+            hero: "Ah, a noble visitor enters the grand castle! This is where legends begin their epic journeys.",
+            about: "Behold the chronicles of Sir Shivansh! His transformation from 'BlehBleBleBleh' to respected scholar is truly legendary.",
+            research: "These sacred archives contain the most powerful spells of our time - XR consciousness fusion!",
+            publications: "Ancient scrolls of wisdom! Each publication is a treasure trove of mystical knowledge.",
+            projects: "The workshop of miracles! Here, Sir Shivansh forges the future with code and consciousness.",
+            contact: "The royal chambers await your message! Seek alliance with the master of digital realms.",
+            default: "Welcome, traveler! I sense great potential in you. Explore these realms to unlock ancient wisdom!"
+        };
+
+        const funFacts = [
+            "Sir Shivansh once debugged XR code for 17 hours straight, surviving only on Finnish coffee!",
+            "Legend says he can explain quantum consciousness using medieval metaphors!",
+            "He transformed from 'BlehBleBleBleh' to academic respect - the ultimate character development!",
+            "His research has been blessed by dragons and approved by the Royal Academic Council!",
+            "Fun fact: This epic website was coded while listening to medieval fantasy soundtracks!",
+            "Sir Shivansh's AI algorithms can predict user behavior with 89% accuracy - pure magic!",
+            "He once presented XR research using actual medieval props - the audience was spellbound!",
+            "Coffee consumption directly correlates with his research productivity - scientifically proven!"
+        ];
+
+        function showDragonOracle() {
+            if (!dragonActive) {
+                dragonOracle.classList.add('active');
+                dragonActive = true;
+                
+                setTimeout(() => {
+                    oracleTooltip.textContent = oracleMessages[currentSection] || oracleMessages.default;
+                    oracleTooltip.classList.add('show');
+                }, 500);
+            }
+        }
+
+        function hideDragonOracle() {
+            oracleTooltip.classList.remove('show');
+            setTimeout(() => {
+                dragonOracle.classList.remove('active');
+                dragonActive = false;
+            }, 300);
+        }
+
+        // Show dragon after 30 seconds
+        setTimeout(showDragonOracle, 30000);
+
+        // Dragon click for fun facts
+        dragonOracle.addEventListener('click', () => {
+            const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+            oracleTooltip.textContent = randomFact;
+            oracleTooltip.classList.add('show');
+            playMedievalSound(660, 0.8, 'triangle');
+        });
+
+        // Context-aware dragon tips
+        document.querySelectorAll('.publication, .project, .scroll-card').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                if (dragonActive) {
+                    let contextMessage = "Ah, seeking ancient knowledge? ";
+                    
+                    if (element.classList.contains('publication')) {
+                        contextMessage += "This scroll reveals the secrets of consciousness-reality fusion!";
+                    } else if (element.classList.contains('project')) {
+                        contextMessage += "Behold the epic constructions of digital mastery!";
+                    } else if (element.classList.contains('scroll-card')) {
+                        contextMessage += "These chronicles contain the wisdom of the ages!";
+                    }
+                    
+                    oracleTooltip.textContent = contextMessage;
+                    oracleTooltip.classList.add('show');
+                }
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                if (dragonActive) {
+                    oracleTooltip.textContent = oracleMessages[currentSection] || oracleMessages.default;
+                }
+            });
+        });
+
+        // RANDOM TREASURE SYSTEM
+        const randomTreasure = document.getElementById('randomTreasure');
+
+        function spawnRandomTreasure() {
+            if (treasureSpawned) return;
+            
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+            
+            // Random position within safe bounds
+            const x = Math.random() * (containerRect.width - 100) + 50;
+            const y = Math.random() * (window.innerHeight - 200) + 200;
+            
+            randomTreasure.style.left = x + 'px';
+            randomTreasure.style.top = y + 'px';
+            randomTreasure.style.display = 'block';
+            
+            treasureSpawned = true;
+            
+            // Respawn after 45 seconds
+            setTimeout(() => {
+                treasureSpawned = false;
+                spawnRandomTreasure();
+            }, 45000);
+        }
+
+        randomTreasure.addEventListener('click', () => {
+            const funFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+            showEasterEggMessage('💎 TREASURE FOUND! 💎<br>' + funFact);
+            playMedievalSound(880, 1.5, 'triangle');
+            
+            randomTreasure.style.display = 'none';
+            treasureSpawned = false;
+            
+            // Spawn new treasure after 30 seconds
+            setTimeout(spawnRandomTreasure, 30000);
+        });
+
+        // Start treasure spawning
+        setTimeout(spawnRandomTreasure, 15000);
+
+        // PROGRESS BARS (Dynamic - would connect to actual data in real implementation)
+        function updateProgressBars() {
+            // In real implementation, these would fetch from your actual data sources
+            const progressData = {
+                phd: { current: 65, total: 100, label: "PhD Quest Progress" },
+                project: { current: 40, total: 100, label: "Industrial XR Crusade" },
+                deadline: { current: 25, total: 100, label: "HICSS 2026 Deadline" }
+            };
+            
+            // Update progress bars with animation
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach((bar, index) => {
+                const values = Object.values(progressData);
+                if (values[index]) {
+                    setTimeout(() => {
+                        bar.style.width = values[index].current + '%';
+                    }, index * 200);
+                }
+            });
+        }
+
+        // RECRUITMENT CALL SYSTEM
+        const recruitmentCall = document.getElementById('recruitmentCall');
+
+        function showRecruitmentCall() {
+            if (!recruitmentShown && (Date.now() - pageStartTime) > 480000) { // 8 minutes
+                recruitmentCall.classList.add('show');
+                recruitmentShown = true;
+                playEpicChord([440, 554, 659], 1.5);
+                console.log('🏰 Recruitment call activated after 8+ minutes!');
+            }
+        }
+
+        recruitmentCall.addEventListener('click', () => {
+            window.location.href = 'mailto:shivansh.singh@example.com?subject=🏰 Seeking Alliance with Sir Shivansh&body=Greetings Sir Shivansh! I seek alliance and would like to discuss...';
+        });
+
+        // Check recruitment call every 30 seconds
+        setInterval(showRecruitmentCall, 30000);
+
         // TREASURE MAP NAVIGATION SYSTEM
         const treasureMap = document.getElementById('treasureMap');
         const mapSections = document.querySelectorAll('.map-section');
-        
-        // Update current section based on scroll
+
         function updateTreasureMap() {
             const sections = ['hero', 'about', 'research', 'publications', 'projects', 'contact'];
-            let currentSection = 'hero';
-            
+            let newCurrentSection = 'hero';
+
             sections.forEach(sectionId => {
                 const element = document.getElementById(sectionId);
                 if (element) {
                     const rect = element.getBoundingClientRect();
                     if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                        currentSection = sectionId;
+                        newCurrentSection = sectionId;
                     }
                 }
             });
-            
+
+            if (newCurrentSection !== currentSection) {
+                currentSection = newCurrentSection;
+                
+                // Update dragon oracle message
+                if (dragonActive) {
+                    oracleTooltip.textContent = oracleMessages[currentSection] || oracleMessages.default;
+                }
+            }
+
             mapSections.forEach(section => {
                 section.classList.remove('current');
                 if (section.dataset.section === currentSection) {
@@ -2096,181 +2681,55 @@
 
         window.addEventListener('scroll', updateTreasureMap);
 
-        // EPIC WIND EFFECTS
+        // REDUCED WIND EFFECTS
         const windContainer = document.getElementById('windEffects');
-        
+
         function createWindParticle() {
             const particle = document.createElement('div');
             particle.className = 'wind-particle';
-            
-            // Random particle types
-            const types = ['leaf', 'dust', 'ember'];
+
+            // Random particle types (reduced variety)
+            const types = ['leaf', 'dust'];
             const randomType = types[Math.floor(Math.random() * types.length)];
             particle.classList.add(randomType);
-            
+
             particle.style.left = Math.random() * 100 + 'vw';
             particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
             particle.style.animationDelay = Math.random() * 5 + 's';
-            
+
             windContainer.appendChild(particle);
-            
-            // Remove particle after animation
+
             setTimeout(() => {
                 particle.remove();
             }, 25000);
         }
 
-        // Create wind particles periodically
-        setInterval(createWindParticle, 800);
+        // Create wind particles less frequently
+        setInterval(createWindParticle, 2000);
 
-        // FLOATING MAGIC PARTICLES
+        // REDUCED MAGIC PARTICLES
         const magicContainer = document.getElementById('magicParticles');
-        
+
         function createMagicParticle() {
             const particle = document.createElement('div');
             particle.className = 'particle';
             particle.style.left = Math.random() * 100 + 'vw';
             particle.style.animationDuration = (Math.random() * 12 + 18) + 's';
             particle.style.animationDelay = Math.random() * 8 + 's';
-            
-            // Random particle colors
-            const colors = ['var(--gold)', 'var(--torch-orange)', 'var(--royal-red)', 'var(--magic-blue)', 'var(--treasure-gold)'];
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            particle.style.background = randomColor;
-            particle.style.boxShadow = `0 0 8px ${randomColor}`;
-            
+
+            // Single color type
+            particle.style.background = 'var(--gold)';
+            particle.style.boxShadow = '0 0 6px var(--gold)';
+
             magicContainer.appendChild(particle);
-            
-            // Remove particle after animation
+
             setTimeout(() => {
                 particle.remove();
             }, 30000);
         }
 
-        // Create magic particles periodically
-        setInterval(createMagicParticle, 600);
-
-        // EPIC SPRITE CHARACTER MANAGEMENT
-        const pixelCharacters = document.getElementById('pixelCharacters');
-        
-        function spawnPixelCharacter() {
-            // Character sprite types with their CSS classes
-            const characterTypes = [
-                'sprite-walk',
-                'sprite-run', 
-                'sprite-attack1',
-                'sprite-attack2'
-            ];
-            
-            // Magic effect types
-            const magicTypes = [
-                'sprite-fireball',
-                'sprite-flame-jet',
-                'sprite-light-charge',
-                'sprite-magic-sphere'
-            ];
-            
-            // Combine character and magic types (favor characters)
-            const allTypes = [...characterTypes, ...characterTypes, ...magicTypes];
-            const randomType = allTypes[Math.floor(Math.random() * allTypes.length)];
-            
-            const character = document.createElement('div');
-            
-            // Check if it's a magic effect or character
-            if (magicTypes.includes(randomType)) {
-                character.className = 'magic-effect ' + randomType;
-            } else {
-                character.className = 'pixel-character ' + randomType;
-            }
-            
-            // Add random size variation
-            const scale = Math.random() * 0.4 + 0.8; // 0.8 to 1.2
-            character.style.transform = `scale(${scale})`;
-            
-            // Add random starting position
-            character.style.left = Math.random() * 100 + 'vw';
-            
-            pixelCharacters.appendChild(character);
-            
-            // Remove character after animation completes
-            const animationDuration = randomType.includes('run') ? 12000 : 
-                                    randomType.includes('flame-jet') ? 25000 :
-                                    randomType.includes('fireball') ? 15000 :
-                                    randomType.includes('light-charge') ? 18000 :
-                                    randomType.includes('magic-sphere') ? 20000 : 20000;
-            
-            setTimeout(() => {
-                if (character.parentNode) {
-                    character.remove();
-                }
-            }, animationDuration);
-        }
-
-        function spawnMagicEffect() {
-            const magicTypes = ['sprite-fireball', 'sprite-flame-jet', 'sprite-light-charge', 'sprite-magic-sphere'];
-            const randomType = magicTypes[Math.floor(Math.random() * magicTypes.length)];
-            
-            const effect = document.createElement('div');
-            effect.className = 'magic-effect ' + randomType;
-            
-            // Random positioning for magic effects
-            effect.style.left = Math.random() * 100 + 'vw';
-            
-            // Add glow effect
-            effect.style.filter = 'drop-shadow(0 0 12px var(--torch-orange)) brightness(1.2)';
-            
-            pixelCharacters.appendChild(effect);
-            
-            // Remove after animation
-            const duration = randomType.includes('flame-jet') ? 25000 : 
-                           randomType.includes('magic-sphere') ? 20000 :
-                           randomType.includes('light-charge') ? 18000 : 15000;
-            
-            setTimeout(() => {
-                if (effect.parentNode) {
-                    effect.remove();
-                }
-            }, duration);
-        }
-
-        // Spawn characters and effects periodically
-        setInterval(spawnPixelCharacter, 4000); // Every 4 seconds
-        setInterval(spawnMagicEffect, 8000);    // Magic effects every 8 seconds
-
-        // TREASURE CHEST EASTER EGGS
-        const treasureChests = document.querySelectorAll('.treasure-chest');
-        const treasureMessages = {
-            'secret1': '🎉 EPIC! You found the Golden Treasure! +1000 XP!',
-            'secret2': '⚔️ LEGENDARY! The Ancient Key grants you power!',
-            'secret3': '💎 MYTHICAL! The Sacred Gem chooses you as worthy!'
-        };
-
-        treasureChests.forEach(chest => {
-            chest.addEventListener('click', () => {
-                const treasureId = chest.dataset.treasure;
-                const message = treasureMessages[treasureId];
-                
-                showEasterEggMessage(message);
-                playMedievalSound(880, 1.5, 'triangle');
-                
-                // Add sparkle effect
-                chest.style.animation = 'treasureOpen 0.8s ease-in-out';
-                setTimeout(() => {
-                    chest.style.display = 'none';
-                }, 800);
-            });
-        });
-
-        function showEasterEggMessage(message) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'easter-egg-message';
-            messageDiv.textContent = message;
-            document.body.appendChild(messageDiv);
-            
-            setTimeout(() => {
-                messageDiv.remove();
-            }, 4000);
-        }
+        // Create magic particles less frequently
+        setInterval(createMagicParticle, 1500);
 
         // EPIC SCROLL ANIMATIONS
         const observerOptions = {
@@ -2296,82 +2755,125 @@
             }
         }
 
-        function playMedievalSound(frequency, duration, type = 'sine', volume = 0.1) {
-            initAudio();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
-            oscillator.type = type;
-            
-            gainNode.gain.setValueAtTime(volume, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
-            
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + duration);
+        function playMedievalSound(frequency, duration, type = 'sine', volume = 0.08) {
+            try {
+                initAudio();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+                oscillator.type = type;
+
+                gainNode.gain.setValueAtTime(volume, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
+
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + duration);
+            } catch (e) {
+                console.log('Audio not available');
+            }
         }
 
         function playEpicChord(frequencies, duration = 0.5) {
             frequencies.forEach((freq, index) => {
                 setTimeout(() => {
-                    playMedievalSound(freq, duration, 'triangle', 0.08);
+                    playMedievalSound(freq, duration, 'triangle', 0.06);
                 }, index * 100);
             });
         }
 
-        // EPIC SOUND EFFECTS FOR INTERACTIONS
+        // SOUND EFFECTS FOR INTERACTIONS (Reduced)
         document.querySelectorAll('.btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                playEpicChord([440, 554, 659], 0.8); // Epic medieval chord
+                playEpicChord([440, 554, 659], 0.6);
             });
         });
 
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-                playMedievalSound(660, 0.2, 'square', 0.12); // Medieval chime
+                playMedievalSound(660, 0.2, 'square', 0.08);
             });
         });
 
-        document.querySelectorAll('.social-link').forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                playMedievalSound(880, 0.15, 'triangle', 0.08); // Magical sparkle
+        // SMOOTH SCROLLING
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    playMedievalSound(660, 0.3, 'triangle');
+                }
             });
         });
 
-        // EPIC KEYBOARD SHORTCUTS & EASTER EGGS
-        let medievalCode = [];
-        const medievalSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
-        
-        let epicCode = [];
-        const epicSequence = ['KeyE', 'KeyP', 'KeyI', 'KeyC'];
+        // EASTER EGG MESSAGE SYSTEM
+        function showEasterEggMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'easter-egg-message';
+            messageDiv.innerHTML = message;
+            document.body.appendChild(messageDiv);
 
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 4000);
+        }
+
+        // EPIC SECTION REVEAL ANIMATIONS
+        function initSectionAnimations() {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(80px) rotateX(15deg)';
+                section.style.transition = 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                observer.observe(section);
+            });
+
+            document.querySelectorAll('.scroll-card, .publication, .project, .timeline-item, .skill-branch').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px) scale(0.95)';
+                card.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                observer.observe(card);
+            });
+        }
+
+        // EPIC LOADING SEQUENCE
+        function initEpicLoadingSequence() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const loadingText = document.querySelector('.loading-text');
+
+            const loadingMessages = [
+                'Constructing Epic Castle...',
+                'Summoning Digital Dragons...',
+                'Enchanting Medieval Interface...',
+                'Activating Oracle Systems...',
+                'Preparing Progress Tracking...',
+                'Loading Dynamic Themes...',
+                'REALM READY!'
+            ];
+
+            let messageIndex = 0;
+            const messageInterval = setInterval(() => {
+                if (messageIndex < loadingMessages.length - 1) {
+                    loadingText.innerHTML = loadingMessages[messageIndex] + '<br>' + loadingMessages[messageIndex + 1];
+                    messageIndex++;
+                } else {
+                    clearInterval(messageInterval);
+                    setTimeout(() => {
+                        loadingScreen.classList.add('hidden');
+                        playEpicChord([440, 554, 659, 880], 2);
+                    }, 1000);
+                }
+            }, 400);
+        }
+
+        // KEYBOARD SHORTCUTS
         document.addEventListener('keydown', (e) => {
-            // Medieval Konami Code
-            medievalCode.push(e.code);
-            if (medievalCode.length > medievalSequence.length) {
-                medievalCode.shift();
-            }
-            
-            if (JSON.stringify(medievalCode) === JSON.stringify(medievalSequence)) {
-                activateMedievalOverdrive();
-                medievalCode = [];
-            }
-
-            // EPIC Code
-            epicCode.push(e.code);
-            if (epicCode.length > epicSequence.length) {
-                epicCode.shift();
-            }
-            
-            if (JSON.stringify(epicCode) === JSON.stringify(epicSequence)) {
-                activateEpicMode();
-                epicCode = [];
-            }
-
-            // Quick navigation shortcuts
             switch(e.code) {
                 case 'Digit1':
                     document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
@@ -2391,131 +2893,15 @@
                 case 'Digit6':
                     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
                     break;
+                case 'Escape':
+                    document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+                    playMedievalSound(440, 0.2, 'triangle');
+                    break;
             }
         });
 
-        function activateMedievalOverdrive() {
-            document.body.style.filter = 'sepia(100%) saturate(3) hue-rotate(30deg) contrast(1.5)';
-            playEpicChord([220, 277, 330, 440, 554], 2);
-            
-            showEasterEggMessage('🏰 MEDIEVAL OVERDRIVE ACTIVATED! ⚔️');
-            
-            // Create extra magic particles
-            for (let i = 0; i < 20; i++) {
-                setTimeout(() => createMagicParticle(), i * 100);
-            }
-            
-            setTimeout(() => {
-                document.body.style.filter = 'none';
-            }, 8000);
-        }
-
-        function activateEpicMode() {
-            document.body.style.animation = 'epicTransform 3s ease-in-out';
-            document.body.style.transform = 'scale(1.02)';
-            
-            // Epic color cycling
-            let colorIndex = 0;
-            const epicColors = ['hue-rotate(90deg)', 'hue-rotate(180deg)', 'hue-rotate(270deg)', 'hue-rotate(0deg)'];
-            
-            const colorInterval = setInterval(() => {
-                document.body.style.filter = epicColors[colorIndex];
-                colorIndex = (colorIndex + 1) % epicColors.length;
-            }, 200);
-            
-            playEpicChord([440, 554, 659, 880, 1108], 3);
-            showEasterEggMessage('⚡ ULTRA EPIC MODE ENGAGED! ⚡');
-            
-            setTimeout(() => {
-                clearInterval(colorInterval);
-                document.body.style.filter = 'none';
-                document.body.style.transform = 'scale(1)';
-                document.body.style.animation = 'none';
-            }, 5000);
-        }
-
-        // EPIC PARALLAX SCROLLING EFFECTS
-        function handleParallaxScroll() {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.dungeon-bg, .wind-effects, .magic-particles');
-            
-            parallaxElements.forEach((element, index) => {
-                const speed = 0.5 + (index * 0.2);
-                element.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        }
-
-        window.addEventListener('scroll', () => {
-            handleParallaxScroll();
-            updateTreasureMap();
-        });
-
-        // EPIC SECTION REVEAL ANIMATIONS
-        function initSectionAnimations() {
-            document.querySelectorAll('.section').forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(80px) rotateX(15deg)';
-                section.style.transition = 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                observer.observe(section);
-            });
-
-            document.querySelectorAll('.scroll-card, .publication, .project').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(50px) scale(0.95)';
-                card.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                observer.observe(card);
-            });
-        }
-
-        // EPIC SMOOTH SCROLLING
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    playMedievalSound(660, 0.3, 'triangle');
-                }
-            });
-        });
-
-        // EPIC LOADING SEQUENCE
-        function initEpicLoadingSequence() {
-            const loadingScreen = document.getElementById('loadingScreen');
-            const loadingText = document.querySelector('.loading-text');
-            
-            const loadingMessages = [
-                'Constructing Epic Castle...',
-                'Summoning Sprite Warriors...',
-                'Enchanting Medieval Interface...',
-                'Activating Treasure Map...',
-                'Preparing Wind Magic...',
-                'Loading Ancient Scrolls...',
-                'Igniting Torches...',
-                'REALM READY!'
-            ];
-            
-            let messageIndex = 0;
-            const messageInterval = setInterval(() => {
-                if (messageIndex < loadingMessages.length - 1) {
-                    loadingText.innerHTML = loadingMessages[messageIndex] + '<br>' + loadingMessages[messageIndex + 1];
-                    messageIndex++;
-                } else {
-                    clearInterval(messageInterval);
-                    setTimeout(() => {
-                        loadingScreen.classList.add('hidden');
-                        playEpicChord([440, 554, 659, 880], 2);
-                    }, 1000);
-                }
-            }, 500);
-        }
-
-        // EPIC WINDOW RESIZE HANDLER
+        // WINDOW RESIZE HANDLER
         window.addEventListener('resize', () => {
-            // Adjust treasure map position on mobile
             const treasureMap = document.getElementById('treasureMap');
             if (window.innerWidth <= 768) {
                 treasureMap.style.transform = 'scale(0.8)';
@@ -2526,33 +2912,31 @@
 
         // EPIC INITIALIZATION SEQUENCE
         window.addEventListener('load', () => {
+            // Detect scholar mode
+            detectScholarMode();
+            
+            // Apply themes
+            applyTimeBasedTheme();
+            applySeasonalTheme();
+            
             // Start epic loading sequence
             initEpicLoadingSequence();
-            
+
             // Initialize scroll animations
             initSectionAnimations();
-            
+
+            // Update progress bars
+            updateProgressBars();
+
             // Enable audio context on first user interaction
             document.addEventListener('click', initAudio, { once: true });
             document.addEventListener('keydown', initAudio, { once: true });
-            
+
             // Initialize treasure map
             updateTreasureMap();
-            
-            // Start spawning characters immediately
-            setTimeout(spawnPixelCharacter, 2000);
-            setTimeout(spawnMagicEffect, 4000);
-            
-            // Create initial characters
-            for (let i = 0; i < 3; i++) {
-                setTimeout(spawnPixelCharacter, i * 1500);
-            }
-            
-            // Create initial magic effects
-            setTimeout(spawnMagicEffect, 6000);
-            
+
             // Create initial wind and magic particles
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 3; i++) {
                 setTimeout(createWindParticle, i * 1000);
                 setTimeout(createMagicParticle, i * 800);
             }
@@ -2561,61 +2945,32 @@
         // EPIC CONSOLE MESSAGE
         console.log(`
     ╔══════════════════════════════════════════════════════════════════════════════╗
-    ║  🏰 SIR SHIVANSH'S ULTIMATE EPIC MEDIEVAL SPRITE REALM INITIALIZED! 🏰      ║
+    ║  🏰 SIR SHIVANSH'S ULTIMATE EPIC MEDIEVAL REALM v2.0 INITIALIZED! 🏰        ║
     ║                                                                              ║
-    ║  🎮 EPIC FEATURES ACTIVE:                                                    ║
-    ║  ⚔️  Treasure Map Navigation System                                          ║
-    ║  🌪️  Atmospheric Wind Effects                                               ║
-    ║  🧙‍♂️ ANIMATED SPRITE CHARACTERS (Walk, Run, Attack!)                       ║
-    ║  🔥 MAGICAL EFFECT SPRITES (Fireballs, Flame Jets, Light Charge!)           ║
-    ║  💰 Hidden Treasure Chests (Easter Eggs)                                    ║
-    ║  🔊 Medieval Sound Effects                                                   ║
-    ║  ⚡ Epic Keyboard Shortcuts (1-6 for navigation)                            ║
-    ║  🎵 Magical Audio Chords                                                    ║
-    ║  🪄 Secret Konami Code (↑↑↓↓←→←→BA)                                         ║
-    ║  🌟 Ultra EPIC Mode (type: E-P-I-C)                                         ║
-    ║  ✨ SPRITE SHEET ANIMATIONS (4 Character Types + 4 Magic Effects!)         ║
+    ║  🎮 NEW EPIC FEATURES ACTIVE:                                                ║
+    ║  🌅 Day/Night Cycle Based on Your Time Zone                                 ║
+    ║  🍂 Seasonal Themes (Winter/Spring/Summer/Autumn)                           ║
+    ║  🐉 Dragon Oracle with Context-Aware Tips                                   ║
+    ║  📊 Dynamic Progress Bars                                                   ║
+    ║  💎 Random Treasure with Fun Facts                                          ║
+    ║  🎓 Scholar Mode Auto-Detection                                             ║
+    ║  ⚔️ Epic Career Timeline & Skill Tree                                       ║
+    ║  📞 Recruitment Call (After 8+ Minutes)                                     ║
+    ║  🧹 Cleaned & Optimized Performance                                         ║
     ║                                                                              ║
-    ║  STATUS: MAXIMUM MEDIEVAL EPIC OVERDRIVE WITH SPRITES ENGAGED! 🚀           ║
-    ║  BRAIN EXPLOSION LEVEL: CRITICAL ⚡                                          ║
+    ║  STATUS: MAXIMUM LEGENDARY OVERDRIVE ENGAGED! 🚀                            ║
+    ║  EPIC LEVEL: OVER 9000! ⚡                                                   ║
     ║  JAW DROP PROBABILITY: 200% 🤯                                               ║
     ╚══════════════════════════════════════════════════════════════════════════════╝
         `);
 
-        // EPIC PERFORMANCE MONITORING
-        if (typeof performance !== 'undefined') {
-            window.addEventListener('load', () => {
-                setTimeout(() => {
-                    const loadTime = performance.now();
-                    console.log(`🏰 Epic Medieval Sprite Realm loaded in ${Math.round(loadTime)}ms! ⚔️`);
-                }, 1000);
-            });
-        }
-
-        // EPIC ACCESSIBILITY ENHANCEMENTS
-        document.addEventListener('keydown', (e) => {
-            // Skip to main content with Tab
-            if (e.key === 'Tab' && e.shiftKey) {
-                const main = document.querySelector('main');
-                if (main) {
-                    main.focus();
-                }
-            }
-            
-            // Escape key to return to top
-            if (e.key === 'Escape') {
-                document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
-                playMedievalSound(440, 0.2, 'triangle');
-            }
-        });
-
-        // EPIC FINAL TOUCH: Dynamic page title
+        // Dynamic page title
         let titleIndex = 0;
         const epicTitles = [
-            'Sir Shivansh of House Singh - Epic Sprite Realm',
-            '⚔️ Digital Knight & Reality Architect ⚔️',
+            'Sir Shivansh of House Singh - Epic Medieval Realm v2.0',
+            '🐉 Dragon Oracle Active - Digital Knight & Reality Architect 🐉',
             '🏰 Master of XR Sorcery & AI Alchemy 🏰',
-            '👑 PhD Quest in Progress... 👑'
+            '👑 PhD Quest in Progress... Epic Level: Legendary 👑'
         ];
 
         setInterval(() => {
