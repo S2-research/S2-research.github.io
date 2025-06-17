@@ -3,19 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sir Shivansh of House Singh - Master of Digital Realms & Arcane Technologies</title>
-    <meta name="description" content="Shivansh Singh - Epic Pixel Art Adventure Portfolio - Master of XR Sorcery and AI Alchemy">
-
+    <title>Shivansh Singh - AI & XR Researcher</title>
+    <meta name="description" content="Shivansh Singh - PhD Candidate specializing in Human-AI Interaction and Extended Reality at LUT University, Finland">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges;
         }
 
         :root {
@@ -31,249 +27,48 @@
             --magic-blue: #4169E1;
             --torch-orange: #FF6347;
             --shadow-black: #0a0a0a;
-            --mystic-purple: #8A2BE2;
             --treasure-gold: #FFEF94;
-        }
-
-        /* Dynamic Theme Variables */
-        body.night-theme {
-            --stone-gray: #2a2a3a;
-            --deep-stone: #1a1a2a;
-            --dungeon-black: #0a0a1a;
-        }
-
-        body.dawn-theme {
-            --stone-gray: #4a3a3a;
-            --torch-orange: #FF7F50;
-        }
-
-        body.winter-theme {
-            --stone-gray: #4a4a5a;
-            --parchment: #E6F3FF;
-            --dark-parchment: #D0E8FF;
-        }
-
-        body.spring-theme {
-            --forest-green: #32CD32;
-            --parchment: #F0FFF0;
-        }
-
-        body.summer-theme {
-            --torch-orange: #FF8C00;
-            --gold: #FFE55C;
-        }
-
-        body.autumn-theme {
-            --torch-orange: #FF6B35;
-            --gold: #DAA520;
-            --forest-green: #8B4513;
-        }
-
-        body.scholar-mode {
-            --gold: #B8860B;
-            --torch-orange: #CD853F;
-        }
-
-        body.scholar-mode .hero h1 {
-            font-size: 2.8rem;
-        }
-
-        body.scholar-mode .hero .subtitle {
-            font-size: 1.6rem;
+            --text-light: #f8f8f8;
+            --border-subtle: rgba(255, 215, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
             font-family: 'VT323', monospace;
             background: var(--dungeon-black);
             color: var(--parchment);
-            overflow-x: hidden;
-            cursor: none;
-            position: relative;
             line-height: 1.2;
-            transition: all 0.5s ease;
+            overflow-x: hidden;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
         }
 
-        /* EPIC CUSTOM MEDIEVAL CURSOR */
-        .cursor {
-            position: fixed;
-            width: 32px;
-            height: 32px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect x="14" y="2" width="4" height="28" fill="%23FFD700"/><rect x="2" y="14" width="28" height="4" fill="%23FFD700"/><rect x="12" y="0" width="8" height="4" fill="%23B8860B"/><rect x="12" y="28" width="8" height="4" fill="%23B8860B"/><rect x="0" y="12" width="4" height="8" fill="%23B8860B"/><rect x="28" y="12" width="4" height="8" fill="%23B8860B"/><circle cx="16" cy="16" r="3" fill="%23FF6347"/></svg>') no-repeat center;
-            background-size: contain;
-            pointer-events: none;
-            z-index: 10000;
-            transition: all 0.1s ease;
-            filter: drop-shadow(0 0 8px var(--gold));
-            animation: cursorPulse 2s ease-in-out infinite;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        @keyframes cursorPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .cursor.interact {
-            transform: scale(1.5);
-            filter: drop-shadow(0 0 16px var(--torch-orange));
-        }
-
-        /* TREASURE MAP NAVIGATION */
-        .treasure-map {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 180px;
-            height: 140px;
-            background: linear-gradient(145deg, var(--dark-parchment) 0%, var(--parchment) 100%);
-            border: 4px solid var(--ancient-gold);
-            border-radius: 12px;
-            z-index: 1200;
-            padding: 8px;
-            box-shadow:
-                inset 0 0 0 2px var(--gold),
-                0 8px 16px rgba(0, 0, 0, 0.6);
-            transition: all 0.3s ease;
-        }
-
-        .treasure-map:hover {
-            transform: scale(1.1);
-            box-shadow:
-                inset 0 0 0 2px var(--torch-orange),
-                0 12px 24px rgba(0, 0, 0, 0.8);
-        }
-
-        .map-title {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 0.6rem;
-            color: var(--royal-red);
-            text-align: center;
-            margin-bottom: 8px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .map-sections {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            height: calc(100% - 30px);
-        }
-
-        .map-section {
-            display: flex;
-            align-items: center;
-            padding: 3px 6px;
-            border-radius: 4px;
-            background: rgba(139, 0, 0, 0.3);
-            border: 1px solid var(--royal-red);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-size: 0.7rem;
-            color: var(--shadow-black);
-        }
-
-        .map-section.current {
-            background: linear-gradient(90deg, var(--gold), var(--treasure-gold));
-            border-color: var(--torch-orange);
-            animation: currentLocation 2s ease-in-out infinite;
-        }
-
-        .map-section.treasure {
-            background: linear-gradient(90deg, var(--royal-red), var(--torch-orange));
-            border-color: var(--gold);
-            animation: treasureGlow 1s ease-in-out infinite alternate;
-        }
-
-        @keyframes currentLocation {
-            0%, 100% { box-shadow: 0 0 8px var(--gold); }
-            50% { box-shadow: 0 0 16px var(--torch-orange); }
-        }
-
-        @keyframes treasureGlow {
-            0% { box-shadow: 0 0 12px var(--royal-red); }
-            100% { box-shadow: 0 0 20px var(--gold); }
-        }
-
-        .map-section::before {
-            content: '🗡️';
-            margin-right: 6px;
-        }
-
-        .map-section.current::before {
-            content: '👑';
-            animation: crownBob 1s ease-in-out infinite alternate;
-        }
-
-        .map-section.treasure::before {
-            content: '❌';
-            color: var(--gold);
-            font-size: 1rem;
-            animation: treasurePulse 0.8s ease-in-out infinite;
-        }
-
-        @keyframes crownBob {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-2px); }
-        }
-
-        @keyframes treasurePulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-        }
-
-        /* REDUCED WIND EFFECTS */
-        .wind-effects {
+        /* Subtle Background Pattern */
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 2;
-            overflow: hidden;
-            opacity: 0.7;
-        }
-
-        .wind-particle {
-            position: absolute;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(139, 0, 0, 0.02) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><rect width="60" height="60" fill="%232a2a2a"/><rect x="0" y="0" width="30" height="30" fill="%233a3a3a" opacity="0.1"/><rect x="30" y="30" width="30" height="30" fill="%233a3a3a" opacity="0.1"/><circle cx="15" cy="15" r="1" fill="%23FFD700" opacity="0.03"/><circle cx="45" cy="45" r="1" fill="%23FF6347" opacity="0.03"/></svg>');
+            background-size: 100px 100px, 100px 100px, 60px 60px;
+            z-index: -1;
             opacity: 0.4;
-            animation: windBlow linear infinite;
         }
 
-        .leaf {
-            width: 6px;
-            height: 6px;
-            background: var(--forest-green);
-            border-radius: 0 100% 0 100%;
-            transform: rotate(45deg);
-        }
-
-        .dust {
-            width: 3px;
-            height: 3px;
-            background: var(--ancient-gold);
-            border-radius: 50%;
-            box-shadow: 0 0 3px var(--gold);
-        }
-
-        @keyframes windBlow {
-            0% {
-                transform: translateX(-10vw) translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.2;
-            }
-            100% {
-                transform: translateX(110vw) translateY(-10vh) rotate(720deg);
-                opacity: 0;
-            }
-        }
-
-        /* REDUCED MAGIC PARTICLES */
-        .magic-particles {
+        /* Minimal Floating Particles */
+        .particles {
             position: fixed;
             top: 0;
             left: 0;
@@ -282,586 +77,111 @@
             pointer-events: none;
             z-index: 1;
             overflow: hidden;
-            opacity: 0.6;
         }
 
         .particle {
             position: absolute;
-            width: 3px;
-            height: 3px;
+            width: 2px;
+            height: 2px;
             background: var(--gold);
             border-radius: 50%;
             animation: float linear infinite;
-            box-shadow: 0 0 6px var(--gold);
+            opacity: 0.4;
         }
 
         @keyframes float {
             0% {
-                transform: translateY(100vh) rotate(0deg);
+                transform: translateY(100vh) translateX(0);
                 opacity: 0;
             }
             10% {
-                opacity: 0.8;
+                opacity: 0.6;
             }
             90% {
-                opacity: 0.8;
+                opacity: 0.6;
             }
             100% {
-                transform: translateY(-10vh) rotate(360deg);
+                transform: translateY(-10vh) translateX(100px);
                 opacity: 0;
             }
         }
 
-        /* DRAGON ORACLE SYSTEM */
-        .dragon-oracle {
-            position: fixed;
-            right: 20px;
-            bottom: 30px;
-            width: 70px;
-            height: 70px;
-            z-index: 1300;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: pointer;
-        }
-
-        .dragon-oracle.active {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .dragon-oracle img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 0 15px var(--gold));
-            animation: dragonBreathe 3s ease-in-out infinite;
-        }
-
-        @keyframes dragonBreathe {
-            0%, 100% { 
-                transform: scale(1) translateY(0px);
-                filter: drop-shadow(0 0 15px var(--gold));
-            }
-            50% { 
-                transform: scale(1.05) translateY(-3px);
-                filter: drop-shadow(0 0 25px var(--torch-orange));
-            }
-        }
-
-        .dragon-oracle:hover img {
-            animation: dragonExcited 1s ease-in-out infinite;
-        }
-
-        @keyframes dragonExcited {
-            0%, 100% { 
-                transform: scale(1.1) translateY(-2px) rotate(-2deg);
-            }
-            50% { 
-                transform: scale(1.15) translateY(-8px) rotate(2deg);
-            }
-        }
-
-        /* ORACLE TOOLTIP */
-        .oracle-tooltip {
-            position: absolute;
-            bottom: 100%;
-            right: 0;
-            background: linear-gradient(145deg, var(--parchment), var(--dark-parchment));
-            color: var(--shadow-black);
-            padding: 15px 20px;
-            border-radius: 15px;
-            border: 3px solid var(--ancient-gold);
-            max-width: 300px;
-            margin-bottom: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-            opacity: 0;
-            transform: translateY(10px) scale(0.9);
-            transition: all 0.3s ease;
-            font-family: 'VT323', monospace;
-            font-size: 1.1rem;
-            line-height: 1.4;
-            z-index: 2000;
-        }
-
-        .oracle-tooltip.show {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .oracle-tooltip::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            right: 20px;
-            border: 10px solid transparent;
-            border-top-color: var(--ancient-gold);
-        }
-
-        /* RANDOM TREASURE */
-        .random-treasure {
-            position: absolute;
-            font-size: 2rem;
-            cursor: pointer;
-            z-index: 50;
-            transition: all 0.3s ease;
-            animation: treasureGlint 3s ease-in-out infinite;
-        }
-
-        @keyframes treasureGlint {
-            0%, 100% { filter: drop-shadow(0 0 8px var(--gold)) brightness(1); }
-            50% { filter: drop-shadow(0 0 16px var(--treasure-gold)) brightness(1.3); }
-        }
-
-        .random-treasure:hover {
-            transform: scale(1.3);
-            animation: treasureOpen 0.5s ease-in-out;
-        }
-
-        @keyframes treasureOpen {
-            0%, 100% { transform: scale(1.3) rotate(0deg); }
-            50% { transform: scale(1.5) rotate(10deg); }
-        }
-
-        /* PROGRESS BARS */
-        .progress-container {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 220px;
-            z-index: 1100;
-            transition: all 0.3s ease;
-        }
-
-        .progress-bar {
-            background: linear-gradient(145deg, var(--stone-gray), var(--deep-stone));
-            border: 3px solid var(--ancient-gold);
-            border-radius: 10px;
-            padding: 10px;
-            margin-bottom: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-        }
-
-        .progress-label {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 0.6rem;
-            color: var(--gold);
-            margin-bottom: 8px;
-            text-align: center;
-        }
-
-        .progress-fill-container {
-            background: var(--shadow-black);
-            height: 12px;
-            border-radius: 6px;
-            overflow: hidden;
-            border: 2px solid var(--stone-gray);
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--gold), var(--torch-orange));
-            border-radius: 4px;
-            transition: width 1s ease;
-            position: relative;
-            animation: progressGlow 2s ease-in-out infinite;
-        }
-
-        @keyframes progressGlow {
-            0%, 100% { box-shadow: 0 0 8px var(--gold); }
-            50% { box-shadow: 0 0 16px var(--torch-orange); }
-        }
-
-        /* RECRUITMENT CALL */
-        .recruitment-call {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: linear-gradient(145deg, var(--royal-red), #660000);
-            color: var(--parchment);
-            padding: 15px 25px;
-            border: 4px solid var(--gold);
-            border-radius: 15px;
-            font-family: 'Press Start 2P', monospace;
-            font-size: 0.8rem;
-            cursor: pointer;
-            z-index: 1250;
-            opacity: 0;
-            transform: translateY(100px) scale(0.8);
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-            max-width: 280px;
-        }
-
-        .recruitment-call.show {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .recruitment-call:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
-            border-color: var(--torch-orange);
-        }
-
-        /* SKILL TREE */
-        .skill-tree {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-branch {
-            background: linear-gradient(145deg, var(--stone-gray), var(--deep-stone));
-            border: 4px solid var(--ancient-gold);
-            border-radius: 15px;
-            padding: 20px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .skill-branch:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-        }
-
-        .skill-branch h4 {
-            color: var(--gold);
-            font-family: 'Press Start 2P', monospace;
-            font-size: 1rem;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .skill-level {
-            background: var(--shadow-black);
-            height: 8px;
-            border-radius: 4px;
-            margin: 8px 0;
-            overflow: hidden;
-            border: 1px solid var(--stone-gray);
-        }
-
-        .skill-level-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--forest-green), var(--gold));
-            border-radius: 3px;
-            transition: width 1s ease;
-        }
-
-        /* CAREER PROGRESSION */
-        .career-timeline {
-            position: relative;
-            margin: 4rem 0;
-        }
-
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            margin: 3rem 0;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(10px);
-        }
-
-        .timeline-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(145deg, var(--gold), var(--ancient-gold));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-right: 30px;
-            border: 4px solid var(--royal-red);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-        }
-
-        .timeline-content {
-            flex: 1;
-            background: linear-gradient(145deg, var(--parchment), var(--dark-parchment));
-            color: var(--shadow-black);
-            padding: 20px;
-            border-radius: 15px;
-            border: 3px solid var(--ancient-gold);
-            position: relative;
-        }
-
-        .timeline-backstory {
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 2px solid var(--ancient-gold);
-            font-style: italic;
-            color: var(--royal-red);
-        }
-
-        .timeline-item:hover .timeline-backstory {
-            opacity: 1;
-            max-height: 200px;
-        }
-
-        /* DUNGEON STONE BACKGROUND */
-        .dungeon-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(139, 0, 0, 0.03) 0%, transparent 50%),
-                linear-gradient(90deg, rgba(58, 58, 58, 0.3) 0%, transparent 2%, transparent 98%, rgba(58, 58, 58, 0.3) 100%),
-                linear-gradient(0deg, rgba(58, 58, 58, 0.3) 0%, transparent 2%, transparent 98%, rgba(58, 58, 58, 0.3) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><rect width="60" height="60" fill="%232a2a2a"/><rect x="0" y="0" width="30" height="30" fill="%233a3a3a" opacity="0.3"/><rect x="30" y="30" width="30" height="30" fill="%233a3a3a" opacity="0.3"/><circle cx="15" cy="15" r="2" fill="%23FFD700" opacity="0.08"/><circle cx="45" cy="45" r="2" fill="%23FF6347" opacity="0.08"/></svg>');
-            background-size: 100px 100px, 100px 100px, 60px 60px, 60px 60px, 60px 60px;
-            z-index: 0;
-            opacity: 0.6;
-            animation: dungeonShift 40s ease-in-out infinite;
-        }
-
-        @keyframes dungeonShift {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(-5px, -5px) scale(1.02); }
-            50% { transform: translate(5px, -3px) scale(0.98); }
-            75% { transform: translate(-3px, 5px) scale(1.01); }
-        }
-
-        /* TORCHES */
-        .torch-container {
-            position: fixed;
-            top: 50%;
-            z-index: 200;
-            transform: translateY(-50%);
-        }
-
-        .torch-left { left: 5px; }
-        .torch-right { right: 5px; }
-
-        .torch {
-            width: 20px;
-            height: 60px;
-            background: var(--stone-gray);
-            position: relative;
-            border-radius: 2px;
-        }
-
-        .flame {
-            position: absolute;
-            top: -35px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 18px;
-            height: 35px;
-            background: linear-gradient(180deg, var(--torch-orange) 0%, var(--gold) 50%, var(--royal-red) 100%);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            animation: flameFlicker 0.3s ease-in-out infinite alternate;
-            filter: blur(1px);
-        }
-
-        @keyframes flameFlicker {
-            0% {
-                transform: translateX(-50%) scale(1) rotate(-2deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateX(-50%) scale(1.2) rotate(2deg);
-                opacity: 0.7;
-            }
-        }
-
-        .flame::after {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 10px;
-            height: 18px;
-            background: var(--torch-orange);
-            border-radius: 50%;
-            filter: blur(2px);
-            animation: innerFlameFlicker 0.2s ease-in-out infinite alternate;
-        }
-
-        @keyframes innerFlameFlicker {
-            0% { opacity: 1; transform: translateX(-50%) scale(1); }
-            100% { opacity: 0.5; transform: translateX(-50%) scale(1.3); }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* EPIC HEADER */
+        /* Header */
         header {
             background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
-            border: 4px solid var(--gold);
-            border-radius: 0;
-            box-shadow:
-                inset 0 0 0 2px var(--ancient-gold),
-                0 8px 0 var(--shadow-black),
-                0 8px 16px rgba(0, 0, 0, 0.8);
-            position: sticky;
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 1000;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: repeating-linear-gradient(
-                90deg,
-                var(--gold) 0px,
-                var(--gold) 12px,
-                var(--ancient-gold) 12px,
-                var(--ancient-gold) 24px
-            );
-            animation: headerShimmer 3s linear infinite;
-        }
-
-        @keyframes headerShimmer {
-            0% { background-position: 0px 0px; }
-            100% { background-position: 24px 0px; }
-        }
-
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: repeating-linear-gradient(
-                90deg,
-                var(--ancient-gold) 0px,
-                var(--ancient-gold) 12px,
-                var(--gold) 12px,
-                var(--gold) 24px
-            );
-            animation: headerShimmer 3s linear infinite reverse;
+            backdrop-filter: blur(10px);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
+            padding: 1rem 0;
         }
 
         .logo {
             font-family: 'Press Start 2P', monospace;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
+            font-weight: 400;
             color: var(--gold);
             text-decoration: none;
-            text-shadow:
+            text-shadow: 
                 2px 2px 0 var(--ancient-gold),
-                4px 4px 8px var(--shadow-black);
-            animation: logoGlow 4s ease-in-out infinite;
-            position: relative;
+                4px 4px 0 var(--shadow-black),
+                0 0 10px var(--gold),
+                0 0 20px var(--treasure-gold);
+            transition: var(--transition);
+            filter: drop-shadow(0 0 15px var(--gold));
         }
 
-        @keyframes logoGlow {
-            0%, 100% {
-                filter: drop-shadow(0 0 12px var(--gold));
-                transform: scale(1);
-            }
-            50% {
-                filter: drop-shadow(0 0 24px var(--torch-orange));
-                transform: scale(1.05);
-            }
-        }
-
-        .logo::before {
-            content: '⚔️';
-            margin-right: 12px;
-            animation: swordSpin 6s linear infinite;
-        }
-
-        .logo::after {
-            content: '🏰';
-            margin-left: 12px;
-            animation: castleBob 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes swordSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes castleBob {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-6px) scale(1.1); }
+        .logo:hover {
+            color: var(--treasure-gold);
+            text-shadow: 2px 2px 8px var(--gold);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
             list-style: none;
+            gap: 2rem;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--parchment);
-            font-family: 'VT323', monospace;
-            font-size: 1.4rem;
-            transition: all 0.3s;
+            font-weight: 400;
+            font-size: 1.2rem;
+            transition: var(--transition);
             position: relative;
-            padding: 1rem 1.5rem;
-            border: 2px solid transparent;
-            background: rgba(255, 215, 0, 0.1);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            padding: 0.5rem 1rem;
         }
 
-        .nav-links a::before {
-            content: '⚡';
-            opacity: 0;
-            transition: opacity 0.3s;
-            color: var(--gold);
-            margin-right: 8px;
-        }
-
-        .nav-links a:hover::before {
-            opacity: 1;
-            animation: lightningBolt 0.5s ease-in-out;
-        }
-
-        @keyframes lightningBolt {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.5); }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
         .nav-links a:hover {
             color: var(--gold);
-            border-color: var(--gold);
-            background: rgba(255, 215, 0, 0.2);
-            text-shadow: 0 0 8px var(--gold);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
         }
 
-        /* LEGENDARY HERO SECTION */
+        .nav-links a:hover::after {
+            width: 80%;
+        }
+
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -869,148 +189,105 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            overflow: hidden;
             background: linear-gradient(
                 180deg,
                 rgba(26, 26, 26, 0.9) 0%,
-                rgba(42, 42, 42, 0.7) 50%,
+                rgba(42, 42, 42, 0.6) 50%,
                 rgba(26, 26, 26, 0.9) 100%
             );
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="epiccastle" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="%23FFD700" opacity="0.02"/><rect x="0" y="0" width="10" height="10" fill="%23B8860B" opacity="0.1"/><rect x="40" y="40" width="10" height="10" fill="%23B8860B" opacity="0.1"/><rect x="20" y="20" width="10" height="10" fill="%23FFD700" opacity="0.05"/><circle cx="25" cy="25" r="2" fill="%23FF6347" opacity="0.08"/></pattern></defs><rect width="200" height="200" fill="url(%23epiccastle)"/></svg>');
-            animation: epicCastlePattern 25s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes epicCastlePattern {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(-50px, -50px) rotate(360deg); }
-        }
-
         .hero-content {
-            position: relative;
-            z-index: 15;
-            max-width: 900px;
+            max-width: 800px;
+            z-index: 10;
         }
 
         .hero h1 {
             font-family: 'Press Start 2P', monospace;
-            font-size: 3.2rem;
-            margin-bottom: 2rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
             color: var(--gold);
-            text-shadow:
-                2px 2px 0 var(--ancient-gold),
-                4px 4px 0 var(--royal-red),
-                6px 6px 12px var(--shadow-black);
-            animation: heroGlow 5s ease-in-out infinite;
-            position: relative;
+            text-shadow: 
+                3px 3px 0 var(--ancient-gold),
+                6px 6px 0 var(--shadow-black),
+                0 0 20px var(--gold),
+                0 0 40px var(--treasure-gold),
+                0 0 60px var(--torch-orange);
+            font-weight: 400;
+            line-height: 1.3;
+            filter: drop-shadow(0 0 25px var(--gold));
+            animation: textGlow 3s ease-in-out infinite alternate;
         }
 
-        @keyframes heroGlow {
-            0%, 100% {
-                filter: drop-shadow(0 0 20px var(--gold));
-                transform: scale(1);
+        @keyframes textGlow {
+            0% { 
+                text-shadow: 
+                    3px 3px 0 var(--ancient-gold),
+                    6px 6px 0 var(--shadow-black),
+                    0 0 20px var(--gold),
+                    0 0 40px var(--treasure-gold),
+                    0 0 60px var(--torch-orange);
             }
-            25% {
-                filter: drop-shadow(0 0 30px var(--torch-orange));
-                transform: scale(1.02);
+            100% { 
+                text-shadow: 
+                    3px 3px 0 var(--ancient-gold),
+                    6px 6px 0 var(--shadow-black),
+                    0 0 30px var(--gold),
+                    0 0 50px var(--treasure-gold),
+                    0 0 70px var(--torch-orange);
             }
-            50% {
-                filter: drop-shadow(0 0 40px var(--royal-red));
-                transform: scale(1.05);
-            }
-            75% {
-                filter: drop-shadow(0 0 35px var(--magic-blue));
-                transform: scale(1.03);
-            }
-        }
-
-        .hero h1::before {
-            content: '👑';
-            position: absolute;
-            top: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2.5rem;
-            animation: crownFloat 4s ease-in-out infinite;
-        }
-
-        @keyframes crownFloat {
-            0%, 100% { transform: translateX(-50%) translateY(0) rotate(-5deg) scale(1); }
-            25% { transform: translateX(-50%) translateY(-8px) rotate(0deg) scale(1.1); }
-            50% { transform: translateX(-50%) translateY(-15px) rotate(5deg) scale(1.2); }
-            75% { transform: translateX(-50%) translateY(-8px) rotate(0deg) scale(1.1); }
         }
 
         .hero .subtitle {
-            font-size: 1.9rem;
+            font-size: 1.8rem;
             margin-bottom: 2rem;
             color: var(--torch-orange);
-            font-family: 'VT323', monospace;
-            text-shadow: 2px 2px 4px var(--shadow-black);
-            animation: typewriter 8s steps(60) infinite;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 4px solid var(--gold);
-            max-width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @keyframes typewriter {
-            0% { width: 0; }
-            30% { width: 100%; }
-            70% { width: 100%; }
-            100% { width: 0; }
+            font-weight: 400;
+            text-shadow: 
+                2px 2px 0 var(--shadow-black),
+                0 0 10px var(--torch-orange),
+                0 0 20px var(--royal-red);
+            line-height: 1.4;
+            filter: drop-shadow(0 0 10px var(--torch-orange));
         }
 
         .hero .description {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             margin-bottom: 3rem;
-            max-width: 700px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.7;
-            color: var(--parchment);
-            text-shadow: 1px 1px 2px var(--shadow-black);
+            line-height: 1.5;
+            color: var(--text-light);
+            text-shadow: 
+                1px 1px 0 var(--shadow-black),
+                0 0 5px rgba(255, 215, 0, 0.3);
         }
 
-        /* LEGENDARY BUTTONS */
         .cta-buttons {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .btn {
-            padding: 22px 44px;
-            font-size: 1.4rem;
-            font-weight: bold;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
             text-decoration: none;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             background: linear-gradient(145deg, var(--gold) 0%, var(--ancient-gold) 100%);
-            border: 4px solid var(--ancient-gold);
+            border: 2px solid var(--ancient-gold);
             color: var(--shadow-black);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-family: 'Press Start 2P', monospace;
-            text-shadow: none;
-            box-shadow:
-                inset 0 0 0 2px var(--gold),
-                0 8px 0 var(--shadow-black),
-                0 8px 16px rgba(0, 0, 0, 0.6);
+            letter-spacing: 1px;
+            font-family: 'Orbitron', monospace;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .btn::before {
@@ -1020,200 +297,104 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-            transition: left 0.8s ease;
-        }
-
-        .btn::after {
-            content: '⚡';
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.5rem;
-            opacity: 0;
-            transition: all 0.3s ease;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
         }
 
         .btn:hover::before {
             left: 100%;
         }
 
-        .btn:hover::after {
-            opacity: 1;
-            top: -30px;
-            animation: buttonLightning 0.5s ease-in-out;
-        }
-
-        @keyframes buttonLightning {
-            0%, 100% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.5); }
-        }
-
         .btn:hover {
-            transform: translateY(-6px);
-            box-shadow:
-                inset 0 0 0 2px var(--torch-orange),
-                0 12px 0 var(--shadow-black),
-                0 12px 24px rgba(0, 0, 0, 0.8);
-            background: linear-gradient(145deg, var(--torch-orange) 0%, var(--gold) 100%);
-            filter: drop-shadow(0 0 16px var(--torch-orange));
-        }
-
-        .btn:active {
-            transform: translateY(3px);
-            box-shadow:
-                inset 0 0 0 2px var(--gold),
-                0 3px 0 var(--shadow-black),
-                0 3px 12px rgba(0, 0, 0, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(145deg, var(--treasure-gold) 0%, var(--gold) 100%);
         }
 
         .btn-secondary {
-            background: linear-gradient(145deg, var(--royal-red) 0%, #660000 100%);
-            border-color: #660000;
-            color: var(--parchment);
+            background: transparent;
+            border-color: var(--gold);
+            color: var(--gold);
         }
 
         .btn-secondary:hover {
-            background: linear-gradient(145deg, var(--mystic-purple) 0%, var(--royal-red) 100%);
-            filter: drop-shadow(0 0 16px var(--mystic-purple));
+            background: var(--gold);
+            color: var(--shadow-black);
         }
 
-        /* EPIC SOCIAL LINKS */
         .social-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .social-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 70px;
-            height: 70px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
             color: var(--gold);
-            border-radius: 50%;
+            border-radius: 8px;
             text-decoration: none;
-            transition: all 0.3s;
-            border: 4px solid var(--ancient-gold);
-            position: relative;
-            overflow: hidden;
-            box-shadow:
-                inset 0 0 0 2px var(--gold),
-                0 6px 12px rgba(0, 0, 0, 0.6);
-        }
-
-        .social-link::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(var(--gold), var(--torch-orange), var(--royal-red), var(--magic-blue), var(--gold));
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            animation: shieldRotate 6s linear infinite;
-        }
-
-        @keyframes shieldRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .social-link:hover::before {
-            opacity: 0.4;
+            transition: var(--transition);
+            border: 2px solid var(--border-subtle);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            font-size: 1.2rem;
         }
 
         .social-link:hover {
-            transform: translateY(-8px) scale(1.2);
-            box-shadow:
-                inset 0 0 0 2px var(--torch-orange),
-                0 12px 20px rgba(0, 0, 0, 0.8);
-            color: var(--torch-orange);
-            border-color: var(--torch-orange);
-            filter: drop-shadow(0 0 16px var(--gold));
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            color: var(--treasure-gold);
+            border-color: var(--gold);
         }
 
-        /* SECTION STYLING */
+        /* Section Styling */
         .section {
-            margin: 10rem 0;
+            padding: 6rem 0;
             position: relative;
-            padding: 4rem 0;
         }
 
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 250px;
-            height: 8px;
-            background: linear-gradient(90deg, transparent, var(--gold), var(--torch-orange), var(--gold), transparent);
-            border-radius: 4px;
-            animation: sectionLineGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes sectionLineGlow {
-            0%, 100% { box-shadow: 0 0 8px var(--gold); }
-            50% { box-shadow: 0 0 16px var(--torch-orange); }
+        .section:nth-child(even) {
+            background: rgba(42, 42, 42, 0.3);
         }
 
         .section h2 {
             font-family: 'Press Start 2P', monospace;
-            font-size: 2.8rem;
-            margin-bottom: 4rem;
+            font-size: 2rem;
+            margin-bottom: 3rem;
             text-align: center;
             color: var(--gold);
-            text-shadow:
+            text-shadow: 
                 2px 2px 0 var(--ancient-gold),
-                4px 4px 8px var(--shadow-black);
+                4px 4px 0 var(--shadow-black),
+                0 0 15px var(--gold),
+                0 0 30px var(--treasure-gold);
+            font-weight: 400;
             position: relative;
-            animation: sectionGlow 6s ease-in-out infinite;
-        }
-
-        @keyframes sectionGlow {
-            0%, 100% { filter: drop-shadow(0 0 16px var(--gold)); }
-            33% { filter: drop-shadow(0 0 24px var(--torch-orange)); }
-            66% { filter: drop-shadow(0 0 20px var(--royal-red)); }
-        }
-
-        .section h2::before {
-            content: '⚜️';
-            position: absolute;
-            left: -80px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            animation: decorSpin 8s linear infinite;
+            line-height: 1.4;
+            filter: drop-shadow(0 0 20px var(--gold));
         }
 
         .section h2::after {
-            content: '⚜️';
+            content: '';
             position: absolute;
-            right: -80px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            animation: decorSpin 8s linear infinite reverse;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
 
-        @keyframes decorSpin {
-            0% { transform: translateY(-50%) rotate(0deg) scale(1); }
-            50% { transform: translateY(-50%) rotate(180deg) scale(1.2); }
-            100% { transform: translateY(-50%) rotate(360deg) scale(1); }
-        }
-
-        /* LEGENDARY ABOUT SECTION */
+        /* About Section */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 6rem;
+            gap: 4rem;
             align-items: center;
         }
 
@@ -1223,589 +404,320 @@
         }
 
         .profile-img {
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid var(--gold);
-            box-shadow:
-                0 0 0 4px var(--ancient-gold),
-                0 0 0 8px var(--stone-gray),
-                0 12px 20px rgba(0, 0, 0, 0.8);
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 5;
-            filter: sepia(20%) contrast(1.3);
+            width: 100%;
+            max-width: 300px;
+            border-radius: 15px;
+            border: 4px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+            filter: sepia(10%);
         }
 
         .profile-img:hover {
-            transform: scale(1.08);
-            filter: sepia(20%) contrast(1.3) drop-shadow(0 0 25px var(--gold));
-            box-shadow:
-                0 0 0 4px var(--torch-orange),
-                0 0 0 8px var(--ancient-gold),
-                0 0 0 12px var(--stone-gray),
-                0 16px 32px rgba(0, 0, 0, 0.9);
-        }
-
-        .profile-container::before {
-            content: '';
-            position: absolute;
-            top: -25px;
-            left: -25px;
-            right: -25px;
-            bottom: -25px;
-            border: 4px solid var(--gold);
-            border-radius: 50%;
-            z-index: 1;
-            opacity: 0.4;
-            animation: shieldPulse 5s ease-in-out infinite;
-        }
-
-        @keyframes shieldPulse {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.4; }
-            33% { transform: scale(1.1) rotate(120deg); opacity: 0.7; }
-            66% { transform: scale(1.05) rotate(240deg); opacity: 0.5; }
-        }
-
-        .profile-container::after {
-            content: '';
-            position: absolute;
-            top: -35px;
-            left: -35px;
-            right: -35px;
-            bottom: -35px;
-            border: 2px dashed var(--torch-orange);
-            border-radius: 50%;
-            z-index: 0;
-            opacity: 0.3;
-            animation: shieldPulse 7s ease-in-out infinite reverse;
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            filter: sepia(0%);
         }
 
         .about-text {
-            font-size: 1.5rem;
-            line-height: 1.9;
-            color: var(--parchment);
-            text-shadow: 1px 1px 2px var(--shadow-black);
+            font-size: 1.3rem;
+            line-height: 1.6;
         }
 
         .about-text p {
-            margin-bottom: 2.5rem;
-            position: relative;
-            padding-left: 35px;
+            margin-bottom: 2rem;
             text-align: justify;
-        }
-
-        .about-text p::before {
-            content: '⚔️';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            animation: swordGlint 4s ease-in-out infinite;
-        }
-
-        @keyframes swordGlint {
-            0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
-            25% { opacity: 0.8; transform: scale(1.1) rotate(5deg); }
-            50% { opacity: 1.2; transform: scale(1.2) rotate(-5deg); }
-            75% { opacity: 0.9; transform: scale(1.05) rotate(3deg); }
+            line-height: 1.6;
         }
 
         .highlight {
             color: var(--gold);
-            font-weight: bold;
-            text-shadow: 2px 2px 4px var(--shadow-black);
-            position: relative;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px var(--shadow-black);
         }
 
-        .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--torch-orange), var(--gold));
-            animation: underlineShimmer 2.5s ease-in-out infinite;
-        }
-
-        @keyframes underlineShimmer {
-            0%, 100% { opacity: 1; transform: scaleX(1); }
-            50% { opacity: 0.8; transform: scaleX(1.2); }
-        }
-
-        /* LEGENDARY SCROLL CARDS */
-        .scroll-card {
-            background: linear-gradient(145deg, var(--parchment) 0%, var(--dark-parchment) 100%);
-            border: 6px solid var(--ancient-gold);
-            border-radius: 25px;
-            padding: 3.5rem;
-            margin: 4rem 0;
+        /* Cards */
+        .card {
+            background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
+            border: 3px solid var(--border-subtle);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
-            transition: all 0.4s ease;
-            color: var(--shadow-black);
-            box-shadow:
-                inset 0 0 0 3px var(--gold),
-                0 12px 20px rgba(0, 0, 0, 0.5);
         }
 
-        .scroll-card::before {
+        .card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 25px;
-            background: repeating-linear-gradient(
-                90deg,
-                var(--gold) 0px,
-                var(--gold) 10px,
-                var(--ancient-gold) 10px,
-                var(--ancient-gold) 20px
-            );
-            animation: scrollBorderShimmer 4s linear infinite;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--torch-orange), var(--gold));
+            opacity: 0;
+            transition: var(--transition);
         }
 
-        @keyframes scrollBorderShimmer {
-            0% { background-position: 0px 0px; }
-            100% { background-position: 20px 0px; }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border-color: var(--gold);
         }
 
-        .scroll-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 25px;
-            background: repeating-linear-gradient(
-                90deg,
-                var(--ancient-gold) 0px,
-                var(--ancient-gold) 10px,
-                var(--gold) 10px,
-                var(--gold) 20px
-            );
-            animation: scrollBorderShimmer 4s linear infinite reverse;
+        .card:hover::before {
+            opacity: 1;
         }
 
-        .scroll-card:hover {
-            transform: perspective(1000px) rotateX(8deg) translateY(-15px);
-            box-shadow:
-                inset 0 0 0 3px var(--torch-orange),
-                0 25px 50px rgba(0, 0, 0, 0.6);
-            border-color: var(--torch-orange);
-        }
-
-        .scroll-card h3 {
-            color: var(--royal-red);
-            margin-bottom: 2.5rem;
-            font-size: 2rem;
+        .card h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
             font-family: 'Press Start 2P', monospace;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            font-weight: 400;
+            line-height: 1.4;
+            text-shadow: 
+                1px 1px 0 var(--ancient-gold),
+                2px 2px 0 var(--shadow-black),
+                0 0 10px var(--gold);
         }
 
-        /* EPIC PUBLICATIONS */
+        .card p {
+            color: var(--text-light);
+            line-height: 1.5;
+            font-size: 1.3rem;
+        }
+
+        /* Research Grid */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Publications */
         .publications-grid {
             display: grid;
-            gap: 4rem;
+            gap: 2rem;
         }
 
         .publication {
             background: linear-gradient(145deg, var(--parchment) 0%, var(--dark-parchment) 100%);
-            border: 4px solid var(--ancient-gold);
-            border-radius: 20px;
-            padding: 3rem;
-            transition: all 0.4s ease;
-            position: relative;
+            border: 3px solid var(--ancient-gold);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: var(--transition);
             color: var(--shadow-black);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
         }
 
         .publication::before {
-            content: '📜';
+            content: '';
             position: absolute;
-            top: -20px;
-            left: 25px;
-            font-size: 2.5rem;
-            background: var(--parchment);
-            padding: 0 15px;
-            border-radius: 50%;
-            border: 3px solid var(--ancient-gold);
-            animation: scrollFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes scrollFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(5deg); }
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gold), var(--ancient-gold));
+            border-radius: 3px;
         }
 
         .publication:hover {
-            transform: perspective(1000px) rotateY(8deg) translateY(-12px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             border-color: var(--gold);
         }
 
         .publication h4 {
             color: var(--royal-red);
-            margin-bottom: 1.2rem;
-            font-size: 1.4rem;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.4;
         }
 
         .publication .authors {
             color: var(--forest-green);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
             font-style: italic;
-            font-weight: bold;
+            font-weight: 500;
         }
 
         .publication .venue {
             color: var(--magic-blue);
-            font-weight: bold;
-            margin-bottom: 1.8rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
 
         .publication .abstract {
             color: var(--deep-stone);
-            line-height: 1.7;
-            margin-bottom: 2rem;
-            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
         .publication .links {
             display: flex;
-            gap: 1.2rem;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
         .publication .links a {
-            color: var(--parchment);
+            color: var(--magic-blue);
             text-decoration: none;
-            font-weight: bold;
-            padding: 1rem 2rem;
-            border: 3px solid var(--magic-blue);
-            border-radius: 12px;
-            transition: all 0.3s;
-            background: var(--magic-blue);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: 'VT323', monospace;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
         }
 
         .publication .links a:hover {
-            background: var(--torch-orange);
-            border-color: var(--torch-orange);
-            color: var(--shadow-black);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            color: var(--royal-red);
+            border-bottom-color: var(--royal-red);
         }
 
-        /* LEGENDARY PROJECTS */
+        /* Projects */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
         }
 
         .project {
             background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
-            border: 6px solid var(--gold);
-            border-radius: 25px;
+            border: 3px solid var(--border-subtle);
+            border-radius: 15px;
             overflow: hidden;
-            transition: all 0.4s ease;
-            position: relative;
-            box-shadow:
-                inset 0 0 0 3px var(--ancient-gold),
-                0 12px 20px rgba(0, 0, 0, 0.6);
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         .project:hover {
-            transform: perspective(1000px) rotateY(12deg) translateY(-20px);
-            box-shadow:
-                inset 0 0 0 3px var(--torch-orange),
-                0 25px 50px rgba(0, 0, 0, 0.8);
-            border-color: var(--torch-orange);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-color: var(--gold);
         }
 
-        .project-image {
-            height: 220px;
-            background: linear-gradient(135deg, var(--gold), var(--torch-orange), var(--royal-red));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: var(--parchment);
-            position: relative;
-            overflow: hidden;
+        .project-header {
+            background: linear-gradient(135deg, var(--gold), var(--ancient-gold));
+            color: var(--shadow-black);
+            padding: 2rem;
+            text-align: center;
         }
 
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="epicshield" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="12.5" cy="12.5" r="3" fill="rgba(255,255,255,0.1)"/><path d="M6 12.5h13M12.5 6v13" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/><rect x="0" y="0" width="6" height="6" fill="rgba(255,215,0,0.05)"/><rect x="19" y="19" width="6" height="6" fill="rgba(255,215,0,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23epicshield)"/></svg>');
-            animation: shieldPattern 12s linear infinite;
-        }
-
-        @keyframes shieldPattern {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            50% { transform: translate(-12px, -12px) scale(1.1) rotate(180deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+        .project-header .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
         .project-content {
-            padding: 3rem;
-            color: var(--parchment);
+            padding: 2rem;
+            color: var(--text-light);
         }
 
         .project h4 {
-            margin-bottom: 2rem;
             color: var(--gold);
-            font-size: 1.6rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px var(--shadow-black);
-        }
-
-        .project p {
-            color: var(--parchment);
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 2px var(--shadow-black);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-family: 'Press Start 2P', monospace;
+            font-weight: 400;
+            line-height: 1.4;
         }
 
         .project-tags {
             display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
+            gap: 0.5rem;
             flex-wrap: wrap;
+            margin-top: 1.5rem;
         }
 
         .tag {
-            background: linear-gradient(145deg, var(--royal-red) 0%, #550000 100%);
-            color: var(--parchment);
-            padding: 0.8rem 1.5rem;
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--gold);
+            padding: 0.3rem 0.8rem;
             border-radius: 15px;
-            font-size: 1rem;
-            border: 3px solid var(--ancient-gold);
-            transition: all 0.3s;
+            font-size: 0.8rem;
+            font-weight: 400;
+            border: 1px solid var(--border-subtle);
             font-family: 'VT323', monospace;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px var(--shadow-black);
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
         }
 
-        .tag:hover {
-            background: linear-gradient(145deg, var(--gold) 0%, var(--ancient-gold) 100%);
-            color: var(--shadow-black);
-            transform: scale(1.08) translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
-            text-shadow: none;
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        /* EPIC FOOTER */
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
+            border: 3px solid var(--border-subtle);
+            border-radius: 15px;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-item .icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h4 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .contact-item p, .contact-item a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold);
+        }
+
+        /* Footer */
         footer {
             background: linear-gradient(145deg, var(--deep-stone) 0%, var(--shadow-black) 100%);
-            border-top: 6px solid var(--gold);
-            padding: 5rem 0 3rem;
-            margin-top: 10rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 15px;
-            background: repeating-linear-gradient(
-                90deg,
-                var(--gold) 0px,
-                var(--gold) 20px,
-                var(--ancient-gold) 20px,
-                var(--ancient-gold) 40px
-            );
-            animation: footerShimmer 5s linear infinite;
-        }
-
-        @keyframes footerShimmer {
-            0% { background-position: 0px 0px; }
-            100% { background-position: 40px 0px; }
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 4rem;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer-section h4 {
-            color: var(--gold);
-            margin-bottom: 2rem;
-            font-family: 'Press Start 2P', monospace;
-            font-size: 1.2rem;
-            text-shadow: 2px 2px 4px var(--shadow-black);
-        }
-
-        .footer-section a {
-            color: var(--parchment);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 1.2rem;
-            transition: all 0.3s;
-            position: relative;
-            padding-left: 30px;
-            font-family: 'VT323', monospace;
-            font-size: 1.3rem;
-        }
-
-        .footer-section a::before {
-            content: '⚔️';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            opacity: 0;
-            transition: all 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: var(--gold);
-            transform: translateX(12px);
-            text-shadow: 0 0 8px var(--gold);
-        }
-
-        .footer-section a:hover::before {
-            opacity: 1;
-            animation: footerSwordGlint 0.6s ease-in-out;
-        }
-
-        @keyframes footerSwordGlint {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.3) rotate(15deg); }
-        }
-
-        .footer-section p {
-            color: var(--parchment);
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-        }
-
-        /* EPIC LOADING SCREEN */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--dungeon-black);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000000;
-            transition: opacity 1.5s ease;
-        }
-
-        .loading-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loading-castle {
-            width: 150px;
-            height: 150px;
-            background: var(--stone-gray);
-            position: relative;
-            border-radius: 0;
-            margin-bottom: 3rem;
-            border: 6px solid var(--gold);
-            animation: castleBuild 3s ease-in-out infinite;
-        }
-
-        @keyframes castleBuild {
-            0%, 100% {
-                transform: scale(1);
-                filter: drop-shadow(0 0 16px var(--gold));
-            }
-            25% {
-                transform: scale(1.05);
-                filter: drop-shadow(0 0 24px var(--torch-orange));
-            }
-            50% {
-                transform: scale(1.15);
-                filter: drop-shadow(0 0 32px var(--royal-red));
-            }
-            75% {
-                transform: scale(1.08);
-                filter: drop-shadow(0 0 28px var(--magic-blue));
-            }
-        }
-
-        .loading-castle::before {
-            content: '🏰';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4rem;
-            animation: castleGlow 1.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes castleGlow {
-            0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.2); }
-        }
-
-        .loading-text {
-            font-family: 'Press Start 2P', monospace;
-            color: var(--gold);
-            font-size: 1.2rem;
-            text-shadow: 2px 2px 4px var(--shadow-black);
-            animation: loadingPulse 2s ease-in-out infinite;
+            border-top: 3px solid var(--gold);
+            padding: 3rem 0;
             text-align: center;
-            line-height: 1.6;
+            color: var(--text-light);
         }
 
-        @keyframes loadingPulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.08); }
-        }
-
-        /* RESPONSIVE DESIGN */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
+                line-height: 1.3;
             }
 
             .hero .subtitle {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 4rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
+                gap: 3rem;
             }
 
             .cta-buttons {
@@ -1813,293 +725,93 @@
                 align-items: center;
             }
 
-            .profile-img {
-                width: 220px;
-                height: 220px;
+            .section {
+                padding: 4rem 0;
             }
 
             .section h2 {
-                font-size: 2rem;
-            }
-
-            .section h2::before,
-            .section h2::after {
-                display: none;
-            }
-
-            .treasure-map {
-                width: 140px;
-                height: 110px;
-                right: 10px;
-                top: 10px;
-                z-index: 1300;
-            }
-
-            .map-title {
-                font-size: 0.5rem;
-                margin-bottom: 6px;
-            }
-
-            .map-section {
-                font-size: 0.6rem;
-                padding: 2px 4px;
-            }
-
-            .progress-container {
-                width: 180px;
-                left: 10px;
-                top: 10px;
-            }
-
-            .progress-bar {
-                padding: 8px;
-                margin-bottom: 8px;
-            }
-
-            .progress-label {
-                font-size: 0.5rem;
-                margin-bottom: 6px;
-            }
-
-            .progress-fill-container {
-                height: 8px;
-            }
-
-            .dragon-oracle {
-                width: 50px;
-                height: 50px;
-                right: 15px;
-                bottom: 20px;
-            }
-
-            .oracle-tooltip {
-                max-width: 200px;
-                padding: 10px 15px;
-                font-size: 1rem;
-            }
-
-            .recruitment-call {
-                padding: 10px 15px;
-                font-size: 0.7rem;
-                max-width: 200px;
-                left: 15px;
-                bottom: 20px;
-            }
-
-            .skill-tree {
-                grid-template-columns: 1fr;
-            }
-
-            .torch-container {
-                display: none;
-            }
-
-            .random-treasure {
                 font-size: 1.5rem;
+                line-height: 1.4;
+            }
+
+            .card h3 {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+
+            .project h4 {
+                font-size: 0.9rem;
+                line-height: 1.4;
             }
         }
 
-        /* MEDIUM SCREENS */
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .treasure-map {
-                width: 160px;
-                height: 125px;
-            }
-
-            .progress-container {
-                width: 200px;
-            }
-
-            .oracle-tooltip {
-                max-width: 250px;
-            }
+        /* Scroll Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .first-author {
-            font-weight: bold;
-            color: var(--royal-red);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* EPIC SCROLLBAR */
+        /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 20px;
+            width: 12px;
         }
 
         ::-webkit-scrollbar-track {
             background: var(--deep-stone);
-            border: 3px solid var(--stone-gray);
-            border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, var(--gold), var(--ancient-gold));
-            border-radius: 10px;
-            border: 3px solid var(--stone-gray);
-            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(180deg, var(--gold), var(--ancient-gold));
+            border-radius: 6px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, var(--torch-orange), var(--gold));
-            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* EASTER EGG STYLES */
-        .easter-egg-message {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(145deg, var(--treasure-gold), var(--gold));
-            color: var(--shadow-black);
-            padding: 3rem 5rem;
-            border: 6px solid var(--royal-red);
-            border-radius: 25px;
-            z-index: 1000000;
-            font-family: 'Press Start 2P', monospace;
-            font-size: 1.5rem;
-            text-align: center;
-            box-shadow: 0 0 50px var(--gold);
-            animation: epicMessage 1s ease-in-out;
-        }
-
-        @keyframes epicMessage {
-            0% { transform: translate(-50%, -50%) scale(0) rotate(180deg); }
-            100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+            background: linear-gradient(180deg, var(--treasure-gold), var(--gold));
         }
     </style>
 </head>
 <body>
-    <!-- EPIC LOADING SCREEN -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-castle"></div>
-        <div class="loading-text">Constructing Epic Castle...<br>Summoning Digital Dragons...<br>Preparing Legendary Interface...</div>
-    </div>
-
-    <!-- TREASURE MAP NAVIGATION -->
-    <div class="treasure-map" id="treasureMap">
-        <div class="map-title">QUEST MAP</div>
-        <div class="map-sections">
-            <div class="map-section" data-section="hero">Castle Entrance</div>
-            <div class="map-section" data-section="about">Royal Chambers</div>
-            <div class="map-section" data-section="research">Quest Hall</div>
-            <div class="map-section" data-section="publications">Archive Library</div>
-            <div class="map-section" data-section="projects">Workshop</div>
-            <div class="map-section treasure" data-section="contact">TREASURE ❌</div>
-        </div>
-    </div>
-
-    <!-- EPIC MEDIEVAL CURSOR -->
-    <div class="cursor" id="cursor"></div>
-
-    <!-- PROGRESS BARS -->
-    <div class="progress-container" id="progressContainer">
-        <div class="progress-bar">
-            <div class="progress-label">PhD Quest Progress</div>
-            <div class="progress-fill-container">
-                <div class="progress-fill" style="width: 65%"></div>
-            </div>
-        </div>
-        <div class="progress-bar">
-            <div class="progress-label">Industrial XR Crusade</div>
-            <div class="progress-fill-container">
-                <div class="progress-fill" style="width: 40%"></div>
-            </div>
-        </div>
-        <div class="progress-bar">
-            <div class="progress-label">HICSS 2026 Deadline</div>
-            <div class="progress-fill-container">
-                <div class="progress-fill" style="width: 25%"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- DRAGON ORACLE -->
-    <div class="dragon-oracle" id="dragonOracle">
-        <img src="https://s2-research.github.io/dragon.png" alt="Oracle Dragon" id="dragonImg">
-        <div class="oracle-tooltip" id="oracleTooltip">
-            Welcome, traveler! I am the Oracle Dragon. Hover over different sections to receive ancient wisdom, or click me for mystical insights about Sir Shivansh's epic journey!
-        </div>
-    </div>
-
-    <!-- RECRUITMENT CALL -->
-    <div class="recruitment-call" id="recruitmentCall">
-        🏰 Seeking alliance with Sir Shivansh?<br>
-        Send raven message! 🦅
-    </div>
-
-    <!-- WIND EFFECTS -->
-    <div class="wind-effects" id="windEffects"></div>
-
-    <!-- FLOATING MAGIC PARTICLES -->
-    <div class="magic-particles" id="magicParticles"></div>
-
-    <!-- RANDOM TREASURE -->
-    <div class="random-treasure" id="randomTreasure">💎</div>
-
-    <!-- DUNGEON BACKGROUND -->
-    <div class="dungeon-bg"></div>
-
-    <!-- TORCHES -->
-    <div class="torch-container torch-left">
-        <div class="torch">
-            <div class="flame"></div>
-        </div>
-    </div>
-    <div class="torch-container torch-right">
-        <div class="torch">
-            <div class="flame"></div>
-        </div>
-    </div>
+    <!-- Minimal Particles -->
+    <div class="particles" id="particles"></div>
 
     <header>
         <nav class="container">
-            <a href="#" class="logo">SIR SHIVANSH</a>
+            <a href="#" class="logo">Shivansh Singh</a>
             <ul class="nav-links">
-                <li><a href="#about">YE CHRONICLE</a></li>
-                <li><a href="#research">QUEST ARCHIVES</a></li>
-                <li><a href="#publications">ANCIENT SCROLLS</a></li>
-                <li><a href="#projects">NOBLE WORKS</a></li>
-                <li><a href="#contact">ROYAL COURT</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero" id="hero">
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>SIR SHIVANSH OF HOUSE SINGH</h1>
-                <p class="subtitle">═══ Master of Digital Realms & Arcane Technologies ═══</p>
-                <p class="description">A noble scholar versed in the mystical arts of Extended Reality and Artificial Intelligence. Currently wielding ancient knowledge and future visions at the prestigious LUT University in the northern realm of Finland. Architect of immersive worlds where consciousness meets code in perfect harmony.</p>
+                <h1>Shivansh Singh</h1>
+                <p class="subtitle">PhD Candidate & AI Researcher</p>
+                <p class="description">
+                    Human-centered AI researcher focused on understanding how people interact with and trust AI systems. 
+                    Leading research initiatives at LUT University, exploring the intersection of AI ethics, human-computer 
+                    interaction, and emerging extended reality technologies.
+                </p>
                 <div class="cta-buttons">
-                    <a href="#research" class="btn btn-primary">ENTER THE REALM</a>
-                    <a href="./cv.pdf" class="btn btn-secondary" download>ROYAL DECREE (CV)</a>
+                    <a href="#research" class="btn">Explore Research</a>
+                    <a href="./cv.pdf" class="btn btn-secondary" download>Download CV</a>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" title="LinkedIn Guild">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                    </a>
-                    <a href="https://github.com/S2-research" target="_blank" title="Code Scrolls">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=yourprofile" target="_blank" title="Scholar's Guild">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
-                        </svg>
-                    </a>
-                    <a href="mailto:shivansh.singh@example.com" title="Royal Messenger">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
-                    </a>
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank">💼</a>
+                    <a href="https://github.com/S2-research" target="_blank">💻</a>
+                    <a href="https://scholar.google.com/citations?user=yourprofile" target="_blank">🎓</a>
+                    <a href="mailto:shivansh.singh@lut.fi">📧</a>
                 </div>
             </div>
         </div>
@@ -2107,244 +819,182 @@
 
     <main class="container">
         <section id="about" class="section">
-            <h2>THE NOBLE CHRONICLE</h2>
-            <div class="about-content">
+            <h2>About</h2>
+            <div class="about-content fade-up">
                 <div class="profile-container">
-                    <img src="./profile.jpg" alt="Sir Shivansh Singh - Master of Digital Realms" class="profile-img">
+                    <img src="./profile.jpg" alt="Shivansh Singh" class="profile-img">
                 </div>
                 <div class="about-text">
-                    <p>Greetings, fellow travelers of the digital realm! I am <span class="highlight">Sir Shivansh of House Singh</span>, a sworn guardian of the sacred knowledge that bridges the ancient world of consciousness with the mystical arts of Extended Reality technologies.</p>
+                    <p>I'm a <span class="highlight">human-centered AI researcher</span> focused on understanding how people interact with and trust AI systems across different contexts. My work spans Human-Computer Interaction, Information Systems, and emerging technologies, with particular emphasis on trust, ethics, and user experience in AI interactions.</p>
 
-                    <p>My quest began in the hallowed halls of electrical engineering and quantum mysteries, where I first glimpsed the true power that lies dormant within <span class="highlight">artificial consciousness algorithms</span>. This revelation led me to master the arcane arts of reality manipulation through immersive technologies.</p>
+                    <p>I lead research initiatives within a <span class="highlight">major AI project</span>, collaborating with industry partners to study how software teams integrate AI tools into their workflows. My published work has explored trust in AI decision-making across ethical frameworks and the complex relationships between AI interactions and workplace productivity.</p>
 
-                    <p>In these current times, I serve as the <span class="highlight">Royal Commander of a €500,000 golden treasury research expedition</span> at the prestigious LUT University in the northern kingdom of Finland. Here, I orchestrate grand alliances with noble industry houses, pushing beyond the very boundaries of what mortals believed possible when AI sorcery merges with immersive reality enchantments.</p>
+                    <p>My research has been published at <span class="highlight">top-tier conferences including HICSS</span>, with additional work under review at several international conferences and journals. Building on this foundation, I'm expanding into Extended Reality (XR) research, particularly interested in designing ethical AI agents for VR/AR contexts.</p>
 
-                    <p>Legend speaks that I once transformed from the humble moniker "BlehBleBleBleh" into a respected scholar of the realm. Achievement unlocked: Even the most distinguished academic councils now heed my counsel! ⚔️</p>
-
-                    <p><strong>The Sacred Quest:</strong> I seek admission to the most elite Brotherhood of PhD Knights, where I may continue my noble mission to hack the very fabric of reality and architect the future that exists only in the most fantastic of tales.</p>
-                </div>
-            </div>
-
-            <!-- CAREER PROGRESSION TIMELINE -->
-            <div class="career-timeline">
-                <h3 style="text-align: center; color: var(--gold); font-family: 'Press Start 2P', monospace; font-size: 1.8rem; margin-bottom: 3rem;">⚔️ THE EPIC JOURNEY ⚔️</h3>
-                
-                <div class="timeline-item">
-                    <div class="timeline-icon">🎓</div>
-                    <div class="timeline-content">
-                        <h4 style="color: var(--royal-red); font-size: 1.4rem; margin-bottom: 1rem;">The Awakening: Engineering Foundations</h4>
-                        <p>Young Shivansh discovers the ancient texts of electrical engineering, beginning his journey into the mystical realm of technology.</p>
-                        <div class="timeline-backstory">
-                            Plot twist: Started as "BlehBleBleBleh" in online forums but gradually evolved into a respected voice in academic circles. The transformation was legendary!
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon">🧠</div>
-                    <div class="timeline-content">
-                        <h4 style="color: var(--royal-red); font-size: 1.4rem; margin-bottom: 1rem;">The Enlightenment: AI Consciousness</h4>
-                        <p>Discovered the secret arts of artificial intelligence and consciousness algorithms, forever changing his destiny.</p>
-                        <div class="timeline-backstory">
-                            Epic achievement unlocked: First breakthrough came during a 17-hour debugging session fueled entirely by Finnish coffee and pure determination!
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon">👑</div>
-                    <div class="timeline-content">
-                        <h4 style="color: var(--royal-red); font-size: 1.4rem; margin-bottom: 1rem;">The Ascension: Royal Research Commander</h4>
-                        <p>Appointed as leader of the €500,000 research expedition at LUT University, wielding immense power and responsibility.</p>
-                        <div class="timeline-backstory">
-                            Legend has it that during the interview, he impressed the council by explaining XR concepts using medieval metaphors. They were spellbound!
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon">🏰</div>
-                    <div class="timeline-content">
-                        <h4 style="color: var(--royal-red); font-size: 1.4rem; margin-bottom: 1rem;">The Destiny: PhD Knight Quest</h4>
-                        <p>Currently on the sacred journey to join the elite Brotherhood of PhD Knights, seeking to unlock the ultimate mysteries of reality.</p>
-                        <div class="timeline-backstory">
-                            The prophecy foretells that upon completion of this quest, Sir Shivansh will possess the power to reshape entire digital realms!
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SKILL TREE -->
-            <div class="skill-tree">
-                <h3 style="text-align: center; color: var(--gold); font-family: 'Press Start 2P', monospace; font-size: 1.8rem; margin-bottom: 3rem;">🌟 LEGENDARY SKILL TREE 🌟</h3>
-                
-                <div class="skill-branch">
-                    <h4>⚔️ XR Mastery</h4>
-                    <div class="skill-level">
-                        <div class="skill-level-fill" style="width: 90%"></div>
-                    </div>
-                    <p style="color: var(--parchment); margin-top: 10px; font-size: 1rem;">Unity • Varjo • Immersive Design</p>
-                </div>
-
-                <div class="skill-branch">
-                    <h4>🧠 AI Sorcery</h4>
-                    <div class="skill-level">
-                        <div class="skill-level-fill" style="width: 85%"></div>
-                    </div>
-                    <p style="color: var(--parchment); margin-top: 10px; font-size: 1rem;">Machine Learning • Neural Networks • Computer Vision</p>
-                </div>
-
-                <div class="skill-branch">
-                    <h4>👑 Leadership</h4>
-                    <div class="skill-level">
-                        <div class="skill-level-fill" style="width: 80%"></div>
-                    </div>
-                    <p style="color: var(--parchment); margin-top: 10px; font-size: 1rem;">Team Management • Research Direction • Strategic Planning</p>
-                </div>
-
-                <div class="skill-branch">
-                    <h4>📜 Research Craft</h4>
-                    <div class="skill-level">
-                        <div class="skill-level-fill" style="width: 75%"></div>
-                    </div>
-                    <p style="color: var(--parchment); margin-top: 10px; font-size: 1rem;">Academic Writing • Publication • Innovation</p>
-                </div>
-
-                <div class="skill-branch">
-                    <h4>⚡ Code Magic</h4>
-                    <div class="skill-level">
-                        <div class="skill-level-fill" style="width: 88%"></div>
-                    </div>
-                    <p style="color: var(--parchment); margin-top: 10px; font-size: 1rem;">Python • JavaScript • C# • Multiple Frameworks</p>
-                </div>
-
-                <div class="skill-branch">
-                    <h4>🌟 Epic Vision</h4>
-                    <div class="skill-level">
-                        <div class="skill-level-fill" style="width: 95%"></div>
-                    </div>
-                    <p style="color: var(--parchment); margin-top: 10px; font-size: 1rem;">Future Thinking • Innovation • Consciousness Fusion</p>
+                    <p>I hold a <span class="highlight">4.4 GPA distinction</span> in Electrical Engineering from LUT University and am currently pursuing a Master's in Software Engineering with focus on Digital Systems and Service Design.</p>
                 </div>
             </div>
         </section>
 
         <section id="research" class="section">
-            <h2>THE GREAT QUEST ARCHIVES</h2>
+            <h2>Research</h2>
+            <div class="research-grid">
+                <div class="card fade-up">
+                    <h3>Human-AI Trust & Ethics</h3>
+                    <p>Investigating how ethical frameworks shape user trust in AI decision-making systems. My work explores the complex dynamics between transparency, control, and faith in automated systems across different professional contexts.</p>
+                </div>
 
-            <div class="scroll-card">
-                <h3>🧙‍♂️ THE EVOLUTION OF DIGITAL SORCERY: AI → XR → ∞</h3>
-                <p>My research journey transcends mere mortal progression—it represents a quantum leap toward the ultimate convergence of all magical arts. What began as humble studies of human-AI consciousness patterns has revealed the ultimate truth: <strong>The future belongs not to better magical tools, but to the complete fusion of consciousness with the digital realm itself.</strong></p>
+                <div class="card fade-up">
+                    <h3>AI Integration in Workflows</h3>
+                    <p>Leading industry collaborations to understand how software teams integrate AI tools into their development workflows. Research includes both productivity metrics and emotional responses to AI assistance.</p>
+                </div>
 
-                <p>This divine revelation propelled me into the mystical realm of Extended Reality, where I now forge <span class="highlight">adaptive XR consciousness ecosystems</span> that respond to human neural patterns, environmental energy fields, and even the whispers of future intent. It's like bestowing upon artificial minds the power to exist in multiple dimensions simultaneously around human consciousness.</p>
+                <div class="card fade-up">
+                    <h3>Extended Reality & AI</h3>
+                    <p>Expanding into XR research with focus on designing ethical AI agents for immersive environments. Studying how virtual and augmented reality contexts affect human-AI interaction patterns.</p>
+                </div>
 
-                <p><strong>Current Magical Pursuits:</strong> Crafting XR systems with consciousness-level adaptability—interfaces that learn, predict, evolve, and achieve near-sentience. Think of it as summoning a digital familiar that exists within reality itself.</p>
-            </div>
-
-            <div class="scroll-card">
-                <h3>⚡ THE COMMAND NEXUS: Leadership of the Royal Research Order</h3>
-                <p>I currently serve as the mystical nexus commanding LUT's contribution to a massive <span class="highlight">€4.9 million multi-dimensional research crusade</span> blessed by the Business Finland Royal Treasury. Our €500,000 portion focuses on weaponizing (for the greater good) immersive technologies to transform industrial reality itself.</p>
-
-                <p>Under my banner march two graduate-level knowledge seekers, while I coordinate grand alliances with industry kingdoms, ensuring our discoveries don't merely function—they fundamentally alter how mortals interface with digital consciousness. It's like conducting a symphony where every note rewrites the laws of physics themselves.</p>
-
-                <p><strong>Royal Achievement:</strong> Discovered that managing reality-level research requires equal parts visionary leadership, diplomatic wisdom, and an inexhaustible supply of Finnish coffee. The caffeine-consciousness connection is absolutely real and measurable. ☕</p>
+                <div class="card fade-up">
+                    <h3>Workplace AI Psychology</h3>
+                    <p>Exploring the psychological impacts of AI integration in workplace environments, including counterintuitive findings about emotional productivity and the human factors of automated assistance.</p>
+                </div>
             </div>
         </section>
 
         <section id="publications" class="section">
-            <h2>ANCIENT SCROLLS OF WISDOM</h2>
+            <h2>Publications</h2>
             <div class="publications-grid">
+                
+                <div class="publication fade-up">
+                    <h4>Provisional, Contextual, and Verified: How Professionals Navigate Trust-Control Boundaries with AI</h4>
+                    <p class="authors"><strong>Shivansh Singh</strong>, Co-author Name</p>
+                    <p class="venue">Hawaii International Conference on System Sciences (HICSS) 2026</p>
+                    <p class="abstract">Exploring how professionals navigate the complex boundaries between trusting AI systems and maintaining control over critical decisions in high-stakes work environments.</p>
+                    <div class="links">
+                        <a href="#">Paper</a>
+                        <a href="#">Dataset</a>
+                    </div>
+                </div>
 
-                <div class="publication">
-                    <h4>Neural Pathways in Extended Reality Consciousness [CLASSIFIED_ROYAL_ARCHIVES]</h4>
-                    <p class="authors"><span class="first-author">Sir Shivansh Singh</span>, Scholar Alpha Node, Scholar Beta Entity</p>
+                <div class="publication fade-up">
+                    <h4>Trusting the Machine: How Ethical Frameworks Shape Our Faith in AI Decisions</h4>
+                    <p class="authors"><strong>Shivansh Singh</strong>, Co-author Name</p>
+                    <p class="venue">International Journal of Human-Computer Studies (Under Review)</p>
+                    <p class="abstract">Investigating how different ethical AI frameworks influence user trust and acceptance in automated decision systems across various professional domains.</p>
+                    <div class="links">
+                        <a href="#">Preprint</a>
+                    </div>
+                </div>
+
+                <div class="publication fade-up">
+                    <h4>Emotional Productivity: Exploring the Impact of AI Interactions on Employee Well-Being and Workplace Efficiency</h4>
+                    <p class="authors"><strong>Shivansh Singh</strong>, Co-author Name</p>
                     <p class="venue">Hawaii International Conference on System Sciences (HICSS) 2025</p>
-                    <p class="abstract">Groundbreaking research revealing how human neural patterns can inform consciousness-responsive XR interface design. This work establishes the foundational algorithms for reality-responsive immersive systems that evolve with user consciousness states...</p>
+                    <p class="abstract">Analyzing the psychological and productivity impacts of AI integration in workplace environments, including surprising findings about emotional responses to AI assistance.</p>
                     <div class="links">
-                        <a href="#">Access Sacred Scroll</a>
-                        <a href="#">Clone Knowledge</a>
-                        <a href="#">Consciousness Map</a>
+                        <a href="#">Paper</a>
+                        <a href="#">Code</a>
                     </div>
                 </div>
 
-                <div class="publication">
-                    <h4>Consciousness Interactions in Human-XR Symbiosis [UNDER_ROYAL_REVIEW]</h4>
-                    <p class="authors"><span class="first-author">Sir Shivansh Singh</span>, Research Knight Node 1, Research Knight Node 2</p>
-                    <p class="venue">International Journal of Human-Computer Studies [AWAITING_ROYAL_SEAL]</p>
-                    <p class="abstract">Exploring the consciousness-level interactions between human cognitive processes and extended reality systems. This research transcends the boundaries of what we thought possible in human-computer consciousness fusion...</p>
+                <div class="publication fade-up">
+                    <h4>Design Elements for Brand Representation in Conversational Agents</h4>
+                    <p class="authors">Lead Author, <strong>Shivansh Singh</strong></p>
+                    <p class="venue">Hawaii International Conference on System Sciences (HICSS) 2026</p>
+                    <p class="abstract">Research on design principles for creating brand-consistent conversational AI systems that maintain authenticity while serving user needs.</p>
                     <div class="links">
-                        <a href="#">Preview Sacred Text</a>
-                        <a href="#">Dataset Access</a>
+                        <a href="#">Paper</a>
                     </div>
                 </div>
 
-                <div class="publication">
-                    <h4>Reality Architecture: Next-Gen Immersive Constructs [TRANSMITTING_TO_FUTURE]</h4>
-                    <p class="authors"><span class="first-author">Sir Shivansh Singh</span>, Allied Scholar Entity</p>
-                    <p class="venue">Hawaii International Conference on System Sciences (HICSS) 2026 [FUTURE_TRANSMISSION_ACTIVE]</p>
-                    <p class="abstract">Revolutionary research on XR architectures that adapt in real-time to user neural patterns and environmental consciousness fields...</p>
+                <div class="publication fade-up">
+                    <h4>Deep Learning-Based Electricity Price Forecasting in Finnish Energy Market</h4>
+                    <p class="authors"><strong>Shivansh Singh</strong></p>
+                    <p class="venue">Master's Thesis - LUT University (Distinction)</p>
+                    <p class="abstract">Advanced neural network approaches for energy market prediction and optimization, achieving significant improvements in forecasting accuracy for Finnish electricity markets.</p>
                     <div class="links">
-                        <a href="#">Alpha Build Access</a>
+                        <a href="#">Thesis</a>
+                        <a href="#">Code</a>
                     </div>
                 </div>
 
-                <div class="publication">
-                    <h4>Multi-Kingdom Reality Engineering Protocol [GRAND_ALLIANCE_SCROLL]</h4>
-                    <p class="authors">Lead Research Lord, <span class="first-author">Sir Shivansh Singh</span>, Fellowship of Scholars</p>
-                    <p class="venue">Target Royal Conference 2026 [COMPILATION_IN_PROGRESS]</p>
-                    <p class="abstract">Multi-institutional collaboration exploring industrial applications of consciousness-responsive XR systems...</p>
+                <div class="publication fade-up">
+                    <h4>Innovative Convolutional Neural Network Hybrid for Brain Tumor Segmentation</h4>
+                    <p class="authors">Lead Author, Second Author, Third Author, <strong>Shivansh Singh</strong></p>
+                    <p class="venue">Published Conference/Journal</p>
+                    <p class="abstract">Novel approach to medical image analysis using hybrid CNN architectures for improved brain tumor detection and segmentation accuracy.</p>
+                    <div class="links">
+                        <a href="#">Paper</a>
+                    </div>
                 </div>
 
             </div>
         </section>
 
         <section id="projects" class="section">
-            <h2>NOBLE WORKS & GREAT CONSTRUCTIONS</h2>
+            <h2>Projects</h2>
             <div class="projects-grid">
 
-                <div class="project">
-                    <div class="project-image">
-                        🎯
+                <div class="project fade-up">
+                    <div class="project-header">
+                        <div class="icon">🧠</div>
+                        <h4>AI Trust Research Initiative</h4>
                     </div>
                     <div class="project-content">
-                        <h4>Adaptive Reality Enchantment Engine v∞.0</h4>
-                        <p>Forging XR interfaces that evolve with user consciousness states. Using advanced magical algorithms and consciousness-level computer vision to create immersive experiences that feel like natural extensions of human neural networks. Currently in trials with the mystical Varjo Pro headset in parallel dimensions.</p>
+                        <p>Leading a comprehensive study on trust dynamics between professionals and AI systems. This research involves industry partnerships and explores how ethical frameworks influence user acceptance of automated decision-making.</p>
                         <div class="project-tags">
-                            <span class="tag">Unity Sorcery</span>
-                            <span class="tag">Neural Magic</span>
-                            <span class="tag">Consciousness ML</span>
-                            <span class="tag">Varjo Enchantments</span>
+                            <span class="tag">Human-AI Interaction</span>
+                            <span class="tag">Trust Research</span>
+                            <span class="tag">Ethics</span>
+                            <span class="tag">Industry Collaboration</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="project">
-                    <div class="project-image">
-                        🏭
+                <div class="project fade-up">
+                    <div class="project-header">
+                        <div class="icon">🔬</div>
+                        <h4>Workplace AI Integration Study</h4>
                     </div>
                     <div class="project-content">
-                        <h4>Industrial Reality Transformation Crusade</h4>
-                        <p>Leading LUT's €500K contribution to Business Finland's reality-engineering initiative. Developing immersive consciousness solutions that revolutionize manufacturing, training, and industrial workflows through consciousness-responsive XR systems.</p>
+                        <p>Collaborating with software development teams to understand how AI tools are integrated into professional workflows. Research includes both quantitative productivity measures and qualitative emotional impact assessments.</p>
                         <div class="project-tags">
-                            <span class="tag">Royal Leadership</span>
-                            <span class="tag">Industrial XR</span>
-                            <span class="tag">Team Management</span>
-                            <span class="tag">R&D Mastery</span>
+                            <span class="tag">Workplace Psychology</span>
+                            <span class="tag">Software Development</span>
+                            <span class="tag">Productivity Research</span>
+                            <span class="tag">Ethnographic Study</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="project">
-                    <div class="project-image">
-                        🧠
+                <div class="project fade-up">
+                    <div class="project-header">
+                        <div class="icon">🥽</div>
+                        <h4>XR-AI Ethics Platform</h4>
                     </div>
                     <div class="project-content">
-                        <h4>Neural-XR Fusion Enchantment</h4>
-                        <p>Bridging my AI consciousness expertise with XR realms to create intelligent data visualization systems that exist in three-dimensional consciousness space. Making complex data exploration feel like navigating through pure thought energy and information streams.</p>
+                        <p>Developing frameworks for ethical AI agents in virtual and augmented reality environments. This emerging research explores how immersion affects human-AI interaction patterns and trust formation.</p>
                         <div class="project-tags">
-                            <span class="tag">Data Consciousness</span>
-                            <span class="tag">AI Neural Arts</span>
-                            <span class="tag">Reality Visualization</span>
-                            <span class="tag">Thought Interface</span>
+                            <span class="tag">Extended Reality</span>
+                            <span class="tag">AI Ethics</span>
+                            <span class="tag">Immersive Systems</span>
+                            <span class="tag">Emerging Tech</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project fade-up">
+                    <div class="project-header">
+                        <div class="icon">⚡</div>
+                        <h4>Energy Market Forecasting</h4>
+                    </div>
+                    <div class="project-content">
+                        <p>Advanced deep learning system for electricity price prediction in Nordic energy markets. This project achieved significant improvements in forecasting accuracy using novel neural network architectures.</p>
+                        <div class="project-tags">
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Energy Systems</span>
+                            <span class="tag">Time Series</span>
+                            <span class="tag">Neural Networks</span>
                         </div>
                     </div>
                 </div>
@@ -2353,452 +1003,65 @@
         </section>
     </main>
 
-    <footer id="contact">
+    <section id="contact" class="section">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>ROYAL COURT CHAMBERS</h4>
-                    <a href="mailto:shivansh.singh@example.com">royal.messenger@singh.realm</a>
-                    <a href="tel:+358123456789">+358.ROYAL.COURT.DIRECT</a>
-                    <p>Castle Location: Lappeenranta, Finland Kingdom</p>
-                    <p>Royal Time: UTC+2 (Northern Realm)</p>
-                    <p>Dimension: Reality Layer Prime</p>
+            <h2>Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-item fade-up">
+                    <div class="icon">📧</div>
+                    <h4>Email</h4>
+                    <p><a href="mailto:shivansh.singh@lut.fi">shivansh.singh@lut.fi</a></p>
                 </div>
-
-                <div class="footer-section">
-                    <h4>SCHOLARLY GUILDS & ORDERS</h4>
-                    <a href="https://scholar.google.com/citations?user=yourprofile" target="_blank">Scholar's Guild Registry</a>
-                    <a href="https://www.researchgate.net/profile/yourprofile" target="_blank">Research Gate Portal</a>
-                    <a href="https://orcid.org/your-orcid" target="_blank">ORCID Royal Seal</a>
-                    <a href="https://www.academia.edu/yourprofile" target="_blank">Academia Noble House</a>
+                
+                <div class="contact-item fade-up">
+                    <div class="icon">📍</div>
+                    <h4>Location</h4>
+                    <p>Lappeenranta, Finland</p>
                 </div>
-
-                <div class="footer-section">
-                    <h4>DIGITAL REALM CONNECTIONS</h4>
-                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn Professional Guild</a>
-                    <a href="https://github.com/S2-research" target="_blank">GitHub Code Archives</a>
-                    <a href="https://twitter.com/yourhandle" target="_blank">Twitter Thought Streams</a>
-                    <a href="./cv.pdf" download>Download Royal Decree</a>
+                
+                <div class="contact-item fade-up">
+                    <div class="icon">💼</div>
+                    <h4>LinkedIn</h4>
+                    <p><a href="https://linkedin.com/in/yourprofile" target="_blank">Connect with me</a></p>
+                </div>
+                
+                <div class="contact-item fade-up">
+                    <div class="icon">🎓</div>
+                    <h4>Google Scholar</h4>
+                    <p><a href="https://scholar.google.com/citations?user=yourprofile" target="_blank">View Publications</a></p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <p style="text-align: center; margin-top: 3rem; color: var(--gold); font-family: 'Press Start 2P', monospace; font-size: 0.9rem; line-height: 1.6;">© 2025 Sir Shivansh of House Singh | Architect of Digital Realms Since Time Immemorial<br>Forged with Medieval Passion & Epic Magic | Built in the Royal Coding Chambers</p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Shivansh Singh. All rights reserved. | PhD Candidate at LUT University, Finland</p>
         </div>
     </footer>
 
     <script>
-        // GLOBAL VARIABLES
-        let mouseX = 0, mouseY = 0;
-        let dragonActive = false;
-        let recruitmentShown = false;
-        let pageStartTime = Date.now();
-        let currentSection = 'hero';
-        let treasureSpawned = false;
-        
-        // EPIC MEDIEVAL CURSOR SYSTEM
-        const cursor = document.getElementById('cursor');
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            cursor.style.left = mouseX - 16 + 'px';
-            cursor.style.top = mouseY - 16 + 'px';
-        });
-
-        // Interactive elements cursor effect
-        const interactiveElements = document.querySelectorAll('a, button, .btn, .social-link, .random-treasure, .map-section, .dragon-oracle');
-        interactiveElements.forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                cursor.classList.add('interact');
-            });
-            element.addEventListener('mouseleave', () => {
-                cursor.classList.remove('interact');
-            });
-        });
-
-        // SCHOLAR MODE AUTO-DETECTION
-        function detectScholarMode() {
-            const referrer = document.referrer.toLowerCase();
-            const scholarSites = ['linkedin.com', 'scholar.google.com', 'researchgate.net', 'academia.edu', 'ieee.org', 'acm.org'];
-            
-            const isScholarVisitor = scholarSites.some(site => referrer.includes(site));
-            
-            if (isScholarVisitor) {
-                document.body.classList.add('scholar-mode');
-                console.log('🎓 Scholar mode activated - Welcome, fellow academic!');
-            }
-        }
-
-        // DAY/NIGHT CYCLE BASED ON TIME ZONE
-        function applyTimeBasedTheme() {
-            const now = new Date();
-            const hour = now.getHours();
-            
-            // Remove existing time themes
-            document.body.classList.remove('dawn-theme', 'night-theme');
-            
-            if (hour >= 6 && hour < 10) {
-                document.body.classList.add('dawn-theme');
-                console.log('🌅 Dawn theme activated');
-            } else if (hour >= 22 || hour < 6) {
-                document.body.classList.add('night-theme');
-                console.log('🌙 Night theme activated');
-            }
-        }
-
-        // SEASONAL THEMES
-        function applySeasonalTheme() {
-            const now = new Date();
-            const month = now.getMonth();
-            
-            // Remove existing seasonal themes
-            document.body.classList.remove('winter-theme', 'spring-theme', 'summer-theme', 'autumn-theme');
-            
-            if (month >= 11 || month <= 1) {
-                document.body.classList.add('winter-theme');
-                console.log('❄️ Winter theme activated');
-            } else if (month >= 2 && month <= 4) {
-                document.body.classList.add('spring-theme');
-                console.log('🌸 Spring theme activated');
-            } else if (month >= 5 && month <= 7) {
-                document.body.classList.add('summer-theme');
-                console.log('☀️ Summer theme activated');
-            } else if (month >= 8 && month <= 10) {
-                document.body.classList.add('autumn-theme');
-                console.log('🍂 Autumn theme activated');
-            }
-        }
-
-        // DRAGON ORACLE SYSTEM
-        const dragonOracle = document.getElementById('dragonOracle');
-        const oracleTooltip = document.getElementById('oracleTooltip');
-
-        const oracleMessages = {
-            hero: "Ah, a noble visitor enters the grand castle! This is where legends begin their epic journeys.",
-            about: "Behold the chronicles of Sir Shivansh! His transformation from 'BlehBleBleBleh' to respected scholar is truly legendary.",
-            research: "These sacred archives contain the most powerful spells of our time - XR consciousness fusion!",
-            publications: "Ancient scrolls of wisdom! Each publication is a treasure trove of mystical knowledge.",
-            projects: "The workshop of miracles! Here, Sir Shivansh forges the future with code and consciousness.",
-            contact: "The royal chambers await your message! Seek alliance with the master of digital realms.",
-            default: "Welcome, traveler! I sense great potential in you. Explore these realms to unlock ancient wisdom!"
-        };
-
-        const funFacts = [
-            "Sir Shivansh once debugged XR code for 17 hours straight, surviving only on Finnish coffee!",
-            "Legend says he can explain quantum consciousness using medieval metaphors!",
-            "He transformed from 'BlehBleBleBleh' to academic respect - the ultimate character development!",
-            "His research has been blessed by dragons and approved by the Royal Academic Council!",
-            "Fun fact: This epic website was coded while listening to medieval fantasy soundtracks!",
-            "Sir Shivansh's AI algorithms can predict user behavior with 89% accuracy - pure magic!",
-            "He once presented XR research using actual medieval props - the audience was spellbound!",
-            "Coffee consumption directly correlates with his research productivity - scientifically proven!"
-        ];
-
-        function showDragonOracle() {
-            if (!dragonActive) {
-                dragonOracle.classList.add('active');
-                dragonActive = true;
-                
-                setTimeout(() => {
-                    oracleTooltip.textContent = oracleMessages[currentSection] || oracleMessages.default;
-                    oracleTooltip.classList.add('show');
-                }, 500);
-            }
-        }
-
-        function hideDragonOracle() {
-            oracleTooltip.classList.remove('show');
-            setTimeout(() => {
-                dragonOracle.classList.remove('active');
-                dragonActive = false;
-            }, 300);
-        }
-
-        // Show dragon after 30 seconds
-        setTimeout(showDragonOracle, 30000);
-
-        // Dragon click for fun facts
-        dragonOracle.addEventListener('click', () => {
-            const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
-            oracleTooltip.textContent = randomFact;
-            oracleTooltip.classList.add('show');
-            playMedievalSound(660, 0.8, 'triangle');
-        });
-
-        // Context-aware dragon tips
-        document.querySelectorAll('.publication, .project, .scroll-card').forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                if (dragonActive) {
-                    let contextMessage = "Ah, seeking ancient knowledge? ";
-                    
-                    if (element.classList.contains('publication')) {
-                        contextMessage += "This scroll reveals the secrets of consciousness-reality fusion!";
-                    } else if (element.classList.contains('project')) {
-                        contextMessage += "Behold the epic constructions of digital mastery!";
-                    } else if (element.classList.contains('scroll-card')) {
-                        contextMessage += "These chronicles contain the wisdom of the ages!";
-                    }
-                    
-                    oracleTooltip.textContent = contextMessage;
-                    oracleTooltip.classList.add('show');
-                }
-            });
-            
-            element.addEventListener('mouseleave', () => {
-                if (dragonActive) {
-                    oracleTooltip.textContent = oracleMessages[currentSection] || oracleMessages.default;
-                }
-            });
-        });
-
-        // RANDOM TREASURE SYSTEM
-        const randomTreasure = document.getElementById('randomTreasure');
-
-        function spawnRandomTreasure() {
-            if (treasureSpawned) return;
-            
-            const container = document.querySelector('.container');
-            const containerRect = container.getBoundingClientRect();
-            
-            // Random position within safe bounds
-            const x = Math.random() * (containerRect.width - 100) + 50;
-            const y = Math.random() * (window.innerHeight - 200) + 200;
-            
-            randomTreasure.style.left = x + 'px';
-            randomTreasure.style.top = y + 'px';
-            randomTreasure.style.display = 'block';
-            
-            treasureSpawned = true;
-            
-            // Respawn after 45 seconds
-            setTimeout(() => {
-                treasureSpawned = false;
-                spawnRandomTreasure();
-            }, 45000);
-        }
-
-        randomTreasure.addEventListener('click', () => {
-            const funFact = funFacts[Math.floor(Math.random() * funFacts.length)];
-            showEasterEggMessage('💎 TREASURE FOUND! 💎<br>' + funFact);
-            playMedievalSound(880, 1.5, 'triangle');
-            
-            randomTreasure.style.display = 'none';
-            treasureSpawned = false;
-            
-            // Spawn new treasure after 30 seconds
-            setTimeout(spawnRandomTreasure, 30000);
-        });
-
-        // Start treasure spawning
-        setTimeout(spawnRandomTreasure, 15000);
-
-        // PROGRESS BARS (Dynamic - would connect to actual data in real implementation)
-        function updateProgressBars() {
-            // In real implementation, these would fetch from your actual data sources
-            const progressData = {
-                phd: { current: 65, total: 100, label: "PhD Quest Progress" },
-                project: { current: 40, total: 100, label: "Industrial XR Crusade" },
-                deadline: { current: 25, total: 100, label: "HICSS 2026 Deadline" }
-            };
-            
-            // Update progress bars with animation
-            const progressBars = document.querySelectorAll('.progress-fill');
-            progressBars.forEach((bar, index) => {
-                const values = Object.values(progressData);
-                if (values[index]) {
-                    setTimeout(() => {
-                        bar.style.width = values[index].current + '%';
-                    }, index * 200);
-                }
-            });
-        }
-
-        // RECRUITMENT CALL SYSTEM
-        const recruitmentCall = document.getElementById('recruitmentCall');
-
-        function showRecruitmentCall() {
-            if (!recruitmentShown && (Date.now() - pageStartTime) > 480000) { // 8 minutes
-                recruitmentCall.classList.add('show');
-                recruitmentShown = true;
-                playEpicChord([440, 554, 659], 1.5);
-                console.log('🏰 Recruitment call activated after 8+ minutes!');
-            }
-        }
-
-        recruitmentCall.addEventListener('click', () => {
-            window.location.href = 'mailto:shivansh.singh@example.com?subject=🏰 Seeking Alliance with Sir Shivansh&body=Greetings Sir Shivansh! I seek alliance and would like to discuss...';
-        });
-
-        // Check recruitment call every 30 seconds
-        setInterval(showRecruitmentCall, 30000);
-
-        // TREASURE MAP NAVIGATION SYSTEM
-        const treasureMap = document.getElementById('treasureMap');
-        const mapSections = document.querySelectorAll('.map-section');
-
-        function updateTreasureMap() {
-            const sections = ['hero', 'about', 'research', 'publications', 'projects', 'contact'];
-            let newCurrentSection = 'hero';
-
-            sections.forEach(sectionId => {
-                const element = document.getElementById(sectionId);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                        newCurrentSection = sectionId;
-                    }
-                }
-            });
-
-            if (newCurrentSection !== currentSection) {
-                currentSection = newCurrentSection;
-                
-                // Update dragon oracle message
-                if (dragonActive) {
-                    oracleTooltip.textContent = oracleMessages[currentSection] || oracleMessages.default;
-                }
-            }
-
-            mapSections.forEach(section => {
-                section.classList.remove('current');
-                if (section.dataset.section === currentSection) {
-                    section.classList.add('current');
-                }
-            });
-        }
-
-        // Map section click navigation
-        mapSections.forEach(section => {
-            section.addEventListener('click', () => {
-                const targetId = section.dataset.section;
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                    playMedievalSound(660, 0.3, 'triangle');
-                }
-            });
-        });
-
-        window.addEventListener('scroll', updateTreasureMap);
-
-        // REDUCED WIND EFFECTS
-        const windContainer = document.getElementById('windEffects');
-
-        function createWindParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'wind-particle';
-
-            // Random particle types (reduced variety)
-            const types = ['leaf', 'dust'];
-            const randomType = types[Math.floor(Math.random() * types.length)];
-            particle.classList.add(randomType);
-
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
-            particle.style.animationDelay = Math.random() * 5 + 's';
-
-            windContainer.appendChild(particle);
-
-            setTimeout(() => {
-                particle.remove();
-            }, 25000);
-        }
-
-        // Create wind particles less frequently
-        setInterval(createWindParticle, 2000);
-
-        // REDUCED MAGIC PARTICLES
-        const magicContainer = document.getElementById('magicParticles');
-
-        function createMagicParticle() {
+        // Create minimal floating particles
+        function createParticle() {
             const particle = document.createElement('div');
             particle.className = 'particle';
             particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.animationDuration = (Math.random() * 12 + 18) + 's';
-            particle.style.animationDelay = Math.random() * 8 + 's';
+            particle.style.animationDuration = (Math.random() * 15 + 20) + 's';
+            particle.style.animationDelay = Math.random() * 10 + 's';
 
-            // Single color type
-            particle.style.background = 'var(--gold)';
-            particle.style.boxShadow = '0 0 6px var(--gold)';
-
-            magicContainer.appendChild(particle);
+            document.getElementById('particles').appendChild(particle);
 
             setTimeout(() => {
-                particle.remove();
-            }, 30000);
-        }
-
-        // Create magic particles less frequently
-        setInterval(createMagicParticle, 1500);
-
-        // EPIC SCROLL ANIMATIONS
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) rotateX(0)';
+                if (particle.parentNode) {
+                    particle.remove();
                 }
-            });
-        }, observerOptions);
-
-        // EPIC MEDIEVAL SOUND EFFECTS
-        let audioContext;
-
-        function initAudio() {
-            if (!audioContext) {
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            }
+            }, 35000);
         }
 
-        function playMedievalSound(frequency, duration, type = 'sine', volume = 0.08) {
-            try {
-                initAudio();
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
+        // Create particles less frequently for subtlety
+        setInterval(createParticle, 3000);
 
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-
-                oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
-                oscillator.type = type;
-
-                gainNode.gain.setValueAtTime(volume, audioContext.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
-
-                oscillator.start(audioContext.currentTime);
-                oscillator.stop(audioContext.currentTime + duration);
-            } catch (e) {
-                console.log('Audio not available');
-            }
-        }
-
-        function playEpicChord(frequencies, duration = 0.5) {
-            frequencies.forEach((freq, index) => {
-                setTimeout(() => {
-                    playMedievalSound(freq, duration, 'triangle', 0.06);
-                }, index * 100);
-            });
-        }
-
-        // SOUND EFFECTS FOR INTERACTIONS (Reduced)
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                playEpicChord([440, 554, 659], 0.6);
-            });
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                playMedievalSound(660, 0.2, 'square', 0.08);
-            });
-        });
-
-        // SMOOTH SCROLLING
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -2808,175 +1071,67 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    playMedievalSound(660, 0.3, 'triangle');
                 }
             });
         });
 
-        // EASTER EGG MESSAGE SYSTEM
-        function showEasterEggMessage(message) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'easter-egg-message';
-            messageDiv.innerHTML = message;
-            document.body.appendChild(messageDiv);
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-            setTimeout(() => {
-                messageDiv.remove();
-            }, 4000);
-        }
-
-        // EPIC SECTION REVEAL ANIMATIONS
-        function initSectionAnimations() {
-            document.querySelectorAll('.section').forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(80px) rotateX(15deg)';
-                section.style.transition = 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                observer.observe(section);
-            });
-
-            document.querySelectorAll('.scroll-card, .publication, .project, .timeline-item, .skill-branch').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(50px) scale(0.95)';
-                card.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                observer.observe(card);
-            });
-        }
-
-        // EPIC LOADING SEQUENCE
-        function initEpicLoadingSequence() {
-            const loadingScreen = document.getElementById('loadingScreen');
-            const loadingText = document.querySelector('.loading-text');
-
-            const loadingMessages = [
-                'Constructing Epic Castle...',
-                'Summoning Digital Dragons...',
-                'Enchanting Medieval Interface...',
-                'Activating Oracle Systems...',
-                'Preparing Progress Tracking...',
-                'Loading Dynamic Themes...',
-                'REALM READY!'
-            ];
-
-            let messageIndex = 0;
-            const messageInterval = setInterval(() => {
-                if (messageIndex < loadingMessages.length - 1) {
-                    loadingText.innerHTML = loadingMessages[messageIndex] + '<br>' + loadingMessages[messageIndex + 1];
-                    messageIndex++;
-                } else {
-                    clearInterval(messageInterval);
-                    setTimeout(() => {
-                        loadingScreen.classList.add('hidden');
-                        playEpicChord([440, 554, 659, 880], 2);
-                    }, 1000);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
-            }, 400);
-        }
+            });
+        }, observerOptions);
 
-        // KEYBOARD SHORTCUTS
-        document.addEventListener('keydown', (e) => {
-            switch(e.code) {
-                case 'Digit1':
-                    document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
-                    break;
-                case 'Digit2':
-                    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-                    break;
-                case 'Digit3':
-                    document.getElementById('research').scrollIntoView({ behavior: 'smooth' });
-                    break;
-                case 'Digit4':
-                    document.getElementById('publications').scrollIntoView({ behavior: 'smooth' });
-                    break;
-                case 'Digit5':
-                    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-                    break;
-                case 'Digit6':
-                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                    break;
-                case 'Escape':
-                    document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
-                    playMedievalSound(440, 0.2, 'triangle');
-                    break;
-            }
+        // Observe elements for fade-up animation
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
         });
 
-        // WINDOW RESIZE HANDLER
-        window.addEventListener('resize', () => {
-            const treasureMap = document.getElementById('treasureMap');
-            if (window.innerWidth <= 768) {
-                treasureMap.style.transform = 'scale(0.8)';
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(145deg, rgba(58, 58, 58, 0.95) 0%, rgba(42, 42, 42, 0.95) 100%)';
+                header.style.backdropFilter = 'blur(15px)';
             } else {
-                treasureMap.style.transform = 'scale(1)';
+                header.style.background = 'linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%)';
+                header.style.backdropFilter = 'blur(10px)';
             }
         });
 
-        // EPIC INITIALIZATION SEQUENCE
-        window.addEventListener('load', () => {
-            // Detect scholar mode
-            detectScholarMode();
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
             
-            // Apply themes
-            applyTimeBasedTheme();
-            applySeasonalTheme();
+            let current = '';
             
-            // Start epic loading sequence
-            initEpicLoadingSequence();
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-            // Initialize scroll animations
-            initSectionAnimations();
-
-            // Update progress bars
-            updateProgressBars();
-
-            // Enable audio context on first user interaction
-            document.addEventListener('click', initAudio, { once: true });
-            document.addEventListener('keydown', initAudio, { once: true });
-
-            // Initialize treasure map
-            updateTreasureMap();
-
-            // Create initial wind and magic particles
-            for (let i = 0; i < 3; i++) {
-                setTimeout(createWindParticle, i * 1000);
-                setTimeout(createMagicParticle, i * 800);
-            }
+            navLinks.forEach(link => {
+                link.style.color = 'var(--parchment)';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = 'var(--gold)';
+                }
+            });
         });
 
-        // EPIC CONSOLE MESSAGE
-        console.log(`
-    ╔══════════════════════════════════════════════════════════════════════════════╗
-    ║  🏰 SIR SHIVANSH'S ULTIMATE EPIC MEDIEVAL REALM v2.0 INITIALIZED! 🏰        ║
-    ║                                                                              ║
-    ║  🎮 NEW EPIC FEATURES ACTIVE:                                                ║
-    ║  🌅 Day/Night Cycle Based on Your Time Zone                                 ║
-    ║  🍂 Seasonal Themes (Winter/Spring/Summer/Autumn)                           ║
-    ║  🐉 Dragon Oracle with Context-Aware Tips                                   ║
-    ║  📊 Dynamic Progress Bars                                                   ║
-    ║  💎 Random Treasure with Fun Facts                                          ║
-    ║  🎓 Scholar Mode Auto-Detection                                             ║
-    ║  ⚔️ Epic Career Timeline & Skill Tree                                       ║
-    ║  📞 Recruitment Call (After 8+ Minutes)                                     ║
-    ║  🧹 Cleaned & Optimized Performance                                         ║
-    ║                                                                              ║
-    ║  STATUS: MAXIMUM LEGENDARY OVERDRIVE ENGAGED! 🚀                            ║
-    ║  EPIC LEVEL: OVER 9000! ⚡                                                   ║
-    ║  JAW DROP PROBABILITY: 200% 🤯                                               ║
-    ╚══════════════════════════════════════════════════════════════════════════════╝
-        `);
-
-        // Dynamic page title
-        let titleIndex = 0;
-        const epicTitles = [
-            'Sir Shivansh of House Singh - Epic Medieval Realm v2.0',
-            '🐉 Dragon Oracle Active - Digital Knight & Reality Architect 🐉',
-            '🏰 Master of XR Sorcery & AI Alchemy 🏰',
-            '👑 PhD Quest in Progress... Epic Level: Legendary 👑'
-        ];
-
-        setInterval(() => {
-            document.title = epicTitles[titleIndex];
-            titleIndex = (titleIndex + 1) % epicTitles.length;
-        }, 5000);
+        // Initialize some particles on load
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createParticle, i * 1000);
+        }
     </script>
 </body>
 </html>
