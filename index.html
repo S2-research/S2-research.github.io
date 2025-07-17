@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivansh Singh</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Shivansh Singh - XR Researcher & AI Ethics Specialist</title>
     <style>
         * {
             margin: 0;
@@ -13,602 +12,411 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fefcff 0%, #fff8fc 100%);
+            color: #374151;
             line-height: 1.6;
-            color: #333;
-            background: white;
-            min-height: 100vh;
-            position: relative;
             overflow-x: hidden;
         }
 
-        /* Sakura Animation */
-        .sakura-container {
+        /* Animated Background Elements */
+        .animated-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: -1;
             pointer-events: none;
-            z-index: 1;
+            overflow: hidden;
         }
 
-        .sakura {
-            position: absolute;
-            color: #ffb3d1;
-            font-size: 14px;
-            animation: fall linear infinite;
-            opacity: 0.7;
-        }
-
-        .sakura:nth-child(1) { left: 10%; animation-duration: 8s; animation-delay: 0s; }
-        .sakura:nth-child(2) { left: 20%; animation-duration: 10s; animation-delay: 1s; }
-        .sakura:nth-child(3) { left: 30%; animation-duration: 12s; animation-delay: 2s; }
-        .sakura:nth-child(4) { left: 40%; animation-duration: 9s; animation-delay: 3s; }
-        .sakura:nth-child(5) { left: 50%; animation-duration: 11s; animation-delay: 4s; }
-        .sakura:nth-child(6) { left: 60%; animation-duration: 13s; animation-delay: 5s; }
-        .sakura:nth-child(7) { left: 70%; animation-duration: 8s; animation-delay: 6s; }
-        .sakura:nth-child(8) { left: 80%; animation-duration: 10s; animation-delay: 7s; }
-        .sakura:nth-child(9) { left: 90%; animation-duration: 12s; animation-delay: 8s; }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100px) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.7;
-            }
-            90% {
-                opacity: 0.7;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Animated SVG Path Elements */
-        .animated-path {
+        .animated-bg::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 1;
+            background: linear-gradient(45deg, rgba(252, 231, 243, 0.1), transparent, rgba(254, 205, 211, 0.1));
+            animation: backgroundShift 20s ease-in-out infinite;
         }
 
-        .flowing-line {
-            fill: none;
-            stroke: #ffb3d1;
-            stroke-width: 2;
+        @keyframes backgroundShift {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(10px) translateY(-5px); }
+            50% { transform: translateX(-5px) translateY(10px); }
+            75% { transform: translateX(5px) translateY(-10px); }
+        }
+
+        .floating-shape {
+            position: absolute;
+            animation: float 8s infinite ease-in-out;
             opacity: 0.3;
-            stroke-dasharray: 20;
-            animation: flow 8s linear infinite;
         }
 
-        .bezier-curve {
-            fill: none;
-            stroke: url(#gradient);
-            stroke-width: 1.5;
-            opacity: 0.4;
-            stroke-dasharray: 200;
-            stroke-dashoffset: 200;
-            animation: draw 4s ease-in-out infinite alternate;
-        }
-
-        @keyframes flow {
-            0% { stroke-dashoffset: 100; }
-            100% { stroke-dashoffset: 0; }
-        }
-
-        @keyframes draw {
-            0% { stroke-dashoffset: 200; }
-            100% { stroke-dashoffset: 0; }
-        }
-
-        /* Particle trail animation */
-        .particle-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .particle {
+        .floating-orb {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #ffb3d1;
             border-radius: 50%;
-            opacity: 0.6;
-            animation: particle-flow 12s linear infinite;
+            background: radial-gradient(circle, rgba(252, 231, 243, 0.3), transparent);
+            animation: orb-float 12s infinite ease-in-out;
         }
 
-        .particle:nth-child(1) { animation-delay: 0s; left: 10%; }
-        .particle:nth-child(2) { animation-delay: 2s; left: 30%; }
-        .particle:nth-child(3) { animation-delay: 4s; left: 50%; }
-        .particle:nth-child(4) { animation-delay: 6s; left: 70%; }
-        .particle:nth-child(5) { animation-delay: 8s; left: 90%; }
-
-        @keyframes particle-flow {
-            0% {
-                transform: translateY(0) translateX(0) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-                transform: scale(1);
-            }
-            25% {
-                transform: translateY(25vh) translateX(50px) scale(1.2);
-            }
-            50% {
-                transform: translateY(50vh) translateX(-30px) scale(0.8);
-            }
-            75% {
-                transform: translateY(75vh) translateX(40px) scale(1.1);
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(100vh) translateX(0) scale(0);
-                opacity: 0;
-            }
-        }
-
-        /* Morphing background shapes */
-        .morphing-shape {
-            position: fixed;
+        .floating-orb:nth-child(6) {
+            width: 80px;
+            height: 80px;
             top: 20%;
-            right: 5%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        .floating-orb:nth-child(7) {
+            width: 60px;
+            height: 60px;
+            bottom: 30%;
+            left: 5%;
+            animation-delay: 4s;
+        }
+
+        .floating-orb:nth-child(8) {
+            width: 70px;
+            height: 70px;
+            top: 50%;
+            right: 30%;
+            animation-delay: 7s;
+        }
+
+        @keyframes orb-float {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                opacity: 0.3;
+            }
+            33% {
+                transform: translateY(-15px) scale(1.1);
+                opacity: 0.5;
+            }
+            66% {
+                transform: translateY(10px) scale(0.9);
+                opacity: 0.4;
+            }
+        }
+
+        .wave-element {
+            position: absolute;
             width: 200px;
             height: 200px;
-            opacity: 0.03;
-            z-index: 1;
-            pointer-events: none;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(252, 231, 243, 0.2), transparent 50%);
+            animation: wave-pulse 15s infinite ease-in-out;
         }
 
-        .morphing-blob {
-            width: 100%;
-            height: 100%;
-            fill: #ffb3d1;
-            animation: morph 20s ease-in-out infinite;
+        .wave-element:nth-child(9) {
+            top: 10%;
+            left: 20%;
+            animation-delay: 2s;
         }
 
-        @keyframes morph {
+        .wave-element:nth-child(10) {
+            bottom: 20%;
+            right: 20%;
+            animation-delay: 8s;
+        }
+
+        @keyframes wave-pulse {
             0%, 100% {
-                transform: scale(1) rotate(0deg);
-                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            }
-            25% {
-                transform: scale(1.1) rotate(90deg);
-                border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+                transform: scale(1);
+                opacity: 0.2;
             }
             50% {
-                transform: scale(0.9) rotate(180deg);
-                border-radius: 30% 70% 40% 60% / 70% 40% 60% 30%;
-            }
-            75% {
-                transform: scale(1.05) rotate(270deg);
-                border-radius: 70% 30% 60% 40% / 30% 60% 40% 70%;
+                transform: scale(1.3);
+                opacity: 0.1;
             }
         }
 
-        /* Animated underlines for section titles */
-        .section-title {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section-title::before {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #ffb3d1, #e74c3c, #ffb3d1, transparent);
-            transform: translateX(-100%);
-            animation: underline-flow 3s ease-in-out infinite;
-        }
-
-        @keyframes underline-flow {
-            0% { transform: translateX(-100%); }
-            50% { transform: translateX(0%); }
-            100% { transform: translateX(100%); }
-        }
-
-        /* Interactive connection lines */
-        .connection-line {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #ffb3d1, transparent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.8s ease;
-            opacity: 0.3;
-        }
-
-        .section:hover .connection-line {
-            transform: scaleX(1);
-        }
-
-        /* Infinity-like path animation */
-        .infinity-path {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100px;
-            height: 50px;
-            transform: translate(-50%, -50%);
-            opacity: 0.1;
-        }
-
-        .infinity-curve {
-            fill: none;
-            stroke: #ffb3d1;
-            stroke-width: 2;
-            stroke-dasharray: 200;
-            animation: infinity-draw 6s ease-in-out infinite;
-        }
-
-        @keyframes infinity-draw {
-            0% { stroke-dashoffset: 200; }
-            50% { stroke-dashoffset: 0; }
-            100% { stroke-dashoffset: -200; }
-        }
-
-        /* Enhanced name animation */
-        .name {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .name::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 179, 209, 0.1), transparent);
-            animation: name-shimmer 4s ease-in-out infinite;
-        }
-
-        @keyframes name-shimmer {
-            0% { left: -100%; }
-            50% { left: 100%; }
-            100% { left: 100%; }
-        }
-
-        /* Floating elements with bezier paths */
-        .floating-element {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: radial-gradient(circle, #ffb3d1, transparent);
+        .floating-shape.circle {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(252, 231, 243, 0.4), transparent 70%);
             border-radius: 50%;
-            animation: float-bezier 15s ease-in-out infinite;
-            opacity: 0.4;
+            border: 1px solid rgba(252, 231, 243, 0.5);
         }
 
-        @keyframes float-bezier {
-            0% { transform: translate(0, 0) scale(0.5); }
-            25% { transform: translate(200px, -100px) scale(1); }
-            50% { transform: translate(100px, -200px) scale(0.8); }
-            75% { transform: translate(-100px, -150px) scale(1.2); }
-            100% { transform: translate(0, 0) scale(0.5); }
+        .floating-shape.diamond {
+            width: 40px;
+            height: 40px;
+            background: rgba(254, 205, 211, 0.3);
+            transform: rotate(45deg);
+            border: 1px solid rgba(254, 205, 211, 0.4);
         }
 
-        .section-icon {
-            display: inline-block;
-            margin-right: 10px;
-            font-size: 1.2em;
-            color: #ffb3d1;
-        }
-
-        /* Subtle hover animations */
-        .experience-item,
-        .publication-item,
-        .skill-category,
-        .news-item {
-            transition: all 0.3s ease;
-        }
-
-        .experience-item:hover,
-        .publication-item:hover,
-        .skill-category:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 179, 209, 0.1);
-        }
-
-        /* Floating sakura accents */
-        .floating-sakura {
-            position: absolute;
-            color: #ffb3d1;
-            opacity: 0.2;
-            font-size: 12px;
-            animation: float-gentle 6s ease-in-out infinite;
-        }
-
-        @keyframes float-gentle {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(180deg); }
-        }
-
-        /* Gradient text for names */
-        .highlight-name {
-            background: linear-gradient(135deg, #2c3e50, #ffb3d1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-        }
-
-        /* Subtle pattern background for sections */
-        .section:nth-child(even) {
-            background: linear-gradient(135deg, 
-                rgba(255, 179, 209, 0.02) 0%, 
-                rgba(255, 255, 255, 0.05) 100%);
-            margin: 0 -20px;
-            padding: 2rem 20px;
-            border-radius: 0;
-        }
-
-        /* Experience timeline enhancement */
-        .experience-timeline::before {
-            background: linear-gradient(to bottom, #ffb3d1, #e74c3c, #ffb3d1);
-            width: 3px;
-            border-radius: 2px;
-        }
-
-        .timeline-item::before {
-            background: linear-gradient(135deg, #ffb3d1, #e74c3c);
-            box-shadow: 0 0 10px rgba(255, 179, 209, 0.3);
-        }
-
-        /* Skills enhancement */
-        .skill-item {
-            transition: all 0.3s ease;
-        }
-
-        .skill-item:hover {
-            background: linear-gradient(135deg, #ffb3d1, #fff);
-            color: #2c3e50;
-            transform: translateY(-1px);
-        }
-
-        /* Publication enhancements */
-        .publication-item {
+        .floating-shape.hexagon {
+            width: 50px;
+            height: 44px;
+            background: rgba(252, 231, 243, 0.4);
             position: relative;
-            overflow: hidden;
+            margin: 22px 0;
         }
 
-        .publication-item::before {
-            content: '🌸';
+        .floating-shape.hexagon::before,
+        .floating-shape.hexagon::after {
+            content: "";
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            opacity: 0.1;
-            transform: rotate(15deg);
-        }
-
-        /* Awards styling */
-        .award-item {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .award-item::before {
-            content: '🏆';
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 1.2em;
-            opacity: 0.7;
-        }
-
-        /* Navigation enhancement */
-        .nav-tabs a {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-tabs a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 179, 209, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .nav-tabs a:hover::before {
-            left: 100%;
-        }
-
-        /* Header name enhancement */
-        .name {
-            position: relative;
-        }
-
-        .name::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
             width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #ffb3d1, #e74c3c);
-            animation: name-underline 3s ease-in-out infinite;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
         }
 
-        @keyframes name-underline {
-            0%, 100% { width: 0; }
-            50% { width: 100%; }
+        .floating-shape.hexagon::before {
+            bottom: 100%;
+            border-bottom: 14px solid rgba(252, 231, 243, 0.4);
         }
 
+        .floating-shape.hexagon::after {
+            top: 100%;
+            border-top: 14px solid rgba(252, 231, 243, 0.4);
+        }
+
+        .floating-shape:nth-child(1) {
+            top: 15%;
+            left: 8%;
+            animation-delay: 0s;
+        }
+
+        .floating-shape:nth-child(2) {
+            top: 60%;
+            right: 12%;
+            animation-delay: 3s;
+        }
+
+        .floating-shape:nth-child(3) {
+            bottom: 25%;
+            left: 15%;
+            animation-delay: 6s;
+        }
+
+        .floating-shape:nth-child(4) {
+            top: 40%;
+            right: 25%;
+            animation-delay: 2s;
+        }
+
+        .floating-shape:nth-child(5) {
+            bottom: 50%;
+            left: 60%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.7;
+            }
+        }
+
+        /* Container */
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 2rem;
         }
 
         /* Header */
         .header {
-            padding: 40px 0;
-            border-bottom: 1px solid #e0e0e0;
-            position: relative;
-            background: white;
-            z-index: 3;
-        }
-
-        .header-content {
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(252, 231, 243, 0.4);
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(252, 231, 243, 0.3);
         }
 
         .profile-photo {
-            flex-shrink: 0;
-        }
-
-        .profile-photo img {
             width: 180px;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 8px;
-            background: #f5f5f5;
-            border: 1px solid #e0e0e0;
+            height: 180px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #fce7f3, #fed7d7);
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: gentle-pulse 4s infinite;
         }
 
-        .profile-info {
-            flex: 1;
+        .profile-photo-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 11px;
+            background: #fefcff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #f472b6;
         }
 
-        .name {
-            font-size: 2.2rem;
-            font-weight: 600;
+        @keyframes gentle-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .header-info h1 {
+            font-size: 2.8rem;
             margin-bottom: 0.5rem;
-            color: #2c3e50;
+            background: linear-gradient(135deg, #374151, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
         }
 
-        .title {
+        .header-info .contact-line {
+            color: #6b7280;
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .header-info .department {
+            color: #374151;
             font-size: 1.1rem;
-            color: #666;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+
+        .header-info .institution {
+            color: #6b7280;
+            font-size: 1rem;
             margin-bottom: 1rem;
         }
 
         .contact-info {
-            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
         }
 
-        .contact-info div {
-            margin-bottom: 0.3rem;
-            font-size: 0.95rem;
+        .contact-info .info-item {
+            font-size: 0.9rem;
+            color: #6b7280;
         }
 
-        .contact-info a {
-            color: #e74c3c;
-            text-decoration: none;
+        .contact-info .info-label {
+            font-weight: 600;
+            color: #374151;
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
+        .orcid {
+            color: #f472b6;
+            font-weight: 500;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
             margin-top: 1rem;
         }
 
         .social-links a {
-            color: #666;
-            font-size: 1.2rem;
-            transition: color 0.3s;
+            color: #6b7280;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: rgba(252, 231, 243, 0.3);
+            border: 1px solid rgba(252, 231, 243, 0.5);
         }
 
         .social-links a:hover {
-            color: #e74c3c;
+            color: #f472b6;
+            background: rgba(252, 231, 243, 0.5);
+            transform: translateY(-2px);
         }
 
         /* Navigation */
-        .nav {
-            background: #f8f9fa;
-            padding: 0;
-            border-bottom: 1px solid #e0e0e0;
-            position: relative;
-            z-index: 3;
+        .nav-tabs {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(252, 231, 243, 0.4);
+            box-shadow: 0 4px 20px rgba(252, 231, 243, 0.2);
         }
 
-        .nav-tabs {
-            display: flex;
+        .nav-tabs ul {
             list-style: none;
+            display: flex;
             margin: 0;
             padding: 0;
         }
 
         .nav-tabs li {
-            margin-right: 0;
+            flex: 1;
         }
 
         .nav-tabs a {
             display: block;
-            padding: 15px 25px;
+            padding: 1rem 2rem;
             text-decoration: none;
-            color: #666;
+            color: #6b7280;
             font-weight: 500;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .nav-tabs a:hover,
-        .nav-tabs a.active {
-            color: #e74c3c;
-            border-bottom-color: #e74c3c;
-            background: white;
-        }
-
-        /* Main Content */
-        .main {
-            padding: 40px 0;
-            background: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-radius: 15px;
             position: relative;
-            z-index: 3;
         }
 
-        .tab-content {
+        .nav-tabs a:hover {
+            color: #f472b6;
+            background: rgba(252, 231, 243, 0.2);
+        }
+
+        .nav-tabs a.active {
+            color: #f472b6;
+            background: rgba(252, 231, 243, 0.3);
+            border-bottom: 3px solid #f472b6;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(252, 231, 243, 0.4);
+            box-shadow: 0 8px 32px rgba(252, 231, 243, 0.3);
+            min-height: 500px;
             display: none;
         }
 
-        .tab-content.active {
+        .content-section.active {
             display: block;
+            animation: fadeIn 0.5s ease-in-out;
         }
 
-        .section {
-            margin-bottom: 40px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .section-title {
-            font-size: 1.4rem;
-            font-weight: 600;
+            font-size: 2rem;
             margin-bottom: 1.5rem;
-            color: #2c3e50;
+            color: #374151;
+            font-weight: 600;
             position: relative;
-            padding-bottom: 8px;
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .section-title::after {
@@ -616,709 +424,843 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 50px;
-            height: 2px;
-            background: #e74c3c;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #f472b6, #fce7f3);
+            border-radius: 2px;
         }
 
-        .content {
-            font-size: 1rem;
+        /* Home Section */
+        .home-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
             line-height: 1.7;
-            color: #444;
+            margin-bottom: 1.5rem;
+            color: #4b5563;
         }
 
-        .content p {
-            margin-bottom: 1.2rem;
+        .about-text strong {
+            color: #f472b6;
         }
 
-        /* Experience */
-        .experience-item {
-            margin-bottom: 2.5rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .experience-item:last-child {
-            border-bottom: none;
-        }
-
-        .experience-date {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            color: #2c3e50;
-        }
-
-        .experience-company {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .experience-description {
-            color: #444;
-            line-height: 1.6;
-        }
-
-        /* Publications */
-        .publication-item {
-            margin-bottom: 2.5rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .publication-item:last-child {
-            border-bottom: none;
-        }
-
-        .publication-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-
-        .publication-authors {
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        .publication-venue {
-            font-style: italic;
-            color: #888;
-            margin-bottom: 1rem;
-        }
-
-        .publication-status {
-            display: inline-block;
-            background: #e74c3c;
-            color: white;
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .publication-description {
-            color: #444;
-            line-height: 1.6;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-        }
-
-        .skill-category h3 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .skill-list {
-            list-style: none;
+        .specialties {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
+            margin-top: 1.5rem;
         }
 
-        .skill-item {
-            background: white;
-            padding: 0.4rem 0.8rem;
+        .specialty-tag {
+            background: rgba(252, 231, 243, 0.4);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(252, 231, 243, 0.6);
+            color: #374151;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .specialty-tag:hover {
+            background: rgba(252, 231, 243, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: rgba(254, 249, 252, 0.6);
             border-radius: 15px;
-            font-size: 0.9rem;
-            border: 1px solid #e0e0e0;
-            color: #555;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #fce7f3;
+            transition: all 0.3s ease;
         }
 
-        /* News */
-        .news-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #f0f0f0;
+        .experience-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(252, 231, 243, 0.3);
         }
 
-        .news-item:last-child {
-            border-bottom: none;
-        }
-
-        .news-date {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 0.5rem;
-        }
-
-        .news-content {
-            color: #444;
-            line-height: 1.6;
-        }
-
-        .news-content a {
-            color: #e74c3c;
-            text-decoration: none;
-        }
-
-        .news-content a:hover {
-            text-decoration: underline;
-        }
-
-        /* Awards */
-        .awards-list {
-            list-style: none;
-        }
-
-        .award-item {
+        .experience-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #f0f0f0;
         }
 
-        .award-item:last-child {
-            border-bottom: none;
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-org {
+            color: #6b7280;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        .experience-period {
+            color: #f472b6;
+            font-weight: 500;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .experience-item li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #f472b6;
+            font-weight: bold;
+        }
+
+        /* Publications Section */
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .publication-item {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(248, 187, 217, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .publication-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(248, 187, 217, 0.2);
+        }
+
+        .publication-status {
+            display: inline-block;
+            background: #f472b6;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .publication-status.under-review {
+            background: #fce7f3;
+            color: #374151;
+        }
+
+        .publication-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .publication-authors {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-venue {
+            color: #f472b6;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(253, 242, 248, 0.4);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(248, 187, 217, 0.3);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(248, 187, 217, 0.2);
+        }
+
+        .skill-category h3 {
+            color: #374151;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(248, 187, 217, 0.3);
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(248, 187, 217, 0.4);
+            color: #374151;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(248, 187, 217, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .award-item {
+            background: rgba(254, 249, 252, 0.6);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border-left: 4px solid #fce7f3;
+            transition: all 0.3s ease;
+        }
+
+        .award-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(252, 231, 243, 0.3);
+        }
+
+        .award-year {
+            color: #f472b6;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
         }
 
         .award-title {
             font-weight: 600;
-            color: #2c3e50;
-            flex: 1;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
-        .award-year {
-            color: #888;
+        .award-org {
+            color: #6b7280;
             font-size: 0.9rem;
-            margin-left: 1rem;
         }
 
-        .award-organization {
-            color: #666;
+        /* Education Section */
+        .education-section {
+            margin-bottom: 2rem;
+        }
+
+        .education-item {
+            background: rgba(254, 249, 252, 0.6);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #fce7f3;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(252, 231, 243, 0.3);
+        }
+
+        .education-degree {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .education-spec {
+            color: #6b7280;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-year {
+            color: #f472b6;
+            font-weight: 500;
             font-size: 0.9rem;
-            margin-top: 0.2rem;
         }
 
-        /* Responsive */
+        /* Languages Section */
+        .languages-section {
+            margin-bottom: 2rem;
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .language-item {
+            background: rgba(254, 249, 252, 0.6);
+            border-radius: 15px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .language-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(252, 231, 243, 0.3);
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.3rem;
+        }
+
+        .language-level {
+            color: #f472b6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
+            .container {
+                padding: 1rem;
+            }
+
+            .header {
+                grid-template-columns: 1fr;
                 text-align: center;
+                gap: 1rem;
             }
 
-            .profile-photo img {
+            .profile-photo {
                 width: 150px;
-                height: 180px;
+                height: 150px;
+                margin: 0 auto;
             }
 
-            .name {
-                font-size: 1.8rem;
-            }
-
-            .nav-tabs {
-                flex-wrap: wrap;
+            .nav-tabs ul {
+                flex-direction: column;
             }
 
             .nav-tabs a {
-                padding: 12px 15px;
-                font-size: 0.9rem;
+                border-radius: 0;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .award-item {
+            .experience-header {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
-            .award-year {
-                margin-left: 0;
-                margin-top: 0.2rem;
+            .experience-period {
+                margin-bottom: 0.5rem;
+            }
+
+            .publications-grid,
+            .skills-grid,
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background Elements -->
-    <div class="particle-container">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-
-    <!-- Morphing Background Shape -->
-    <div class="morphing-shape">
-        <div class="morphing-blob"></div>
-    </div>
-
-    <!-- Animated SVG Paths -->
-    <svg class="animated-path" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <defs>
-            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#ffb3d1;stop-opacity:0" />
-                <stop offset="50%" style="stop-color:#ffb3d1;stop-opacity:0.8" />
-                <stop offset="100%" style="stop-color:#e74c3c;stop-opacity:0" />
-            </linearGradient>
-        </defs>
-        <path class="flowing-line" d="M0,50 Q25,20 50,50 T100,50" />
-        <path class="bezier-curve" d="M10,80 Q30,10 50,50 Q70,90 90,20" />
-    </svg>
-
-    <!-- Sakura Animation -->
-    <div class="sakura-container">
-        <div class="sakura">🌸</div>
-        <div class="sakura">🌸</div>
-        <div class="sakura">🌸</div>
-        <div class="sakura">🌸</div>
-        <div class="sakura">🌸</div>
-        <div class="sakura">🌸</div>
-        <div class="sakura">🌸</div>
-        <div class="sakura">🌸</div>
-        <div class="sakura">🌸</div>
+    <div class="animated-bg">
+        <div class="floating-shape circle"></div>
+        <div class="floating-shape diamond"></div>
+        <div class="floating-shape hexagon"></div>
+        <div class="floating-shape circle"></div>
+        <div class="floating-shape diamond"></div>
+        <div class="floating-orb"></div>
+        <div class="floating-orb"></div>
+        <div class="floating-orb"></div>
+        <div class="wave-element"></div>
+        <div class="wave-element"></div>
     </div>
 
     <div class="container">
         <header class="header">
-            <div class="sakura-decoration">🌸 🌸 🌸</div>
-            <div class="header-content">
-                <div class="profile-photo">
-                    <img src="https://via.placeholder.com/180x220/f5f5f5/666?text=Photo" alt="Shivansh Singh">
+            <div class="profile-photo">
+                <div class="profile-photo-inner">👨‍💻</div>
+            </div>
+            <div class="header-info">
+                <h1>Shivansh Singh</h1>
+                <div class="contact-line">shivansh [dot] singh [at] lut [dot] fi</div>
+                <div class="department">Department of Software Engineering</div>
+                <div class="institution">LUT University, School of Engineering Sciences</div>
+                
+                <div class="contact-info">
+                    <div class="info-item">
+                        <span class="info-label">Phone:</span> +358 466 276 948
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Location:</span> Lahti, Finland
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">ORCID:</span> <span class="orcid">0009-0004-0661-0608</span>
+                    </div>
                 </div>
-                <div class="profile-info">
-                    <h1 class="name highlight-name">Shivansh Singh</h1>
-                    <div class="title">
-                        shivansh [dot] singh [at] lut [dot] fi<br>
-                        Department of Software Engineering<br>
-                        LUT University, School of Engineering Sciences
-                    </div>
-                    <div class="contact-info">
-                        <div><strong>Phone:</strong> +358 466 276 948</div>
-                        <div><strong>Location:</strong> Lahti, Finland</div>
-                        <div><strong>ORCID:</strong> <a href="https://orcid.org/0009-0004-0661-0608" target="_blank">0009-0004-0661-0608</a></div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/shivanshsingh17" target="_blank" title="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="mailto:shivansh.singh@lut.fi" title="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://orcid.org/0009-0004-0661-0608" target="_blank" title="ORCID">
-                            <i class="fab fa-orcid"></i>
-                        </a>
-                    </div>
+                
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/shivanshsingh17" title="LinkedIn">LinkedIn</a>
+                    <a href="mailto:shivansh.singh@lut.fi" title="Email">Email</a>
+                    <a href="https://orcid.org/0009-0004-0661-0608" title="ORCID">ORCID</a>
                 </div>
             </div>
         </header>
 
-        <nav class="nav">
-            <ul class="nav-tabs">
-                <li><a href="#home" class="tab-link active">Home</a></li>
-                <li><a href="#experience" class="tab-link">Experience</a></li>
-                <li><a href="#publications" class="tab-link">Publications</a></li>
-                <li><a href="#skills" class="tab-link">Skills</a></li>
-                <li><a href="#awards" class="tab-link">Awards</a></li>
+        <nav class="nav-tabs">
+            <ul>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#awards" class="nav-link">Awards</a></li>
             </ul>
         </nav>
 
-        <main class="main">
-            <div id="home" class="tab-content active">
-                <div class="section">
-                    <div class="connection-line"></div>
-                    <div class="floating-element" style="top: 20px; right: 30px;"></div>
-                    <h2 class="section-title"><span class="section-icon">👋</span>About Me <span style="color: #ffb3d1; font-size: 0.8em; margin-left: 10px;">🌸</span></h2>
-                    <div class="decorative-line"></div>
-                    <div class="floating-sakura" style="top: 10px; right: 10px;">🌸</div>
-                    <svg class="infinity-path" viewBox="0 0 100 50">
-                        <path class="infinity-curve" d="M25,25 Q12.5,12.5 25,0 Q37.5,12.5 50,25 Q62.5,37.5 75,25 Q87.5,12.5 75,0 Q62.5,12.5 50,25 Q37.5,37.5 25,25 Z" />
-                    </svg>
-                    <div class="content">
-                        <p>I am a Junior Research Assistant in the AI and HCI Behavioural Lab at <a href="https://lut.fi" target="_blank">LUT University</a>, Department of Software Engineering. I am also serving as Head Researcher & Project Worker for the MAISA project funded by Business Finland.</p>
-                        
-                        <p>My research focuses on <strong>Human-Computer Interaction</strong>, <strong>Extended Reality</strong>, <strong>Social Computing</strong>, and <strong>Ethics in AI</strong>. I am particularly interested in developing Unity-based XR applications with physiological sensors to measure cognitive load and trust metrics in virtual environments.</p>
-                        
-                        <p>I am currently pursuing my <strong>Master of Science in Software Engineering</strong> with a specialization in Digital Systems and Service Development at LUT University (2025-2027). I completed my Bachelor's degree in Electrical Engineering with a minor in Practical Engineering, achieving distinction.</p>
+        <main>
+            <section id="home" class="content-section active">
+                <h2 class="section-title">👋 About Me 🌸</h2>
+                <div class="home-content">
+                    <div class="about-text">
+                        I am a <strong>Junior Research Assistant</strong> in the AI and HCI Behavioural Lab at <strong>LUT University</strong>, Department of Software Engineering. I am also serving as <strong>Head Researcher & Project Worker</strong> for the MAISA project funded by Business Finland.
+                    </div>
+                    
+                    <div class="about-text">
+                        My research focuses on <strong>Human-Computer Interaction</strong>, <strong>Extended Reality</strong>, <strong>Social Computing</strong>, and <strong>Ethics in AI</strong>. I am particularly interested in developing Unity-based XR applications with physiological sensors to measure cognitive load and trust metrics in virtual environments.
+                    </div>
+                    
+                    <div class="about-text">
+                        I am currently pursuing my <strong>Master of Science in Software Engineering</strong> with a specialization in Digital Systems and Service Development at LUT University (2025-2027). I completed my Bachelor's degree in Electrical Engineering with a minor in Practical Engineering, achieving distinction.
+                    </div>
+                    
+                    <div class="specialties">
+                        <span class="specialty-tag">Human-Computer Interaction</span>
+                        <span class="specialty-tag">Extended Reality</span>
+                        <span class="specialty-tag">Social Computing</span>
+                        <span class="specialty-tag">Ethics</span>
+                        <span class="specialty-tag">Trust in AI</span>
                     </div>
                 </div>
+            </section>
 
-                <div class="section">
-                    <div class="connection-line"></div>
-                    <div class="floating-element" style="top: 40px; right: 60px;"></div>
-                    <h2 class="section-title"><span class="section-icon">🔬</span>Research Summary <span style="color: #ffb3d1; font-size: 0.8em; margin-left: 10px;">🌸</span></h2>
-                    <div class="decorative-line"></div>
-                    <div class="floating-sakura" style="top: 50px; right: 50px;">🌸</div>
-                    <div class="content">
-                        <p>My research explores the intersection of human-computer interaction and artificial intelligence, with a particular focus on trust, ethics, and user experience in AI systems. I investigate how people interact with AI technologies and how we can design more intuitive and trustworthy AI systems.</p>
-                        
-                        <p>Key areas of my research include:</p>
-                        <ul style="margin-left: 2rem; margin-bottom: 1.2rem;">
-                            <li><strong>Trust in AI systems:</strong> Developing frameworks to measure and improve trust between humans and AI</li>
-                            <li><strong>Extended Reality (XR) applications:</strong> Creating immersive experiences with physiological monitoring</li>
-                            <li><strong>Human-AI collaboration:</strong> Designing hybrid intelligence systems for software development</li>
-                            <li><strong>AI ethics:</strong> Exploring ethical implications of AI in workplace and educational settings</li>
-                        </ul>
-                        
-                        <p>My work combines quantitative methods (behavioral analytics, physiological measurements) with qualitative approaches (interviews, ethnographic studies) to provide comprehensive insights into human-AI interaction.</p>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title"><span class="section-icon">📰</span>News</h2>
-                    <div class="decorative-line"></div>
-                    <div class="content">
-                        <div class="news-item">
-                            <div class="news-date">June 2025</div>
-                            <div class="news-content">Started my role as Head Researcher for the €4.9 million MAISA project, leading a €500,000 research team on AI-powered software engineering.</div>
-                        </div>
-                        <div class="news-item">
-                            <div class="news-date">May 2025</div>
-                            <div class="news-content">Joined the AI and HCI Behavioural Lab as Junior Research Assistant, working on XR applications with physiological sensors.</div>
-                        </div>
-                        <div class="news-item">
-                            <div class="news-date">April 2025</div>
-                            <div class="news-content">Paper "Trusting the Machine: How Ethical Frameworks Shape Our Faith in AI Decisions" submitted to International Journal of Human-Computer Studies.</div>
-                        </div>
-                        <div class="news-item">
-                            <div class="news-date">March 2025</div>
-                            <div class="news-content">Completed Bachelor's degree in Electrical Engineering with distinction at LUT University.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="experience" class="tab-content">
-                <div class="section">
-                    <h2 class="section-title"><span class="section-icon">💼</span>Current Positions</h2>
-                    <div class="decorative-line"></div>
-                    <div class="content">
-                        <div class="experience-item">
-                            <div class="experience-date">May 2025 - Present</div>
+            <section id="experience" class="content-section">
+                <h2 class="section-title">💼 Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
                             <div class="experience-title">Junior Research Assistant</div>
-                            <div class="experience-company">AI and HCI Behavioural Lab, LUT University</div>
-                            <div class="experience-description">
-                                Developing Unity-based XR applications with physiological sensors (EEG, eye-tracking) to measure cognitive load and trust metrics in virtual environments. Conducting mixed-methods research combining quantitative trust scales, behavioral analytics, and qualitative interviews to assess AI ethics and ambiguity tolerance.
-                            </div>
+                            <div class="experience-org">AI and HCI Behavioural Lab, LUT University</div>
                         </div>
-                        
-                        <div class="experience-item">
-                            <div class="experience-date">May 2025 - Present</div>
+                        <div class="experience-period">May 2025 - Present</div>
+                    </div>
+                    <ul>
+                        <li>Developing Unity-based XR applications with physiological sensors (EEG, eye-tracking) to measure cognitive load and trust metrics in virtual environments</li>
+                        <li>Conducting mixed-methods research combining quantitative trust scales, behavioral analytics, and qualitative interviews to assess AI ethics and ambiguity tolerance</li>
+                        <li>Implementing machine learning algorithms to analyze user interaction patterns and predict trust formation in human-AI systems</li>
+                        <li>Designing controlled experiments using A/B testing methodologies to evaluate environmental variables (lighting, avatar design, interaction modalities) on trust outcomes</li>
+                        <li>Creating procedurally generated virtual characters using facial animation systems and natural language processing for enhanced user resonance and engagement</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
                             <div class="experience-title">Head Researcher & Project Worker</div>
-                            <div class="experience-company">MAISA, Business Finland</div>
-                            <div class="experience-description">
-                                Leading a €500,000 research team within a €4.9 million Business Finland Co-Innovation project on AI-powered software engineering. Developing hybrid intelligence frameworks for human-AI collaboration in software development environments, targeting 30-40% productivity improvements.
-                            </div>
+                            <div class="experience-org">MAISA, Business Finland</div>
                         </div>
+                        <div class="experience-period">May 2025 - Present</div>
                     </div>
+                    <ul>
+                        <li>Leading a €500,000 research team within a €4.9 million Business Finland Co-Innovation project on AI-powered software engineering</li>
+                        <li>Developing hybrid intelligence frameworks for human-AI collaboration in software development environments, targeting 30-40% productivity improvements</li>
+                        <li>Conducting ethnographic studies and mixed-methods research (interviews, surveys, behavioral analytics) with industry partners including Tietoevry, Bittium, and Haltian</li>
+                        <li>Implementing fine-tuned Large Language Models (LLMs) for trustworthy software development applications with 90% accuracy targets</li>
+                        <li>Designing AI collaboration protocols and metrics for seamless integration of generative AI tools into existing development workflows</li>
+                        <li>Managing international research collaborations and contributing to EU-level AI standardization processes</li>
+                    </ul>
                 </div>
 
-                <div class="section">
-                    <h2 class="section-title"><span class="section-icon">📚</span>Previous Experience</h2>
-                    <div class="decorative-line"></div>
-                    <div class="content">
-                        <div class="experience-item">
-                            <div class="experience-date">2023 - 2025</div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
                             <div class="experience-title">Junior Research Assistant</div>
-                            <div class="experience-company">Information Systems Research Group, LUT University</div>
-                            <div class="experience-description">
-                                Led longitudinal workplace studies on AI's behavioral and mental health impacts, establishing new research methodologies. Designed and validated experimental protocols for measuring AI trust mechanisms, generating frameworks in healthcare and corporate decision-making systems.
-                            </div>
+                            <div class="experience-org">Information Systems Research Group, LUT University</div>
                         </div>
-                        
-                        <div class="experience-item">
-                            <div class="experience-date">2022 - 2023</div>
+                        <div class="experience-period">2023 - 2025</div>
+                    </div>
+                    <ul>
+                        <li>Led longitudinal workplace studies on AI's behavioral and mental health impacts, establishing new research methodologies adopted partially by a partner organization</li>
+                        <li>Designed and validated experimental protocols for measuring AI trust mechanisms, generating frameworks in healthcare and corporate decision-making systems</li>
+                        <li>Spearheaded comparative analysis of human-AI collaborative decision-making that influenced ethical AI governance policies at organizational level</li>
+                        <li>Developed novel HCI assessment tools for AI-user interactions, resulting in measurable improvements in user adoption rates and system effectiveness</li>
+                        <li>Managed research relationships with industry partners, securing continued collaboration agreements and knowledge transfer initiatives</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
                             <div class="experience-title">Research Volunteer</div>
-                            <div class="experience-company">SEE School, China & LES, LUT University</div>
-                            <div class="experience-description">
-                                Contributed to interdisciplinary AI applications in healthcare and engineering, including brain tumor detection algorithms and MRI imaging optimization. Collaborated with multidisciplinary research teams on AI model development and participated in manuscript preparation.
-                            </div>
+                            <div class="experience-org">SEE School, China & LES, LUT University</div>
                         </div>
+                        <div class="experience-period">2022 - 2023</div>
                     </div>
+                    <ul>
+                        <li>Contributed to interdisciplinary AI applications in healthcare and engineering, including brain tumor detection algorithms and MRI imaging optimization</li>
+                        <li>Collaborated with multidisciplinary research teams on AI model development and participated in manuscript preparation and review processes</li>
+                        <li>Conducted systematic literature reviews and performed data analysis to support ongoing research initiatives</li>
+                        <li>Assisted in research documentation and contributed to conference presentation materials</li>
+                        <li>Gained experience in cross-cultural research collaboration between Finnish and Chinese academic institutions</li>
+                    </ul>
                 </div>
-            </div>
+            </section>
 
-            <div id="publications" class="tab-content">
-                <div class="section">
-                    <h2 class="section-title"><span class="section-icon">📖</span>Journal Articles <span style="color: #ffb3d1; font-size: 0.8em; margin-left: 10px;">🌸</span></h2>
-                    <div class="decorative-line"></div>
-                    <div class="content">
-                        <div class="publication-item">
-                            <div class="publication-status">Under Review</div>
-                            <div class="publication-title">Beyond Human Centered Design: A More-than-Human Theory for Information Systems Design</div>
-                            <div class="publication-authors">Siemon, D., <strong>Singh, S.</strong>, Wolff, A., Knutas, A., Rousi, R., Kedziora, D., von Koskull, C., Kinnula, M., & Livari, N.</div>
-                            <div class="publication-venue">Journal of the Association for Information Systems</div>
-                        </div>
-                        
-                        <div class="publication-item">
-                            <div class="publication-status">Under Review</div>
-                            <div class="publication-title">Trusting the Machine: How Ethical Frameworks Shape Our Faith in AI Decisions</div>
-                            <div class="publication-authors"><strong>Singh, S.</strong>, & Siemon, D.</div>
-                            <div class="publication-venue">International Journal of Human-Computer Studies</div>
-                        </div>
-                        
-                        <div class="publication-item">
-                            <div class="publication-title">Deep learning-based electricity price forecasting in Finnish Energy Market</div>
-                            <div class="publication-authors"><strong>Singh, S.</strong></div>
-                            <div class="publication-venue">LUT Scientific and Expertise Publications, 2025</div>
-                        </div>
-                        
-                        <div class="publication-item">
-                            <div class="publication-title">Innovative Convolutional Neural Network Hybrid for Brain Tumor Segmentation</div>
-                            <div class="publication-authors">Abd El Kader, I., He, J., Xu, G., Vodolazskii, D., <strong>Singh, S.</strong>, Li, R., & Duan, Y.</div>
-                            <div class="publication-venue">WSEAS Transactions on Computers, 23, 123-134, 2024</div>
-                        </div>
+            <section id="publications" class="content-section">
+                <h2 class="section-title">📚 Publications</h2>
+                
+                <div class="publications-grid">
+                    <div class="publication-item">
+                        <div class="publication-status under-review">Under Review</div>
+                        <div class="publication-title">Beyond Human Centered Design: A More-than-Human Theory for Information Systems Design</div>
+                        <div class="publication-authors">Siemon, D., <strong>Singh, S.</strong>, Wolff, A., Knutas, A., Rousi, R., Kedziora, D., von Koskull, C., Kinnula, M., & Livari, N.</div>
+                        <div class="publication-venue">Journal of the Association for Information Systems</div>
                     </div>
-                </div>
 
-                <div class="section">
-                    <h2 class="section-title"><span class="section-icon">🎓</span>Conference Proceedings</h2>
-                    <div class="decorative-line"></div>
-                    <div class="content">
-                        <div class="publication-item">
-                            <div class="publication-status">To Appear</div>
-                            <div class="publication-title">Contextual, Provisional, and Verified: How Professionals Navigate Trust-Control Boundaries with AI</div>
-                            <div class="publication-authors"><strong>Singh, S.</strong>, & Blomqvist, K.</div>
-                            <div class="publication-venue">Proceedings of the 59th Hawaii International Conference on System Sciences, 2026</div>
-                        </div>
-                        
-                        <div class="publication-item">
-                            <div class="publication-status">To Appear</div>
-                            <div class="publication-title">Design Elements for Brand Representation in Conversational Agents</div>
-                            <div class="publication-authors">Aittamma, E., Siemon, D., & <strong>Singh, S.</strong></div>
-                            <div class="publication-venue">Proceedings of the 59th Hawaii International Conference on System Sciences, 2026</div>
-                        </div>
-                        
-                        <div class="publication-item">
-                            <div class="publication-title">Emotional Productivity: Exploring the Impact of AI Interactions on Employee Well-Being and Workplace Efficiency</div>
-                            <div class="publication-authors"><strong>Singh, S.</strong>, & Siemon, D.</div>
-                            <div class="publication-venue">Proceedings of the 58th Hawaii International Conference on System Sciences, 2025</div>
-                        </div>
+                    <div class="publication-item">
+                        <div class="publication-status under-review">Under Review</div>
+                        <div class="publication-title">Trusting the Machine: How Ethical Frameworks Shape Our Faith in AI Decisions</div>
+                        <div class="publication-authors"><strong>Singh, S.</strong>, & Siemon, D.</div>
+                        <div class="publication-venue">International Journal of Human-Computer Studies</div>
                     </div>
-                </div>
 
-                <div class="section">
-                    <h2 class="section-title"><span class="section-icon">⚖️</span>Peer Review Activities</h2>
-                    <div class="decorative-line"></div>
-                    <div class="content">
-                        <div class="news-item">
-                            <div class="news-date">2025</div>
-                            <div class="news-content">Reviewer, International Conference on Information Systems (ICIS)</div>
-                        </div>
-                        <div class="news-item">
-                            <div class="news-date">2025</div>
-                            <div class="news-content">Reviewer, Americas Conference on Information Systems (AMCIS) - 3 papers</div>
-                        </div>
-                        <div class="news-item">
-                            <div class="news-date">2025</div>
-                            <div class="news-content">Reviewer, Group Decision and Negotiation - 2 papers</div>
-                        </div>
-                        <div class="news-item">
-                            <div class="news-date">2024</div>
-                            <div class="news-content">Reviewer, Hawaii International Conference on System Sciences (HICSS)</div>
-                        </div>
+                    <div class="publication-item">
+                        <div class="publication-status under-review">Under Review</div>
+                        <div class="publication-title">Contextual, Provisional, and Verified: How Professionals Navigate Trust-Control Boundaries with AI</div>
+                        <div class="publication-authors"><strong>Singh, S.</strong>, & Blomqvist, K.</div>
+                        <div class="publication-venue">Proceedings of the 59th Hawaii International Conference on System Sciences</div>
                     </div>
-                </div>
-            </div>
 
-            <div id="skills" class="tab-content">
-                <div class="section">
-                    <div class="connection-line"></div>
-                    <div class="floating-element" style="top: 60px; right: 40px;"></div>
-                    <h2 class="section-title"><span class="section-icon">🛠️</span>Technical Skills</h2>
-                    <div class="decorative-line"></div>
-                    <div class="floating-sakura" style="top: 30px; right: 30px;">🌸</div>
-                    <svg class="infinity-path" viewBox="0 0 100 50">
-                        <path class="infinity-curve" d="M25,25 Q12.5,12.5 25,0 Q37.5,12.5 50,25 Q62.5,37.5 75,25 Q87.5,12.5 75,0 Q62.5,12.5 50,25 Q37.5,37.5 25,25 Z" />
-                    </svg>
-                    <div class="content">
-                        <div class="skills-grid">
-                            <div class="skill-category">
-                                <h3>Programming Languages</h3>
-                                <ul class="skill-list">
-                                    <li class="skill-item">Python</li>
-                                    <li class="skill-item">R</li>
-                                    <li class="skill-item">MATLAB</li>
-                                    <li class="skill-item">C#</li>
-                                    <li class="skill-item">C++</li>
-                                    <li class="skill-item">SQL</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="skill-category">
-                                <h3>Machine Learning & AI</h3>
-                                <ul class="skill-list">
-                                    <li class="skill-item">Deep Learning</li>
-                                    <li class="skill-item">NLP</li>
-                                    <li class="skill-item">TensorFlow</li>
-                                    <li class="skill-item">PyTorch</li>
-                                    <li class="skill-item">Reinforcement Learning</li>
-                                    <li class="skill-item">ML for Finance</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="skill-category">
-                                <h3>Extended Reality</h3>
-                                <ul class="skill-list">
-                                    <li class="skill-item">Unity</li>
-                                    <li class="skill-item">Varjo SDK</li>
-                                    <li class="skill-item">Oculus SDK</li>
-                                    <li class="skill-item">OpenXR</li>
-                                    <li class="skill-item">EEG Integration</li>
-                                    <li class="skill-item">Eye Tracking</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="skill-category">
-                                <h3>Data Analysis</h3>
-                                <ul class="skill-list">
-                                    <li class="skill-item">R Studio</li>
-                                    <li class="skill-item">Pandas</li>
-                                    <li class="skill-item">NumPy</li>
-                                    <li class="skill-item">Scikit-learn</li>
-                                    <li class="skill-item">Advanced Statistics</li>
-                                    <li class="skill-item">Excel</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="skill-category">
-                                <h3>Research Methods</h3>
-                                <ul class="skill-list">
-                                    <li class="skill-item">Mixed-methods Research</li>
-                                    <li class="skill-item">Longitudinal Studies</li>
-                                    <li class="skill-item">Experimental Design</li>
-                                    <li class="skill-item">Ethnographic Research</li>
-                                    <li class="skill-item">Survey Design</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="skill-category">
-                                <h3>Languages</h3>
-                                <ul class="skill-list">
-                                    <li class="skill-item">English (Fluent)</li>
-                                    <li class="skill-item">Hindi (Fluent)</li>
-                                    <li class="skill-item">Chinese (Intermediate)</li>
-                                    <li class="skill-item">Finnish (Beginner)</li>
-                                </ul>
-                            </div>
+                    <div class="publication-item">
+                        <div class="publication-status under-review">Under Review</div>
+                        <div class="publication-title">Design Elements for Brand Representation in Conversational Agents</div>
+                        <div class="publication-authors">Aittamma, E., Siemon, D., & <strong>Singh, S.</strong></div>
+                        <div class="publication-venue">Proceedings of the 59th Hawaii International Conference on System Sciences</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="publication-status">Published</div>
+                        <div class="publication-title">Emotional Productivity: Exploring the Impact of AI Interactions on Employee Well-Being and Workplace Efficiency</div>
+                        <div class="publication-authors"><strong>Singh, S.</strong>, & Siemon, D.</div>
+                        <div class="publication-venue">Proceedings of the 58th Hawaii International Conference on System Sciences</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="publication-status">Published</div>
+                        <div class="publication-title">Innovative Convolutional Neural Network Hybrid for Brain Tumor Segmentation</div>
+                        <div class="publication-authors">Abd El Kader, I., He, J., Xu, G., Vodolazskii, D., <strong>Singh, S.</strong>, Li, R., & Duan, Y.</div>
+                        <div class="publication-venue">WSEAS Transactions on Computers</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="publication-status">Published</div>
+                        <div class="publication-title">Deep learning-based electricity price forecasting in Finnish Energy Market</div>
+                        <div class="publication-authors"><strong>Singh, S.</strong></div>
+                        <div class="publication-venue">LUT Scientific and Expertise Publications</div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="publication-status">Published</div>
+                        <div class="publication-title">Comprehensive Differential and Analysis of Electromagnetic Waves in Biomedical Engineering: Focus on Magnetic Resonance Imaging (MRI)</div>
+                        <div class="publication-authors">Abd El Kader, I., He, J., Wang, Y., Rahman, A M., Vodolazskii, D., <strong>Singh, S.</strong></div>
+                        <div class="publication-venue">Conference Proceedings</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="content-section">
+                <h2 class="section-title">🛠️ Skills & Technical Competencies</h2>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">MATLAB</span>
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">C++</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Machine Learning & AI</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Deep Learning</span>
+                            <span class="skill-tag">Natural Language Processing</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">Reinforcement Learning</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Data Analysis & Statistics</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">R Studio</span>
+                            <span class="skill-tag">Python pandas</span>
+                            <span class="skill-tag">numpy</span>
+                            <span class="skill-tag">scikit-learn</span>
+                            <span class="skill-tag">Excel</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Extended Reality & Development</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Unity</span>
+                            <span class="skill-tag">Varjo SDK</span>
+                            <span class="skill-tag">Oculus SDK</span>
+                            <span class="skill-tag">OpenXR</span>
+                            <span class="skill-tag">Frontend Development</span>
+                            <span class="skill-tag">Backend Development</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Research Methodologies</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Mixed-methods research</span>
+                            <span class="skill-tag">Longitudinal studies</span>
+                            <span class="skill-tag">Experimental design</span>
+                            <span class="skill-tag">Ethnographic research</span>
+                            <span class="skill-tag">Survey design</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">English (Fluent)</span>
+                            <span class="skill-tag">Hindi (Fluent)</span>
+                            <span class="skill-tag">Chinese (Intermediate)</span>
+                            <span class="skill-tag">Finnish (Beginner)</span>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div id="awards" class="tab-content">
-                <div class="section">
-                    <h2 class="section-title"><span class="section-icon">🏆</span>Awards and Honors</h2>
-                    <div class="decorative-line"></div>
-                    <div class="content">
-                        <ul class="awards-list">
-                            <li class="award-item">
-                                <div>
-                                    <div class="award-title">Double-degree Scholarship Recipient (Top 1% in program)</div>
-                                    <div class="award-organization">LUT University</div>
-                                </div>
-                                <div class="award-year">2024</div>
-                            </li>
-                            <li class="award-item">
-                                <div>
-                                    <div class="award-title">3rd place, AI for Accessibility Track</div>
-                                    <div class="award-organization">AMD AI Hackathon</div>
-                                </div>
-                                <div class="award-year">2024</div>
-                            </li>
-                            <li class="award-item">
-                                <div>
-                                    <div class="award-title">LUT Undergraduate Research Grant Award</div>
-                                    <div class="award-organization">LUT University</div>
-                                </div>
-                                <div class="award-year">2024</div>
-                            </li>
-                            <li class="award-item">
-                                <div>
-                                    <div class="award-title">Double-degree Scholarship Recipient (Top 4% in program)</div>
-                                    <div class="award-organization">LUT University</div>
-                                </div>
-                                <div class="award-year">2023</div>
-                            </li>
-                            <li class="award-item">
-                                <div>
-                                    <div class="award-title">1st place, Automation AI Track</div>
-                                    <div class="award-organization">Lazy GenAI Hackathon</div>
-                                </div>
-                                <div class="award-year">2023</div>
-                            </li>
-                            <li class="award-item">
-                                <div>
-                                    <div class="award-title">2nd place, Solutions using IoT Track</div>
-                                    <div class="award-organization">Nokia Hackathon</div>
-                                </div>
-                                <div class="award-year">2023</div>
-                            </li>
-                            <li class="award-item">
-                                <div>
-                                    <div class="award-title">Double-degree Scholarship Recipient (Top 4% in program)</div>
-                                    <div class="award-organization">LUT University</div>
-                                </div>
-                                <div class="award-year">2022</div>
-                            </li>
-                            <li class="award-item">
-                                <div>
-                                    <div class="award-title">1st place, Wacky AI Track</div>
-                                    <div class="award-organization">Weird Hacks</div>
-                                </div>
-                                <div class="award-year">2022</div>
-                            </li>
-                        </ul>
+            <section id="awards" class="content-section">
+                <h2 class="section-title">🏆 Awards and Honors</h2>
+                
+                <div class="awards-grid">
+                    <div class="award-item">
+                        <div class="award-year">2024</div>
+                        <div class="award-title">Double-degree Scholarship Recipient (Top 1% in program)</div>
+                        <div class="award-org">LUT University</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-year">2024</div>
+                        <div class="award-title">3rd place, AI for Accessibility Track</div>
+                        <div class="award-org">AMD AI Hackathon</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-year">2024</div>
+                        <div class="award-title">LUT Undergraduate Research Grant Award</div>
+                        <div class="award-org">LUT University</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-year">2023</div>
+                        <div class="award-title">Double-degree Scholarship Recipient (Top 4% in program)</div>
+                        <div class="award-org">LUT University</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-year">2023</div>
+                        <div class="award-title">1st place, Automation AI Track</div>
+                        <div class="award-org">Lazy GenAI Hackathon</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-year">2023</div>
+                        <div class="award-title">2nd place, Solutions using IoT Track</div>
+                        <div class="award-org">Nokia Hackathon</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-year">2022</div>
+                        <div class="award-title">Double-degree Scholarship Recipient (Top 4% in program)</div>
+                        <div class="award-org">LUT University</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-year">2022</div>
+                        <div class="award-title">1st place, Wacky AI Track</div>
+                        <div class="award-org">Weird Hacks</div>
                     </div>
                 </div>
-            </div>
+                
+                <div class="education-section">
+                    <h3 style="color: #374151; margin-bottom: 1rem; font-size: 1.5rem;">Education</h3>
+                    <div class="education-item">
+                        <div class="education-degree">Master of Science (Technology) in Software Engineering</div>
+                        <div class="education-spec">Specialization: Digital Systems and Service Development</div>
+                        <div class="education-year">2025 - 2027</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-degree">Bachelor of Science (Technology) in Electrical Engineering</div>
+                        <div class="education-spec">Minor: Practical Engineering | Grade: Distinction</div>
+                        <div class="education-year">2022 - 2025</div>
+                    </div>
+                </div>
+                
+                <div class="languages-section">
+                    <h3 style="color: #374151; margin-bottom: 1rem; font-size: 1.5rem;">Peer Review Activities</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">International Conference on Information Systems (ICIS) 2025</span>
+                        <span class="skill-tag">Americas Conference on Information Systems (AMCIS) 2025</span>
+                        <span class="skill-tag">Group Decision and Negotiation 2025</span>
+                        <span class="skill-tag">Hawaii International Conference on System Sciences (HICSS) 2024</span>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 
     <script>
-        // Tab functionality
-        document.querySelectorAll('.tab-link').forEach(link => {
+        // Tab navigation functionality
+        const navLinks = document.querySelectorAll('.nav-link');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        function showSection(targetId) {
+            // Hide all sections
+            contentSections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all nav links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Show target section
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Add active class to clicked nav link
+            const activeLink = document.querySelector(`a[href="#${targetId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        // Add click event listeners to nav links
+        navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                // Remove active class from all tabs and content
-                document.querySelectorAll('.tab-link').forEach(tab => tab.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                
-                // Add active class to clicked tab and corresponding content
-                this.classList.add('active');
                 const targetId = this.getAttribute('href').substring(1);
-                document.getElementById(targetId).classList.add('active');
+                showSection(targetId);
             });
         });
 
-        // Smooth scrolling for any anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+        // Add gentle floating particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: absolute;
+                width: 3px;
+                height: 3px;
+                background: rgba(252, 231, 243, 0.8);
+                border-radius: 50%;
+                pointer-events: none;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation: gentleFloat 15s linear infinite;
+            `;
+            
+            document.querySelector('.animated-bg').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 15000);
+        }
+
+        // Add particle animation CSS
+        const particleStyle = document.createElement('style');
+        particleStyle.textContent = `
+            @keyframes gentleFloat {
+                0% {
+                    transform: translate(0, 0) rotate(0deg);
+                    opacity: 0;
                 }
+                10% {
+                    opacity: 0.6;
+                }
+                90% {
+                    opacity: 0.6;
+                }
+                100% {
+                    transform: translate(30px, -100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(particleStyle);
+
+        // Create particles periodically
+        setInterval(createParticle, 3000);
+
+        // Add smooth hover effects
+        document.querySelectorAll('.experience-item, .publication-item, .award-item, .education-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(8px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0) scale(1)';
             });
         });
     </script>
