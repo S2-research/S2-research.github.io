@@ -68,15 +68,163 @@
             }
         }
 
-        /* Sakura decorative elements */
-        .sakura-decoration {
+        /* Decorative Elements */
+        .decorative-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ffb3d1, transparent);
+            margin: 2rem 0;
+            opacity: 0.3;
+        }
+
+        .section-icon {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #ffb3d1;
+        }
+
+        /* Subtle hover animations */
+        .experience-item,
+        .publication-item,
+        .skill-category,
+        .news-item {
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover,
+        .publication-item:hover,
+        .skill-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 179, 209, 0.1);
+        }
+
+        /* Floating sakura accents */
+        .floating-sakura {
+            position: absolute;
+            color: #ffb3d1;
+            opacity: 0.2;
+            font-size: 12px;
+            animation: float-gentle 6s ease-in-out infinite;
+        }
+
+        @keyframes float-gentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+        }
+
+        /* Gradient text for names */
+        .highlight-name {
+            background: linear-gradient(135deg, #2c3e50, #ffb3d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        /* Subtle pattern background for sections */
+        .section:nth-child(even) {
+            background: linear-gradient(135deg, 
+                rgba(255, 179, 209, 0.02) 0%, 
+                rgba(255, 255, 255, 0.05) 100%);
+            margin: 0 -20px;
+            padding: 2rem 20px;
+            border-radius: 0;
+        }
+
+        /* Experience timeline enhancement */
+        .experience-timeline::before {
+            background: linear-gradient(to bottom, #ffb3d1, #e74c3c, #ffb3d1);
+            width: 3px;
+            border-radius: 2px;
+        }
+
+        .timeline-item::before {
+            background: linear-gradient(135deg, #ffb3d1, #e74c3c);
+            box-shadow: 0 0 10px rgba(255, 179, 209, 0.3);
+        }
+
+        /* Skills enhancement */
+        .skill-item {
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: linear-gradient(135deg, #ffb3d1, #fff);
+            color: #2c3e50;
+            transform: translateY(-1px);
+        }
+
+        /* Publication enhancements */
+        .publication-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication-item::before {
+            content: '🌸';
             position: absolute;
             top: 20px;
             right: 20px;
-            color: #ffb3d1;
-            font-size: 20px;
-            opacity: 0.3;
-            z-index: 2;
+            font-size: 24px;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+
+        /* Awards styling */
+        .award-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .award-item::before {
+            content: '🏆';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2em;
+            opacity: 0.7;
+        }
+
+        /* Navigation enhancement */
+        .nav-tabs a {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-tabs a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 179, 209, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-tabs a:hover::before {
+            left: 100%;
+        }
+
+        /* Header name enhancement */
+        .name {
+            position: relative;
+        }
+
+        .name::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ffb3d1, #e74c3c);
+            animation: name-underline 3s ease-in-out infinite;
+        }
+
+        @keyframes name-underline {
+            0%, 100% { width: 0; }
+            50% { width: 100%; }
         }
 
         .container {
@@ -496,7 +644,7 @@
                     <img src="https://via.placeholder.com/180x220/f5f5f5/666?text=Photo" alt="Shivansh Singh">
                 </div>
                 <div class="profile-info">
-                    <h1 class="name">Shivansh Singh</h1>
+                    <h1 class="name highlight-name">Shivansh Singh</h1>
                     <div class="title">
                         shivansh [dot] singh [at] lut [dot] fi<br>
                         Department of Software Engineering<br>
@@ -535,7 +683,9 @@
         <main class="main">
             <div id="home" class="tab-content active">
                 <div class="section">
-                    <h2 class="section-title">About Me <span style="color: #ffb3d1; font-size: 0.8em; margin-left: 10px;">🌸</span></h2>
+                    <h2 class="section-title"><span class="section-icon">👋</span>About Me <span style="color: #ffb3d1; font-size: 0.8em; margin-left: 10px;">🌸</span></h2>
+                    <div class="decorative-line"></div>
+                    <div class="floating-sakura" style="top: 10px; right: 10px;">🌸</div>
                     <div class="content">
                         <p>I am a Junior Research Assistant in the AI and HCI Behavioural Lab at <a href="https://lut.fi" target="_blank">LUT University</a>, Department of Software Engineering. I am also serving as Head Researcher & Project Worker for the MAISA project funded by Business Finland.</p>
                         
@@ -548,7 +698,9 @@
                 </div>
 
                 <div class="section">
-                    <h2 class="section-title">Research Summary <span style="color: #ffb3d1; font-size: 0.8em; margin-left: 10px;">🌸</span></h2>
+                    <h2 class="section-title"><span class="section-icon">🔬</span>Research Summary <span style="color: #ffb3d1; font-size: 0.8em; margin-left: 10px;">🌸</span></h2>
+                    <div class="decorative-line"></div>
+                    <div class="floating-sakura" style="top: 50px; right: 50px;">🌸</div>
                     <div class="content">
                         <p>My research explores the intersection of human-computer interaction and artificial intelligence, with a particular focus on trust, ethics, and user experience in AI systems. I investigate how people interact with AI technologies and how we can design more intuitive and trustworthy AI systems.</p>
                         
@@ -565,7 +717,8 @@
                 </div>
 
                 <div class="section">
-                    <h2 class="section-title">News</h2>
+                    <h2 class="section-title"><span class="section-icon">📰</span>News</h2>
+                    <div class="decorative-line"></div>
                     <div class="content">
                         <div class="news-item">
                             <div class="news-date">June 2025</div>
@@ -589,7 +742,8 @@
 
             <div id="experience" class="tab-content">
                 <div class="section">
-                    <h2 class="section-title">Current Positions</h2>
+                    <h2 class="section-title"><span class="section-icon">💼</span>Current Positions</h2>
+                    <div class="decorative-line"></div>
                     <div class="content">
                         <div class="experience-item">
                             <div class="experience-date">May 2025 - Present</div>
@@ -612,7 +766,8 @@
                 </div>
 
                 <div class="section">
-                    <h2 class="section-title">Previous Experience</h2>
+                    <h2 class="section-title"><span class="section-icon">📚</span>Previous Experience</h2>
+                    <div class="decorative-line"></div>
                     <div class="content">
                         <div class="experience-item">
                             <div class="experience-date">2023 - 2025</div>
@@ -637,7 +792,8 @@
 
             <div id="publications" class="tab-content">
                 <div class="section">
-                    <h2 class="section-title">Journal Articles <span style="color: #ffb3d1; font-size: 0.8em; margin-left: 10px;">🌸</span></h2>
+                    <h2 class="section-title"><span class="section-icon">📖</span>Journal Articles <span style="color: #ffb3d1; font-size: 0.8em; margin-left: 10px;">🌸</span></h2>
+                    <div class="decorative-line"></div>
                     <div class="content">
                         <div class="publication-item">
                             <div class="publication-status">Under Review</div>
@@ -668,7 +824,8 @@
                 </div>
 
                 <div class="section">
-                    <h2 class="section-title">Conference Proceedings</h2>
+                    <h2 class="section-title"><span class="section-icon">🎓</span>Conference Proceedings</h2>
+                    <div class="decorative-line"></div>
                     <div class="content">
                         <div class="publication-item">
                             <div class="publication-status">To Appear</div>
@@ -693,7 +850,8 @@
                 </div>
 
                 <div class="section">
-                    <h2 class="section-title">Peer Review Activities</h2>
+                    <h2 class="section-title"><span class="section-icon">⚖️</span>Peer Review Activities</h2>
+                    <div class="decorative-line"></div>
                     <div class="content">
                         <div class="news-item">
                             <div class="news-date">2025</div>
@@ -717,7 +875,9 @@
 
             <div id="skills" class="tab-content">
                 <div class="section">
-                    <h2 class="section-title">Technical Skills</h2>
+                    <h2 class="section-title"><span class="section-icon">🛠️</span>Technical Skills</h2>
+                    <div class="decorative-line"></div>
+                    <div class="floating-sakura" style="top: 30px; right: 30px;">🌸</div>
                     <div class="content">
                         <div class="skills-grid">
                             <div class="skill-category">
@@ -795,7 +955,8 @@
 
             <div id="awards" class="tab-content">
                 <div class="section">
-                    <h2 class="section-title">Awards and Honors</h2>
+                    <h2 class="section-title"><span class="section-icon">🏆</span>Awards and Honors</h2>
+                    <div class="decorative-line"></div>
                     <div class="content">
                         <ul class="awards-list">
                             <li class="award-item">
