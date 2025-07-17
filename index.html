@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivansh Singh - AI & XR Researcher</title>
-    <meta name="description" content="Shivansh Singh - PhD Candidate specializing in Human-AI Interaction and Extended Reality at LUT University, Finland">
-    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
-    
+    <title>Shivansh Singh</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,61 +12,18 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --stone-gray: #3a3a3a;
-            --deep-stone: #2a2a2a;
-            --dungeon-black: #1a1a1a;
-            --gold: #FFD700;
-            --ancient-gold: #B8860B;
-            --parchment: #F4E4BC;
-            --dark-parchment: #E6D3A3;
-            --royal-red: #8B0000;
-            --forest-green: #228B22;
-            --magic-blue: #4169E1;
-            --torch-orange: #FF6347;
-            --shadow-black: #0a0a0a;
-            --treasure-gold: #FFEF94;
-            --text-light: #f8f8f8;
-            --border-subtle: rgba(255, 215, 0, 0.2);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
         body {
-            font-family: 'VT323', monospace;
-            background: var(--dungeon-black);
-            color: var(--parchment);
-            line-height: 1.2;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+            min-height: 100vh;
+            position: relative;
             overflow-x: hidden;
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Subtle Background Pattern */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.02) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(139, 0, 0, 0.02) 0%, transparent 50%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><rect width="60" height="60" fill="%232a2a2a"/><rect x="0" y="0" width="30" height="30" fill="%233a3a3a" opacity="0.1"/><rect x="30" y="30" width="30" height="30" fill="%233a3a3a" opacity="0.1"/><circle cx="15" cy="15" r="1" fill="%23FFD700" opacity="0.03"/><circle cx="45" cy="45" r="1" fill="%23FF6347" opacity="0.03"/></svg>');
-            background-size: 100px 100px, 100px 100px, 60px 60px;
-            z-index: -1;
-            opacity: 0.4;
-        }
-
-        /* Minimal Floating Particles */
-        .particles {
+        /* Sakura Animation */
+        .sakura-container {
             position: fixed;
             top: 0;
             left: 0;
@@ -76,1062 +31,865 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
-            overflow: hidden;
         }
 
-        .particle {
+        .sakura {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--gold);
-            border-radius: 50%;
-            animation: float linear infinite;
-            opacity: 0.4;
+            color: #ffb3d1;
+            font-size: 14px;
+            animation: fall linear infinite;
+            opacity: 0.7;
         }
 
-        @keyframes float {
+        .sakura:nth-child(1) { left: 10%; animation-duration: 8s; animation-delay: 0s; }
+        .sakura:nth-child(2) { left: 20%; animation-duration: 10s; animation-delay: 1s; }
+        .sakura:nth-child(3) { left: 30%; animation-duration: 12s; animation-delay: 2s; }
+        .sakura:nth-child(4) { left: 40%; animation-duration: 9s; animation-delay: 3s; }
+        .sakura:nth-child(5) { left: 50%; animation-duration: 11s; animation-delay: 4s; }
+        .sakura:nth-child(6) { left: 60%; animation-duration: 13s; animation-delay: 5s; }
+        .sakura:nth-child(7) { left: 70%; animation-duration: 8s; animation-delay: 6s; }
+        .sakura:nth-child(8) { left: 80%; animation-duration: 10s; animation-delay: 7s; }
+        .sakura:nth-child(9) { left: 90%; animation-duration: 12s; animation-delay: 8s; }
+
+        @keyframes fall {
             0% {
-                transform: translateY(100vh) translateX(0);
+                transform: translateY(-100px) rotate(0deg);
                 opacity: 0;
             }
             10% {
-                opacity: 0.6;
+                opacity: 0.7;
             }
             90% {
-                opacity: 0.6;
+                opacity: 0.7;
             }
             100% {
-                transform: translateY(-10vh) translateX(100px);
+                transform: translateY(100vh) rotate(360deg);
                 opacity: 0;
             }
         }
 
+        /* Sakura decorative elements */
+        .sakura-decoration {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #ffb3d1;
+            font-size: 20px;
+            opacity: 0.3;
+            z-index: 2;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         /* Header */
-        header {
-            background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
-            border-bottom: 3px solid var(--gold);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: var(--gold);
-            text-decoration: none;
-            text-shadow: 
-                2px 2px 0 var(--ancient-gold),
-                4px 4px 0 var(--shadow-black),
-                0 0 10px var(--gold),
-                0 0 20px var(--treasure-gold);
-            transition: var(--transition);
-            filter: drop-shadow(0 0 15px var(--gold));
-        }
-
-        .logo:hover {
-            color: var(--treasure-gold);
-            text-shadow: 2px 2px 8px var(--gold);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--parchment);
-            font-weight: 400;
-            font-size: 1.2rem;
-            transition: var(--transition);
+        .header {
+            padding: 40px 0;
+            border-bottom: 1px solid #e0e0e0;
             position: relative;
-            padding: 0.5rem 1rem;
+            background: white;
+            z-index: 3;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .nav-links a:hover::after {
-            width: 80%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
+        .header-content {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            background: linear-gradient(
-                180deg,
-                rgba(26, 26, 26, 0.9) 0%,
-                rgba(42, 42, 42, 0.6) 50%,
-                rgba(26, 26, 26, 0.9) 100%
-            );
+            gap: 40px;
+            align-items: flex-start;
         }
 
-        .hero-content {
-            max-width: 800px;
-            z-index: 10;
+        .profile-photo {
+            flex-shrink: 0;
         }
 
-        .hero h1 {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 3rem;
+        .profile-photo img {
+            width: 180px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .title {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
             margin-bottom: 1.5rem;
-            color: var(--gold);
-            text-shadow: 
-                3px 3px 0 var(--ancient-gold),
-                6px 6px 0 var(--shadow-black),
-                0 0 20px var(--gold),
-                0 0 40px var(--treasure-gold),
-                0 0 60px var(--torch-orange);
-            font-weight: 400;
-            line-height: 1.3;
-            filter: drop-shadow(0 0 25px var(--gold));
-            animation: textGlow 3s ease-in-out infinite alternate;
         }
 
-        @keyframes textGlow {
-            0% { 
-                text-shadow: 
-                    3px 3px 0 var(--ancient-gold),
-                    6px 6px 0 var(--shadow-black),
-                    0 0 20px var(--gold),
-                    0 0 40px var(--treasure-gold),
-                    0 0 60px var(--torch-orange);
-            }
-            100% { 
-                text-shadow: 
-                    3px 3px 0 var(--ancient-gold),
-                    6px 6px 0 var(--shadow-black),
-                    0 0 30px var(--gold),
-                    0 0 50px var(--treasure-gold),
-                    0 0 70px var(--torch-orange);
-            }
+        .contact-info div {
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
         }
 
-        .hero .subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            color: var(--torch-orange);
-            font-weight: 400;
-            text-shadow: 
-                2px 2px 0 var(--shadow-black),
-                0 0 10px var(--torch-orange),
-                0 0 20px var(--royal-red);
-            line-height: 1.4;
-            filter: drop-shadow(0 0 10px var(--torch-orange));
-        }
-
-        .hero .description {
-            font-size: 1.4rem;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.5;
-            color: var(--text-light);
-            text-shadow: 
-                1px 1px 0 var(--shadow-black),
-                0 0 5px rgba(255, 215, 0, 0.3);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            font-weight: 700;
+        .contact-info a {
+            color: #e74c3c;
             text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition);
-            background: linear-gradient(145deg, var(--gold) 0%, var(--ancient-gold) 100%);
-            border: 2px solid var(--ancient-gold);
-            color: var(--shadow-black);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: 'Orbitron', monospace;
-            border-radius: 5px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(145deg, var(--treasure-gold) 0%, var(--gold) 100%);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        .btn-secondary:hover {
-            background: var(--gold);
-            color: var(--shadow-black);
+        .contact-info a:hover {
+            text-decoration: underline;
         }
 
         .social-links {
             display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-top: 2rem;
+            gap: 15px;
+            margin-top: 1rem;
         }
 
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
-            color: var(--gold);
-            border-radius: 8px;
-            text-decoration: none;
-            transition: var(--transition);
-            border: 2px solid var(--border-subtle);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        .social-links a {
+            color: #666;
             font-size: 1.2rem;
+            transition: color 0.3s;
         }
 
-        .social-link:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            color: var(--treasure-gold);
-            border-color: var(--gold);
+        .social-links a:hover {
+            color: #e74c3c;
         }
 
-        /* Section Styling */
+        /* Navigation */
+        .nav {
+            background: #f8f9fa;
+            padding: 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+            z-index: 3;
+        }
+
+        .nav-tabs {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-tabs li {
+            margin-right: 0;
+        }
+
+        .nav-tabs a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .nav-tabs a:hover,
+        .nav-tabs a.active {
+            color: #e74c3c;
+            border-bottom-color: #e74c3c;
+            background: white;
+        }
+
+        /* Main Content */
+        .main {
+            padding: 40px 0;
+            background: white;
+            position: relative;
+            z-index: 3;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
         .section {
-            padding: 6rem 0;
-            position: relative;
+            margin-bottom: 40px;
         }
 
-        .section:nth-child(even) {
-            background: rgba(42, 42, 42, 0.3);
-        }
-
-        .section h2 {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            color: var(--gold);
-            text-shadow: 
-                2px 2px 0 var(--ancient-gold),
-                4px 4px 0 var(--shadow-black),
-                0 0 15px var(--gold),
-                0 0 30px var(--treasure-gold);
-            font-weight: 400;
-            position: relative;
-            line-height: 1.4;
-            filter: drop-shadow(0 0 20px var(--gold));
-        }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .profile-container {
-            text-align: center;
-            position: relative;
-        }
-
-        .profile-img {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 15px;
-            border: 4px solid var(--gold);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: var(--transition);
-            filter: sepia(10%);
-        }
-
-        .profile-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-            filter: sepia(0%);
-        }
-
-        .about-text {
-            font-size: 1.3rem;
-            line-height: 1.6;
-        }
-
-        .about-text p {
-            margin-bottom: 2rem;
-            text-align: justify;
-            line-height: 1.6;
-        }
-
-        .highlight {
-            color: var(--gold);
+        .section-title {
+            font-size: 1.4rem;
             font-weight: 600;
-            text-shadow: 1px 1px 2px var(--shadow-black);
-        }
-
-        /* Cards */
-        .card {
-            background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
-            border: 3px solid var(--border-subtle);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
             position: relative;
-            overflow: hidden;
+            padding-bottom: 8px;
         }
 
-        .card::before {
+        .section-title::after {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold), var(--torch-orange), var(--gold));
-            opacity: 0;
-            transition: var(--transition);
+            width: 50px;
+            height: 2px;
+            background: #e74c3c;
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            border-color: var(--gold);
+        .content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #444;
         }
 
-        .card:hover::before {
-            opacity: 1;
+        .content p {
+            margin-bottom: 1.2rem;
         }
 
-        .card h3 {
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            font-family: 'Press Start 2P', monospace;
-            font-weight: 400;
-            line-height: 1.4;
-            text-shadow: 
-                1px 1px 0 var(--ancient-gold),
-                2px 2px 0 var(--shadow-black),
-                0 0 10px var(--gold);
+        /* Experience */
+        .experience-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        .card p {
-            color: var(--text-light);
-            line-height: 1.5;
-            font-size: 1.3rem;
+        .experience-item:last-child {
+            border-bottom: none;
         }
 
-        /* Research Grid */
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .experience-date {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #2c3e50;
+        }
+
+        .experience-company {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .experience-description {
+            color: #444;
+            line-height: 1.6;
         }
 
         /* Publications */
-        .publications-grid {
-            display: grid;
-            gap: 2rem;
+        .publication-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        .publication {
-            background: linear-gradient(145deg, var(--parchment) 0%, var(--dark-parchment) 100%);
-            border: 3px solid var(--ancient-gold);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: var(--transition);
-            color: var(--shadow-black);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            position: relative;
+        .publication-item:last-child {
+            border-bottom: none;
         }
 
-        .publication::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--gold), var(--ancient-gold));
-            border-radius: 3px;
-        }
-
-        .publication:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            border-color: var(--gold);
-        }
-
-        .publication h4 {
-            color: var(--royal-red);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            font-weight: 600;
-            line-height: 1.4;
-        }
-
-        .publication .authors {
-            color: var(--forest-green);
-            margin-bottom: 0.5rem;
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        .publication .venue {
-            color: var(--magic-blue);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .publication .abstract {
-            color: var(--deep-stone);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .publication .links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .publication .links a {
-            color: var(--magic-blue);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            padding: 0.3rem 0;
-            border-bottom: 2px solid transparent;
-        }
-
-        .publication .links a:hover {
-            color: var(--royal-red);
-            border-bottom-color: var(--royal-red);
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project {
-            background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
-            border: 3px solid var(--border-subtle);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .project:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            border-color: var(--gold);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, var(--gold), var(--ancient-gold));
-            color: var(--shadow-black);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .project-header .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-content {
-            padding: 2rem;
-            color: var(--text-light);
-        }
-
-        .project h4 {
-            color: var(--gold);
-            margin-bottom: 1rem;
+        .publication-title {
             font-size: 1.1rem;
-            font-family: 'Press Start 2P', monospace;
-            font-weight: 400;
-            line-height: 1.4;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
         }
 
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
+        .publication-authors {
+            color: #666;
+            margin-bottom: 0.5rem;
         }
 
-        .tag {
-            background: rgba(255, 215, 0, 0.2);
-            color: var(--gold);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 400;
-            border: 1px solid var(--border-subtle);
-            font-family: 'VT323', monospace;
-        }
-
-        /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-item {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%);
-            border: 3px solid var(--border-subtle);
-            border-radius: 15px;
-            transition: var(--transition);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .contact-item:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .contact-item .icon {
-            font-size: 2.5rem;
-            color: var(--gold);
+        .publication-venue {
+            font-style: italic;
+            color: #888;
             margin-bottom: 1rem;
         }
 
-        .contact-item h4 {
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-            font-family: 'Press Start 2P', monospace;
-            font-size: 0.9rem;
-            line-height: 1.4;
+        .publication-status {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
         }
 
-        .contact-item p, .contact-item a {
-            color: var(--text-light);
+        .publication-description {
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .skill-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            border: 1px solid #e0e0e0;
+            color: #555;
+        }
+
+        /* News */
+        .news-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-content {
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .news-content a {
+            color: #e74c3c;
             text-decoration: none;
         }
 
-        .contact-item a:hover {
-            color: var(--gold);
+        .news-content a:hover {
+            text-decoration: underline;
         }
 
-        /* Footer */
-        footer {
-            background: linear-gradient(145deg, var(--deep-stone) 0%, var(--shadow-black) 100%);
-            border-top: 3px solid var(--gold);
-            padding: 3rem 0;
-            text-align: center;
-            color: var(--text-light);
+        /* Awards */
+        .awards-list {
+            list-style: none;
         }
 
-        /* Mobile Responsive */
+        .award-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .award-item:last-child {
+            border-bottom: none;
+        }
+
+        .award-title {
+            font-weight: 600;
+            color: #2c3e50;
+            flex: 1;
+        }
+
+        .award-year {
+            color: #888;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+
+        .award-organization {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-                line-height: 1.3;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 3rem;
-            }
-
-            .cta-buttons {
+            .header-content {
                 flex-direction: column;
-                align-items: center;
+                text-align: center;
             }
 
-            .section {
-                padding: 4rem 0;
+            .profile-photo img {
+                width: 150px;
+                height: 180px;
             }
 
-            .section h2 {
-                font-size: 1.5rem;
-                line-height: 1.4;
+            .name {
+                font-size: 1.8rem;
             }
 
-            .card h3 {
-                font-size: 1rem;
-                line-height: 1.4;
+            .nav-tabs {
+                flex-wrap: wrap;
             }
 
-            .project h4 {
+            .nav-tabs a {
+                padding: 12px 15px;
                 font-size: 0.9rem;
-                line-height: 1.4;
             }
-        }
 
-        /* Scroll Animations */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
 
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+            .award-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--deep-stone);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--gold), var(--ancient-gold));
-            border-radius: 6px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, var(--treasure-gold), var(--gold));
+            .award-year {
+                margin-left: 0;
+                margin-top: 0.2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Minimal Particles -->
-    <div class="particles" id="particles"></div>
+    <!-- Sakura Animation -->
+    <div class="sakura-container">
+        <div class="sakura">🌸</div>
+        <div class="sakura">🌸</div>
+        <div class="sakura">🌸</div>
+        <div class="sakura">🌸</div>
+        <div class="sakura">🌸</div>
+        <div class="sakura">🌸</div>
+        <div class="sakura">🌸</div>
+        <div class="sakura">🌸</div>
+        <div class="sakura">🌸</div>
+    </div>
 
-    <header>
-        <nav class="container">
-            <a href="#" class="logo">Shivansh Singh</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <div class="container">
+        <header class="header">
+            <div class="sakura-decoration">🌸 🌸 🌸</div>
+            <div class="header-content">
+                <div class="profile-photo">
+                    <img src="https://via.placeholder.com/180x220/f5f5f5/666?text=Photo" alt="Shivansh Singh">
+                </div>
+                <div class="profile-info">
+                    <h1 class="name">Shivansh Singh</h1>
+                    <div class="title">
+                        shivansh [dot] singh [at] lut [dot] fi<br>
+                        Department of Software Engineering<br>
+                        LUT University, School of Engineering Sciences
+                    </div>
+                    <div class="contact-info">
+                        <div><strong>Phone:</strong> +358 466 276 948</div>
+                        <div><strong>Location:</strong> Lahti, Finland</div>
+                        <div><strong>ORCID:</strong> <a href="https://orcid.org/0009-0004-0661-0608" target="_blank">0009-0004-0661-0608</a></div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/shivanshsingh17" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:shivansh.singh@lut.fi" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://orcid.org/0009-0004-0661-0608" target="_blank" title="ORCID">
+                            <i class="fab fa-orcid"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav-tabs">
+                <li><a href="#home" class="tab-link active">Home</a></li>
+                <li><a href="#experience" class="tab-link">Experience</a></li>
+                <li><a href="#publications" class="tab-link">Publications</a></li>
+                <li><a href="#skills" class="tab-link">Skills</a></li>
+                <li><a href="#awards" class="tab-link">Awards</a></li>
             </ul>
         </nav>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Shivansh Singh</h1>
-                <p class="subtitle">Human-centred AI Researcher</p>
-                <p class="description">
-                    Human-centered AI researcher focused on understanding how people interact with and trust AI systems. 
-                    Leading research initiatives at LUT University, exploring the intersection of AI ethics, human-computer 
-                    interaction, and emerging extended reality technologies.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#research" class="btn">Explore Research</a>
-                    <a href="./cv.pdf" class="btn btn-secondary" download>Download CV</a>
+        <main class="main">
+            <div id="home" class="tab-content active">
+                <div class="section">
+                    <h2 class="section-title">About Me <span style="color: #ffb3d1; font-size: 0.8em; margin-left: 10px;">🌸</span></h2>
+                    <div class="content">
+                        <p>I am a Junior Research Assistant in the AI and HCI Behavioural Lab at <a href="https://lut.fi" target="_blank">LUT University</a>, Department of Software Engineering. I am also serving as Head Researcher & Project Worker for the MAISA project funded by Business Finland.</p>
+                        
+                        <p>My research focuses on <strong>Human-Computer Interaction</strong>, <strong>Extended Reality</strong>, <strong>Social Computing</strong>, and <strong>Ethics in AI</strong>. I am particularly interested in developing Unity-based XR applications with physiological sensors to measure cognitive load and trust metrics in virtual environments.</p>
+                        
+                        <p>I am currently pursuing my <strong>Master of Science in Software Engineering</strong> with a specialization in Digital Systems and Service Development at LUT University (2025-2027). I completed my Bachelor's degree in Electrical Engineering with a minor in Practical Engineering, achieving distinction.</p>
+                        
+                        <p>I am a core member of the <strong>Programming, Education, and Computer-Human Interaction Lab (PEACH Lab)</strong> and associated with the <strong>ETH AI Center</strong> and <strong>Swiss CHI</strong> communities.</p>
+                    </div>
                 </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/shivanshsingh17" target="_blank">💼</a>
-                    <a href="https://github.com/S2-research" target="_blank">💻</a>
-                    <a href="https://scholar.google.com/citations?user=yourprofile" target="_blank">🎓</a>
-                    <a href="mailto:shivansh.singh@student.lut.fi">📧</a>
+
+                <div class="section">
+                    <h2 class="section-title">Research Summary <span style="color: #ffb3d1; font-size: 0.8em; margin-left: 10px;">🌸</span></h2>
+                    <div class="content">
+                        <p>My research explores the intersection of human-computer interaction and artificial intelligence, with a particular focus on trust, ethics, and user experience in AI systems. I investigate how people interact with AI technologies and how we can design more intuitive and trustworthy AI systems.</p>
+                        
+                        <p>Key areas of my research include:</p>
+                        <ul style="margin-left: 2rem; margin-bottom: 1.2rem;">
+                            <li><strong>Trust in AI systems:</strong> Developing frameworks to measure and improve trust between humans and AI</li>
+                            <li><strong>Extended Reality (XR) applications:</strong> Creating immersive experiences with physiological monitoring</li>
+                            <li><strong>Human-AI collaboration:</strong> Designing hybrid intelligence systems for software development</li>
+                            <li><strong>AI ethics:</strong> Exploring ethical implications of AI in workplace and educational settings</li>
+                        </ul>
+                        
+                        <p>My work combines quantitative methods (behavioral analytics, physiological measurements) with qualitative approaches (interviews, ethnographic studies) to provide comprehensive insights into human-AI interaction.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">News</h2>
+                    <div class="content">
+                        <div class="news-item">
+                            <div class="news-date">June 2025</div>
+                            <div class="news-content">Started my role as Head Researcher for the €4.9 million MAISA project, leading a €500,000 research team on AI-powered software engineering.</div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">May 2025</div>
+                            <div class="news-content">Joined the AI and HCI Behavioural Lab as Junior Research Assistant, working on XR applications with physiological sensors.</div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">April 2025</div>
+                            <div class="news-content">Paper "Trusting the Machine: How Ethical Frameworks Shape Our Faith in AI Decisions" submitted to International Journal of Human-Computer Studies.</div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">March 2025</div>
+                            <div class="news-content">Completed Bachelor's degree in Electrical Engineering with distinction at LUT University.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <main class="container">
-        <section id="about" class="section">
-            <h2>About</h2>
-            <div class="about-content fade-up">
-                <div class="profile-container">
-                    <img src="./profile.jpg" alt="Shivansh Singh" class="profile-img">
-                </div>
-                <div class="about-text">
-                    <p>I'm a <span class="highlight">human-centered AI researcher</span> focused on understanding how people interact with and trust AI systems across different contexts. My work spans Human-Computer Interaction, Information Systems, and emerging technologies, with particular emphasis on trust, ethics, and user experience in AI interactions.</p>
-
-                    <p>I lead research initiatives within a <span class="highlight">major AI project</span>, collaborating with industry partners to study how software teams integrate AI tools into their workflows. My published work has explored trust in AI decision-making across ethical frameworks and the complex relationships between AI interactions and workplace productivity.</p>
-
-                    <p>My research has been published at <span class="highlight">top-tier conferences including HICSS</span>, with additional work under review at several international conferences and journals. Building on this foundation, I'm expanding into Extended Reality (XR) research, particularly interested in designing ethical AI agents for VR/AR contexts.</p>
-
-                    <p>I hold a <span class="highlight">4.4 GPA distinction</span> in Electrical Engineering from LUT University and am currently pursuing a Master's in Software Engineering with focus on Digital Systems and Service Design.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="research" class="section">
-            <h2>Research</h2>
-            <div class="research-grid">
-                <div class="card fade-up">
-                    <h3>Human-AI Trust & Ethics</h3>
-                    <p>Investigating how ethical frameworks shape user trust in AI decision-making systems. My work explores the complex dynamics between transparency, control, and faith in automated systems across different professional contexts.</p>
-                </div>
-
-                <div class="card fade-up">
-                    <h3>AI Integration in Workflows</h3>
-                    <p>Leading industry collaborations to understand how software teams integrate AI tools into their development workflows. Research includes both productivity metrics and emotional responses to AI assistance.</p>
-                </div>
-
-                <div class="card fade-up">
-                    <h3>Extended Reality & AI</h3>
-                    <p>Expanding into XR research with focus on designing ethical AI agents for immersive environments. Studying how virtual and augmented reality contexts affect human-AI interaction patterns.</p>
-                </div>
-
-                <div class="card fade-up">
-                    <h3>Workplace AI Psychology</h3>
-                    <p>Exploring the psychological impacts of AI integration in workplace environments, including counterintuitive findings about emotional productivity and the human factors of automated assistance.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="publications" class="section">
-            <h2>Publications</h2>
-            <div class="publications-grid">
-                
-                <div class="publication fade-up">
-                    <h4>Provisional, Contextual, and Verified: How Professionals Navigate Trust-Control Boundaries with AI</h4>
-                    <p class="authors"><strong>Shivansh Singh</strong>, Co-author Name</p>
-                    <p class="venue">Hawaii International Conference on System Sciences (HICSS) 2026</p>
-                    <p class="abstract">Exploring how professionals navigate the complex boundaries between trusting AI systems and maintaining control over critical decisions in high-stakes work environments.</p>
-                    <div class="links">
-                        <a href="#">Paper</a>
-                        <a href="#">Dataset</a>
-                    </div>
-                </div>
-
-                <div class="publication fade-up">
-                    <h4>Trusting the Machine: How Ethical Frameworks Shape Our Faith in AI Decisions</h4>
-                    <p class="authors"><strong>Shivansh Singh</strong>, Co-author Name</p>
-                    <p class="venue">International Journal of Human-Computer Studies (Under Review)</p>
-                    <p class="abstract">Investigating how different ethical AI frameworks influence user trust and acceptance in automated decision systems across various professional domains.</p>
-                    <div class="links">
-                        <a href="#">Preprint</a>
-                    </div>
-                </div>
-
-                <div class="publication fade-up">
-                    <h4>Emotional Productivity: Exploring the Impact of AI Interactions on Employee Well-Being and Workplace Efficiency</h4>
-                    <p class="authors"><strong>Shivansh Singh</strong>, Co-author Name</p>
-                    <p class="venue">Hawaii International Conference on System Sciences (HICSS) 2025</p>
-                    <p class="abstract">Analyzing the psychological and productivity impacts of AI integration in workplace environments, including surprising findings about emotional responses to AI assistance.</p>
-                    <div class="links">
-                        <a href="#">Paper</a>
-                        <a href="#">Code</a>
-                    </div>
-                </div>
-
-                <div class="publication fade-up">
-                    <h4>Design Elements for Brand Representation in Conversational Agents</h4>
-                    <p class="authors">Lead Author, <strong>Shivansh Singh</strong></p>
-                    <p class="venue">Hawaii International Conference on System Sciences (HICSS) 2026</p>
-                    <p class="abstract">Research on design principles for creating brand-consistent conversational AI systems that maintain authenticity while serving user needs.</p>
-                    <div class="links">
-                        <a href="#">Paper</a>
-                    </div>
-                </div>
-
-                <div class="publication fade-up">
-                    <h4>Deep Learning-Based Electricity Price Forecasting in Finnish Energy Market</h4>
-                    <p class="authors"><strong>Shivansh Singh</strong></p>
-                    <p class="venue">Master's Thesis - LUT University (Distinction)</p>
-                    <p class="abstract">Advanced neural network approaches for energy market prediction and optimization, achieving significant improvements in forecasting accuracy for Finnish electricity markets.</p>
-                    <div class="links">
-                        <a href="#">Thesis</a>
-                        <a href="#">Code</a>
-                    </div>
-                </div>
-
-                <div class="publication fade-up">
-                    <h4>Innovative Convolutional Neural Network Hybrid for Brain Tumor Segmentation</h4>
-                    <p class="authors">Lead Author, Second Author, Third Author, <strong>Shivansh Singh</strong></p>
-                    <p class="venue">Published Conference/Journal</p>
-                    <p class="abstract">Novel approach to medical image analysis using hybrid CNN architectures for improved brain tumor detection and segmentation accuracy.</p>
-                    <div class="links">
-                        <a href="#">Paper</a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-
-                <div class="project fade-up">
-                    <div class="project-header">
-                        <div class="icon">🧠</div>
-                        <h4>AI Trust Research Initiative</h4>
-                    </div>
-                    <div class="project-content">
-                        <p>Leading a comprehensive study on trust dynamics between professionals and AI systems. This research involves industry partnerships and explores how ethical frameworks influence user acceptance of automated decision-making.</p>
-                        <div class="project-tags">
-                            <span class="tag">Human-AI Interaction</span>
-                            <span class="tag">Trust Research</span>
-                            <span class="tag">Ethics</span>
-                            <span class="tag">Industry Collaboration</span>
+            <div id="experience" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">Current Positions</h2>
+                    <div class="content">
+                        <div class="experience-item">
+                            <div class="experience-date">May 2025 - Present</div>
+                            <div class="experience-title">Junior Research Assistant</div>
+                            <div class="experience-company">AI and HCI Behavioural Lab, LUT University</div>
+                            <div class="experience-description">
+                                Developing Unity-based XR applications with physiological sensors (EEG, eye-tracking) to measure cognitive load and trust metrics in virtual environments. Conducting mixed-methods research combining quantitative trust scales, behavioral analytics, and qualitative interviews to assess AI ethics and ambiguity tolerance.
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-date">May 2025 - Present</div>
+                            <div class="experience-title">Head Researcher & Project Worker</div>
+                            <div class="experience-company">MAISA, Business Finland</div>
+                            <div class="experience-description">
+                                Leading a €500,000 research team within a €4.9 million Business Finland Co-Innovation project on AI-powered software engineering. Developing hybrid intelligence frameworks for human-AI collaboration in software development environments, targeting 30-40% productivity improvements.
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="project fade-up">
-                    <div class="project-header">
-                        <div class="icon">🔬</div>
-                        <h4>Workplace AI Integration Study</h4>
-                    </div>
-                    <div class="project-content">
-                        <p>Collaborating with software development teams to understand how AI tools are integrated into professional workflows. Research includes both quantitative productivity measures and qualitative emotional impact assessments.</p>
-                        <div class="project-tags">
-                            <span class="tag">Workplace Psychology</span>
-                            <span class="tag">Software Development</span>
-                            <span class="tag">Productivity Research</span>
-                            <span class="tag">Ethnographic Study</span>
+                <div class="section">
+                    <h2 class="section-title">Previous Experience</h2>
+                    <div class="content">
+                        <div class="experience-item">
+                            <div class="experience-date">2023 - 2025</div>
+                            <div class="experience-title">Junior Research Assistant</div>
+                            <div class="experience-company">Information Systems Research Group, LUT University</div>
+                            <div class="experience-description">
+                                Led longitudinal workplace studies on AI's behavioral and mental health impacts, establishing new research methodologies. Designed and validated experimental protocols for measuring AI trust mechanisms, generating frameworks in healthcare and corporate decision-making systems.
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-date">2022 - 2023</div>
+                            <div class="experience-title">Research Volunteer</div>
+                            <div class="experience-company">SEE School, China & LES, LUT University</div>
+                            <div class="experience-description">
+                                Contributed to interdisciplinary AI applications in healthcare and engineering, including brain tumor detection algorithms and MRI imaging optimization. Collaborated with multidisciplinary research teams on AI model development and participated in manuscript preparation.
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="project fade-up">
-                    <div class="project-header">
-                        <div class="icon">🥽</div>
-                        <h4>XR-AI Ethics Platform</h4>
-                    </div>
-                    <div class="project-content">
-                        <p>Developing frameworks for ethical AI agents in virtual and augmented reality environments. This emerging research explores how immersion affects human-AI interaction patterns and trust formation.</p>
-                        <div class="project-tags">
-                            <span class="tag">Extended Reality</span>
-                            <span class="tag">AI Ethics</span>
-                            <span class="tag">Immersive Systems</span>
-                            <span class="tag">Emerging Tech</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project fade-up">
-                    <div class="project-header">
-                        <div class="icon">⚡</div>
-                        <h4>Energy Market Forecasting</h4>
-                    </div>
-                    <div class="project-content">
-                        <p>Advanced deep learning system for electricity price prediction in Nordic energy markets. This project achieved significant improvements in forecasting accuracy using novel neural network architectures.</p>
-                        <div class="project-tags">
-                            <span class="tag">Deep Learning</span>
-                            <span class="tag">Energy Systems</span>
-                            <span class="tag">Time Series</span>
-                            <span class="tag">Neural Networks</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact</h2>
-            <div class="contact-grid">
-                <div class="contact-item fade-up">
-                    <div class="icon">📧</div>
-                    <h4>Email</h4>
-                    <p><a href="mailto:shivansh.singh@lut.fi">shivansh.singh@lut.fi</a></p>
-                </div>
-                
-                <div class="contact-item fade-up">
-                    <div class="icon">📍</div>
-                    <h4>Location</h4>
-                    <p>Lappeenranta, Finland</p>
-                </div>
-                
-                <div class="contact-item fade-up">
-                    <div class="icon">💼</div>
-                    <h4>LinkedIn</h4>
-                    <p><a href="https://linkedin.com/in/yourprofile" target="_blank">Connect with me</a></p>
-                </div>
-                
-                <div class="contact-item fade-up">
-                    <div class="icon">🎓</div>
-                    <h4>Google Scholar</h4>
-                    <p><a href="https://scholar.google.com/citations?user=yourprofile" target="_blank">View Publications</a></p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Shivansh Singh. All rights reserved. | PhD Candidate at LUT University, Finland</p>
-        </div>
-    </footer>
+            <div id="publications" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">Journal Articles <span style="color: #ffb3d1; font-size: 0.8em; margin-left: 10px;">🌸</span></h2>
+                    <div class="content">
+                        <div class="publication-item">
+                            <div class="publication-status">Under Review</div>
+                            <div class="publication-title">Beyond Human Centered Design: A More-than-Human Theory for Information Systems Design</div>
+                            <div class="publication-authors">Siemon, D., <strong>Singh, S.</strong>, Wolff, A., Knutas, A., Rousi, R., Kedziora, D., von Koskull, C., Kinnula, M., & Livari, N.</div>
+                            <div class="publication-venue">Journal of the Association for Information Systems</div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="publication-status">Under Review</div>
+                            <div class="publication-title">Trusting the Machine: How Ethical Frameworks Shape Our Faith in AI Decisions</div>
+                            <div class="publication-authors"><strong>Singh, S.</strong>, & Siemon, D.</div>
+                            <div class="publication-venue">International Journal of Human-Computer Studies</div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="publication-title">Deep learning-based electricity price forecasting in Finnish Energy Market</div>
+                            <div class="publication-authors"><strong>Singh, S.</strong></div>
+                            <div class="publication-venue">LUT Scientific and Expertise Publications, 2025</div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="publication-title">Innovative Convolutional Neural Network Hybrid for Brain Tumor Segmentation</div>
+                            <div class="publication-authors">Abd El Kader, I., He, J., Xu, G., Vodolazskii, D., <strong>Singh, S.</strong>, Li, R., & Duan, Y.</div>
+                            <div class="publication-venue">WSEAS Transactions on Computers, 23, 123-134, 2024</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Conference Proceedings</h2>
+                    <div class="content">
+                        <div class="publication-item">
+                            <div class="publication-status">To Appear</div>
+                            <div class="publication-title">Contextual, Provisional, and Verified: How Professionals Navigate Trust-Control Boundaries with AI</div>
+                            <div class="publication-authors"><strong>Singh, S.</strong>, & Blomqvist, K.</div>
+                            <div class="publication-venue">Proceedings of the 59th Hawaii International Conference on System Sciences, 2026</div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="publication-status">To Appear</div>
+                            <div class="publication-title">Design Elements for Brand Representation in Conversational Agents</div>
+                            <div class="publication-authors">Aittamma, E., Siemon, D., & <strong>Singh, S.</strong></div>
+                            <div class="publication-venue">Proceedings of the 59th Hawaii International Conference on System Sciences, 2026</div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="publication-title">Emotional Productivity: Exploring the Impact of AI Interactions on Employee Well-Being and Workplace Efficiency</div>
+                            <div class="publication-authors"><strong>Singh, S.</strong>, & Siemon, D.</div>
+                            <div class="publication-venue">Proceedings of the 58th Hawaii International Conference on System Sciences, 2025</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Peer Review Activities</h2>
+                    <div class="content">
+                        <div class="news-item">
+                            <div class="news-date">2025</div>
+                            <div class="news-content">Reviewer, International Conference on Information Systems (ICIS)</div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">2025</div>
+                            <div class="news-content">Reviewer, Americas Conference on Information Systems (AMCIS) - 3 papers</div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">2025</div>
+                            <div class="news-content">Reviewer, Group Decision and Negotiation - 2 papers</div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">2024</div>
+                            <div class="news-content">Reviewer, Hawaii International Conference on System Sciences (HICSS)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="skills" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <div class="content">
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h3>Programming Languages</h3>
+                                <ul class="skill-list">
+                                    <li class="skill-item">Python</li>
+                                    <li class="skill-item">R</li>
+                                    <li class="skill-item">MATLAB</li>
+                                    <li class="skill-item">C#</li>
+                                    <li class="skill-item">C++</li>
+                                    <li class="skill-item">SQL</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h3>Machine Learning & AI</h3>
+                                <ul class="skill-list">
+                                    <li class="skill-item">Deep Learning</li>
+                                    <li class="skill-item">NLP</li>
+                                    <li class="skill-item">TensorFlow</li>
+                                    <li class="skill-item">PyTorch</li>
+                                    <li class="skill-item">Reinforcement Learning</li>
+                                    <li class="skill-item">ML for Finance</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h3>Extended Reality</h3>
+                                <ul class="skill-list">
+                                    <li class="skill-item">Unity</li>
+                                    <li class="skill-item">Varjo SDK</li>
+                                    <li class="skill-item">Oculus SDK</li>
+                                    <li class="skill-item">OpenXR</li>
+                                    <li class="skill-item">EEG Integration</li>
+                                    <li class="skill-item">Eye Tracking</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h3>Data Analysis</h3>
+                                <ul class="skill-list">
+                                    <li class="skill-item">R Studio</li>
+                                    <li class="skill-item">Pandas</li>
+                                    <li class="skill-item">NumPy</li>
+                                    <li class="skill-item">Scikit-learn</li>
+                                    <li class="skill-item">Advanced Statistics</li>
+                                    <li class="skill-item">Excel</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h3>Research Methods</h3>
+                                <ul class="skill-list">
+                                    <li class="skill-item">Mixed-methods Research</li>
+                                    <li class="skill-item">Longitudinal Studies</li>
+                                    <li class="skill-item">Experimental Design</li>
+                                    <li class="skill-item">Ethnographic Research</li>
+                                    <li class="skill-item">Survey Design</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h3>Languages</h3>
+                                <ul class="skill-list">
+                                    <li class="skill-item">English (Fluent)</li>
+                                    <li class="skill-item">Hindi (Fluent)</li>
+                                    <li class="skill-item">Chinese (Intermediate)</li>
+                                    <li class="skill-item">Finnish (Beginner)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="awards" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">Awards and Honors</h2>
+                    <div class="content">
+                        <ul class="awards-list">
+                            <li class="award-item">
+                                <div>
+                                    <div class="award-title">Double-degree Scholarship Recipient (Top 1% in program)</div>
+                                    <div class="award-organization">LUT University</div>
+                                </div>
+                                <div class="award-year">2024</div>
+                            </li>
+                            <li class="award-item">
+                                <div>
+                                    <div class="award-title">3rd place, AI for Accessibility Track</div>
+                                    <div class="award-organization">AMD AI Hackathon</div>
+                                </div>
+                                <div class="award-year">2024</div>
+                            </li>
+                            <li class="award-item">
+                                <div>
+                                    <div class="award-title">LUT Undergraduate Research Grant Award</div>
+                                    <div class="award-organization">LUT University</div>
+                                </div>
+                                <div class="award-year">2024</div>
+                            </li>
+                            <li class="award-item">
+                                <div>
+                                    <div class="award-title">Double-degree Scholarship Recipient (Top 4% in program)</div>
+                                    <div class="award-organization">LUT University</div>
+                                </div>
+                                <div class="award-year">2023</div>
+                            </li>
+                            <li class="award-item">
+                                <div>
+                                    <div class="award-title">1st place, Automation AI Track</div>
+                                    <div class="award-organization">Lazy GenAI Hackathon</div>
+                                </div>
+                                <div class="award-year">2023</div>
+                            </li>
+                            <li class="award-item">
+                                <div>
+                                    <div class="award-title">2nd place, Solutions using IoT Track</div>
+                                    <div class="award-organization">Nokia Hackathon</div>
+                                </div>
+                                <div class="award-year">2023</div>
+                            </li>
+                            <li class="award-item">
+                                <div>
+                                    <div class="award-title">Double-degree Scholarship Recipient (Top 4% in program)</div>
+                                    <div class="award-organization">LUT University</div>
+                                </div>
+                                <div class="award-year">2022</div>
+                            </li>
+                            <li class="award-item">
+                                <div>
+                                    <div class="award-title">1st place, Wacky AI Track</div>
+                                    <div class="award-organization">Weird Hacks</div>
+                                </div>
+                                <div class="award-year">2022</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <script>
-        // Create minimal floating particles
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.animationDuration = (Math.random() * 15 + 20) + 's';
-            particle.style.animationDelay = Math.random() * 10 + 's';
+        // Tab functionality
+        document.querySelectorAll('.tab-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all tabs and content
+                document.querySelectorAll('.tab-link').forEach(tab => tab.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                this.classList.add('active');
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
 
-            document.getElementById('particles').appendChild(particle);
-
-            setTimeout(() => {
-                if (particle.parentNode) {
-                    particle.remove();
-                }
-            }, 35000);
-        }
-
-        // Create particles less frequently for subtlety
-        setInterval(createParticle, 3000);
-
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for any anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                        behavior: 'smooth'
                     });
                 }
             });
         });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for fade-up animation
-        document.querySelectorAll('.fade-up').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'linear-gradient(145deg, rgba(58, 58, 58, 0.95) 0%, rgba(42, 42, 42, 0.95) 100%)';
-                header.style.backdropFilter = 'blur(15px)';
-            } else {
-                header.style.background = 'linear-gradient(145deg, var(--stone-gray) 0%, var(--deep-stone) 100%)';
-                header.style.backdropFilter = 'blur(10px)';
-            }
-        });
-
-        // Active navigation highlighting
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 150;
-                if (window.pageYOffset >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.style.color = 'var(--parchment)';
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.style.color = 'var(--gold)';
-                }
-            });
-        });
-
-        // Initialize some particles on load
-        for (let i = 0; i < 5; i++) {
-            setTimeout(createParticle, i * 1000);
-        }
     </script>
 </body>
 </html>
