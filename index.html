@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shivansh Singh - XR Researcher & AI Ethics Specialist</title>
     <style>
+        :root {
+            /* Light theme colors */
+            --bg-primary: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            --bg-secondary: rgba(255, 255, 255, 0.8);
+            --bg-tertiary: rgba(254, 249, 252, 0.6);
+            --text-primary: #374151;
+            --text-secondary: #6b7280;
+            --text-accent: #f472b6;
+            --border-color: rgba(252, 231, 243, 0.4);
+            --shadow-color: rgba(252, 231, 243, 0.3);
+            --overlay-bg: rgba(252, 231, 243, 0.3);
+            --overlay-border: rgba(252, 231, 243, 0.5);
+            
+            /* Animation colors */
+            --sakura-primary: #ec4899;
+            --sakura-secondary: #f472b6;
+            --particle-glow: rgba(236, 72, 153, 0.8);
+        }
+
+        [data-theme="dark"] {
+            /* Dark theme colors */
+            --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --bg-secondary: rgba(15, 23, 42, 0.9);
+            --bg-tertiary: rgba(30, 41, 59, 0.8);
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-accent: #f472b6;
+            --border-color: rgba(244, 114, 182, 0.3);
+            --shadow-color: rgba(244, 114, 182, 0.5);
+            --overlay-bg: rgba(30, 41, 59, 0.6);
+            --overlay-border: rgba(244, 114, 182, 0.4);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,10 +46,11 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #fefcff 0%, #fff8fc 100%);
-            color: #374151;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background 0.6s ease, color 0.6s ease;
         }
 
         /* Animated Background Elements */
@@ -38,8 +72,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(252, 231, 243, 0.1), transparent, rgba(254, 205, 211, 0.1));
+            background: linear-gradient(45deg, rgba(244, 114, 182, 0.15), transparent, rgba(236, 72, 153, 0.1));
             animation: backgroundShift 20s ease-in-out infinite;
+            transition: background 0.6s ease;
+        }
+
+        [data-theme="dark"] .animated-bg::before {
+            background: linear-gradient(45deg, rgba(244, 114, 182, 0.25), transparent, rgba(236, 72, 153, 0.2));
         }
 
         @keyframes backgroundShift {
@@ -47,6 +86,83 @@
             25% { transform: translateX(10px) translateY(-5px); }
             50% { transform: translateX(-5px) translateY(10px); }
             75% { transform: translateX(5px) translateY(-10px); }
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px var(--shadow-color);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 12px 40px var(--shadow-color);
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(244, 114, 182, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .theme-toggle:hover::before {
+            left: 100%;
+        }
+
+        .toggle-icon {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .toggle-icon.rotate {
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        /* Sakura petal animation around toggle */
+        .theme-toggle::after {
+            content: '🌸';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 0.8rem;
+            opacity: 0;
+            animation: petalFloat 3s ease-in-out infinite;
+        }
+
+        .theme-toggle:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes petalFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-10px) rotate(180deg);
+                opacity: 1;
+            }
         }
 
         .floating-shape {
@@ -58,7 +174,7 @@
         .floating-orb {
             position: absolute;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(252, 231, 243, 0.3), transparent);
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.4), transparent);
             animation: orb-float 12s infinite ease-in-out;
         }
 
@@ -106,7 +222,7 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(252, 231, 243, 0.2), transparent 50%);
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.3), transparent 50%);
             animation: wave-pulse 15s infinite ease-in-out;
         }
 
@@ -138,10 +254,10 @@
             position: absolute;
             width: 8px;
             height: 8px;
-            background: #fce7f3;
+            background: #ec4899;
             border-radius: 50% 10px;
             animation: sakura-fall 15s linear infinite;
-            opacity: 0.6;
+            opacity: 0.7;
         }
 
         .sakura-petal::before {
@@ -149,7 +265,7 @@
             position: absolute;
             width: 8px;
             height: 8px;
-            background: #fce7f3;
+            background: #ec4899;
             border-radius: 50% 10px;
             transform: rotate(45deg);
             top: -2px;
@@ -231,9 +347,9 @@
         .flowing-line {
             position: absolute;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #fce7f3, transparent);
+            background: linear-gradient(90deg, transparent, #ec4899, transparent);
             animation: flow 8s ease-in-out infinite;
-            opacity: 0.4;
+            opacity: 0.6;
         }
 
         .flowing-line:nth-child(20) {
@@ -273,9 +389,9 @@
             position: absolute;
             width: 100px;
             height: 100px;
-            border: 1px solid rgba(252, 231, 243, 0.3);
+            border: 1px solid rgba(244, 114, 182, 0.5);
             animation: geometric-morph 20s ease-in-out infinite;
-            opacity: 0.3;
+            opacity: 0.4;
         }
 
         .geometric-pattern:nth-child(23) {
@@ -324,11 +440,11 @@
             width: 200px;
             height: 200px;
             background-image: 
-                linear-gradient(rgba(252, 231, 243, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(252, 231, 243, 0.1) 1px, transparent 1px);
+                linear-gradient(rgba(244, 114, 182, 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(244, 114, 182, 0.2) 1px, transparent 1px);
             background-size: 20px 20px;
             animation: grid-shift 25s linear infinite;
-            opacity: 0.3;
+            opacity: 0.4;
         }
 
         .grid-pattern:nth-child(26) {
@@ -363,7 +479,7 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: #fce7f3;
+            background: #ec4899;
             border-radius: 50%;
             animation: connect-pulse 6s ease-in-out infinite;
         }
@@ -375,7 +491,7 @@
             left: 50%;
             width: 100px;
             height: 1px;
-            background: linear-gradient(90deg, #fce7f3, transparent);
+            background: linear-gradient(90deg, #ec4899, transparent);
             transform: translate(-50%, -50%);
             animation: line-extend 6s ease-in-out infinite;
         }
@@ -423,23 +539,23 @@
         .floating-shape.circle {
             width: 60px;
             height: 60px;
-            background: radial-gradient(circle, rgba(252, 231, 243, 0.4), transparent 70%);
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.5), transparent 70%);
             border-radius: 50%;
-            border: 1px solid rgba(252, 231, 243, 0.5);
+            border: 1px solid rgba(244, 114, 182, 0.7);
         }
 
         .floating-shape.diamond {
             width: 40px;
             height: 40px;
-            background: rgba(254, 205, 211, 0.3);
+            background: rgba(236, 72, 153, 0.4);
             transform: rotate(45deg);
-            border: 1px solid rgba(254, 205, 211, 0.4);
+            border: 1px solid rgba(236, 72, 153, 0.6);
         }
 
         .floating-shape.hexagon {
             width: 50px;
             height: 44px;
-            background: rgba(252, 231, 243, 0.4);
+            background: rgba(244, 114, 182, 0.5);
             position: relative;
             margin: 22px 0;
         }
@@ -455,12 +571,12 @@
 
         .floating-shape.hexagon::before {
             bottom: 100%;
-            border-bottom: 14px solid rgba(252, 231, 243, 0.4);
+            border-bottom: 14px solid rgba(244, 114, 182, 0.5);
         }
 
         .floating-shape.hexagon::after {
             top: 100%;
-            border-top: 14px solid rgba(252, 231, 243, 0.4);
+            border-top: 14px solid rgba(244, 114, 182, 0.5);
         }
 
         .floating-shape:nth-child(1) {
@@ -513,17 +629,18 @@
 
         /* Header */
         .header {
-            background: rgba(255, 255, 255, 0.8);
+            background: var(--bg-secondary);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 2rem;
             margin-bottom: 1rem;
-            border: 1px solid rgba(252, 231, 243, 0.4);
+            border: 1px solid var(--border-color);
             display: grid;
             grid-template-columns: 200px 1fr;
             gap: 2rem;
             align-items: center;
-            box-shadow: 0 8px 32px rgba(252, 231, 243, 0.3);
+            box-shadow: 0 8px 32px var(--shadow-color);
+            transition: all 0.6s ease;
         }
 
         .profile-photo {
@@ -546,8 +663,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            color: #f472b6;
+            overflow: hidden;
+        }
+
+        .profile-photo-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 11px;
         }
 
         @keyframes gentle-pulse {
@@ -558,30 +681,34 @@
         .header-info h1 {
             font-size: 2.8rem;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #374151, #f472b6);
+            background: linear-gradient(135deg, var(--text-primary), var(--text-accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 700;
+            transition: all 0.6s ease;
         }
 
         .header-info .contact-line {
-            color: #6b7280;
+            color: var(--text-secondary);
             margin-bottom: 0.3rem;
             font-size: 1rem;
+            transition: color 0.6s ease;
         }
 
         .header-info .department {
-            color: #374151;
+            color: var(--text-primary);
             font-size: 1.1rem;
             margin-bottom: 0.3rem;
             font-weight: 500;
+            transition: color 0.6s ease;
         }
 
         .header-info .institution {
-            color: #6b7280;
+            color: var(--text-secondary);
             font-size: 1rem;
             margin-bottom: 1rem;
+            transition: color 0.6s ease;
         }
 
         .contact-info {
@@ -626,6 +753,36 @@
             color: #f472b6;
             background: rgba(252, 231, 243, 0.5);
             transform: translateY(-2px);
+        }
+
+        .cv-button {
+            color: #ffffff !important;
+            background: linear-gradient(135deg, #f472b6, #ec4899) !important;
+            border: 1px solid #ec4899 !important;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cv-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cv-button:hover::before {
+            left: 100%;
+        }
+
+        .cv-button:hover {
+            color: #ffffff !important;
+            background: linear-gradient(135deg, #ec4899, #d946ef) !important;
+            transform: translateY(-2px) scale(1.05);
         }
 
         /* Navigation */
@@ -1086,6 +1243,11 @@
     </style>
 </head>
 <body>
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="toggle-icon" id="toggleIcon">☀️</span>
+    </button>
+
     <div class="animated-bg">
         <div class="floating-shape circle"></div>
         <div class="floating-shape diamond"></div>
@@ -1122,7 +1284,10 @@
     <div class="container">
         <header class="header">
             <div class="profile-photo">
-                <div class="profile-photo-inner">👨‍💻</div>
+                <div class="profile-photo-inner">
+                    <!-- Replace with your photo path -->
+                    <img src="./images/profile.jpg" alt="Shivansh Singh" />
+                </div>
             </div>
             <div class="header-info">
                 <h1>Shivansh Singh</h1>
@@ -1132,17 +1297,13 @@
                 
                 <div class="contact-info">
                     <div class="info-item">
-                        <span class="info-label">Phone:</span> +358 466 276 948
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Location:</span> Lahti, Finland
-                    </div>
-                    <div class="info-item">
                         <span class="info-label">ORCID:</span> <span class="orcid">0009-0004-0661-0608</span>
                     </div>
                 </div>
                 
                 <div class="social-links">
+                    <!-- Replace with your CV path -->
+                    <a href="./files/Shivansh_Singh_CV.pdf" class="cv-button" download="Shivansh_Singh_CV.pdf" title="Download CV">📄 Download CV</a>
                     <a href="https://linkedin.com/in/shivanshsingh17" title="LinkedIn">LinkedIn</a>
                     <a href="mailto:shivansh.singh@lut.fi" title="Email">Email</a>
                     <a href="https://orcid.org/0009-0004-0661-0608" title="ORCID">ORCID</a>
@@ -1520,7 +1681,7 @@
                 position: absolute;
                 width: 3px;
                 height: 3px;
-                background: rgba(252, 231, 243, 0.8);
+                background: rgba(236, 72, 153, 0.8);
                 border-radius: 50%;
                 pointer-events: none;
                 left: ${Math.random() * 100}%;
@@ -1568,12 +1729,12 @@
                 position: absolute;
                 width: 6px;
                 height: 6px;
-                background: #fce7f3;
+                background: #ec4899;
                 border-radius: 50% 10px;
                 left: ${Math.random() * 100}%;
                 top: -10px;
                 animation: dynamicSakuraFall ${12 + Math.random() * 8}s linear infinite;
-                opacity: 0.7;
+                opacity: 0.8;
                 transform: rotate(${Math.random() * 360}deg);
             `;
             
@@ -1583,7 +1744,7 @@
                 position: absolute;
                 width: 6px;
                 height: 6px;
-                background: #fce7f3;
+                background: #ec4899;
                 border-radius: 50% 10px;
                 transform: rotate(45deg);
                 top: -2px;
@@ -1630,7 +1791,7 @@
                 position: absolute;
                 width: 2px;
                 height: 2px;
-                background: radial-gradient(circle, #fce7f3, transparent);
+                background: radial-gradient(circle, #ec4899, transparent);
                 border-radius: 50%;
                 left: ${Math.random() * 100}%;
                 top: ${Math.random() * 100}%;
@@ -1674,6 +1835,115 @@
                 this.style.transform = 'translateX(0) scale(1)';
             });
         });
+
+        // Dark Mode Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const toggleIcon = document.getElementById('toggleIcon');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        updateToggleIcon(currentTheme);
+
+        themeToggle.addEventListener('click', function() {
+            // Add rotation animation
+            toggleIcon.classList.add('rotate');
+            
+            // Get current theme
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            // Apply new theme
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon after animation
+            setTimeout(() => {
+                updateToggleIcon(newTheme);
+                toggleIcon.classList.remove('rotate');
+            }, 300);
+            
+            // Create magical particle burst effect
+            createThemeChangeEffect();
+        });
+
+        function updateToggleIcon(theme) {
+            toggleIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+        }
+
+        // Magical particle burst when switching themes
+        function createThemeChangeEffect() {
+            const colors = ['#ec4899', '#f472b6', '#fce7f3'];
+            const toggle = document.getElementById('themeToggle');
+            const rect = toggle.getBoundingClientRect();
+            
+            for (let i = 0; i < 12; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 6px;
+                    height: 6px;
+                    background: ${colors[Math.floor(Math.random() * colors.length)]};
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    left: ${rect.left + rect.width / 2}px;
+                    top: ${rect.top + rect.height / 2}px;
+                `;
+                
+                const angle = (360 / 12) * i;
+                const velocity = 100 + Math.random() * 50;
+                const life = 1000 + Math.random() * 500;
+                
+                document.body.appendChild(particle);
+                
+                particle.animate([
+                    {
+                        transform: 'translate(0, 0) scale(1)',
+                        opacity: 1
+                    },
+                    {
+                        transform: `translate(${Math.cos(angle * Math.PI / 180) * velocity}px, ${Math.sin(angle * Math.PI / 180) * velocity}px) scale(0)`,
+                        opacity: 0
+                    }
+                ], {
+                    duration: life,
+                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                }).onfinish = () => particle.remove();
+            }
+        }
+
+        // Enhanced particle system that responds to theme
+        function createThemedParticle() {
+            const particle = document.createElement('div');
+            const isDark = body.getAttribute('data-theme') === 'dark';
+            const color = isDark ? 'rgba(244, 114, 182, 1)' : 'rgba(236, 72, 153, 0.8)';
+            
+            particle.style.cssText = `
+                position: absolute;
+                width: 3px;
+                height: 3px;
+                background: ${color};
+                border-radius: 50%;
+                pointer-events: none;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation: gentleFloat 15s linear infinite;
+                box-shadow: ${isDark ? '0 0 8px rgba(244, 114, 182, 0.5)' : 'none'};
+            `;
+            
+            document.querySelector('.animated-bg').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 15000);
+        }
+
+        // Override the original createParticle function
+        function createParticle() {
+            createThemedParticle();
+        }
     </script>
 </body>
 </html>
